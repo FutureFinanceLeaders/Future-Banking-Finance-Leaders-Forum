@@ -128,6 +128,25 @@ button {
   margin-right: 10px;
 }
 
+.name-input {
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  width: 100%;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.name-section {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  border: 2px solid gold;
+}
+
 .hidden {
   display: none;
 }
@@ -160,6 +179,14 @@ button {
   <div id="content" class="hidden">
     
     <div class="welcome" id="welcomeMessage">Welcome!</div>
+
+    <!-- Name Setup Section -->
+    <div class="name-section" id="nameSection">
+      <h3 style="color: gold;">👋 What's your first name?</h3>
+      <input type="text" id="firstNameInput" class="name-input" placeholder="Enter your first name (e.g., Sarah)" />
+      <button onclick="saveFirstName()">Save My Name</button>
+      <button onclick="hideNameSection()" style="background: #334155;">Skip</button>
+    </div>
 
     <div class="grid">
       
@@ -205,9 +232,9 @@ button {
       <div class="card">
         <h2 style="color: gold; margin-top: 0;">⚡ Quick Actions</h2>
         <div style="display: flex; flex-direction: column; gap: 10px;">
-          <button onclick="window.location.href='profile.html'">Edit Profile</button>
-          <button onclick="window.location.href='learning.html'">Learning Hub</button>
-          <button onclick="window.location.href='events.html'">Upcoming Events</button>
+          <button onclick="showNameSection()">✏️ Set My Name</button>
+          <button onclick="window.location.href='learning.html'">📚 Learning Hub</button>
+          <button onclick="window.location.href='events.html'">📅 Upcoming Events</button>
         </div>
       </div>
     </div>
@@ -219,7 +246,9 @@ button {
 import { auth, onAuthStateChanged } from "./firebase.js";
 import { signOut } from "./firebase.js";
 
-// Make logout function global
+let currentUser = null;
+
+// Make functions global
 window.handleLogout = async function() {
   try {
     await signOut(auth);
@@ -230,30 +259,78 @@ window.handleLogout = async function() {
   }
 };
 
+window.showNameSection = function() {
+  document.getElementById('nameSection').classList.remove('hidden');
+};
+
+window.hideNameSection = function() {
+  document.getElementById('nameSection').classList.add('hidden');
+};
+
+window.saveFirstName = function() {
+  const firstName = document.getElementById('firstNameInput').value.trim();
+  
+  if (!firstName) {
+    alert('Please enter your first name');
+    return;
+  }
+  
+  if (!currentUser) {
+    alert('Not logged in');
+    return;
+  }
+  
+  // Save to localStorage (simple and works without database)
+  localStorage.setItem('userFirstName_' + currentUser.uid, firstName);
+  
+  // Update welcome message
+  document.getElementById('welcomeMessage').innerHTML = `Welcome back, ${firstName}! 👋`;
+  
+  // Update display name field
+  document.getElementById('displayName').innerText = firstName;
+  
+  // Hide the name section
+  document.getElementById('nameSection').classList.add('hidden');
+  
+  // Clear input
+  document.getElementById('firstNameInput').value = '';
+  
+  // Show success message (optional)
+  alert(`Hello ${firstName}! Your name has been saved.`);
+};
+
 // Check authentication state
 onAuthStateChanged(auth, (user) => {
   // Hide loading
   document.getElementById('loading').classList.add('hidden');
   
   if (!user) {
-    // No user logged in - redirect to login
     window.location.href = "login.html";
     return;
   }
 
   try {
-    // User is logged in - show content
+    currentUser = user;
+    
+    // Show content
     document.getElementById('content').classList.remove('hidden');
     
-    // Get first name from email (this is the fix)
-    const emailName = user.email.split('@')[0];
-    const firstName = emailName.charAt(0).toUpperCase() + emailName.slice(1);
+    // Check if user has a saved first name
+    const savedName = localStorage.getItem('userFirstName_' + user.uid);
     
-    // Update welcome message with first name from email
-    document.getElementById('welcomeMessage').innerHTML = `Welcome back, ${firstName}! 👋`;
+    if (savedName) {
+      // Show welcome with saved name
+      document.getElementById('welcomeMessage').innerHTML = `Welcome back, ${savedName}! 👋`;
+      document.getElementById('displayName').innerText = savedName;
+      document.getElementById('nameSection').classList.add('hidden');
+    } else {
+      // Show default welcome and name section
+      document.getElementById('welcomeMessage').innerHTML = `Welcome back! 👋`;
+      document.getElementById('displayName').innerText = 'Not set';
+      document.getElementById('nameSection').classList.remove('hidden');
+    }
     
     // Update user info
-    document.getElementById('displayName').innerText = user.displayName || 'Not set (update your profile)';
     document.getElementById('displayEmail').innerText = user.email;
     document.getElementById('displayUid').innerText = user.uid;
     
@@ -267,30 +344,24 @@ onAuthStateChanged(auth, (user) => {
       verifiedEl.style.color = '#f59e0b';
     }
     
-    // Account creation time (if available)
+    // Account creation time
     if (user.metadata?.creationTime) {
       document.getElementById('accountCreated').innerText = new Date(user.metadata.creationTime).toLocaleDateString();
     }
     
-    // Last login time (if available)
+    // Last login time
     if (user.metadata?.lastSignInTime) {
       document.getElementById('lastLogin').innerText = new Date(user.metadata.lastSignInTime).toLocaleDateString();
     }
     
-    // Hide any error
+    // Hide error
     document.getElementById('error').classList.add('hidden');
     
   } catch (err) {
-    // Show error
     document.getElementById('error').classList.remove('hidden');
     document.getElementById('errorMessage').innerText = err.message;
     document.getElementById('content').classList.add('hidden');
   }
-}, (error) => {
-  // Auth error
-  document.getElementById('loading').classList.add('hidden');
-  document.getElementById('error').classList.remove('hidden');
-  document.getElementById('errorMessage').innerText = 'Authentication error: ' + error.message;
 });
 </script>
 
