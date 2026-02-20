@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About & Contact | Future Finance Leaders</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#F4F6F9;
+color:#1A1A1A;
+}
+
+/* NAV */
+nav{
+background:#0B1F3A;
+padding:1rem 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav img{height:45px;}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:2rem;
+}
+
+/* HERO */
+.hero{
+background:linear-gradient(rgba(11,31,58,0.9),rgba(11,31,58,0.9)),
+url('Cover.png') center/cover no-repeat;
+color:white;
+text-align:center;
+padding:5rem 5%;
+}
+
+.hero h1{
+font-size:2.5rem;
+margin-bottom:1rem;
+}
+
+/* SECTIONS */
+.section{
+padding:4rem 5%;
+max-width:1100px;
+margin:auto;
+}
+
+.section h2{
+margin-bottom:1.5rem;
+color:#0B1F3A;
+}
+
+.card{
+background:white;
+padding:2rem;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+margin-bottom:2rem;
+}
+
+/* TEAM */
+.team-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:2rem;
+}
+
+.team-member{
+background:white;
+padding:2rem;
+border-radius:15px;
+box-shadow:0 8px 25px rgba(0,0,0,0.05);
+text-align:center;
+}
+
+.team-member img{
+width:100px;
+height:100px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:1rem;
+}
+
+/* CONTACT FORM */
+form{
+background:white;
+padding:2rem;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+form input,
+form textarea{
+width:100%;
+padding:0.9rem;
+margin-bottom:1rem;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+form button{
+padding:0.9rem 1.5rem;
+background:#0F5E4E;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+background:#0B1F3A;
+color:white;
+text-align:center;
+padding:2rem;
+margin-top:4rem;
+}
+
+@media(max-width:768px){
+.hero h1{font-size:2rem;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<img src="FFL.png">
+<div>
+<a href="index.html">Home</a>
+<a href="resources.html">Learning</a>
+<a href="community.html">Community</a>
+<a href="join.html">Join</a>
+<a href="about.html">About</a>
+</div>
+</nav>
+
+<section class="hero">
+<h1>About Future Finance Leaders</h1>
+<p>Building the next generation of banking, investment, and fintech leaders.</p>
+</section>
+
+<section class="section">
+<div class="card">
+<h2>Our Mission</h2>
+<p>
+To empower ambitious finance students, professionals, and entrepreneurs with practical knowledge,
+leadership development, and strategic networks that shape the future of global finance.
+</p>
+</div>
+
+<div class="card">
+<h2>Our Vision</h2>
+<p>
+To become a leading global platform connecting emerging financial leaders with institutions,
+capital markets, innovation ecosystems, and policy dialogue.
+</p>
+</div>
+
+<div class="card">
+<h2>Our Core Values</h2>
+<p>✔ Integrity in financial leadership</p>
+<p>✔ Excellence in learning and practice</p>
+<p>✔ Collaboration across sectors</p>
+<p>✔ Innovation in finance and technology</p>
+</div>
+</section>
+
+<section class="section">
+<h2>Leadership Team</h2>
+
+<div class="team-grid">
+
+<div class="team-member">
+<img src="https://via.placeholder.com/100">
+<h3>Founder & Executive Director</h3>
+<p>Strategic leadership and partnerships.</p>
+</div>
+
+<div class="team-member">
+<img src="https://via.placeholder.com/100">
+<h3>Head of Learning & Research</h3>
+<p>Content strategy and educational programs.</p>
+</div>
+
+<div class="team-member">
+<img src="https://via.placeholder.com/100">
+<h3>Community & Partnerships Lead</h3>
+<p>Member engagement and institutional collaborations.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<h2>Partner With Us</h2>
+<div class="card">
+<p>
+We collaborate with universities, financial institutions, fintech companies, and policy organizations
+to provide high-impact learning experiences and professional development opportunities.
+</p>
+</div>
+</section>
+
+<section class="section">
+<h2>Contact Us</h2>
+
+<form onsubmit="submitForm(event)">
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<textarea rows="5" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+
+</section>
+
+<footer>
+© 2026 Future Finance Leaders (FFL) | Leadership. Knowledge. Impact.
+</footer>
+
+<script>
+function submitForm(e){
+e.preventDefault();
+alert("Thank you for contacting FFL. We will respond shortly.");
+}
+</script>
+
+</body>
+</html>
