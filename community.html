@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community | Future Finance Leaders</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#F4F6F9;
+color:#1A1A1A;
+}
+
+/* NAV */
+nav{
+background:#0B1F3A;
+padding:1rem 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav img{height:45px;}
+nav a{color:white;text-decoration:none;margin-left:2rem;}
+
+/* HERO */
+.hero{
+background:linear-gradient(rgba(11,31,58,0.9),rgba(11,31,58,0.9)),
+url('Cover.png') center/cover no-repeat;
+color:white;
+text-align:center;
+padding:4rem 5%;
+}
+
+.hero h1{
+font-size:2.5rem;
+margin-bottom:1rem;
+}
+
+/* LOCKED MESSAGE */
+.locked{
+text-align:center;
+padding:2rem;
+background:#fff3cd;
+color:#856404;
+font-weight:600;
+}
+
+/* GROUP TABS */
+.tabs{
+display:flex;
+justify-content:center;
+gap:1rem;
+margin:2rem 0;
+flex-wrap:wrap;
+}
+
+.tabs button{
+padding:0.7rem 1.5rem;
+border:none;
+border-radius:30px;
+background:#0F5E4E;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.tabs button:hover{
+background:#C8A951;
+color:#0B1F3A;
+}
+
+/* FORUM AREA */
+.forum{
+max-width:900px;
+margin:auto;
+padding:2rem;
+}
+
+.post{
+background:white;
+padding:1.5rem;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,0.05);
+margin-bottom:1.5rem;
+}
+
+.post h3{
+color:#0B1F3A;
+margin-bottom:0.5rem;
+}
+
+.reply{
+margin-top:1rem;
+padding:0.8rem;
+background:#F0F2F5;
+border-radius:8px;
+font-size:0.9rem;
+}
+
+/* NEW POST FORM */
+.new-post{
+background:white;
+padding:2rem;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+margin-top:2rem;
+}
+
+.new-post input,
+.new-post textarea{
+width:100%;
+padding:0.8rem;
+margin-bottom:1rem;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.new-post button{
+padding:0.8rem 1.5rem;
+background:#0B1F3A;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+background:#0B1F3A;
+color:white;
+text-align:center;
+padding:2rem;
+margin-top:4rem;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<img src="FFL.png">
+<div>
+<a href="index.html">Home</a>
+<a href="resources.html">Learning</a>
+<a href="community.html">Community</a>
+<a href="join.html">Join</a>
+</div>
+</nav>
+
+<section class="hero">
+<h1>FFL Community Forum</h1>
+<p>Members-only discussions shaping the future of finance.</p>
+</section>
+
+<div class="locked">
+🔒 Members Only – Join FFL to participate in discussions.
+</div>
+
+<div class="tabs">
+<button onclick="showGroup('students')">Students</button>
+<button onclick="showGroup('professionals')">Professionals</button>
+<button onclick="showGroup('entrepreneurs')">Entrepreneurs</button>
+</div>
+
+<div class="forum" id="forumArea">
+
+<!-- Sample Post -->
+<div class="post students">
+<h3>How to prepare for investment banking interviews?</h3>
+<p>What technical topics should students focus on?</p>
+<div class="reply">Reply: Focus on valuation models and financial statements.</div>
+</div>
+
+<div class="post professionals">
+<h3>Impact of rising interest rates on corporate lending</h3>
+<p>How are banks adjusting credit policies?</p>
+<div class="reply">Reply: Increased scrutiny on debt servicing ratios.</div>
+</div>
+
+<div class="post entrepreneurs">
+<h3>Best markets for launching fintech in Africa?</h3>
+<p>Which regulatory environments are most supportive?</p>
+<div class="reply">Reply: Nigeria and Kenya have growing ecosystems.</div>
+</div>
+
+</div>
+
+<div class="forum">
+<div class="new-post">
+<h2>Create New Discussion</h2>
+<input type="text" id="postTitle" placeholder="Discussion Title">
+<textarea id="postContent" rows="4" placeholder="Write your discussion..."></textarea>
+<select id="postGroup">
+<option value="students">Students</option>
+<option value="professionals">Professionals</option>
+<option value="entrepreneurs">Entrepreneurs</option>
+</select>
+<button onclick="addPost()">Post Discussion</button>
+</div>
+</div>
+
+<footer>
+© 2026 Future Finance Leaders (FFL) | Community & Leadership
+</footer>
+
+<script>
+
+function showGroup(group){
+let posts=document.getElementsByClassName("post");
+for(let i=0;i<posts.length;i++){
+posts[i].style.display="none";
+if(posts[i].classList.contains(group)){
+posts[i].style.display="block";
+}
+}
+}
+
+function addPost(){
+let title=document.getElementById("postTitle").value;
+let content=document.getElementById("postContent").value;
+let group=document.getElementById("postGroup").value;
+
+if(title===""||content===""){
+alert("Please complete all fields.");
+return;
+}
+
+let newPost=document.createElement("div");
+newPost.className="post "+group;
+newPost.innerHTML="<h3>"+title+"</h3><p>"+content+"</p>";
+
+document.getElementById("forumArea").prepend(newPost);
+
+document.getElementById("postTitle").value="";
+document.getElementById("postContent").value="";
+}
+
+</script>
+
+</body>
+  </html>
