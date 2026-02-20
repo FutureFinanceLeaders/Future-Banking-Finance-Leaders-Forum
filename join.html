@@ -3,189 +3,329 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join FFL | Future Banking & Finance Leaders Forum</title>
+<title>Join | Future Finance Leaders</title>
 
 <style>
-
-/* ========== BASE ========== */
-body{
+* {
     margin:0;
-    font-family:'Inter',sans-serif;
-    background:#F4F6F9;
-    color:#0B1F3A;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-a{text-decoration:none;color:inherit;}
-button{cursor:pointer;}
+body {
+    background:#F4F6F9;
+    color:#1A1A1A;
+}
 
-/* ========== NAVBAR ========== */
-.navbar{
+/* NAV */
+nav {
+    background:#0B1F3A;
+    padding:1rem 5%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:0.9rem 2rem;
-    background:#0B1F3A;
-    color:#C8A951;
 }
-.navbar img{height:40px;}
-.nav-links{display:flex;gap:1.5rem;}
-.nav-links a{font-weight:500;}
 
-/* ========== COVER (PREMIUM STYLE) ========== */
-.cover-banner{
-    position:relative;
-    height:220px;
+nav img {
+    height:45px;
+}
+
+nav a {
+    color:white;
+    text-decoration:none;
+    margin-left:2rem;
+    font-weight:500;
+}
+
+/* SMALL COVER */
+.cover-small {
+    width:100%;
+    height:200px;
     background:url('Cover.png') center/cover no-repeat;
 }
 
-.cover-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to right, rgba(11,31,58,0.8), rgba(11,31,58,0.4));
-}
-
-/* Gold Divider */
-.gold-divider{
-    height:4px;
-    background:linear-gradient(to right,#C8A951,#E5C87A,#C8A951);
-}
-
-/* ========== HERO TEXT SECTION ========== */
-.hero{
+/* HERO */
+.hero {
     text-align:center;
-    padding:3.5rem 2rem 2rem 2rem;
-    background:#ffffff;
+    padding:4rem 5%;
+    background:white;
 }
 
-.hero h1{
-    font-size:2.4rem;
+.hero h1 {
+    font-size:2.5rem;
+    color:#0B1F3A;
     margin-bottom:1rem;
 }
 
-.hero p{
-    max-width:750px;
-    margin:0 auto;
-    font-size:1.1rem;
-    color:#334155;
-}
-
-/* ========== MEMBERSHIP CARDS ========== */
-.section{
-    padding:4rem 2rem;
-    max-width:1100px;
+.hero p {
+    max-width:700px;
     margin:auto;
+    font-size:1.1rem;
+    color:#555;
 }
 
-.membership-container{
+/* SECTION */
+.section {
+    padding:4rem 5%;
+}
+
+/* VALUE CARDS */
+.cards {
     display:flex;
-    gap:2rem;
     flex-wrap:wrap;
+    gap:2rem;
     justify-content:center;
 }
 
-.membership-card{
-    flex:1 1 320px;
+.card {
+    flex:1 1 300px;
     background:white;
-    padding:2.5rem 2rem;
-    border-radius:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-    transition:0.3s ease;
-    position:relative;
+    padding:2rem;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
 
-.membership-card:hover{
-    transform:translateY(-8px);
-}
-
-.membership-card h3{
+.card h3 {
+    color:#0F5E4E;
     margin-bottom:1rem;
+}
+
+/* TABLE */
+table {
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.05);
+}
+
+th {
+    background:#0B1F3A;
+    color:#C8A951;
+    padding:1rem;
+}
+
+td {
+    padding:1rem;
+    border-bottom:1px solid #eee;
+    text-align:center;
+}
+
+/* PRICING CARDS */
+.membership-cards {
+    display:flex;
+    flex-wrap:wrap;
+    gap:2rem;
+    justify-content:center;
+    margin-top:3rem;
+}
+
+.membership {
+    flex:1 1 320px;
+    padding:2.5rem;
+    border-radius:20px;
+    background:white;
+    box-shadow:0 15px 40px rgba(0,0,0,0.07);
+    text-align:center;
+}
+
+.membership.premium {
+    border:2px solid #C8A951;
+    transform:scale(1.05);
+}
+
+.price {
+    font-size:2rem;
+    margin:1rem 0;
     color:#0F5E4E;
 }
 
-.membership-card ul{
-    padding-left:1.2rem;
-    line-height:1.8;
+.membership button {
+    margin-top:1.5rem;
+    padding:0.8rem 1.5rem;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
 }
 
-/* Premium Badge */
-.premium-badge{
-    position:absolute;
-    top:-12px;
-    right:20px;
+.free-btn {
+    background:#0F5E4E;
+    color:white;
+}
+
+.premium-btn {
     background:#C8A951;
     color:#0B1F3A;
-    padding:0.4rem 1rem;
-    border-radius:20px;
-    font-size:0.8rem;
-    font-weight:bold;
 }
 
-/* ========== FORM ========== */
-.form-container{
+/* FORM */
+form {
     background:white;
-    padding:2.5rem;
-    border-radius:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-    max-width:600px;
-    margin:3rem auto 0 auto;
+    max-width:700px;
+    margin:3rem auto;
+    padding:3rem;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.07);
 }
 
-.form-container h3{
+form h2 {
     text-align:center;
     margin-bottom:2rem;
 }
 
-.form-container input,
-.form-container select{
+form input, form select {
     width:100%;
     padding:0.9rem;
     margin-bottom:1.2rem;
-    border-radius:10px;
-    border:1px solid #E2E8F0;
-    font-size:0.95rem;
+    border-radius:8px;
+    border:1px solid #ddd;
 }
 
-.form-container button{
+form button {
     width:100%;
     padding:1rem;
-    background:#0F5E4E;
+    background:#0B1F3A;
     color:white;
     border:none;
-    border-radius:10px;
-    font-weight:bold;
-    transition:0.3s;
+    border-radius:8px;
+    font-size:1rem;
+    cursor:pointer;
 }
 
-.form-container button:hover{
-    background:#0C4A3D;
-}
-
-/* ========== FOOTER ========== */
-.footer{
+/* FOOTER */
+footer {
     background:#0B1F3A;
-    color:#C8A951;
+    color:white;
     text-align:center;
-    padding:2rem 1rem;
+    padding:2rem;
     margin-top:4rem;
 }
 
-/* ========== RESPONSIVE ========== */
 @media(max-width:768px){
-    .cover-banner{height:160px;}
-    .hero h1{font-size:1.8rem;}
-    .membership-container{flex-direction:column;}
+    .membership.premium {
+        transform:none;
+    }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div style="display:flex;align-items:center;gap:0.5rem;">
-        <img src="FFL.png">
-        <strong>FFL</strong>
+<nav>
+    <img src="FFL.png" alt="FFL Logo">
+    <div>
+        <a href="index.html">Home</a>
+        <a href="join.html">Join</a>
     </div>
-    <div class="nav-links">
-       
+</nav>
+
+<div class="cover-small"></div>
+
+<section class="hero">
+    <h1>Join Future Finance Leaders</h1>
+    <p>An exclusive learning and leadership community for ambitious finance students, professionals, and entrepreneurial leaders.</p>
+</section>
+
+<section class="section">
+    <h2 style="text-align:center;margin-bottom:2rem;">Why Join FFL?</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Career Acceleration</h3>
+            <p>Real-world exposure to banking, investment, and financial system discussions.</p>
+        </div>
+        <div class="card">
+            <h3>Elite Network</h3>
+            <p>Connect with high-performing finance leaders and professionals.</p>
+        </div>
+        <div class="card">
+            <h3>Practical Learning</h3>
+            <p>Case studies, workshops, simulations, and strategic conversations.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2 style="text-align:center;margin-bottom:2rem;">Membership Comparison</h2>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Free</th>
+            <th>Premium</th>
+        </tr>
+        <tr>
+            <td>Community Forum</td>
+            <td>✔</td>
+            <td>✔</td>
+        </tr>
+        <tr>
+            <td>Monthly Newsletter</td>
+            <td>✔</td>
+            <td>✔</td>
+        </tr>
+        <tr>
+            <td>Exclusive Workshops</td>
+            <td>—</td>
+            <td>✔</td>
+        </tr>
+        <tr>
+            <td>1-on-1 Mentorship</td>
+            <td>—</td>
+            <td>✔</td>
+        </tr>
+        <tr>
+            <td>Advanced Case Studies</td>
+            <td>—</td>
+            <td>✔</td>
+        </tr>
+    </table>
+</section>
+
+<section class="section">
+    <h2 style="text-align:center;">Choose Your Membership</h2>
+    <div class="membership-cards">
+
+        <div class="membership">
+            <h3>Free Membership</h3>
+            <div class="price">$0</div>
+            <p>Access to community discussions and newsletter.</p>
+            <button class="free-btn">Join Free</button>
+        </div>
+
+        <div class="membership premium">
+            <h3>Premium Membership</h3>
+            <div class="price">$49 / year</div>
+            <p>Full access to workshops, mentorship, case studies, and exclusive leadership sessions.</p>
+            <button class="premium-btn">Upgrade to Premium</button>
+        </div>
+
+    </div>
+</section>
+
+<form>
+    <h2>Membership Application</h2>
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email Address" required>
+
+    <select required>
+        <option value="">Finance Background</option>
+        <option>Student</option>
+        <option>Banking Professional</option>
+        <option>Investment Professional</option>
+        <option>Entrepreneur</option>
+        <option>Other</option>
+    </select>
+
+    <input type="url" placeholder="LinkedIn Profile">
+    <input type="text" placeholder="Referral Code (Optional)">
+    <button type="submit">Submit Application</button>
+</form>
+
+<footer>
+    © 2026 Future Finance Leaders (FFL) | Building the Future of Finance
+</footer>
+
+</body>
+</html>
