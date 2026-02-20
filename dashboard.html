@@ -21,6 +21,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .logo {
@@ -37,6 +39,11 @@ header {
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background: #059669;
 }
 
 .container {
@@ -48,11 +55,22 @@ header {
 .welcome {
   font-size: 28px;
   margin-bottom: 30px;
+  background: linear-gradient(135deg, #10b981, gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.welcome small {
+  font-size: 16px;
+  color: #94a3b8;
+  display: block;
+  margin-top: 5px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
@@ -61,11 +79,19 @@ header {
   padding: 25px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(16, 185, 129, 0.2);
 }
 
 .card h3 {
   margin-top: 0;
   color: gold;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 10px;
 }
 
 .badge {
@@ -74,32 +100,118 @@ header {
   font-size: 12px;
   display: inline-block;
   margin-top: 10px;
+  font-weight: 600;
 }
 
-.free { background: #334155; }
-.premium { background: #10b981; }
+.free { 
+  background: #334155; 
+  color: #fff;
+}
+
+.premium { 
+  background: #10b981; 
+  color: #fff;
+}
 
 .section-title {
   margin-top: 50px;
   margin-bottom: 20px;
   font-size: 22px;
   color: #10b981;
+  border-left: 4px solid gold;
+  padding-left: 15px;
 }
 
 .notification {
   background: #0f172a;
-  padding: 12px;
+  padding: 15px;
   border-radius: 8px;
   margin-bottom: 10px;
   font-size: 14px;
+  border-left: 3px solid #10b981;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notification.new {
+  border-left-color: gold;
+  background: #1a2a3a;
+}
+
+.notification-time {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 5px;
 }
 
 a.dashboard-link {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 15px;
   color: #10b981;
   text-decoration: none;
   font-weight: 600;
+  transition: color 0.3s;
+}
+
+a.dashboard-link:hover {
+  color: gold;
+}
+
+.loading {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.error-message {
+  background: #991b1b;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: gold;
+  margin: 10px 0;
+}
+
+.profile-field {
+  margin-bottom: 10px;
+}
+
+.profile-field strong {
+  color: #94a3b8;
+  display: inline-block;
+  width: 80px;
+}
+
+.copy-btn {
+  background: none;
+  border: 1px solid #10b981;
+  color: #10b981;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 10px;
+  transition: all 0.3s;
+}
+
+.copy-btn:hover {
+  background: #10b981;
+  color: white;
 }
 </style>
 </head>
@@ -113,52 +225,128 @@ a.dashboard-link {
 
 <div class="container">
 
-  <div class="welcome" id="welcomeText">Loading...</div>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>Membership</h3>
-      <div id="membershipLevel">Loading...</div>
-      <div id="membershipBadge"></div>
-      <a href="join.html" class="dashboard-link">Upgrade Membership</a>
-    </div>
-
-    <div class="card">
-      <h3>Profile</h3>
-      <p><strong>Name:</strong> <span id="profileName"></span></p>
-      <p><strong>Email:</strong> <span id="profileEmail"></span></p>
-      <p><strong>Background:</strong> <span id="profileBackground"></span></p>
-      <p><strong>LinkedIn:</strong> <span id="profileLinkedin"></span></p>
-    </div>
-
-    <div class="card">
-      <h3>Activity</h3>
-      <p><strong>Events Attended:</strong> <span id="eventsCount">0</span></p>
-      <p><strong>Downloads:</strong> <span id="downloadsCount">0</span></p>
-      <a href="learning.html" class="dashboard-link">Go to Learning Hub</a>
-    </div>
-
-    <div class="card">
-      <h3>Referral</h3>
-      <p><strong>Your Code:</strong> <span id="referralCode"></span></p>
-      <a href="#" class="dashboard-link">Invite Members</a>
-    </div>
-
+  <div class="welcome" id="welcomeText">
+    <span id="welcomeMessage">Loading your dashboard...</span>
+    <small id="welcomeSubtext">Fetching your personalized data</small>
   </div>
 
-  <div class="section-title">Notifications</div>
-  <div id="notificationsContainer"></div>
+  <!-- Loading State -->
+  <div id="loadingState" class="card" style="text-align: center;">
+    <p>Loading your profile...</p>
+    <div style="width: 50px; height: 50px; border: 3px solid #10b981; border-top-color: gold; border-radius: 50%; margin: 20px auto; animation: spin 1s linear infinite;"></div>
+  </div>
 
+  <!-- Error State (hidden by default) -->
+  <div id="errorState" class="error-message" style="display: none;"></div>
+
+  <!-- Dashboard Content (hidden until loaded) -->
+  <div id="dashboardContent" style="display: none;">
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>👤 Profile Information</h3>
+        <div class="profile-field">
+          <strong>Name:</strong> <span id="profileName"></span>
+        </div>
+        <div class="profile-field">
+          <strong>Email:</strong> <span id="profileEmail"></span>
+        </div>
+        <div class="profile-field">
+          <strong>Member Since:</strong> <span id="memberSince"></span>
+        </div>
+        <div class="profile-field">
+          <strong>LinkedIn:</strong> <span id="profileLinkedin"></span>
+        </div>
+        <a href="profile.html" class="dashboard-link">Edit Profile →</a>
+      </div>
+
+      <div class="card">
+        <h3>⭐ Membership</h3>
+        <div class="stat-value" id="membershipLevel">Loading...</div>
+        <div id="membershipBadge"></div>
+        <p><strong>Status:</strong> <span id="membershipStatus">Active</span></p>
+        <p><strong>Joined:</strong> <span id="joinDate"></span></p>
+        <a href="join.html" class="dashboard-link">Upgrade Membership →</a>
+      </div>
+
+      <div class="card">
+        <h3>📊 Activity</h3>
+        <div class="stat-value" id="eventsCount">0</div>
+        <p>Events Attended</p>
+        <div class="stat-value" id="downloadsCount">0</div>
+        <p>Resources Downloaded</p>
+        <a href="learning.html" class="dashboard-link">Learning Hub →</a>
+      </div>
+
+      <div class="card">
+        <h3>🔗 Referral Program</h3>
+        <p><strong>Your Code:</strong> <span id="referralCode"></span>
+          <button class="copy-btn" onclick="copyReferralCode()">Copy</button>
+        </p>
+        <p><strong>Referred By:</strong> <span id="referredBy">None</span></p>
+        <p><strong>Total Referrals:</strong> <span id="totalReferrals">0</span></p>
+        <a href="#" class="dashboard-link">Invite Friends →</a>
+      </div>
+
+    </div>
+
+    <div class="section-title">📬 Recent Notifications</div>
+    <div id="notificationsContainer"></div>
+
+  </div>
 </div>
 
 <!-- Firebase & Auth -->
 <script type="module">
 
-import { auth, db, ref, onValue } from "./firebase.js";
-import { onAuthStateChanged } from "./firebase.js";
+import { auth, db, ref, onValue, set } from "./firebase.js";
+import { onAuthStateChanged, signOut } from "./firebase.js";
+
+// Make logout function global
+window.logout = async function() {
+  if (confirm("Are you sure you want to logout?")) {
+    await signOut(auth);
+    window.location.href = "login.html";
+  }
+};
+
+// Copy referral code function
+window.copyReferralCode = function() {
+  const codeEl = document.getElementById("referralCode");
+  const code = codeEl.innerText;
+  
+  if (code && code !== "-" && code !== "Loading...") {
+    navigator.clipboard.writeText(code).then(() => {
+      alert("Referral code copied to clipboard!");
+    }).catch(() => {
+      alert("Failed to copy code. Please select and copy manually.");
+    });
+  }
+};
+
+// Format date
+function formatDate(timestamp) {
+  if (!timestamp) return "N/A";
+  return new Date(timestamp).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+
+// Get first name from full name
+function getFirstName(fullName) {
+  if (!fullName) return "Member";
+  return fullName.split(' ')[0];
+}
 
 onAuthStateChanged(auth, (user) => {
+  // Show loading, hide content initially
+  document.getElementById("loadingState").style.display = "block";
+  document.getElementById("dashboardContent").style.display = "none";
+  document.getElementById("errorState").style.display = "none";
+
   if (!user) {
     window.location.href = "login.html";
     return;
@@ -166,45 +354,85 @@ onAuthStateChanged(auth, (user) => {
 
   const uid = user.uid;
 
-  // Load profile data
+  // Load profile data with error handling
   onValue(ref(db, `users/${uid}`), (snapshot) => {
     const data = snapshot.val();
-    if (!data) return;
+    
+    if (!data) {
+      // No data in database yet - create basic profile
+      document.getElementById("loadingState").style.display = "none";
+      document.getElementById("errorState").style.display = "block";
+      document.getElementById("errorState").innerHTML = 
+        "Your profile is being set up. Please refresh in a moment.";
+      return;
+    }
 
-    document.getElementById("welcomeText").innerText =
-      "Welcome back, " + data.profile.name;
+    // Hide loading, show content
+    document.getElementById("loadingState").style.display = "none";
+    document.getElementById("dashboardContent").style.display = "block";
 
-    document.getElementById("profileName").innerText =
-      data.profile.name || "-";
+    // Get user's first name for welcome message
+    const firstName = getFirstName(data.profile?.name);
+    const welcomeEl = document.getElementById("welcomeMessage");
+    welcomeEl.innerHTML = `Welcome back, ${firstName}! 👋`;
+    
+    const subtextEl = document.getElementById("welcomeSubtext");
+    subtextEl.innerHTML = `Great to see you again. Here's your dashboard.`;
 
-    document.getElementById("profileEmail").innerText =
-      data.profile.email || "-";
+    // Profile Information
+    document.getElementById("profileName").innerText = 
+      data.profile?.name || "Not set";
+    
+    document.getElementById("profileEmail").innerText = 
+      data.profile?.email || user.email || "Not set";
+    
+    document.getElementById("memberSince").innerText = 
+      formatDate(data.profile?.createdAt);
 
-    document.getElementById("profileBackground").innerText =
-      data.profile.background || "-";
+    // LinkedIn
+    const linkedinEl = document.getElementById("profileLinkedin");
+    if (data.profile?.linkedin) {
+      linkedinEl.innerHTML = `<a href="${data.profile.linkedin}" target="_blank" style="color:#10b981;">View Profile</a>`;
+    } else {
+      linkedinEl.innerText = "Not provided";
+    }
 
-    document.getElementById("profileLinkedin").innerHTML =
-      data.profile.linkedin
-        ? `<a href="${data.profile.linkedin}" target="_blank" style="color:#10b981;">View Profile</a>`
-        : "-";
-
-    document.getElementById("eventsCount").innerText =
-      data.activity?.eventsAttended || 0;
-
-    document.getElementById("downloadsCount").innerText =
-      data.activity?.downloads || 0;
-
-    document.getElementById("referralCode").innerText =
-      data.referral?.code || "-";
-
+    // Membership
     const level = data.membership?.level || "Free";
     document.getElementById("membershipLevel").innerText = level;
+    document.getElementById("membershipStatus").innerText = 
+      data.membership?.status || "Active";
+    document.getElementById("joinDate").innerText = 
+      formatDate(data.membership?.joinedAt);
 
+    // Membership Badge
     const badge = document.getElementById("membershipBadge");
-    badge.innerHTML =
-      level === "Premium"
-        ? `<span class="badge premium">Premium Member</span>`
-        : `<span class="badge free">Free Member</span>`;
+    badge.innerHTML = level === "Premium"
+      ? `<span class="badge premium">✨ Premium Member ✨</span>`
+      : `<span class="badge free">Free Member</span>`;
+
+    // Activity
+    document.getElementById("eventsCount").innerText = 
+      data.activity?.eventsAttended || 0;
+    document.getElementById("downloadsCount").innerText = 
+      data.activity?.downloads || 0;
+
+    // Referral
+    document.getElementById("referralCode").innerText = 
+      data.referral?.code || "Not available";
+    
+    document.getElementById("referredBy").innerText = 
+      data.referral?.referredBy || "None";
+    
+    // Count referrals (if we implement tracking)
+    document.getElementById("totalReferrals").innerText = "0"; // Placeholder
+
+  }, (error) => {
+    console.error("Error loading data:", error);
+    document.getElementById("loadingState").style.display = "none";
+    document.getElementById("errorState").style.display = "block";
+    document.getElementById("errorState").innerHTML = 
+      "Error loading your data. Please refresh the page.";
   });
 
   // Load notifications
@@ -214,20 +442,44 @@ onAuthStateChanged(auth, (user) => {
 
     const notifications = snapshot.val();
     if (!notifications) {
-      container.innerHTML = "<p>No notifications yet.</p>";
+      container.innerHTML = "<p class='notification'>No notifications yet. Check back later!</p>";
       return;
     }
 
-    Object.values(notifications)
-      .reverse()
-      .forEach((n) => {
-        const div = document.createElement("div");
-        div.className = "notification";
-        div.innerText = n.message;
-        container.appendChild(div);
-      });
+    // Convert to array and sort by time (newest first)
+    const notificationsArray = Object.entries(notifications).map(([key, value]) => ({
+      id: key,
+      ...value
+    })).sort((a, b) => (b.time || 0) - (a.time || 0));
+
+    // Display last 5 notifications
+    notificationsArray.slice(0, 5).forEach((n) => {
+      const div = document.createElement("div");
+      div.className = "notification";
+      
+      // Check if notification is recent (within last 7 days)
+      const isRecent = n.time && (Date.now() - n.time) < 7 * 24 * 60 * 60 * 1000;
+      if (isRecent) div.classList.add("new");
+      
+      div.innerHTML = `
+        <div>${n.message || "Notification"}</div>
+        <div class="notification-time">${formatDate(n.time)}</div>
+      `;
+      
+      container.appendChild(div);
+    });
+
+    // If more than 5 notifications, show count
+    if (notificationsArray.length > 5) {
+      const moreDiv = document.createElement("div");
+      moreDiv.className = "notification";
+      moreDiv.innerHTML = `<a href="notifications.html" style="color:#10b981;">View all ${notificationsArray.length} notifications →</a>`;
+      container.appendChild(moreDiv);
+    }
   });
 
+  // Update last login timestamp
+  set(ref(db, `users/${uid}/profile/lastLogin`), Date.now()).catch(console.warn);
 });
 
 </script>
