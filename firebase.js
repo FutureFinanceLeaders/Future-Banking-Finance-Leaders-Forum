@@ -1,4 +1,3 @@
-// firebase.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { 
   getAuth, 
@@ -15,6 +14,7 @@ import {
   push 
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 
+// Your Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyD-CihaWuOxgcGc02lY3jDdD8K-F6Fux2k",
   authDomain: "future-finance-leaders.firebaseapp.com",
@@ -25,6 +25,7 @@ const firebaseConfig = {
   appId: "1:388995690205:web:296474a99df73907c77534"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase(app);
