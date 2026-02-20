@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join FFL | Future Banking & Finance Leaders Forum</title>
+<style>
+/* --- Base Styles --- */
+body {
+    margin:0;
+    font-family: 'Inter', sans-serif;
+    background-color:#F7F9FB;
+    color:#0B1F3A;
+}
+a { text-decoration:none; color:inherit; }
+button { cursor:pointer; }
+
+/* --- Navbar --- */
+.navbar {
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0.8rem 2rem;
+    background-color:#0B1F3A;
+    color:#C8A951;
+    position: sticky;
+    top:0;
+    z-index: 100;
+}
+.navbar .logo {
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+}
+.navbar .logo img {
+    height:40px;
+}
+.navbar .nav-links {
+    display:flex;
+    gap:1.5rem;
+}
+.navbar .nav-links a {
+    color:#C8A951;
+    font-weight:500;
+}
+
+/* --- Hero Section --- */
+.hero {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    min-height:60vh;
+    background: url('Cover.png') center/cover no-repeat;
+    color:#C8A951;
+    padding:2rem;
+}
+.hero h1 {
+    font-size:2.5rem;
+    margin-bottom:1rem;
+    background-color: rgba(11,31,58,0.6);
+    padding:0.5rem 1rem;
+    border-radius:8px;
+}
+.hero p {
+    font-size:1.1rem;
+    margin-bottom:2rem;
+    max-width:700px;
+    background-color: rgba(11,31,58,0.6);
+    padding:0.5rem 1rem;
+    border-radius:8px;
+}
+
+/* --- Membership Section --- */
+.section {
+    padding:4rem 2rem;
+    max-width:1000px;
+    margin:0 auto;
+}
+.section h2 {
+    text-align:center;
+    font-size:2rem;
+    color:#0B1F3A;
+    margin-bottom:2rem;
+}
+
+/* --- Membership Cards --- */
+.membership-levels {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:2rem;
+}
+.membership-card {
+    flex:1 1 300px;
+    background-color:white;
+    border-radius:12px;
+    padding:2rem;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    text-align:center;
+    transition:0.3s;
+}
+.membership-card:hover {
+    transform: translateY(-5px);
+}
+.membership-card h3 {
+    color:#0F5E4E;
+    margin-bottom:1rem;
+}
+.membership-card ul {
+    text-align:left;
+    margin:1rem 0;
+    padding-left:1.2rem;
+}
+.membership-card ul li {
+    margin-bottom:0.6rem;
+}
+
+/* --- Signup Form --- */
+.signup-form {
+    background-color:white;
+    border-radius:12px;
+    padding:2rem;
+    max-width:500px;
+    margin:3rem auto 0 auto;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+.signup-form h3 {
+    text-align:center;
+    margin-bottom:1.5rem;
+    color:#0B1F3A;
+}
+.signup-form input, .signup-form select {
+    width:100%;
+    padding:0.8rem;
+    margin-bottom:1rem;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+.signup-form button {
+    width:100%;
+    padding:0.8rem;
+    background-color:#0F5E4E;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+.signup-form button:hover { background-color:#0D503F; }
+
+/* --- Footer --- */
+.footer {
+    background-color:#0B1F3A;
+    color:#C8A951;
+    text-align:center;
+    padding:2rem 1rem;
+}
+
+/* --- Responsive --- */
+@media(max-width:768px){
+    .hero h1 { font-size:2rem; }
+    .hero p { font-size:1rem; }
+    .membership-levels { flex-direction:column; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="logo">
+        <img src="FFL.png" alt="FFL Logo">
+        FFL
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#membership">Membership</a>
+        <a href="#signup">Join</a>
+    </div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+    <h1>Join the Future Banking & Finance Leaders Forum</h1>
+    <p>Choose a membership level that suits you and start accessing mentorship, workshops, learning resources, and community discussions.</p>
+</section>
+
+<!-- Membership Levels -->
+<section class="section" id="membership">
+    <h2>Membership Levels</h2>
+    <div class="membership-levels">
+        <div class="membership-card">
+            <h3>Free Membership</h3>
+            <ul>
+                <li>Access to community forum</li>
+                <li>Monthly newsletter</li>
+                <li>Basic learning resources</li>
+            </ul>
+        </div>
+        <div class="membership-card">
+            <h3>Premium Membership</h3>
+            <ul>
+                <li>All Free Membership benefits</li>
+                <li>Exclusive workshops & webinars</li>
+                <li>1-on-1 mentorship sessions</li>
+                <li>Advanced learning resources & case studies</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Signup Form -->
+<section class="section" id="signup">
+    <h2>Sign Up Now</h2>
+    <div class="signup-form">
+        <h3>Join FFL</h3>
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="financeBackground" placeholder="Finance Background / Profession" required>
+        <input type="text" id="linkedin" placeholder="LinkedIn Profile (optional)">
+        <input type="text" id="referral" placeholder="Referral Code (optional)">
+        <select id="membershipType" required>
+            <option value="">Select Membership Level</option>
+            <option value="Free">Free</option>
+            <option value="Premium">Premium</option>
+        </select>
+        <button onclick="submitMembership()">Sign Up</button>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2026 Future Banking & Finance Leaders Forum (FFL). All Rights Reserved.</p>
+</footer>
+
+<script>
+function submitMembership(){
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let background = document.getElementById('financeBackground').value;
+    let membership = document.getElementById('membershipType').value;
+    if(!name || !email || !background || !membership){
+        alert('Please fill in all required fields.');
+        return;
+    }
+    alert('Thank you, '+name+'! You have signed up for '+membership+' membership.');
+    // Clear form
+    document.getElementById('name').value='';
+    document.getElementById('email').value='';
+    document.getElementById('financeBackground').value='';
+    document.getElementById('linkedin').value='';
+    document.getElementById('referral').value='';
+    document.getElementById('membershipType').value='';
+}
+</script>
+
+</body>
+</html>
