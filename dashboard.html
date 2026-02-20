@@ -61,17 +61,43 @@ header {
   background-clip: text;
 }
 
-.welcome small {
-  font-size: 16px;
-  color: #94a3b8;
-  display: block;
-  margin-top: 5px;
+.loading {
+  text-align: center;
+  padding: 50px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #334155;
+  border-top-color: #10b981;
+  border-radius: 50%;
+  margin: 20px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-message {
+  background: #991b1b;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.debug-info {
+  background: #1e293b;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-family: monospace;
+  font-size: 12px;
+  color: #94a3b8;
+  white-space: pre-wrap;
+  border: 1px solid #334155;
 }
 
 .card {
@@ -79,12 +105,7 @@ header {
   padding: 25px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(16, 185, 129, 0.2);
+  margin-bottom: 20px;
 }
 
 .card h3 {
@@ -94,128 +115,31 @@ header {
   padding-bottom: 10px;
 }
 
-.badge {
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  display: inline-block;
-  margin-top: 10px;
-  font-weight: 600;
-}
-
-.free { 
-  background: #334155; 
-  color: #fff;
-}
-
-.premium { 
-  background: #10b981; 
-  color: #fff;
-}
-
-.section-title {
-  margin-top: 50px;
-  margin-bottom: 20px;
-  font-size: 22px;
-  color: #10b981;
-  border-left: 4px solid gold;
-  padding-left: 15px;
-}
-
-.notification {
-  background: #0f172a;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  border-left: 3px solid #10b981;
-  animation: slideIn 0.3s ease;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.notification.new {
-  border-left-color: gold;
-  background: #1a2a3a;
-}
-
-.notification-time {
-  font-size: 11px;
-  color: #94a3b8;
-  margin-top: 5px;
-}
-
-a.dashboard-link {
-  display: inline-block;
-  margin-top: 15px;
-  color: #10b981;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-a.dashboard-link:hover {
-  color: gold;
-}
-
-.loading {
-  color: #94a3b8;
-  font-style: italic;
-}
-
-.error-message {
-  background: #991b1b;
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.stat-value {
-  font-size: 24px;
-  font-weight: 700;
-  color: gold;
-  margin: 10px 0;
-}
-
-.profile-field {
-  margin-bottom: 10px;
-}
-
-.profile-field strong {
-  color: #94a3b8;
-  display: inline-block;
-  width: 80px;
-}
-
-.copy-btn {
-  background: none;
-  border: 1px solid #10b981;
-  color: #10b981;
-  padding: 4px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 12px;
-  margin-left: 10px;
-  transition: all 0.3s;
-}
-
-.copy-btn:hover {
+button {
   background: #10b981;
+  border: none;
+  padding: 10px 20px;
   color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+button:hover {
+  background: #059669;
+}
+
+.debug-toggle {
+  background: #334155;
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
 }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -225,85 +149,66 @@ a.dashboard-link:hover {
 
 <div class="container">
 
-  <div class="welcome" id="welcomeText">
-    <span id="welcomeMessage">Loading your dashboard...</span>
-    <small id="welcomeSubtext">Fetching your personalized data</small>
-  </div>
+  <div class="welcome" id="welcomeText">Loading your dashboard...</div>
 
   <!-- Loading State -->
-  <div id="loadingState" class="card" style="text-align: center;">
+  <div id="loadingState" class="loading">
+    <div class="spinner"></div>
     <p>Loading your profile...</p>
-    <div style="width: 50px; height: 50px; border: 3px solid #10b981; border-top-color: gold; border-radius: 50%; margin: 20px auto; animation: spin 1s linear infinite;"></div>
+    <p style="color: #94a3b8; font-size: 14px;">This should only take a moment</p>
   </div>
 
-  <!-- Error State (hidden by default) -->
-  <div id="errorState" class="error-message" style="display: none;"></div>
+  <!-- Error State -->
+  <div id="errorState" class="error-message hidden">
+    <h3>⚠️ Unable to Load Profile</h3>
+    <p id="errorMessage"></p>
+    <button onclick="retryLoad()">Retry</button>
+    <button class="debug-toggle" onclick="toggleDebug()">Show Debug Info</button>
+  </div>
+
+  <!-- Debug Info (hidden by default) -->
+  <div id="debugInfo" class="debug-info hidden">
+    <h4 style="color: gold; margin-top: 0;">Debug Information</h4>
+    <div id="debugContent"></div>
+  </div>
 
   <!-- Dashboard Content (hidden until loaded) -->
-  <div id="dashboardContent" style="display: none;">
-
-    <div class="grid">
-
-      <div class="card">
-        <h3>👤 Profile Information</h3>
-        <div class="profile-field">
-          <strong>Name:</strong> <span id="profileName"></span>
-        </div>
-        <div class="profile-field">
-          <strong>Email:</strong> <span id="profileEmail"></span>
-        </div>
-        <div class="profile-field">
-          <strong>Member Since:</strong> <span id="memberSince"></span>
-        </div>
-        <div class="profile-field">
-          <strong>LinkedIn:</strong> <span id="profileLinkedin"></span>
-        </div>
-        <a href="profile.html" class="dashboard-link">Edit Profile →</a>
-      </div>
-
-      <div class="card">
-        <h3>⭐ Membership</h3>
-        <div class="stat-value" id="membershipLevel">Loading...</div>
-        <div id="membershipBadge"></div>
-        <p><strong>Status:</strong> <span id="membershipStatus">Active</span></p>
-        <p><strong>Joined:</strong> <span id="joinDate"></span></p>
-        <a href="join.html" class="dashboard-link">Upgrade Membership →</a>
-      </div>
-
-      <div class="card">
-        <h3>📊 Activity</h3>
-        <div class="stat-value" id="eventsCount">0</div>
-        <p>Events Attended</p>
-        <div class="stat-value" id="downloadsCount">0</div>
-        <p>Resources Downloaded</p>
-        <a href="learning.html" class="dashboard-link">Learning Hub →</a>
-      </div>
-
-      <div class="card">
-        <h3>🔗 Referral Program</h3>
-        <p><strong>Your Code:</strong> <span id="referralCode"></span>
-          <button class="copy-btn" onclick="copyReferralCode()">Copy</button>
-        </p>
-        <p><strong>Referred By:</strong> <span id="referredBy">None</span></p>
-        <p><strong>Total Referrals:</strong> <span id="totalReferrals">0</span></p>
-        <a href="#" class="dashboard-link">Invite Friends →</a>
-      </div>
-
+  <div id="dashboardContent" class="hidden">
+    <div class="card">
+      <h3>👤 Your Profile</h3>
+      <p><strong>Name:</strong> <span id="profileName"></span></p>
+      <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+      <p><strong>Member Since:</strong> <span id="memberSince"></span></p>
+      <p><strong>Membership:</strong> <span id="membershipLevel"></span></p>
     </div>
 
-    <div class="section-title">📬 Recent Notifications</div>
-    <div id="notificationsContainer"></div>
+    <div class="card">
+      <h3>📋 Quick Actions</h3>
+      <button onclick="window.location.href='profile.html'">Edit Profile</button>
+      <button onclick="window.location.href='learning.html'">Learning Hub</button>
+      <button onclick="refreshData()">Refresh Data</button>
+    </div>
 
+    <div class="card">
+      <h3>🔧 Need Help?</h3>
+      <p>If you're seeing this instead of your profile data, your account may need to be set up.</p>
+      <button onclick="createTestProfile()">Create Test Profile</button>
+      <p style="color: #94a3b8; font-size: 12px; margin-top: 10px;">This will create sample data so you can see how the dashboard should look.</p>
+    </div>
   </div>
+
 </div>
 
 <!-- Firebase & Auth -->
 <script type="module">
-
 import { auth, db, ref, onValue, set } from "./firebase.js";
 import { onAuthStateChanged, signOut } from "./firebase.js";
 
-// Make logout function global
+// Global variables
+let currentUser = null;
+let debugVisible = false;
+
+// Make functions global
 window.logout = async function() {
   if (confirm("Are you sure you want to logout?")) {
     await signOut(auth);
@@ -311,175 +216,145 @@ window.logout = async function() {
   }
 };
 
-// Copy referral code function
-window.copyReferralCode = function() {
-  const codeEl = document.getElementById("referralCode");
-  const code = codeEl.innerText;
-  
-  if (code && code !== "-" && code !== "Loading...") {
-    navigator.clipboard.writeText(code).then(() => {
-      alert("Referral code copied to clipboard!");
-    }).catch(() => {
-      alert("Failed to copy code. Please select and copy manually.");
-    });
+window.toggleDebug = function() {
+  debugVisible = !debugVisible;
+  const debugEl = document.getElementById("debugInfo");
+  if (debugVisible) {
+    debugEl.classList.remove("hidden");
+  } else {
+    debugEl.classList.add("hidden");
   }
 };
 
-// Format date
-function formatDate(timestamp) {
-  if (!timestamp) return "N/A";
-  return new Date(timestamp).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-}
+window.retryLoad = function() {
+  window.location.reload();
+};
 
-// Get first name from full name
-function getFirstName(fullName) {
-  if (!fullName) return "Member";
-  return fullName.split(' ')[0];
-}
+window.refreshData = function() {
+  window.location.reload();
+};
 
-onAuthStateChanged(auth, (user) => {
-  // Show loading, hide content initially
-  document.getElementById("loadingState").style.display = "block";
-  document.getElementById("dashboardContent").style.display = "none";
-  document.getElementById("errorState").style.display = "none";
+window.createTestProfile = async function() {
+  if (!currentUser) return;
+  
+  try {
+    const testData = {
+      profile: {
+        name: "Test User",
+        email: currentUser.email,
+        createdAt: Date.now(),
+        membership: "Premium"
+      },
+      activity: {
+        eventsAttended: 5,
+        downloads: 12
+      }
+    };
+    
+    await set(ref(db, `users/${currentUser.uid}`), testData);
+    alert("Test profile created! Refreshing...");
+    window.location.reload();
+  } catch (error) {
+    alert("Error creating test profile: " + error.message);
+  }
+};
 
+// Main auth check
+onAuthStateChanged(auth, async (user) => {
   if (!user) {
     window.location.href = "login.html";
     return;
   }
 
-  const uid = user.uid;
+  currentUser = user;
+  
+  // Show loading, hide everything else
+  document.getElementById("loadingState").classList.remove("hidden");
+  document.getElementById("errorState").classList.add("hidden");
+  document.getElementById("dashboardContent").classList.add("hidden");
+  
+  // Update welcome with email
+  document.getElementById("welcomeText").innerHTML = 
+    `Welcome back, ${user.email || 'Member'}! 👋`;
 
-  // Load profile data with error handling
-  onValue(ref(db, `users/${uid}`), (snapshot) => {
-    const data = snapshot.val();
+  try {
+    // Try to load user data
+    const userRef = ref(db, `users/${user.uid}`);
     
-    if (!data) {
-      // No data in database yet - create basic profile
-      document.getElementById("loadingState").style.display = "none";
-      document.getElementById("errorState").style.display = "block";
-      document.getElementById("errorState").innerHTML = 
-        "Your profile is being set up. Please refresh in a moment.";
-      return;
-    }
-
-    // Hide loading, show content
-    document.getElementById("loadingState").style.display = "none";
-    document.getElementById("dashboardContent").style.display = "block";
-
-    // Get user's first name for welcome message
-    const firstName = getFirstName(data.profile?.name);
-    const welcomeEl = document.getElementById("welcomeMessage");
-    welcomeEl.innerHTML = `Welcome back, ${firstName}! 👋`;
-    
-    const subtextEl = document.getElementById("welcomeSubtext");
-    subtextEl.innerHTML = `Great to see you again. Here's your dashboard.`;
-
-    // Profile Information
-    document.getElementById("profileName").innerText = 
-      data.profile?.name || "Not set";
-    
-    document.getElementById("profileEmail").innerText = 
-      data.profile?.email || user.email || "Not set";
-    
-    document.getElementById("memberSince").innerText = 
-      formatDate(data.profile?.createdAt);
-
-    // LinkedIn
-    const linkedinEl = document.getElementById("profileLinkedin");
-    if (data.profile?.linkedin) {
-      linkedinEl.innerHTML = `<a href="${data.profile.linkedin}" target="_blank" style="color:#10b981;">View Profile</a>`;
-    } else {
-      linkedinEl.innerText = "Not provided";
-    }
-
-    // Membership
-    const level = data.membership?.level || "Free";
-    document.getElementById("membershipLevel").innerText = level;
-    document.getElementById("membershipStatus").innerText = 
-      data.membership?.status || "Active";
-    document.getElementById("joinDate").innerText = 
-      formatDate(data.membership?.joinedAt);
-
-    // Membership Badge
-    const badge = document.getElementById("membershipBadge");
-    badge.innerHTML = level === "Premium"
-      ? `<span class="badge premium">✨ Premium Member ✨</span>`
-      : `<span class="badge free">Free Member</span>`;
-
-    // Activity
-    document.getElementById("eventsCount").innerText = 
-      data.activity?.eventsAttended || 0;
-    document.getElementById("downloadsCount").innerText = 
-      data.activity?.downloads || 0;
-
-    // Referral
-    document.getElementById("referralCode").innerText = 
-      data.referral?.code || "Not available";
-    
-    document.getElementById("referredBy").innerText = 
-      data.referral?.referredBy || "None";
-    
-    // Count referrals (if we implement tracking)
-    document.getElementById("totalReferrals").innerText = "0"; // Placeholder
-
-  }, (error) => {
-    console.error("Error loading data:", error);
-    document.getElementById("loadingState").style.display = "none";
-    document.getElementById("errorState").style.display = "block";
-    document.getElementById("errorState").innerHTML = 
-      "Error loading your data. Please refresh the page.";
-  });
-
-  // Load notifications
-  onValue(ref(db, `notifications/${uid}`), (snapshot) => {
-    const container = document.getElementById("notificationsContainer");
-    container.innerHTML = "";
-
-    const notifications = snapshot.val();
-    if (!notifications) {
-      container.innerHTML = "<p class='notification'>No notifications yet. Check back later!</p>";
-      return;
-    }
-
-    // Convert to array and sort by time (newest first)
-    const notificationsArray = Object.entries(notifications).map(([key, value]) => ({
-      id: key,
-      ...value
-    })).sort((a, b) => (b.time || 0) - (a.time || 0));
-
-    // Display last 5 notifications
-    notificationsArray.slice(0, 5).forEach((n) => {
-      const div = document.createElement("div");
-      div.className = "notification";
+    onValue(userRef, (snapshot) => {
+      const data = snapshot.val();
       
-      // Check if notification is recent (within last 7 days)
-      const isRecent = n.time && (Date.now() - n.time) < 7 * 24 * 60 * 60 * 1000;
-      if (isRecent) div.classList.add("new");
+      // Hide loading
+      document.getElementById("loadingState").classList.add("hidden");
       
-      div.innerHTML = `
-        <div>${n.message || "Notification"}</div>
-        <div class="notification-time">${formatDate(n.time)}</div>
+      if (!data) {
+        // No data found - show error with debug
+        document.getElementById("errorState").classList.remove("hidden");
+        document.getElementById("errorMessage").innerHTML = 
+          "Your profile data couldn't be found in the database. This might be because:<br>" +
+          "• Your account was created but the profile save failed<br>" +
+          "• The database rules are blocking access<br>" +
+          "• The data is in a different location";
+        
+        // Show debug info
+        document.getElementById("debugContent").innerHTML = `
+          <strong>User UID:</strong> ${user.uid}<br>
+          <strong>Email:</strong> ${user.email}<br>
+          <strong>Email Verified:</strong> ${user.emailVerified}<br>
+          <strong>Database Path:</strong> users/${user.uid}<br>
+          <strong>Data Found:</strong> No<br><br>
+          <strong>To fix this:</strong> Make sure your database rules allow writing and reading.
+        `;
+        
+        // Show dashboard content with options
+        document.getElementById("dashboardContent").classList.remove("hidden");
+        return;
+      }
+      
+      // Data found! Update the dashboard
+      document.getElementById("dashboardContent").classList.remove("hidden");
+      
+      // Update profile fields
+      document.getElementById("profileName").innerText = data.profile?.name || "Not set";
+      document.getElementById("profileEmail").innerText = data.profile?.email || user.email;
+      document.getElementById("memberSince").innerText = 
+        data.profile?.createdAt ? new Date(data.profile.createdAt).toLocaleDateString() : "Just now";
+      document.getElementById("membershipLevel").innerText = 
+        data.membership?.level || data.profile?.membership || "Free";
+      
+      // Update welcome with name if available
+      if (data.profile?.name) {
+        const firstName = data.profile.name.split(' ')[0];
+        document.getElementById("welcomeText").innerHTML = 
+          `Welcome back, ${firstName}! 👋`;
+      }
+      
+      // Clear any error states
+      document.getElementById("errorState").classList.add("hidden");
+      
+    }, (error) => {
+      // Error reading data
+      document.getElementById("loadingState").classList.add("hidden");
+      document.getElementById("errorState").classList.remove("hidden");
+      document.getElementById("errorMessage").innerHTML = 
+        `Error reading database: ${error.message}`;
+      document.getElementById("dashboardContent").classList.remove("hidden");
+      
+      document.getElementById("debugContent").innerHTML = `
+        <strong>Error:</strong> ${error.code}<br>
+        <strong>Message:</strong> ${error.message}<br>
+        <strong>User UID:</strong> ${user.uid}<br>
+        <strong>Email:</strong> ${user.email}
       `;
-      
-      container.appendChild(div);
     });
-
-    // If more than 5 notifications, show count
-    if (notificationsArray.length > 5) {
-      const moreDiv = document.createElement("div");
-      moreDiv.className = "notification";
-      moreDiv.innerHTML = `<a href="notifications.html" style="color:#10b981;">View all ${notificationsArray.length} notifications →</a>`;
-      container.appendChild(moreDiv);
-    }
-  });
-
-  // Update last login timestamp
-  set(ref(db, `users/${uid}/profile/lastLogin`), Date.now()).catch(console.warn);
+    
+  } catch (error) {
+    // Catch any other errors
+    document.getElementById("loadingState").classList.add("hidden");
+    document.getElementById("errorState").classList.remove("hidden");
+    document.getElementById("errorMessage").innerText = error.message;
+    document.getElementById("dashboardContent").classList.remove("hidden");
+  }
 });
 
 </script>
