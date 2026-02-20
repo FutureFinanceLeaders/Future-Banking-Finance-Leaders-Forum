@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Member Dashboard | FFL</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#F4F6F9;
+display:flex;
+min-height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar{
+width:250px;
+background:#0B1F3A;
+color:white;
+padding:2rem 1rem;
+display:flex;
+flex-direction:column;
+}
+
+.sidebar img{
+height:40px;
+margin-bottom:2rem;
+}
+
+.sidebar a{
+color:white;
+text-decoration:none;
+margin:1rem 0;
+font-size:0.95rem;
+cursor:pointer;
+}
+
+/* MAIN */
+.main{
+flex:1;
+padding:2rem 3rem;
+overflow-y:auto;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:2rem;
+}
+
+.card{
+background:white;
+padding:1.5rem;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+margin-bottom:2rem;
+}
+
+.card h2{
+margin-bottom:1rem;
+color:#0B1F3A;
+}
+
+/* MEMBERSHIP STATUS */
+.status{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.badge{
+padding:0.4rem 0.8rem;
+border-radius:20px;
+font-size:0.8rem;
+font-weight:600;
+}
+
+.free{
+background:#E2E8F0;
+color:#333;
+}
+
+.premium{
+background:#C8A951;
+color:#0B1F3A;
+}
+
+/* EVENTS */
+.event{
+padding:0.8rem;
+background:#F0F2F5;
+border-radius:8px;
+margin-bottom:0.8rem;
+}
+
+/* MESSAGES */
+.message-box{
+max-height:200px;
+overflow-y:auto;
+border:1px solid #ddd;
+padding:1rem;
+border-radius:8px;
+margin-bottom:1rem;
+background:#F9FAFB;
+}
+
+.message{
+margin-bottom:0.5rem;
+}
+
+input, textarea{
+width:100%;
+padding:0.8rem;
+margin-bottom:1rem;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
+padding:0.8rem 1.5rem;
+background:#0F5E4E;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+.sidebar{
+display:none;
+}
+body{
+flex-direction:column;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<img src="FFL.png">
+<a onclick="showSection('overview')">Overview</a>
+<a onclick="showSection('learning')">Learning</a>
+<a onclick="showSection('events')">Events</a>
+<a onclick="showSection('messages')">Messages</a>
+<a href="index.html">Logout</a>
+</div>
+
+<div class="main">
+
+<div class="header">
+<h1>Welcome, Member</h1>
+</div>
+
+<!-- OVERVIEW -->
+<div id="overview" class="section">
+<div class="card">
+<h2>Membership Status</h2>
+<div class="status">
+<p>Current Plan:</p>
+<span class="badge premium">Premium</span>
+</div>
+<p style="margin-top:1rem;">Renewal Date: 12 Jan 2027</p>
+</div>
+</div>
+
+<!-- LEARNING -->
+<div id="learning" class="section" style="display:none;">
+<div class="card">
+<h2>Your Learning Access</h2>
+<p>✔ All premium case studies</p>
+<p>✔ Workshop recordings</p>
+<p>✔ Downloadable PDF guides</p>
+<a href="assets/sample-guide.pdf" download>
+<button style="margin-top:1rem;">Download Investment Guide</button>
+</a>
+</div>
+</div>
+
+<!-- EVENTS -->
+<div id="events" class="section" style="display:none;">
+<div class="card">
+<h2>Event Participation</h2>
+<div class="event">✔ Digital Banking Webinar – Attended</div>
+<div class="event">✔ Investment Case Study Workshop – Completed</div>
+<div class="event">Upcoming: Fintech Strategy Roundtable</div>
+</div>
+</div>
+
+<!-- MESSAGES -->
+<div id="messages" class="section" style="display:none;">
+<div class="card">
+<h2>Mentor & Peer Messaging</h2>
+
+<div class="message-box" id="chatBox">
+<div class="message"><strong>Mentor:</strong> Focus on valuation modeling practice.</div>
+<div class="message"><strong>You:</strong> Thank you, I will review DCF models.</div>
+</div>
+
+<textarea id="newMessage" placeholder="Type your message..."></textarea>
+<button onclick="sendMessage()">Send Message</button>
+
+</div>
+</div>
+
+</div>
+
+<script>
+function showSection(section){
+let sections=document.getElementsByClassName("section");
+for(let i=0;i<sections.length;i++){
+sections[i].style.display="none";
+}
+document.getElementById(section).style.display="block";
+}
+
+function sendMessage(){
+let text=document.getElementById("newMessage").value;
+if(text==="") return;
+
+let box=document.getElementById("chatBox");
+let newMsg=document.createElement("div");
+newMsg.className="message";
+newMsg.innerHTML="<strong>You:</strong> "+text;
+box.appendChild(newMsg);
+
+document.getElementById("newMessage").value="";
+box.scrollTop=box.scrollHeight;
+}
+</script>
+
+</body>
+</html>
