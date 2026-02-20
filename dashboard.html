@@ -4,9 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dashboard | Future Finance Leaders</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <style>
 body {
   margin: 0;
@@ -39,39 +36,70 @@ header {
   font-weight: 600;
 }
 
-.logout-btn:hover {
-  background: #059669;
-}
-
 .container {
   padding: 40px;
-  max-width: 800px;
+  max-width: 1200px;
   margin: auto;
 }
 
 .welcome {
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 30px;
   color: gold;
 }
 
 .card {
   background: #1e293b;
-  padding: 30px;
+  padding: 25px;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
   margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.info-row {
+  padding: 10px 0;
+  border-bottom: 1px solid #334155;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.value {
+  color: #10b981;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.badge {
+  background: #10b981;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  display: inline-block;
 }
 
 .loading {
   text-align: center;
-  padding: 40px;
+  padding: 50px;
 }
 
 .spinner {
   width: 50px;
   height: 50px;
-  border: 4px solid #334155;
+  border: 3px solid #334155;
   border-top-color: #10b981;
   border-radius: 50%;
   margin: 20px auto;
@@ -84,58 +112,24 @@ header {
 
 .error {
   background: #991b1b;
-  color: white;
   padding: 20px;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 button {
   background: #10b981;
   border: none;
-  padding: 12px 24px;
+  padding: 10px 20px;
   color: white;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 16px;
-  margin: 10px 10px 10px 0;
-}
-
-button.secondary {
-  background: #334155;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-.debug-box {
-  background: #0f172a;
-  border: 1px solid #334155;
-  padding: 15px;
-  border-radius: 8px;
-  font-family: monospace;
-  font-size: 12px;
-  color: #94a3b8;
-  margin-top: 20px;
+  margin-right: 10px;
 }
 
 .hidden {
   display: none;
-}
-
-.profile-field {
-  margin-bottom: 15px;
-  padding: 10px;
-  background: #0f172a;
-  border-radius: 8px;
-}
-
-.profile-field strong {
-  color: gold;
-  display: inline-block;
-  width: 120px;
 }
 </style>
 </head>
@@ -143,277 +137,158 @@ button:hover {
 
 <header>
   <div class="logo">Future Finance Leaders (FFL)</div>
-  <button class="logout-btn" onclick="logout()">Logout</button>
+  <button class="logout-btn" onclick="handleLogout()">Logout</button>
 </header>
 
 <div class="container">
-  <div class="welcome" id="welcomeMessage">Dashboard</div>
 
   <!-- Loading State -->
-  <div id="loadingState" class="card loading">
+  <div id="loading" class="loading">
     <div class="spinner"></div>
-    <p>Loading your profile...</p>
-    <p style="color: #94a3b8; font-size: 14px;">This should only take a moment</p>
+    <p>Loading your dashboard...</p>
   </div>
 
-  <!-- Setup Required State (shown if no profile exists) -->
-  <div id="setupRequired" class="card hidden">
-    <h2 style="color: gold;">👋 Welcome to FFL!</h2>
-    <p>Your account is active, but we need to set up your profile.</p>
-    
-    <div style="background: #0f172a; padding: 20px; border-radius: 8px; margin: 20px 0;">
-      <h3 style="color: #10b981; margin-top: 0;">Account Details</h3>
-      <p><strong>Email:</strong> <span id="userEmail"></span></p>
-      <p><strong>User ID:</strong> <span id="userUid"></span></p>
-      <p><strong>Email Verified:</strong> <span id="emailVerified"></span></p>
-    </div>
-
-    <p>Click the button below to create your profile:</p>
-    <button onclick="createUserProfile()">✨ Create My Profile</button>
-    <button class="secondary" onclick="window.location.href='login.html'">Back to Login</button>
+  <!-- Error State -->
+  <div id="error" class="error hidden">
+    <h3>⚠️ Something went wrong</h3>
+    <p id="errorMessage"></p>
+    <button onclick="window.location.reload()">Try Again</button>
+    <button onclick="handleLogout()">Go to Login</button>
   </div>
 
   <!-- Dashboard Content -->
-  <div id="dashboardContent" class="hidden">
-    <div class="card">
-      <h2 style="color: gold; margin-top: 0;">👤 Your Profile</h2>
-      <div class="profile-field">
-        <strong>Name:</strong> <span id="profileName"></span>
+  <div id="content" class="hidden">
+    
+    <div class="welcome" id="welcomeMessage">Welcome!</div>
+
+    <div class="grid">
+      
+      <!-- User Info Card -->
+      <div class="card">
+        <h2 style="color: gold; margin-top: 0;">👤 Your Account</h2>
+        <div class="info-row">
+          <div class="label">Name</div>
+          <div class="value" id="displayName">Not set</div>
+        </div>
+        <div class="info-row">
+          <div class="label">Email</div>
+          <div class="value" id="displayEmail"></div>
+        </div>
+        <div class="info-row">
+          <div class="label">Email Verified</div>
+          <div class="value" id="emailVerified">No</div>
+        </div>
+        <div class="info-row">
+          <div class="label">User ID</div>
+          <div class="value" id="displayUid" style="font-size: 12px;"></div>
+        </div>
       </div>
-      <div class="profile-field">
-        <strong>Email:</strong> <span id="profileEmail"></span>
+
+      <!-- Account Status Card -->
+      <div class="card">
+        <h2 style="color: gold; margin-top: 0;">📊 Account Status</h2>
+        <div class="info-row">
+          <div class="label">Membership</div>
+          <div class="value"><span class="badge">Free Member</span></div>
+        </div>
+        <div class="info-row">
+          <div class="label">Account Created</div>
+          <div class="value" id="accountCreated">Just now</div>
+        </div>
+        <div class="info-row">
+          <div class="label">Last Login</div>
+          <div class="value" id="lastLogin">Today</div>
+        </div>
       </div>
-      <div class="profile-field">
-        <strong>Member Since:</strong> <span id="memberSince"></span>
-      </div>
-      <div class="profile-field">
-        <strong>Membership:</strong> <span id="membershipLevel"></span>
-      </div>
-      <div class="profile-field">
-        <strong>Referral Code:</strong> <span id="referralCode"></span>
+
+      <!-- Quick Actions Card -->
+      <div class="card">
+        <h2 style="color: gold; margin-top: 0;">⚡ Quick Actions</h2>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <button onclick="window.location.href='profile.html'">Edit Profile</button>
+          <button onclick="window.location.href='learning.html'">Learning Hub</button>
+          <button onclick="window.location.href='events.html'">Upcoming Events</button>
+        </div>
       </div>
     </div>
-
-    <div class="card">
-      <h2 style="color: gold; margin-top: 0;">📊 Quick Stats</h2>
-      <div class="profile-field">
-        <strong>Events:</strong> <span id="eventsCount">0</span>
-      </div>
-      <div class="profile-field">
-        <strong>Downloads:</strong> <span id="downloadsCount">0</span>
-      </div>
-    </div>
-
-    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-      <button onclick="window.location.href='learning.html'">📚 Learning Hub</button>
-      <button onclick="window.location.href='events.html'">📅 Events</button>
-      <button onclick="refreshDashboard()">🔄 Refresh</button>
-    </div>
-  </div>
-
-  <!-- Debug Info (hidden by default) -->
-  <div id="debugInfo" class="debug-box hidden">
-    <h4 style="color: gold; margin: 0 0 10px 0;">Debug Information</h4>
-    <div id="debugContent"></div>
   </div>
 </div>
 
-<!-- Firebase & Auth -->
+<!-- Firebase Scripts -->
 <script type="module">
-import { auth, db, ref, onValue, set, push } from "./firebase.js";
-import { onAuthStateChanged, signOut } from "./firebase.js";
+import { auth, onAuthStateChanged } from "./firebase.js";
+import { signOut } from "./firebase.js";
 
-let currentUser = null;
-let loadingTimeout = null;
-
-// Make functions global
-window.logout = async function() {
-  if (confirm("Are you sure you want to logout?")) {
+// Make logout function global
+window.handleLogout = async function() {
+  try {
     await signOut(auth);
+    window.location.href = "login.html";
+  } catch (error) {
+    console.error("Logout error:", error);
     window.location.href = "login.html";
   }
 };
 
-window.createUserProfile = async function() {
-  if (!currentUser) return;
-  
-  const button = event.target;
-  const originalText = button.innerText;
-  button.innerText = "Creating...";
-  button.disabled = true;
-  
-  try {
-    const user = currentUser;
-    const referralCode = "FFL" + user.uid.slice(0, 6).toUpperCase();
-    
-    // Create profile in database
-    await set(ref(db, `users/${user.uid}`), {
-      profile: {
-        name: "Member", // Default name, can be edited later
-        email: user.email,
-        createdAt: Date.now(),
-        emailVerified: user.emailVerified,
-        lastLogin: Date.now()
-      },
-      membership: {
-        level: "Free",
-        status: "active",
-        joinedAt: Date.now()
-      },
-      referral: {
-        code: referralCode,
-        referredBy: null
-      },
-      activity: {
-        eventsAttended: 0,
-        downloads: 0
-      }
-    });
-    
-    // Add welcome notification
-    await push(ref(db, `notifications/${user.uid}`), {
-      message: "🎉 Welcome to Future Finance Leaders! Your profile has been created.",
-      read: false,
-      time: Date.now(),
-      type: "welcome"
-    });
-    
-    alert("Profile created successfully! Refreshing...");
-    window.location.reload();
-    
-  } catch (error) {
-    alert("Error creating profile: " + error.message);
-    console.error(error);
-  } finally {
-    button.innerText = originalText;
-    button.disabled = false;
-  }
-};
-
-window.refreshDashboard = function() {
-  window.location.reload();
-};
-
-// Clear timeout helper
-function clearLoadingTimeout() {
-  if (loadingTimeout) {
-    clearTimeout(loadingTimeout);
-    loadingTimeout = null;
-  }
-}
-
-// Main auth check
+// Check authentication state
 onAuthStateChanged(auth, (user) => {
-  // Clear any existing timeout
-  clearLoadingTimeout();
+  // Hide loading
+  document.getElementById('loading').classList.add('hidden');
   
   if (!user) {
+    // No user logged in - redirect to login
     window.location.href = "login.html";
     return;
   }
 
-  currentUser = user;
-  
-  // Show loading state
-  document.getElementById("loadingState").classList.remove("hidden");
-  document.getElementById("setupRequired").classList.add("hidden");
-  document.getElementById("dashboardContent").classList.add("hidden");
-  
-  // Update welcome with email
-  document.getElementById("welcomeMessage").innerText = `Welcome, ${user.email}!`;
-  
-  // Set a timeout - if loading takes more than 5 seconds, show setup
-  loadingTimeout = setTimeout(() => {
-    console.log("Loading timeout - showing setup screen");
-    document.getElementById("loadingState").classList.add("hidden");
-    document.getElementById("setupRequired").classList.remove("hidden");
+  try {
+    // User is logged in - show content
+    document.getElementById('content').classList.remove('hidden');
     
-    // Update setup screen with user info
-    document.getElementById("userEmail").innerText = user.email;
-    document.getElementById("userUid").innerText = user.uid;
-    document.getElementById("emailVerified").innerText = user.emailVerified ? "✅ Yes" : "❌ No - Please check your email";
+    // Update welcome message
+    const firstName = user.displayName ? user.displayName.split(' ')[0] : 'Member';
+    document.getElementById('welcomeMessage').innerHTML = `Welcome back, ${firstName}! 👋`;
     
-    // Show debug info
-    document.getElementById("debugContent").innerHTML = `
-      <strong>User Authenticated:</strong> Yes<br>
-      <strong>UID:</strong> ${user.uid}<br>
-      <strong>Email:</strong> ${user.email}<br>
-      <strong>Database Path:</strong> users/${user.uid}<br>
-      <strong>Status:</strong> No profile found - needs creation
-    `;
-    document.getElementById("debugInfo").classList.remove("hidden");
+    // Update user info
+    document.getElementById('displayName').innerText = user.displayName || 'Not set (update your profile)';
+    document.getElementById('displayEmail').innerText = user.email;
+    document.getElementById('displayUid').innerText = user.uid;
     
-  }, 5000); // 5 second timeout
-
-  // Try to load user data
-  const userRef = ref(db, `users/${user.uid}`);
-  
-  onValue(userRef, (snapshot) => {
-    // Clear timeout since we got a response
-    clearLoadingTimeout();
-    
-    const data = snapshot.val();
-    
-    if (!data) {
-      // No profile found - show setup screen
-      document.getElementById("loadingState").classList.add("hidden");
-      document.getElementById("setupRequired").classList.remove("hidden");
-      
-      // Update setup screen
-      document.getElementById("userEmail").innerText = user.email;
-      document.getElementById("userUid").innerText = user.uid;
-      document.getElementById("emailVerified").innerText = user.emailVerified ? "✅ Yes" : "❌ No - Please verify your email first";
-      
-      document.getElementById("debugContent").innerHTML = `
-        <strong>User UID:</strong> ${user.uid}<br>
-        <strong>Email:</strong> ${user.email}<br>
-        <strong>Profile Found:</strong> No<br>
-        <strong>Action Required:</strong> Create profile
-      `;
-      document.getElementById("debugInfo").classList.remove("hidden");
-      
+    // Email verification status
+    const verifiedEl = document.getElementById('emailVerified');
+    if (user.emailVerified) {
+      verifiedEl.innerHTML = '✅ Verified';
+      verifiedEl.style.color = '#10b981';
     } else {
-      // Profile found - show dashboard
-      document.getElementById("loadingState").classList.add("hidden");
-      document.getElementById("setupRequired").classList.add("hidden");
-      document.getElementById("dashboardContent").classList.remove("hidden");
-      document.getElementById("debugInfo").classList.add("hidden");
-      
-      // Update dashboard with user data
-      const firstName = data.profile?.name?.split(' ')[0] || "Member";
-      document.getElementById("welcomeMessage").innerText = `Welcome back, ${firstName}!`;
-      
-      document.getElementById("profileName").innerText = data.profile?.name || "Not set";
-      document.getElementById("profileEmail").innerText = data.profile?.email || user.email;
-      document.getElementById("memberSince").innerText = 
-        data.profile?.createdAt ? new Date(data.profile.createdAt).toLocaleDateString() : "Today";
-      document.getElementById("membershipLevel").innerText = 
-        data.membership?.level || "Free";
-      document.getElementById("referralCode").innerText = 
-        data.referral?.code || "None";
-      document.getElementById("eventsCount").innerText = 
-        data.activity?.eventsAttended || 0;
-      document.getElementById("downloadsCount").innerText = 
-        data.activity?.downloads || 0;
+      verifiedEl.innerHTML = '❌ Not verified - Please check your email';
+      verifiedEl.style.color = '#f59e0b';
     }
     
-  }, (error) => {
-    // Error reading data
-    clearLoadingTimeout();
+    // Account creation time (if available)
+    if (user.metadata?.creationTime) {
+      document.getElementById('accountCreated').innerText = new Date(user.metadata.creationTime).toLocaleDateString();
+    }
     
-    document.getElementById("loadingState").classList.add("hidden");
-    document.getElementById("setupRequired").classList.remove("hidden");
+    // Last login time (if available)
+    if (user.metadata?.lastSignInTime) {
+      document.getElementById('lastLogin').innerText = new Date(user.metadata.lastSignInTime).toLocaleDateString();
+    }
     
-    document.getElementById("debugContent").innerHTML = `
-      <strong>Error:</strong> ${error.code}<br>
-      <strong>Message:</strong> ${error.message}<br>
-      <strong>User UID:</strong> ${user.uid}<br>
-      <strong>Likely Cause:</strong> Database rules blocking read
-    `;
-    document.getElementById("debugInfo").classList.remove("hidden");
-  });
+    // Hide any error
+    document.getElementById('error').classList.add('hidden');
+    
+  } catch (err) {
+    // Show error
+    document.getElementById('error').classList.remove('hidden');
+    document.getElementById('errorMessage').innerText = err.message;
+    document.getElementById('content').classList.add('hidden');
+  }
+}, (error) => {
+  // Auth error
+  document.getElementById('loading').classList.add('hidden');
+  document.getElementById('error').classList.remove('hidden');
+  document.getElementById('errorMessage').innerText = 'Authentication error: ' + error.message;
 });
-
 </script>
 
 </body>
