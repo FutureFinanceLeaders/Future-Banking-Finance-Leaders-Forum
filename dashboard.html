@@ -1,241 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Member Dashboard | FFL</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard | Future Finance Leaders</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #0f172a;
+  color: #fff;
 }
 
-body{
-background:#F4F6F9;
-display:flex;
-min-height:100vh;
+header {
+  background: linear-gradient(90deg, #0f172a, #064e3b);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* SIDEBAR */
-.sidebar{
-width:250px;
-background:#0B1F3A;
-color:white;
-padding:2rem 1rem;
-display:flex;
-flex-direction:column;
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+  color: gold;
 }
 
-.sidebar img{
-height:40px;
-margin-bottom:2rem;
+.logout-btn {
+  background: #10b981;
+  border: none;
+  padding: 10px 18px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
 }
 
-.sidebar a{
-color:white;
-text-decoration:none;
-margin:1rem 0;
-font-size:0.95rem;
-cursor:pointer;
+.container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* MAIN */
-.main{
-flex:1;
-padding:2rem 3rem;
-overflow-y:auto;
+.welcome {
+  font-size: 28px;
+  margin-bottom: 30px;
 }
 
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:2rem;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
-.card{
-background:white;
-padding:1.5rem;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
-margin-bottom:2rem;
+.card {
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-.card h2{
-margin-bottom:1rem;
-color:#0B1F3A;
+.card h3 {
+  margin-top: 0;
+  color: gold;
 }
 
-/* MEMBERSHIP STATUS */
-.status{
-display:flex;
-justify-content:space-between;
-align-items:center;
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  display: inline-block;
+  margin-top: 10px;
 }
 
-.badge{
-padding:0.4rem 0.8rem;
-border-radius:20px;
-font-size:0.8rem;
-font-weight:600;
+.free { background: #334155; }
+.premium { background: #10b981; }
+
+.section-title {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #10b981;
 }
 
-.free{
-background:#E2E8F0;
-color:#333;
+.notification {
+  background: #0f172a;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
-.premium{
-background:#C8A951;
-color:#0B1F3A;
-}
-
-/* EVENTS */
-.event{
-padding:0.8rem;
-background:#F0F2F5;
-border-radius:8px;
-margin-bottom:0.8rem;
-}
-
-/* MESSAGES */
-.message-box{
-max-height:200px;
-overflow-y:auto;
-border:1px solid #ddd;
-padding:1rem;
-border-radius:8px;
-margin-bottom:1rem;
-background:#F9FAFB;
-}
-
-.message{
-margin-bottom:0.5rem;
-}
-
-input, textarea{
-width:100%;
-padding:0.8rem;
-margin-bottom:1rem;
-border-radius:8px;
-border:1px solid #ccc;
-}
-
-button{
-padding:0.8rem 1.5rem;
-background:#0F5E4E;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-}
-
-@media(max-width:768px){
-.sidebar{
-display:none;
-}
-body{
-flex-direction:column;
-}
+a.dashboard-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #10b981;
+  text-decoration: none;
+  font-weight: 600;
 }
 </style>
 </head>
 
 <body>
 
-<div class="sidebar">
-<img src="FFL.png">
-<a onclick="showSection('overview')">Overview</a>
-<a onclick="showSection('learning')">Learning</a>
-<a onclick="showSection('events')">Events</a>
-<a onclick="showSection('messages')">Messages</a>
-<a href="index.html">Logout</a>
-</div>
+<header>
+  <div class="logo">Future Finance Leaders (FFL)</div>
+  <button class="logout-btn" onclick="logout()">Logout</button>
+</header>
 
-<div class="main">
+<div class="container">
 
-<div class="header">
-<h1>Welcome, Member</h1>
-</div>
+  <div class="welcome" id="welcomeText">Loading...</div>
 
-<!-- OVERVIEW -->
-<div id="overview" class="section">
-<div class="card">
-<h2>Membership Status</h2>
-<div class="status">
-<p>Current Plan:</p>
-<span class="badge premium">Premium</span>
-</div>
-<p style="margin-top:1rem;">Renewal Date: 12 Jan 2027</p>
-</div>
-</div>
+  <div class="grid">
 
-<!-- LEARNING -->
-<div id="learning" class="section" style="display:none;">
-<div class="card">
-<h2>Your Learning Access</h2>
-<p>✔ All premium case studies</p>
-<p>✔ Workshop recordings</p>
-<p>✔ Downloadable PDF guides</p>
-<a href="assets/sample-guide.pdf" download>
-<button style="margin-top:1rem;">Download Investment Guide</button>
-</a>
-</div>
-</div>
+    <div class="card">
+      <h3>Membership</h3>
+      <div id="membershipLevel">Loading...</div>
+      <div id="membershipBadge"></div>
+      <a href="join.html" class="dashboard-link">Upgrade Membership</a>
+    </div>
 
-<!-- EVENTS -->
-<div id="events" class="section" style="display:none;">
-<div class="card">
-<h2>Event Participation</h2>
-<div class="event">✔ Digital Banking Webinar – Attended</div>
-<div class="event">✔ Investment Case Study Workshop – Completed</div>
-<div class="event">Upcoming: Fintech Strategy Roundtable</div>
-</div>
-</div>
+    <div class="card">
+      <h3>Profile</h3>
+      <p><strong>Name:</strong> <span id="profileName"></span></p>
+      <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+      <p><strong>Background:</strong> <span id="profileBackground"></span></p>
+      <p><strong>LinkedIn:</strong> <span id="profileLinkedin"></span></p>
+    </div>
 
-<!-- MESSAGES -->
-<div id="messages" class="section" style="display:none;">
-<div class="card">
-<h2>Mentor & Peer Messaging</h2>
+    <div class="card">
+      <h3>Activity</h3>
+      <p><strong>Events Attended:</strong> <span id="eventsCount">0</span></p>
+      <p><strong>Downloads:</strong> <span id="downloadsCount">0</span></p>
+      <a href="learning.html" class="dashboard-link">Go to Learning Hub</a>
+    </div>
 
-<div class="message-box" id="chatBox">
-<div class="message"><strong>Mentor:</strong> Focus on valuation modeling practice.</div>
-<div class="message"><strong>You:</strong> Thank you, I will review DCF models.</div>
-</div>
+    <div class="card">
+      <h3>Referral</h3>
+      <p><strong>Your Code:</strong> <span id="referralCode"></span></p>
+      <a href="#" class="dashboard-link">Invite Members</a>
+    </div>
 
-<textarea id="newMessage" placeholder="Type your message..."></textarea>
-<button onclick="sendMessage()">Send Message</button>
+  </div>
 
-</div>
-</div>
+  <div class="section-title">Notifications</div>
+  <div id="notificationsContainer"></div>
 
 </div>
 
-<script>
-function showSection(section){
-let sections=document.getElementsByClassName("section");
-for(let i=0;i<sections.length;i++){
-sections[i].style.display="none";
-}
-document.getElementById(section).style.display="block";
-}
+<!-- Firebase & Auth -->
+<script type="module">
 
-function sendMessage(){
-let text=document.getElementById("newMessage").value;
-if(text==="") return;
+import { auth, db, ref, onValue } from "./firebase.js";
+import { onAuthStateChanged } from "./firebase.js";
 
-let box=document.getElementById("chatBox");
-let newMsg=document.createElement("div");
-newMsg.className="message";
-newMsg.innerHTML="<strong>You:</strong> "+text;
-box.appendChild(newMsg);
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
 
-document.getElementById("newMessage").value="";
-box.scrollTop=box.scrollHeight;
-}
+  const uid = user.uid;
+
+  // Load profile data
+  onValue(ref(db, `users/${uid}`), (snapshot) => {
+    const data = snapshot.val();
+    if (!data) return;
+
+    document.getElementById("welcomeText").innerText =
+      "Welcome back, " + data.profile.name;
+
+    document.getElementById("profileName").innerText =
+      data.profile.name || "-";
+
+    document.getElementById("profileEmail").innerText =
+      data.profile.email || "-";
+
+    document.getElementById("profileBackground").innerText =
+      data.profile.background || "-";
+
+    document.getElementById("profileLinkedin").innerHTML =
+      data.profile.linkedin
+        ? `<a href="${data.profile.linkedin}" target="_blank" style="color:#10b981;">View Profile</a>`
+        : "-";
+
+    document.getElementById("eventsCount").innerText =
+      data.activity?.eventsAttended || 0;
+
+    document.getElementById("downloadsCount").innerText =
+      data.activity?.downloads || 0;
+
+    document.getElementById("referralCode").innerText =
+      data.referral?.code || "-";
+
+    const level = data.membership?.level || "Free";
+    document.getElementById("membershipLevel").innerText = level;
+
+    const badge = document.getElementById("membershipBadge");
+    badge.innerHTML =
+      level === "Premium"
+        ? `<span class="badge premium">Premium Member</span>`
+        : `<span class="badge free">Free Member</span>`;
+  });
+
+  // Load notifications
+  onValue(ref(db, `notifications/${uid}`), (snapshot) => {
+    const container = document.getElementById("notificationsContainer");
+    container.innerHTML = "";
+
+    const notifications = snapshot.val();
+    if (!notifications) {
+      container.innerHTML = "<p>No notifications yet.</p>";
+      return;
+    }
+
+    Object.values(notifications)
+      .reverse()
+      .forEach((n) => {
+        const div = document.createElement("div");
+        div.className = "notification";
+        div.innerText = n.message;
+        container.appendChild(div);
+      });
+  });
+
+});
+
 </script>
 
 </body>
