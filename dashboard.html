@@ -48,6 +48,13 @@ header {
   color: gold;
 }
 
+.welcome small {
+  font-size: 16px;
+  color: #94a3b8;
+  display: block;
+  margin-top: 5px;
+}
+
 .card {
   background: #1e293b;
   padding: 25px;
@@ -126,9 +133,54 @@ button {
   cursor: pointer;
   font-weight: 600;
   margin-right: 10px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #059669;
+}
+
+button.secondary {
+  background: #334155;
+}
+
+button.secondary:hover {
+  background: #475569;
+}
+
+input {
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  width: 100%;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+input:focus {
+  outline: 2px solid #10b981;
+  border-color: transparent;
+}
+
+.name-setup {
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
 }
 
 .hidden {
+  display: none;
+}
+
+.success-message {
+  background: #10b981;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0;
   display: none;
 }
 </style>
@@ -159,7 +211,25 @@ button {
   <!-- Dashboard Content -->
   <div id="content" class="hidden">
     
-    <div class="welcome" id="welcomeMessage">Welcome!</div>
+    <div class="welcome" id="welcomeMessage">
+      Welcome back!
+      <small id="welcomeSubtext">Let's continue your learning journey</small>
+    </div>
+
+    <!-- Name Setup (shown if no name is set) -->
+    <div id="nameSetupCard" class="card hidden">
+      <h2 style="color: gold; margin-top: 0;">👋 Welcome to FFL!</h2>
+      <p>Please enter your name to personalize your experience:</p>
+      <div class="name-setup">
+        <input type="text" id="firstNameInput" placeholder="Your first name" />
+        <input type="text" id="fullNameInput" placeholder="Your full name (optional)" />
+        <div style="display: flex; gap: 10px; margin-top: 15px;">
+          <button onclick="saveUserName()">Save Name</button>
+          <button class="secondary" onclick="skipNameSetup()">Skip for now</button>
+        </div>
+        <div id="nameSuccess" class="success-message">Name saved successfully!</div>
+      </div>
+    </div>
 
     <div class="grid">
       
@@ -167,8 +237,12 @@ button {
       <div class="card">
         <h2 style="color: gold; margin-top: 0;">👤 Your Account</h2>
         <div class="info-row">
-          <div class="label">Name</div>
-          <div class="value" id="displayName">Not set</div>
+          <div class="label">First Name</div>
+          <div class="value" id="displayFirstName">Not set</div>
+        </div>
+        <div class="info-row">
+          <div class="label">Full Name</div>
+          <div class="value" id="displayFullName">Not set</div>
         </div>
         <div class="info-row">
           <div class="label">Email</div>
@@ -177,10 +251,6 @@ button {
         <div class="info-row">
           <div class="label">Email Verified</div>
           <div class="value" id="emailVerified">No</div>
-        </div>
-        <div class="info-row">
-          <div class="label">User ID</div>
-          <div class="value" id="displayUid" style="font-size: 12px;"></div>
         </div>
       </div>
 
@@ -192,12 +262,12 @@ button {
           <div class="value"><span class="badge">Free Member</span></div>
         </div>
         <div class="info-row">
-          <div class="label">Account Created</div>
-          <div class="value" id="accountCreated">Just now</div>
+          <div class="label">Member Since</div>
+          <div class="value" id="accountCreated">Today</div>
         </div>
         <div class="info-row">
           <div class="label">Last Login</div>
-          <div class="value" id="lastLogin">Today</div>
+          <div class="value" id="lastLogin">Just now</div>
         </div>
       </div>
 
@@ -205,9 +275,9 @@ button {
       <div class="card">
         <h2 style="color: gold; margin-top: 0;">⚡ Quick Actions</h2>
         <div style="display: flex; flex-direction: column; gap: 10px;">
-          <button onclick="window.location.href='profile.html'">Edit Profile</button>
-          <button onclick="window.location.href='learning.html'">Learning Hub</button>
-          <button onclick="window.location.href='events.html'">Upcoming Events</button>
+          <button onclick="showNameSetup()">✏️ Set My Name</button>
+          <button onclick="window.location.href='learning.html'">📚 Learning Hub</button>
+          <button onclick="window.location.href='events.html'">📅 Upcoming Events</button>
         </div>
       </div>
     </div>
@@ -217,9 +287,12 @@ button {
 <!-- Firebase Scripts -->
 <script type="module">
 import { auth, onAuthStateChanged } from "./firebase.js";
-import { signOut } from "./firebase.js";
+import { signOut, updateProfile } from "./firebase.js";
 
-// Make logout function global
+// Store user data locally
+let currentUser = null;
+
+// Make functions global
 window.handleLogout = async function() {
   try {
     await signOut(auth);
@@ -230,29 +303,115 @@ window.handleLogout = async function() {
   }
 };
 
+window.showNameSetup = function() {
+  document.getElementById('nameSetupCard').classList.remove('hidden');
+};
+
+window.skipNameSetup = function() {
+  document.getElementById('nameSetupCard').classList.add('hidden');
+};
+
+window.saveUserName = async function() {
+  const firstName = document.getElementById('firstNameInput').value.trim();
+  const fullName = document.getElementById('fullNameInput').value.trim() || firstName;
+  
+  if (!firstName) {
+    alert('Please enter your first name');
+    return;
+  }
+  
+  if (!currentUser) {
+    alert('Not logged in');
+    return;
+  }
+  
+  try {
+    // Update Firebase Auth profile
+    await updateProfile(currentUser, {
+      displayName: fullName
+    });
+    
+    // Store first name separately (in memory for now)
+    localStorage.setItem('ffl_firstName_' + currentUser.uid, firstName);
+    localStorage.setItem('ffl_fullName_' + currentUser.uid, fullName);
+    
+    // Show success message
+    document.getElementById('nameSuccess').style.display = 'block';
+    setTimeout(() => {
+      document.getElementById('nameSuccess').style.display = 'none';
+    }, 3000);
+    
+    // Update the display
+    updateWelcomeMessage();
+    
+    // Hide setup card
+    document.getElementById('nameSetupCard').classList.add('hidden');
+    
+    // Clear inputs
+    document.getElementById('firstNameInput').value = '';
+    document.getElementById('fullNameInput').value = '';
+    
+  } catch (error) {
+    alert('Error saving name: ' + error.message);
+  }
+};
+
+function getStoredFirstName(uid) {
+  return localStorage.getItem('ffl_firstName_' + uid);
+}
+
+function getStoredFullName(uid) {
+  return localStorage.getItem('ffl_fullName_' + uid);
+}
+
+function updateWelcomeMessage() {
+  if (!currentUser) return;
+  
+  const uid = currentUser.uid;
+  const storedFirstName = getStoredFirstName(uid);
+  const storedFullName = getStoredFullName(uid);
+  const authName = currentUser.displayName;
+  
+  // Priority: 1. Stored first name, 2. Auth display name, 3. Email username, 4. "Member"
+  let firstName = storedFirstName;
+  
+  if (!firstName && authName) {
+    firstName = authName.split(' ')[0];
+  }
+  
+  if (!firstName) {
+    // Try to get from email
+    const emailName = currentUser.email ? currentUser.email.split('@')[0] : null;
+    firstName = emailName || 'Member';
+  }
+  
+  // Update welcome message
+  document.getElementById('welcomeMessage').innerHTML = `Welcome back, ${firstName}! 👋`;
+  document.getElementById('welcomeSubtext').innerHTML = 'Let\'s continue your learning journey';
+  
+  // Update display fields
+  document.getElementById('displayFirstName').innerText = storedFirstName || firstName || 'Not set';
+  document.getElementById('displayFullName').innerText = storedFullName || authName || 'Not set';
+}
+
 // Check authentication state
 onAuthStateChanged(auth, (user) => {
   // Hide loading
   document.getElementById('loading').classList.add('hidden');
   
   if (!user) {
-    // No user logged in - redirect to login
     window.location.href = "login.html";
     return;
   }
 
   try {
+    currentUser = user;
+    
     // User is logged in - show content
     document.getElementById('content').classList.remove('hidden');
     
-    // Update welcome message
-    const firstName = user.displayName ? user.displayName.split(' ')[0] : 'Member';
-    document.getElementById('welcomeMessage').innerHTML = `Welcome back, ${firstName}! 👋`;
-    
     // Update user info
-    document.getElementById('displayName').innerText = user.displayName || 'Not set (update your profile)';
     document.getElementById('displayEmail').innerText = user.email;
-    document.getElementById('displayUid').innerText = user.uid;
     
     // Email verification status
     const verifiedEl = document.getElementById('emailVerified');
@@ -264,17 +423,28 @@ onAuthStateChanged(auth, (user) => {
       verifiedEl.style.color = '#f59e0b';
     }
     
-    // Account creation time (if available)
+    // Account creation time
     if (user.metadata?.creationTime) {
       document.getElementById('accountCreated').innerText = new Date(user.metadata.creationTime).toLocaleDateString();
     }
     
-    // Last login time (if available)
+    // Last login time
     if (user.metadata?.lastSignInTime) {
       document.getElementById('lastLogin').innerText = new Date(user.metadata.lastSignInTime).toLocaleDateString();
     }
     
-    // Hide any error
+    // Check if user has a name set
+    const storedFirstName = getStoredFirstName(user.uid);
+    
+    if (!storedFirstName && !user.displayName) {
+      // No name set - show setup card
+      document.getElementById('nameSetupCard').classList.remove('hidden');
+    }
+    
+    // Update welcome message
+    updateWelcomeMessage();
+    
+    // Hide error
     document.getElementById('error').classList.add('hidden');
     
   } catch (err) {
@@ -283,11 +453,6 @@ onAuthStateChanged(auth, (user) => {
     document.getElementById('errorMessage').innerText = err.message;
     document.getElementById('content').classList.add('hidden');
   }
-}, (error) => {
-  // Auth error
-  document.getElementById('loading').classList.add('hidden');
-  document.getElementById('error').classList.remove('hidden');
-  document.getElementById('errorMessage').innerText = 'Authentication error: ' + error.message;
 });
 </script>
 
