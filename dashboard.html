@@ -1,557 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dashboard | Future Finance Leaders</title>
+<meta charset="UTF-8">
+<title>FFL Dashboard</title>
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-    background: #0f172a;
-    color: white;
-  }
-  
-  .header {
-    background: linear-gradient(135deg, #0f172a 0%, #064e3b 100%);
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #334155;
-  }
-  
-  .logo {
-    color: gold;
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 1px;
-  }
-  
-  .logout-btn {
-    background: #10b981;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
-  }
-  
-  .logout-btn:hover {
-    background: #059669;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-  }
-  
-  .welcome-card {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    padding: 40px;
-    border-radius: 20px;
-    margin-bottom: 30px;
-    border: 1px solid #334155;
-    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5);
-  }
-  
-  .welcome-title {
-    font-size: 48px;
-    margin-bottom: 10px;
-  }
-  
-  .welcome-name {
-    color: gold;
-    font-size: 48px;
-    font-weight: bold;
-    text-transform: capitalize;
-  }
-  
-  .welcome-subtitle {
-    color: #94a3b8;
-    font-size: 18px;
-    margin-top: 10px;
-  }
-  
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-  }
-  
-  .stat-card {
-    background: #1e293b;
-    padding: 30px;
-    border-radius: 16px;
-    border: 1px solid #334155;
-  }
-  
-  .stat-label {
-    color: #94a3b8;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-  }
-  
-  .stat-value {
-    color: gold;
-    font-size: 32px;
-    font-weight: bold;
-  }
-  
-  .stat-desc {
-    color: #64748b;
-    margin-top: 10px;
-    font-size: 14px;
-  }
-  
-  .info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-  }
-  
-  .info-card {
-    background: #1e293b;
-    padding: 25px;
-    border-radius: 16px;
-    border: 1px solid #334155;
-  }
-  
-  .info-card h3 {
-    color: gold;
-    margin-bottom: 20px;
-    font-size: 20px;
-    border-bottom: 1px solid #334155;
-    padding-bottom: 10px;
-  }
-  
-  .info-row {
-    display: flex;
-    margin-bottom: 15px;
-  }
-  
-  .info-label {
-    width: 100px;
-    color: #94a3b8;
-  }
-  
-  .info-value {
-    color: white;
-    font-weight: 500;
-    word-break: break-all;
-  }
-  
-  .verified {
-    color: #10b981;
-    font-weight: bold;
-  }
-  
-  .not-verified {
-    color: #f59e0b;
-    font-weight: bold;
-  }
-  
-  .loading {
-    text-align: center;
-    padding: 100px 20px;
-  }
-  
-  .loading-spinner {
-    width: 60px;
-    height: 60px;
-    border: 4px solid #334155;
-    border-top-color: gold;
-    border-radius: 50%;
-    margin: 20px auto;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-  
-  .loading-text {
-    color: gold;
-    font-size: 24px;
-    margin-top: 20px;
-  }
-  
-  .loading-subtext {
-    color: #64748b;
-    margin-top: 10px;
-  }
-  
-  .name-setup {
-    background: #1e293b;
-    padding: 30px;
-    border-radius: 16px;
-    margin-top: 30px;
-    border: 2px solid gold;
-  }
-  
-  .name-setup h2 {
-    color: gold;
-    margin-bottom: 20px;
-  }
-  
-  .name-input {
-    width: 100%;
-    padding: 15px;
-    background: #0f172a;
-    border: 1px solid #334155;
-    border-radius: 8px;
-    color: white;
-    font-size: 16px;
-    margin-bottom: 15px;
-  }
-  
-  .name-input:focus {
-    outline: 2px solid gold;
-    border-color: transparent;
-  }
-  
-  .save-btn {
-    background: gold;
-    color: #0f172a;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .save-btn:hover {
-    background: #e6b800;
-  }
-  
-  .skip-btn {
-    background: #334155;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  .highlight {
-    color: gold;
-    font-weight: bold;
-  }
-  
-  .action-buttons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-  }
-  
-  .action-btn {
-    background: #334155;
-    color: white;
-    text-decoration: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: background 0.3s;
-  }
-  
-  .action-btn:hover {
-    background: #475569;
-  }
+body { 
+  background: #0f172a; 
+  color: white; 
+  font-family: Arial; 
+  padding: 20px;
+}
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+button {
+  background: gold;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="logo">FFL</div>
-  <button class="logout-btn" id="logoutBtn">Logout</button>
-</div>
-
-<div class="container">
-
-  <!-- LOADING STATE -->
-  <div id="loadingState" class="loading">
-    <div class="loading-spinner"></div>
-    <div class="loading-text">Loading your dashboard...</div>
-    <div class="loading-subtext">Please wait a moment</div>
+<div id="app">
+  <div id="loading" style="text-align: center; padding: 50px;">
+    <h2>Loading...</h2>
   </div>
 
-  <!-- DASHBOARD CONTENT (Initially Hidden) -->
-  <div id="dashboardContent" style="display: none;">
-    
-    <!-- Welcome Card -->
-    <div class="welcome-card">
-      <div class="welcome-title">Welcome back,</div>
-      <div class="welcome-name" id="userFirstName">Member</div>
-      <div class="welcome-subtitle" id="userEmail"></div>
+  <div id="content" style="display: none;">
+    <div class="card">
+      <h1 id="welcome">Welcome!</h1>
+      <p>Email: <span id="email"></span></p>
+      <p>User ID: <span id="uid"></span></p>
+      <p>Status: <span id="status"></span></p>
     </div>
 
-    <!-- Quick Stats -->
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-label">Membership</div>
-        <div class="stat-value">Free</div>
-        <div class="stat-desc">Active member since today</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Email Status</div>
-        <div class="stat-value" id="emailStatus">Pending</div>
-        <div class="stat-desc" id="emailStatusDesc"></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Account Age</div>
-        <div class="stat-value" id="accountAge">New</div>
-        <div class="stat-desc">Member since <span id="memberSince"></span></div>
-      </div>
+    <div class="card">
+      <h3>Set Your Name</h3>
+      <input type="text" id="firstName" placeholder="First name" style="padding: 10px; width: 200px;">
+      <button onclick="saveName()">Save</button>
     </div>
 
-    <!-- Account Information -->
-    <div class="info-grid">
-      <div class="info-card">
-        <h3>Account Details</h3>
-        <div class="info-row">
-          <span class="info-label">Name:</span>
-          <span class="info-value" id="displayName">Not set</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Email:</span>
-          <span class="info-value" id="displayEmail"></span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">User ID:</span>
-          <span class="info-value" id="displayUid" style="font-size: 12px;"></span>
-        </div>
-      </div>
-
-      <div class="info-card">
-        <h3>Quick Actions</h3>
-        <div class="action-buttons">
-          <a href="#" class="action-btn" id="setNameBtn">Set My Name</a>
-          <a href="learning.html" class="action-btn">Learning Hub</a>
-          <a href="events.html" class="action-btn">Events</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Name Setup Form (Hidden by default) -->
-    <div id="nameSetupForm" class="name-setup hidden">
-      <h2>👋 Tell us your name</h2>
-      <p style="color: #94a3b8; margin-bottom: 20px;">This helps us personalize your experience</p>
-      <input type="text" id="firstNameInput" class="name-input" placeholder="Your first name (e.g., John)" />
-      <input type="text" id="fullNameInput" class="name-input" placeholder="Your full name (optional)" />
-      <div style="display: flex; gap: 10px;">
-        <button class="save-btn" id="saveNameBtn">Save Name</button>
-        <button class="skip-btn" id="skipNameBtn">Skip</button>
-      </div>
-    </div>
-
+    <button onclick="logout()">Logout</button>
   </div>
 </div>
 
-<!-- Firebase Script -->
 <script type="module">
 import { auth, onAuthStateChanged, signOut, updateProfile } from "./firebase.js";
 
-// Get DOM elements
-const loadingState = document.getElementById('loadingState');
-const dashboardContent = document.getElementById('dashboardContent');
-const logoutBtn = document.getElementById('logoutBtn');
-const setNameBtn = document.getElementById('setNameBtn');
-const nameSetupForm = document.getElementById('nameSetupForm');
-const saveNameBtn = document.getElementById('saveNameBtn');
-const skipNameBtn = document.getElementById('skipNameBtn');
-const firstNameInput = document.getElementById('firstNameInput');
-const fullNameInput = document.getElementById('fullNameInput');
-
-let currentUser = null;
-
-// Helper to get first name from email
-function getFirstNameFromEmail(email) {
-  if (!email) return 'Member';
-  const username = email.split('@')[0];
-  // Capitalize first letter
-  return username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
-}
-
-// Update dashboard with user info
-function updateDashboard(user) {
-  // Get name from multiple sources
-  let firstName = 'Member';
-  let fullName = 'Not set';
+// Simple functions
+window.saveName = async function() {
+  const firstName = document.getElementById('firstName').value;
+  if (!firstName) return alert('Enter a name');
   
-  // Check if we have a stored name in localStorage
-  const storedFirstName = localStorage.getItem(`firstName_${user.uid}`);
-  const storedFullName = localStorage.getItem(`fullName_${user.uid}`);
+  const user = auth.currentUser;
+  if (!user) return alert('Not logged in');
   
-  if (storedFirstName) {
-    firstName = storedFirstName;
-    fullName = storedFullName || storedFirstName;
-  } else if (user.displayName) {
-    fullName = user.displayName;
-    firstName = user.displayName.split(' ')[0];
-  } else {
-    // Fallback to email username
-    firstName = getFirstNameFromEmail(user.email);
+  try {
+    await updateProfile(user, { displayName: firstName });
+    document.getElementById('welcome').innerHTML = `Welcome, ${firstName}! 👋`;
+    alert('Name saved!');
+  } catch (e) {
+    // Even if Firebase update fails, save locally
+    localStorage.setItem('ffl_name_' + user.uid, firstName);
+    document.getElementById('welcome').innerHTML = `Welcome, ${firstName}! 👋`;
+    alert('Name saved locally!');
   }
-  
-  // Update welcome message
-  document.getElementById('userFirstName').innerHTML = firstName;
-  document.getElementById('userEmail').innerHTML = user.email;
-  
-  // Update account details
-  document.getElementById('displayName').innerHTML = fullName;
-  document.getElementById('displayEmail').innerHTML = user.email;
-  document.getElementById('displayUid').innerHTML = user.uid;
-  
-  // Update email status
-  const emailStatus = document.getElementById('emailStatus');
-  const emailStatusDesc = document.getElementById('emailStatusDesc');
-  
-  if (user.emailVerified) {
-    emailStatus.innerHTML = '✅ Verified';
-    emailStatus.className = 'stat-value verified';
-    emailStatusDesc.innerHTML = 'Your email is confirmed';
-  } else {
-    emailStatus.innerHTML = '⚠️ Pending';
-    emailStatus.className = 'stat-value not-verified';
-    emailStatusDesc.innerHTML = 'Please check your inbox to verify';
-  }
-  
-  // Update account age
-  if (user.metadata?.creationTime) {
-    const created = new Date(user.metadata.creationTime);
-    const now = new Date();
-    const daysOld = Math.floor((now - created) / (1000 * 60 * 60 * 24));
-    
-    document.getElementById('memberSince').innerHTML = created.toLocaleDateString();
-    
-    if (daysOld === 0) {
-      document.getElementById('accountAge').innerHTML = 'Brand New';
-    } else if (daysOld === 1) {
-      document.getElementById('accountAge').innerHTML = '1 day';
-    } else {
-      document.getElementById('accountAge').innerHTML = `${daysOld} days`;
-    }
-  }
-  
-  // Check if we should show name setup
-  if (!storedFirstName && !user.displayName) {
-    nameSetupForm.classList.remove('hidden');
-  }
-}
+};
 
-// Check auth state
+window.logout = async function() {
+  await signOut(auth);
+  window.location.href = 'login.html';
+};
+
+// Check auth
 onAuthStateChanged(auth, (user) => {
-  console.log('Auth state changed:', user ? 'Logged in' : 'Not logged in');
+  document.getElementById('loading').style.display = 'none';
   
   if (!user) {
     window.location.href = 'login.html';
     return;
   }
   
-  currentUser = user;
+  document.getElementById('content').style.display = 'block';
+  document.getElementById('email').innerText = user.email;
+  document.getElementById('uid').innerText = user.uid;
+  document.getElementById('status').innerText = user.emailVerified ? '✅ Verified' : '⚠️ Not Verified';
   
-  // Hide loading, show dashboard
-  loadingState.style.display = 'none';
-  dashboardContent.style.display = 'block';
-  
-  // Update dashboard with user info
-  updateDashboard(user);
+  // Get name from either Firebase or localStorage
+  const localName = localStorage.getItem('ffl_name_' + user.uid);
+  const displayName = user.displayName || localName || 'Member';
+  document.getElementById('welcome').innerHTML = `Welcome, ${displayName}! 👋`;
 });
-
-// Logout
-logoutBtn.addEventListener('click', async () => {
-  try {
-    await signOut(auth);
-    window.location.href = 'login.html';
-  } catch (error) {
-    alert('Error logging out: ' + error.message);
-  }
-});
-
-// Show name setup form
-setNameBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  nameSetupForm.classList.remove('hidden');
-});
-
-// Skip name setup
-skipNameBtn.addEventListener('click', () => {
-  nameSetupForm.classList.add('hidden');
-});
-
-// Save name
-saveNameBtn.addEventListener('click', async () => {
-  const firstName = firstNameInput.value.trim();
-  const fullName = fullNameInput.value.trim() || firstName;
-  
-  if (!firstName) {
-    alert('Please enter your first name');
-    return;
-  }
-  
-  if (!currentUser) {
-    alert('Not logged in');
-    return;
-  }
-  
-  try {
-    // Store in localStorage (works without database)
-    localStorage.setItem(`firstName_${currentUser.uid}`, firstName);
-    localStorage.setItem(`fullName_${currentUser.uid}`, fullName);
-    
-    // Try to update Firebase profile (optional)
-    try {
-      await updateProfile(currentUser, {
-        displayName: fullName
-      });
-    } catch (profileError) {
-      console.log('Profile update skipped:', profileError);
-    }
-    
-    // Update dashboard
-    updateDashboard(currentUser);
-    
-    // Hide form
-    nameSetupForm.classList.add('hidden');
-    
-    // Clear inputs
-    firstNameInput.value = '';
-    fullNameInput.value = '';
-    
-    // Show success message
-    alert(`Welcome ${firstName}! Your name has been saved.`);
-    
-  } catch (error) {
-    alert('Error saving name: ' + error.message);
-  }
-});
-
-// Add resend verification email option
-if (!currentUser?.emailVerified) {
-  // You could add a button to resend verification here
-}
 </script>
 
 </body>
