@@ -30,7 +30,7 @@ if (signupForm) {
     const name = document.getElementById("name")?.value.trim();
     const email = document.getElementById("email")?.value.trim();
     const password = document.getElementById("password")?.value;
-    const background = document.getElementById("background")?.value || null;
+    const membership = document.getElementById("membership")?.value || "free";
     const linkedin = document.getElementById("linkedin")?.value || null;
     const referral = document.getElementById("referral")?.value.trim() || null;
 
@@ -77,15 +77,17 @@ if (signupForm) {
 
       // Save user profile
       await set(ref(db, `users/${user.uid}`), {
-        profile: {
-          name,
-          email,
-          background,
-          linkedin,
-          createdAt: Date.now(),
-          emailVerified: false,
-          lastLogin: null,
-        },
+  profile: {
+    name,
+    email,
+    membership,  // Changed from 'background'
+    linkedin,
+    createdAt: Date.now(),
+    emailVerified: false,
+    lastLogin: null,
+  },
+  // ... rest remains the same
+});
         membership: {
           level: "Free",
           status: "active",
