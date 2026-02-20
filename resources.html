@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning & Resources | Future Finance Leaders</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#F4F6F9;
+    color:#1A1A1A;
+}
+
+/* NAV */
+nav{
+    background:#0B1F3A;
+    padding:1rem 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+nav img{
+    height:45px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:2rem;
+}
+
+/* HERO */
+.hero{
+    background:linear-gradient(rgba(11,31,58,0.9),rgba(11,31,58,0.9)),
+    url('Cover.png') center/cover no-repeat;
+    color:white;
+    text-align:center;
+    padding:5rem 5%;
+}
+
+.hero h1{
+    font-size:2.5rem;
+    margin-bottom:1rem;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    opacity:0.9;
+}
+
+/* FILTER BUTTONS */
+.filters{
+    text-align:center;
+    padding:2rem 5%;
+}
+
+.filters button{
+    padding:0.7rem 1.5rem;
+    margin:0.5rem;
+    border:none;
+    border-radius:30px;
+    background:#0F5E4E;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.filters button:hover{
+    background:#C8A951;
+    color:#0B1F3A;
+}
+
+/* RESOURCE GRID */
+.resources{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:2rem;
+    padding:2rem 5%;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:2rem;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    color:#0B1F3A;
+    margin-bottom:0.7rem;
+}
+
+.card p{
+    font-size:0.95rem;
+    margin-bottom:1rem;
+    color:#555;
+}
+
+.tag{
+    display:inline-block;
+    padding:0.3rem 0.8rem;
+    background:#F0F2F5;
+    border-radius:20px;
+    font-size:0.8rem;
+    margin-bottom:0.8rem;
+}
+
+/* VIDEO SECTION */
+.video-section{
+    padding:4rem 5%;
+    background:white;
+}
+
+.video-section h2{
+    text-align:center;
+    margin-bottom:2rem;
+}
+
+.video-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:2rem;
+}
+
+.video-card{
+    background:#F8FAFC;
+    padding:1.5rem;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.05);
+}
+
+/* FOOTER */
+footer{
+    background:#0B1F3A;
+    color:white;
+    text-align:center;
+    padding:2rem;
+    margin-top:4rem;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <img src="FFL.png" alt="FFL Logo">
+    <div>
+        <a href="index.html">Home</a>
+        <a href="join.html">Join</a>
+        <a href="resources.html">Learning</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Learning & Resources</h1>
+    <p>Structured knowledge across Banking, Investment, Fintech, and Entrepreneurship — curated for future finance leaders.</p>
+</section>
+
+<section class="filters">
+    <button onclick="filterSelection('all')">All</button>
+    <button onclick="filterSelection('banking')">Banking</button>
+    <button onclick="filterSelection('investment')">Investment</button>
+    <button onclick="filterSelection('fintech')">Fintech</button>
+    <button onclick="filterSelection('entrepreneurship')">Entrepreneurship</button>
+</section>
+
+<section class="resources">
+
+<div class="card banking">
+    <div class="tag">Banking</div>
+    <h3>Understanding Central Banking Systems</h3>
+    <p>Explore how monetary policy influences economic growth and financial stability.</p>
+</div>
+
+<div class="card investment">
+    <div class="tag">Investment</div>
+    <h3>Fundamentals of Equity Valuation</h3>
+    <p>Learn how analysts determine intrinsic company value using financial models.</p>
+</div>
+
+<div class="card fintech">
+    <div class="tag">Fintech</div>
+    <h3>Blockchain in Modern Finance</h3>
+    <p>How decentralized systems are transforming banking infrastructure.</p>
+</div>
+
+<div class="card entrepreneurship">
+    <div class="tag">Entrepreneurship</div>
+    <h3>Launching a Fintech Startup</h3>
+    <p>Steps to validate, fund, and scale a financial technology venture.</p>
+</div>
+
+<div class="card investment">
+    <div class="tag">Investment</div>
+    <h3>Portfolio Diversification Strategies</h3>
+    <p>Risk management techniques used by institutional investors.</p>
+</div>
+
+<div class="card banking">
+    <div class="tag">Banking</div>
+    <h3>Corporate Banking Explained</h3>
+    <p>Services and products provided to large corporations.</p>
+</div>
+
+</section>
+
+<section class="video-section">
+    <h2>Webinars & Video Resources</h2>
+    <div class="video-grid">
+
+        <div class="video-card">
+            <h3>Webinar: The Future of Digital Banking</h3>
+            <p>Insights into digital transformation in financial institutions.</p>
+        </div>
+
+        <div class="video-card">
+            <h3>Workshop: Investment Case Study Simulation</h3>
+            <p>Walkthrough of a real-world financial analysis process.</p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+© 2026 Future Finance Leaders (FFL) | Knowledge. Leadership. Impact.
+</footer>
+
+<script>
+filterSelection("all");
+
+function filterSelection(category){
+    let cards=document.getElementsByClassName("card");
+
+    for(let i=0;i<cards.length;i++){
+        cards[i].style.display="none";
+        if(category==="all" || cards[i].classList.contains(category)){
+            cards[i].style.display="block";
+        }
+    }
+}
+</script>
+
+</body>
+          </html>
