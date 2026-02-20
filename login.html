@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Login | Future Finance Leaders (FFL)</title>
+<style>
+  /* Base Styles */
+  body {font-family:'Inter',sans-serif;background:#F7F9FB;color:#0B1F3A;margin:0;padding:0;}
+  a {color:#C8A951;text-decoration:none;}
+  a:hover {text-decoration:underline;}
+
+  /* Security Banner */
+  .security-banner {
+    background: linear-gradient(90deg,#0B1F3A,#0F5E4E);
+    color:#C8A951;
+    padding:12px;
+    text-align:center;
+    font-size:14px;
+    font-weight:600;
+  }
+
+  /* Auth Hero */
+  .auth-hero {text-align:center;padding:3rem 1rem;}
+  .auth-hero h1 {font-size:2rem;color:#0B1F3A;margin-bottom:0.5rem;}
+  .auth-hero p {font-size:1.1rem;color:#0F5E4E;}
+
+  /* Auth Wrapper */
+  .auth-wrapper {display:flex;justify-content:center;padding:2rem;}
+  .auth-card {
+    background:white;
+    padding:2rem;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    width:100%;
+    max-width:420px;
+  }
+  .auth-card h2 {color:#0B1F3A;margin-bottom:1rem;text-align:center;}
+
+  input, select {width:100%;padding:0.8rem;margin-bottom:1rem;border-radius:8px;border:1px solid #ccc;font-size:1rem;}
+  button {width:100%;padding:0.9rem;background:#C8A951;color:white;border:none;border-radius:8px;font-weight:bold;cursor:pointer;font-size:1rem;}
+  button:hover {background:#A68B3E;}
+
+  .toggle-eye {cursor:pointer;margin-left:5px;}
+
+  /* Messages */
+  .success-message {padding:12px;background:#d1fae5;border:1px solid #10b981;border-radius:8px;color:#065f46;margin-bottom:1rem;}
+  .error-message {padding:12px;background:#fee2e2;border:1px solid #ef4444;border-radius:8px;color:#991b1b;margin-bottom:1rem;}
+  .info-message {padding:12px;background:#dbeafe;border:1px solid #0F5E4E;border-radius:8px;color:#0F5E4E;margin-bottom:1rem;}
+  .session-timeout {padding:12px;background:#FEF3C7;border:1px solid #f59e0b;border-radius:8px;margin-bottom:1rem;color:#92400e;}
+
+  /* Divider */
+  .auth-divider {text-align:center;margin:20px 0;position:relative;}
+  .auth-divider:before {
+    content:"";position:absolute;top:50%;left:0;right:0;height:1px;background:#E5E7EB;
+  }
+  .auth-divider span {background:white;padding:0 15px;color:#6B7280;font-size:14px;}
+
+  /* Alternative Action */
+  .alternative-action {text-align:center;margin-top:10px;}
+  .secondary-btn {display:inline-block;padding:12px 24px;background:white;color:#0F5E4E;border:1px solid #0F5E4E;border-radius:8px;font-weight:500;text-decoration:none;transition:all 0.3s;}
+  .secondary-btn:hover {background:#EFF6FF;}
+
+  /* Login help */
+  .login-help {background:#F8FAFC;border:1px solid #E5E7EB;border-radius:8px;padding:12px;margin-bottom:1rem;font-size:13px;}
+  .login-help h4 {margin:0 0 8px 0;color:#0B1F3A;}
+  .login-help ul {margin:0 0 0 15px;padding:0;}
+  .login-help li {margin-bottom:5px;font-size:13px;}
+
+</style>
+</head>
+<body>
+
+<!-- SECURITY BANNER -->
+<div class="security-banner">
+  🔒 <strong>FFL Secure Platform</strong> | 256-bit SSL Encryption | Session Timeout: 15 minutes
+</div>
+
+<!-- Hero Section -->
+<section class="auth-hero">
+  <h1>Secure Member Login</h1>
+  <p>Access your membership dashboard, learning content, and events.</p>
+</section>
+
+<!-- Login Card -->
+<div class="auth-wrapper">
+  <form id="loginForm" class="auth-card">
+    <h2>Login to FFL</h2>
+
+    <div id="loginSuccess" class="success-message" style="display:none;"></div>
+    <div id="loginError" class="error-message" style="display:none;"></div>
+    <div id="sessionTimeout" class="session-timeout" style="display:none;"></div>
+
+    <input type="email" id="loginEmail" placeholder="Email Address *" required>
+    <div class="password-wrap">
+      <input type="password" id="loginPassword" placeholder="••••••••" required>
+      <span class="toggle-eye" onclick="togglePassword('loginPassword')">👀</span>
+    </div>
+
+    <a href="forgot-password.html" style="display:block;margin-bottom:1rem;color:#0F5E4E;font-size:0.9rem;">Forgot Password?</a>
+
+    <div class="login-help">
+      <h4>Login Notes:</h4>
+      <ul>
+        <li>New members must login after registration</li>
+        <li>Sessions expire after 15 minutes</li>
+        <li>Multiple failed attempts may temporarily lock your account</li>
+      </ul>
+    </div>
+
+    <button type="submit" id="loginBtn">🔐 Secure Login</button>
+
+    <div class="auth-divider"><span>Don't have an account?</span></div>
+
+    <div class="alternative-action">
+      <a href="register.html" class="secondary-btn">Register New Account</a>
+    </div>
+  </form>
+</div>
+
+<script>
+  // Password toggle
+  function togglePassword(id){
+    const input = document.getElementById(id);
+    const eye = input.nextElementSibling || input.parentElement.querySelector('.toggle-eye');
+    if(input.type === "password"){ input.type="text"; eye.textContent="🙈"; }
+    else{ input.type="password"; eye.textContent="👀"; }
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    const params = new URLSearchParams(window.location.search);
+    if(params.get("redirect")){
+      const st = document.getElementById('sessionTimeout');
+      st.style.display='block';
+      st.innerHTML=`<strong>⚠️ Authentication Required</strong><br>Access to ${params.get("redirect").replace('.html','')} requires login.`;
+    }
+  });
+</script>
+
+<script type="module" src="firebase.js"></script>
+<script type="module" src="auth.js"></script>
+
+</body>
+</html>
