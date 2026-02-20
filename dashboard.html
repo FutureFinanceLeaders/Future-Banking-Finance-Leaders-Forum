@@ -84,11 +84,23 @@ header {
 }
 
 .badge {
-  background: #10b981;
-  padding: 4px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: bold;
   display: inline-block;
+}
+
+.badge.free {
+  background: #334155;
+  color: white;
+  border: 1px solid #64748b;
+}
+
+.badge.premium {
+  background: gold;
+  color: #0f172a;
+  border: 2px solid #10b981;
 }
 
 .loading {
@@ -216,8 +228,7 @@ button {
         <h2 style="color: gold; margin-top: 0;">📊 Account Status</h2>
         <div class="info-row">
           <div class="label">Membership</div>
-          <div class="value"><span class="badge">Free Member</span></div>
-        </div>
+          <div class="value"><span class="badge free">Free Member</span></div>
         <div class="info-row">
           <div class="label">Account Created</div>
           <div class="value" id="accountCreated">Just now</div>
