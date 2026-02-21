@@ -42,24 +42,3 @@ export {
   set,
   push
 };
-import { 
-  getAuth, 
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-  sendEmailVerification,
-  sendPasswordResetEmail  // Add this line
-} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-
-// Export it at the bottom
-export { 
-  auth, 
-  db,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-  sendEmailVerification,
-  sendPasswordResetEmail  // Add this line
-};
