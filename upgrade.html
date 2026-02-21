@@ -55,10 +55,15 @@ h1 {
   text-align: center;
   border: 2px solid gold;
   transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 .pricing-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.pricing-card.selected {
+  border: 3px solid #10b981;
+  background: #1a2634;
 }
 .price {
   font-size: 36px;
@@ -118,7 +123,7 @@ h1 {
 
   <div class="plans">
     <!-- Finance Students Plan -->
-    <div class="pricing-card">
+    <div class="pricing-card" data-plan="Finance Students" data-amount="19">
       <h2 style="color: gold;">Finance Students</h2>
       <div class="price">$19 <span>/month</span></div>
       <ul class="features">
@@ -130,7 +135,7 @@ h1 {
     </div>
 
     <!-- Graduates Plan -->
-    <div class="pricing-card">
+    <div class="pricing-card" data-plan="Graduates" data-amount="29">
       <h2 style="color: gold;">Graduates</h2>
       <div class="price">$29 <span>/month</span></div>
       <ul class="features">
@@ -142,7 +147,7 @@ h1 {
     </div>
 
     <!-- Finance Professionals Plan -->
-    <div class="pricing-card">
+    <div class="pricing-card" data-plan="Finance Professionals" data-amount="49">
       <h2 style="color: gold;">Finance Professionals</h2>
       <div class="price">$49 <span>/month</span></div>
       <ul class="features">
@@ -154,7 +159,7 @@ h1 {
     </div>
 
     <!-- Entrepreneurs Plan -->
-    <div class="pricing-card">
+    <div class="pricing-card" data-plan="Entrepreneurs" data-amount="59">
       <h2 style="color: gold;">Entrepreneurs</h2>
       <div class="price">$59 <span>/month</span></div>
       <ul class="features">
@@ -169,6 +174,7 @@ h1 {
   <!-- Donorbox Payment Section -->
   <div class="payment-section">
     <dbox-widget
+      id="donorboxWidget"
       campaign="futurefinanceleaders"
       type="donation_form"
       enable-auto-scroll="true">
@@ -184,19 +190,39 @@ h1 {
 import { auth, signOut } from "./firebase.js";
 
 let currentUser = null;
-
 auth.onAuthStateChanged((user) => {
-  if (user) {
-    currentUser = user;
-  } else {
-    window.location.href = 'login.html';
-  }
+  if (user) currentUser = user;
+  else window.location.href = 'login.html';
 });
 
 window.handleLogout = async function() {
   await signOut(auth);
   window.location.href = 'login.html';
 };
+
+// Plan selection logic
+const planCards = document.querySelectorAll('.pricing-card');
+let selectedPlan = null;
+
+planCards.forEach(card => {
+  card.addEventListener('click', () => {
+    planCards.forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+
+    selectedPlan = {
+      name: card.dataset.plan,
+      amount: card.dataset.amount
+    };
+
+    // Update Donorbox widget with fixed amount
+    const widget = document.getElementById('donorboxWidget');
+    if (widget) {
+      widget.setAttribute('amount', selectedPlan.amount);
+      widget.setAttribute('custom-amount', 'false'); // disable custom amount
+      widget.setAttribute('button-text', `Upgrade to Premium - $${selectedPlan.amount}`);
+    }
+  });
+});
 </script>
 
 </body>
