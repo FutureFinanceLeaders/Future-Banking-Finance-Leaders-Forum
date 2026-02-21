@@ -503,6 +503,63 @@ function showMessage(text, type) {
   msg.textContent = text;
   msg.className = `message ${type}`;
 }
+// MTN Payment Integration
+document.addEventListener("DOMContentLoaded", () => {
+
+  const mtnBtn = document.getElementById("mtnPayBtn");
+
+  if (mtnBtn) {
+    mtnBtn.addEventListener("click", () => {
+
+      if (!currentUser) {
+        showMessage("User not authenticated", "error");
+        return;
+      }
+
+      const momoWidget = new MomoWidget({
+        apiKey: "f1f8cdd0f4814dd6b4dac2449b518407",
+        amount: "39",
+        currency: "EUR", // Sandbox default
+        description: "FFL Premium Membership",
+        externalId: "membership-" + Date.now(),
+        payerMessage: "FFL Premium Upgrade",
+        payeeNote: "Premium Access",
+
+        onSuccess: async function (response) {
+          try {
+
+            await set(ref(db, `users/${currentUser.uid}/membership`), {
+              level: "Premium",
+              status: "active",
+              upgradedAt: Date.now(),
+              paymentMethod: "MTN",
+              amount: 39,
+              currency: "EUR",
+              transactionId: response.transactionId || null
+            });
+
+            showMessage("✓ Payment successful! Redirecting...", "success");
+
+            setTimeout(() => {
+              window.location.href = "dashboard.html";
+            }, 2000);
+
+          } catch (error) {
+            showMessage("Database update failed: " + error.message, "error");
+          }
+        },
+
+        onError: function (error) {
+          showMessage("Payment failed. Please try again.", "error");
+        }
+
+      });
+
+      momoWidget.open();
+    });
+  }
+
+});
 </script>
 
 </body>
