@@ -217,16 +217,16 @@ button {
       </div>
 
       <!-- Quick Actions Card -->
-      <div class="card">
-        <h2 style="color: gold; margin-top: 0;">⚡ Quick Actions</h2>
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-          <button onclick="showNameSection()">✏️ Set My Name</button>
-          <button onclick="window.location.href='resources.html'">📚 Learning Hub</button>
-          <button onclick="window.location.href='events.html'">📅 Events</button>
-        </div>
-      </div>
-    </div>
+<div class="card">
+  <h2 style="color: gold; margin-top: 0;">⚡ Quick Actions</h2>
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <button onclick="showNameSection()">✏️ Set My Name</button>
+    <button onclick="requestPremium()">💎 Request Premium Upgrade</button>
+    <button onclick="window.location.href='resources.html'">📚 Learning Hub</button>
+    <button onclick="window.location.href='events.html'">📅 Events</button>
   </div>
+</div>
+</div>
 </div>
 
 <!-- Firebase Scripts -->
@@ -323,6 +323,37 @@ onAuthStateChanged(auth, (user) => {
   const loginEl = document.getElementById('lastLogin');
   if (loginEl && user.metadata?.lastSignInTime) {
     loginEl.innerText = new Date(user.metadata.lastSignInTime).toLocaleDateString();
+  }
+});
+// Request premium upgrade
+window.requestPremium = async function() {
+  const user = auth.currentUser;
+  if (!user) return;
+  
+  const firstName = localStorage.getItem('userFirstName_' + user.uid) || 'User';
+  
+  // Create upgrade request in database
+  await push(ref(db, 'upgradeRequests'), {
+    userId: user.uid,
+    email: user.email,
+    name: firstName,
+    requestedAt: Date.now(),
+    status: 'pending'
+  });
+  
+  alert('✓ Premium request sent to admin! You will be notified when approved.');
+};
+
+// Listen for membership changes
+const userMembershipRef = ref(db, `users/${user.uid}/membership`);
+onValue(userMembershipRef, (snapshot) => {
+  const membership = snapshot.val();
+  const badge = document.getElementById('membershipBadge');
+  
+  if (membership?.level === 'Premium') {
+    badge.innerHTML = '✨ Premium Member ✨';
+    badge.style.background = 'gold';
+    badge.style.color = '#0f172a';
   }
 });
 </script>
