@@ -238,7 +238,7 @@ button.secondary {
   <!-- Pricing Card -->
   <div class="pricing-card">
     <h2 style="color: gold;">Premium Plan</h2>
-    <div class="price">$19 <span>/month</span></div>
+    <div class="price">$39 <span>/month</span></div>
     
     <ul class="features">
       <li>Full access to all learning materials</li>
@@ -301,7 +301,7 @@ button.secondary {
         <input type="text" placeholder="CVC" style="width: 50%;" />
       </div>
       <input type="text" placeholder="Cardholder Name" />
-      <button onclick="processPayment('card')">Pay $19</button>
+      <button onclick="processPayment('card')">Pay $39</button>
     </div>
     
     <div id="cryptoDetails" style="display: none;">
@@ -325,7 +325,7 @@ button.secondary {
         <option>Orange Money</option>
       </select>
       <input type="tel" placeholder="Phone Number" />
-      <button onclick="processPayment('mobile')">Pay $19</button>
+      <button id="mtnPayBtn">Pay with MTN ($39)</button>
     </div>
     
     <div id="bankDetails" style="display: none;">
@@ -561,6 +561,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
-
+<script src="https://momodeveloper.mtn.com/widget/v1/momo-widget.js"></script>
 </body>
 </html>
