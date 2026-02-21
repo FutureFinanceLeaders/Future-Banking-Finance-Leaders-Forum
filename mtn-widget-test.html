@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>MTN Widget Test</title>
-    <script src="https://momodeveloper.mtn.com/widget/v1/momo-widget.js"></script>
+    <!-- Try different MTN widget URLs -->
+    <script src="https://momodeveloper.mtn.com/widget/v1/momo-widget.js" onload="console.log('✅ Widget script loaded')" onerror="console.log('❌ Widget script failed to load')"></script>
 </head>
 <body>
     <button onclick="testWidget()">Test MTN Widget</button>
@@ -10,13 +11,16 @@
 
     <script>
     function testWidget() {
-        document.getElementById('status').innerHTML = 'Opening widget...';
+        if (typeof MomoWidget === 'undefined') {
+            document.getElementById('status').innerHTML = '❌ MomoWidget not available - script failed to load';
+            return;
+        }
         
-        console.log('MomoWidget available:', typeof MomoWidget !== 'undefined');
+        document.getElementById('status').innerHTML = 'Opening widget...';
         
         try {
             const momoWidget = new MomoWidget({
-                apiKey: '9d7c9a1b2e3f4a5b6c7d8e9f0a1b2c3d', // Test key
+                apiKey: '9d7c9a1b2e3f4a5b6c7d8e9f0a1b2c3d',
                 amount: "19",
                 currency: "EUR",
                 description: "Test Payment",
@@ -24,17 +28,12 @@
                 
                 onSuccess: function(response) {
                     console.log('Success:', response);
-                    document.getElementById('status').innerHTML = 'Success! Check console';
+                    document.getElementById('status').innerHTML = 'Success!';
                 },
                 
                 onError: function(error) {
                     console.log('Error:', error);
                     document.getElementById('status').innerHTML = 'Error: ' + JSON.stringify(error);
-                },
-                
-                onClose: function() {
-                    console.log('Widget closed');
-                    document.getElementById('status').innerHTML = 'Widget closed';
                 }
             });
             
