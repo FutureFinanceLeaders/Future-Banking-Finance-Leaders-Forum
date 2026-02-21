@@ -203,25 +203,25 @@ button {
     <div class="grid">
       
       <!-- User Info Card -->
-      <div class="card">
-        <h2 style="color: gold; margin-top: 0;">👤 Your Account</h2>
-        <div class="info-row">
-          <div class="label">Name</div>
-          <div class="value" id="displayName">Not set</div>
-        </div>
-        <div class="info-row">
-          <div class="label">Email</div>
-          <div class="value" id="displayEmail"></div>
-        </div>
-        <div class="info-row">
-          <div class="label">Email Verified</div>
-          <div class="value" id="emailVerified">No</div>
-        </div>
-        <div class="info-row">
-          <div class="label">User ID</div>
-          <div class="value" id="displayUid" style="font-size: 12px;"></div>
-        </div>
-      </div>
+<div class="card">
+  <h2 style="color: gold; margin-top: 0;">👤 Your Account</h2>
+  <div class="info-row">
+    <div class="label">Name</div>
+    <div class="value" id="displayName">Not set</div>
+  </div>
+  <div class="info-row">
+    <div class="label">Email</div>
+    <div class="value" id="displayEmail"></div>
+  </div>
+  <div class="info-row">
+    <div class="label">Member ID</div>
+    <div class="value" id="memberId"></div>
+  </div>
+  <div class="info-row">
+    <div class="label">Email Verified</div>
+    <div class="value" id="emailVerified">No</div>
+  </div>
+</div>
 
       <!-- Account Status Card -->
       <div class="card">
@@ -374,6 +374,16 @@ onAuthStateChanged(auth, (user) => {
     document.getElementById('content').classList.add('hidden');
   }
 });
+// Add this function
+function getMemberNumber(uid) {
+  const hash = uid.slice(-4).split('').reduce((a, b) => a + b.charCodeAt(0), 0);
+  const memberNum = 1000 + (hash % 9000);
+  return 'FFL' + memberNum;
+}
+
+// In your onAuthStateChanged where you update the display:
+document.getElementById('displayEmail').innerText = user.email;
+document.getElementById('memberId').innerText = getMemberNumber(user.uid); // Add this line
 </script>
 
 </body>
