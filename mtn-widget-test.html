@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MTN Widget Test</title>
+    <script src="https://momodeveloper.mtn.com/widget/v1/momo-widget.js"></script>
+</head>
+<body>
+    <button onclick="testWidget()">Test MTN Widget</button>
+    <div id="status"></div>
+
+    <script>
+    function testWidget() {
+        document.getElementById('status').innerHTML = 'Opening widget...';
+        
+        console.log('MomoWidget available:', typeof MomoWidget !== 'undefined');
+        
+        try {
+            const momoWidget = new MomoWidget({
+                apiKey: '9d7c9a1b2e3f4a5b6c7d8e9f0a1b2c3d', // Test key
+                amount: "19",
+                currency: "EUR",
+                description: "Test Payment",
+                externalId: "test-" + Date.now(),
+                
+                onSuccess: function(response) {
+                    console.log('Success:', response);
+                    document.getElementById('status').innerHTML = 'Success! Check console';
+                },
+                
+                onError: function(error) {
+                    console.log('Error:', error);
+                    document.getElementById('status').innerHTML = 'Error: ' + JSON.stringify(error);
+                },
+                
+                onClose: function() {
+                    console.log('Widget closed');
+                    document.getElementById('status').innerHTML = 'Widget closed';
+                }
+            });
+            
+            momoWidget.open();
+            
+        } catch (e) {
+            console.error('Exception:', e);
+            document.getElementById('status').innerHTML = 'Exception: ' + e.message;
+        }
+    }
+    </script>
+</body>
+</html>
