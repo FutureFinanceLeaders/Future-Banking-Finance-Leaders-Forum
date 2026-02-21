@@ -5,7 +5,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-  sendEmailVerification 
+  sendEmailVerification,
+  sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 import { 
   getDatabase,
@@ -38,7 +39,5 @@ export {
   signOut,
   onAuthStateChanged,
   sendEmailVerification,
-  ref,
-  set,
-  push
+  sendPasswordResetEmail
 };
