@@ -197,26 +197,24 @@ const planCards = document.querySelectorAll('.pricing-card');
 
 planCards.forEach(card => {
   card.addEventListener('click', () => {
-    // Hide all widgets
+    // Hide all widgets and reset selected plans
     planCards.forEach(c => {
       c.classList.remove('selected');
       const widgetDiv = c.querySelector('.payment-widget');
-      if (widgetDiv) widgetDiv.innerHTML = ''; // Clear previous widget
-      if (widgetDiv) widgetDiv.style.display = 'none';
+      if (widgetDiv) widgetDiv.style.display = 'none'; // Hide the widget
     });
 
-    // Highlight selected plan
+    // Highlight the selected plan and display the widget
     card.classList.add('selected');
-
-    // Show widget for selected plan
     const widgetDiv = card.querySelector('.payment-widget');
     if (widgetDiv) {
-      widgetDiv.style.display = 'block';
+      widgetDiv.style.display = 'block'; // Show the widget
 
       // Dynamically insert Donorbox widget with plan name & amount
       const planName = card.dataset.plan;
       const amount = card.dataset.amount;
 
+      // Create the Donorbox widget dynamically
       const dbox = document.createElement('dbox-widget');
       dbox.setAttribute('campaign', 'futurefinanceleaders');
       dbox.setAttribute('type', 'donation_form');
@@ -225,6 +223,7 @@ planCards.forEach(card => {
       dbox.setAttribute('data-plan-name', planName);
       dbox.setAttribute('data-amount', amount);
 
+      widgetDiv.innerHTML = '';  // Clear previous content
       widgetDiv.appendChild(dbox);
     }
   });
