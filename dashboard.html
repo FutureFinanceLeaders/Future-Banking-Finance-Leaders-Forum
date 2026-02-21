@@ -84,22 +84,13 @@ header {
 }
 
 .badge {
+  background: gold;
+  color: #0f172a;
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 14px;
   font-weight: bold;
   display: inline-block;
-}
-
-.badge.free {
-  background: #334155;
-  color: white;
-  border: 1px solid #64748b;
-}
-
-.badge.premium {
-  background: gold;
-  color: #0f172a;
   border: 2px solid #10b981;
 }
 
@@ -120,13 +111,6 @@ header {
 
 @keyframes spin {
   to { transform: rotate(360deg); }
-}
-
-.error {
-  background: #991b1b;
-  padding: 20px;
-  border-radius: 8px;
-  margin: 20px 0;
 }
 
 button {
@@ -179,14 +163,6 @@ button {
     <p>Loading your dashboard...</p>
   </div>
 
-  <!-- Error State -->
-  <div id="error" class="error hidden">
-    <h3>⚠️ Something went wrong</h3>
-    <p id="errorMessage"></p>
-    <button onclick="window.location.reload()">Try Again</button>
-    <button onclick="handleLogout()">Go to Login</button>
-  </div>
-
   <!-- Dashboard Content -->
   <div id="content" class="hidden">
     
@@ -195,7 +171,7 @@ button {
     <!-- Name Setup Section -->
     <div class="name-section" id="nameSection">
       <h3 style="color: gold;">👋 What's your first name?</h3>
-      <input type="text" id="firstNameInput" class="name-input" placeholder="Enter your first name (e.g., Sarah)" />
+      <input type="text" id="firstNameInput" class="name-input" placeholder="Enter your first name" />
       <button onclick="saveFirstName()">Save My Name</button>
       <button onclick="hideNameSection()" style="background: #334155;">Skip</button>
     </div>
@@ -203,39 +179,40 @@ button {
     <div class="grid">
       
       <!-- User Info Card -->
-<div class="card">
-  <h2 style="color: gold; margin-top: 0;">👤 Your Account</h2>
-  <div class="info-row">
-    <div class="label">Name</div>
-    <div class="value" id="displayName">Not set</div>
-  </div>
-  <div class="info-row">
-    <div class="label">Email</div>
-    <div class="value" id="displayEmail"></div>
-  </div>
-  <div class="info-row">
-    <div class="label">Member ID</div>
-    <div class="value" id="memberId"></div>
-  </div>
-  <div class="info-row">
-    <div class="label">Email Verified</div>
-    <div class="value" id="emailVerified">No</div>
-  </div>
-</div>
+      <div class="card">
+        <h2 style="color: gold; margin-top: 0;">👤 Your Account</h2>
+        <div class="info-row">
+          <div class="label">Name</div>
+          <div class="value" id="displayName">Not set</div>
+        </div>
+        <div class="info-row">
+          <div class="label">Email</div>
+          <div class="value" id="displayEmail"></div>
+        </div>
+        <div class="info-row">
+          <div class="label">Member ID</div>
+          <div class="value" id="memberId"></div>
+        </div>
+        <div class="info-row">
+          <div class="label">Status</div>
+          <div class="value" id="emailVerified">Active</div>
+        </div>
+      </div>
 
       <!-- Account Status Card -->
       <div class="card">
-        <h2 style="color: gold; margin-top: 0;">📊 Account Status</h2>
+        <h2 style="color: gold; margin-top: 0;">📊 Membership</h2>
         <div class="info-row">
-          <div class="label">Membership</div>
-          <div class="value"><span class="badge free">Free Member</span></div>
+          <div class="label">Plan</div>
+          <div class="value"><span class="badge">Free Member</span></div>
+        </div>
         <div class="info-row">
-          <div class="label">Account Created</div>
-          <div class="value" id="accountCreated">Just now</div>
+          <div class="label">Member Since</div>
+          <div class="value" id="accountCreated">Today</div>
         </div>
         <div class="info-row">
           <div class="label">Last Login</div>
-          <div class="value" id="lastLogin">Today</div>
+          <div class="value" id="lastLogin">Now</div>
         </div>
       </div>
 
@@ -244,8 +221,8 @@ button {
         <h2 style="color: gold; margin-top: 0;">⚡ Quick Actions</h2>
         <div style="display: flex; flex-direction: column; gap: 10px;">
           <button onclick="showNameSection()">✏️ Set My Name</button>
-          <button onclick="window.location.href='resources.html'">📚 Learning Hub</button>
-          <button onclick="window.location.href='events.html'">📅 Upcoming Events</button>
+          <button onclick="window.location.href='learning.html'">📚 Learning Hub</button>
+          <button onclick="window.location.href='events.html'">📅 Events</button>
         </div>
       </div>
     </div>
@@ -259,131 +236,95 @@ import { signOut } from "./firebase.js";
 
 let currentUser = null;
 
-// Make functions global
-window.handleLogout = async function() {
-  try {
-    await signOut(auth);
-    window.location.href = "login.html";
-  } catch (error) {
-    console.error("Logout error:", error);
-    window.location.href = "login.html";
-  }
-};
-
-window.showNameSection = function() {
-  document.getElementById('nameSection').classList.remove('hidden');
-};
-
-window.hideNameSection = function() {
-  document.getElementById('nameSection').classList.add('hidden');
-};
-
-window.saveFirstName = function() {
-  const firstName = document.getElementById('firstNameInput').value.trim();
-  
-  if (!firstName) {
-    alert('Please enter your first name');
-    return;
-  }
-  
-  if (!currentUser) {
-    alert('Not logged in');
-    return;
-  }
-  
-  // Save to localStorage (simple and works without database)
-  localStorage.setItem('userFirstName_' + currentUser.uid, firstName);
-  
-  // Update welcome message
-  document.getElementById('welcomeMessage').innerHTML = `Welcome back, ${firstName}! 👋`;
-  
-  // Update display name field
-  document.getElementById('displayName').innerText = firstName;
-  
-  // Hide the name section
-  document.getElementById('nameSection').classList.add('hidden');
-  
-  // Clear input
-  document.getElementById('firstNameInput').value = '';
-  
-  // Show success message (optional)
-  alert(`Hello ${firstName}! Your name has been saved.`);
-};
-
-// Check authentication state
-onAuthStateChanged(auth, (user) => {
-  // Hide loading
-  document.getElementById('loading').classList.add('hidden');
-  
-  if (!user) {
-    window.location.href = "login.html";
-    return;
-  }
-
-  try {
-    currentUser = user;
-    
-    // Show content
-    document.getElementById('content').classList.remove('hidden');
-    
-    // Check if user has a saved first name
-    const savedName = localStorage.getItem('userFirstName_' + user.uid);
-    
-    if (savedName) {
-      // Show welcome with saved name
-      document.getElementById('welcomeMessage').innerHTML = `Welcome back, ${savedName}! 👋`;
-      document.getElementById('displayName').innerText = savedName;
-      document.getElementById('nameSection').classList.add('hidden');
-    } else {
-      // Show default welcome and name section
-      document.getElementById('welcomeMessage').innerHTML = `Welcome back! 👋`;
-      document.getElementById('displayName').innerText = 'Not set';
-      document.getElementById('nameSection').classList.remove('hidden');
-    }
-    
-    // Update user info
-    document.getElementById('displayEmail').innerText = user.email;
-    document.getElementById('displayUid').innerText = user.uid;
-    
-    // Email verification status
-    const verifiedEl = document.getElementById('emailVerified');
-    if (user.emailVerified) {
-      verifiedEl.innerHTML = '✅ Verified';
-      verifiedEl.style.color = '#10b981';
-    } else {
-      verifiedEl.innerHTML = '❌ Not verified - Please check your email';
-      verifiedEl.style.color = '#f59e0b';
-    }
-    
-    // Account creation time
-    if (user.metadata?.creationTime) {
-      document.getElementById('accountCreated').innerText = new Date(user.metadata.creationTime).toLocaleDateString();
-    }
-    
-    // Last login time
-    if (user.metadata?.lastSignInTime) {
-      document.getElementById('lastLogin').innerText = new Date(user.metadata.lastSignInTime).toLocaleDateString();
-    }
-    
-    // Hide error
-    document.getElementById('error').classList.add('hidden');
-    
-  } catch (err) {
-    document.getElementById('error').classList.remove('hidden');
-    document.getElementById('errorMessage').innerText = err.message;
-    document.getElementById('content').classList.add('hidden');
-  }
-});
-// Add this function
 function getMemberNumber(uid) {
   const hash = uid.slice(-4).split('').reduce((a, b) => a + b.charCodeAt(0), 0);
   const memberNum = 1000 + (hash % 9000);
   return 'FFL' + memberNum;
 }
 
-// In your onAuthStateChanged where you update the display:
-document.getElementById('displayEmail').innerText = user.email;
-document.getElementById('memberId').innerText = getMemberNumber(user.uid); // Add this line
+window.handleLogout = async function() {
+  await signOut(auth);
+  window.location.href = "login.html";
+};
+
+window.showNameSection = function() {
+  document.getElementById('nameSection')?.classList.remove('hidden');
+};
+
+window.hideNameSection = function() {
+  document.getElementById('nameSection')?.classList.add('hidden');
+};
+
+window.saveFirstName = function() {
+  const firstName = document.getElementById('firstNameInput')?.value.trim();
+  
+  if (!firstName) {
+    alert('Please enter your first name');
+    return;
+  }
+  
+  if (!currentUser) return;
+  
+  localStorage.setItem('userFirstName_' + currentUser.uid, firstName);
+  
+  document.getElementById('welcomeMessage').innerHTML = `Welcome back, ${firstName}! 👋`;
+  document.getElementById('displayName').innerText = firstName;
+  document.getElementById('nameSection')?.classList.add('hidden');
+  document.getElementById('firstNameInput').value = '';
+};
+
+onAuthStateChanged(auth, (user) => {
+  const loadingEl = document.getElementById('loading');
+  const contentEl = document.getElementById('content');
+  
+  if (loadingEl) loadingEl.classList.add('hidden');
+  
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  currentUser = user;
+  
+  if (contentEl) contentEl.classList.remove('hidden');
+  
+  const savedName = localStorage.getItem('userFirstName_' + user.uid);
+  
+  const welcomeEl = document.getElementById('welcomeMessage');
+  const displayNameEl = document.getElementById('displayName');
+  const nameSectionEl = document.getElementById('nameSection');
+  
+  if (savedName) {
+    if (welcomeEl) welcomeEl.innerHTML = `Welcome back, ${savedName}! 👋`;
+    if (displayNameEl) displayNameEl.innerText = savedName;
+    if (nameSectionEl) nameSectionEl.classList.add('hidden');
+  } else {
+    if (welcomeEl) welcomeEl.innerHTML = `Welcome back! 👋`;
+    if (displayNameEl) displayNameEl.innerText = 'Not set';
+    if (nameSectionEl) nameSectionEl.classList.remove('hidden');
+  }
+  
+  const emailEl = document.getElementById('displayEmail');
+  if (emailEl) emailEl.innerText = user.email;
+  
+  const memberIdEl = document.getElementById('memberId');
+  if (memberIdEl) memberIdEl.innerText = getMemberNumber(user.uid);
+  
+  const verifiedEl = document.getElementById('emailVerified');
+  if (verifiedEl) {
+    verifiedEl.innerText = user.emailVerified ? '✅ Verified' : '⚠️ Pending';
+  }
+  
+  const createdEl = document.getElementById('accountCreated');
+  if (createdEl && user.metadata?.creationTime) {
+    createdEl.innerText = new Date(user.metadata.creationTime).toLocaleDateString();
+  }
+  
+  const loginEl = document.getElementById('lastLogin');
+  if (loginEl && user.metadata?.lastSignInTime) {
+    loginEl.innerText = new Date(user.metadata.lastSignInTime).toLocaleDateString();
+  }
+});
 </script>
 
 </body>
