@@ -56,7 +56,6 @@ h1 {
   border: 2px solid gold;
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
-  position: relative;
 }
 .pricing-card:hover {
   transform: translateY(-5px);
@@ -90,9 +89,12 @@ h1 {
   color: gold;
   font-weight: bold;
 }
-.payment-widget {
-  display: none;
-  margin-top: 20px;
+.payment-section {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 30px;
+  margin-top: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 .back-link {
   text-align: center;
@@ -130,14 +132,6 @@ h1 {
         <li>Exclusive student webinars</li>
         <li>Mentor Q&A sessions</li>
       </ul>
-      <div class="payment-widget">
-        <dbox-widget
-          id="widget-students"
-          campaign="futurefinanceleaders"
-          type="donation_form"
-          enable-auto-scroll="true">
-        </dbox-widget>
-      </div>
     </div>
 
     <!-- Graduates Plan -->
@@ -150,14 +144,6 @@ h1 {
         <li>Access to networking events</li>
         <li>Certificate of completion</li>
       </ul>
-      <div class="payment-widget">
-        <dbox-widget
-          id="widget-graduates"
-          campaign="futurefinanceleaders"
-          type="donation_form"
-          enable-auto-scroll="true">
-        </dbox-widget>
-      </div>
     </div>
 
     <!-- Finance Professionals Plan -->
@@ -170,14 +156,6 @@ h1 {
         <li>Priority mentor support</li>
         <li>Professional certificate</li>
       </ul>
-      <div class="payment-widget">
-        <dbox-widget
-          id="widget-professionals"
-          campaign="futurefinanceleaders"
-          type="donation_form"
-          enable-auto-scroll="true">
-        </dbox-widget>
-      </div>
     </div>
 
     <!-- Entrepreneurs Plan -->
@@ -190,15 +168,17 @@ h1 {
         <li>Networking with investors & peers</li>
         <li>Mentorship from industry leaders</li>
       </ul>
-      <div class="payment-widget">
-        <dbox-widget
-          id="widget-entrepreneurs"
-          campaign="futurefinanceleaders"
-          type="donation_form"
-          enable-auto-scroll="true">
-        </dbox-widget>
-      </div>
     </div>
+  </div>
+
+  <!-- Donorbox Payment Section -->
+  <div class="payment-section">
+    <dbox-widget
+      id="donorboxWidget"
+      campaign="futurefinanceleaders"
+      type="donation_form"
+      enable-auto-scroll="true">
+    </dbox-widget>
   </div>
 
   <div class="back-link">
@@ -222,22 +202,25 @@ window.handleLogout = async function() {
 
 // Plan selection logic
 const planCards = document.querySelectorAll('.pricing-card');
+let selectedPlan = null;
 
 planCards.forEach(card => {
   card.addEventListener('click', () => {
-    // Remove selection from all plans
-    planCards.forEach(c => {
-      c.classList.remove('selected');
-      const widgetDiv = c.querySelector('.payment-widget');
-      if (widgetDiv) widgetDiv.style.display = 'none';
-    });
-
-    // Highlight selected plan
+    planCards.forEach(c => c.classList.remove('selected'));
     card.classList.add('selected');
 
-    // Show widget for selected plan
-    const widgetDiv = card.querySelector('.payment-widget');
-    if (widgetDiv) widgetDiv.style.display = 'block';
+    selectedPlan = {
+      name: card.dataset.plan,
+      amount: card.dataset.amount
+    };
+
+    // Update Donorbox widget with fixed amount
+    const widget = document.getElementById('donorboxWidget');
+    if (widget) {
+      widget.setAttribute('amount', selectedPlan.amount);
+      widget.setAttribute('custom-amount', 'false'); // disable custom amount
+      widget.setAttribute('button-text', `Upgrade to Premium - $${selectedPlan.amount}`);
+    }
   });
 });
 </script>
