@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel | FFL</title>
+<style>
+body {
+  background: #0f172a;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  padding: 20px;
+}
+.container { max-width: 800px; margin: 0 auto; }
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+h2 { color: gold; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #334155; }
+th { color: gold; }
+button {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.approve { background: gold; color: #0f172a; }
+.pending { color: #f59e0b; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>👑 Admin Panel</h1>
+  
+  <div class="card">
+    <h2>Premium Upgrade Requests</h2>
+    <table id="requestsTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Requested</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr><td colspan="5">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script type="module">
+import { auth, db, ref, onValue, set, push } from "./firebase.js";
+
+// Load all upgrade requests
+const requestsRef = ref(db, 'upgradeRequests');
+onValue(requestsRef, (snapshot) => {
+  const requests = snapshot.val() || {};
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = '';
+  
+  Object.entries(requests).forEach(([id, request]) => {
+    if (request.status === 'pending') {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${request.name || 'Unknown'}</td>
+        <td>${request.email}</td>
+        <td>${new Date(request.requestedAt).toLocaleDateString()}</td>
+        <td class="pending">⏳ Pending</td>
+        <td>
+          <button class="approve" onclick="approveRequest('${id}', '${request.userId}')">✓ Approve</button>
+        </td>
+      `;
+      tbody.appendChild(row);
+    }
+  });
+  
+  if (tbody.children.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="5">No pending requests</td></tr>';
+  }
+});
+
+// Approve request
+window.approveRequest = async function(requestId, userId) {
+  try {
+    // Update user membership
+    await set(ref(db, `users/${userId}/membership`), {
+      level: 'Premium',
+      status: 'active',
+      upgradedAt: Date.now(),
+      approvedBy: 'admin'
+    });
+    
+    // Update request status
+    await set(ref(db, `upgradeRequests/${requestId}/status`), 'approved');
+    
+    // Send notification to user
+    await push(ref(db, `notifications/${userId}`), {
+      message: '✨ Your Premium membership has been approved! Thank you for your support.',
+      read: false,
+      time: Date.now()
+    });
+    
+    alert('✓ User upgraded to Premium!');
+    
+  } catch (error) {
+    alert('Error: ' + error.message);
+  }
+};
+</script>
+
+</body>
+</html>
