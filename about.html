@@ -81,7 +81,7 @@ nav a{
 }
 
 .team-section h2 {
-  color: var(--gsbf-blue-dark);
+  color: #0B1F3A;
   margin-bottom: 50px;
   font-size: 32px;
   position: relative;
@@ -98,7 +98,7 @@ nav a{
 .team-card {
   position: relative;
   background: white;
-  padding: 20px;
+  padding: 25px;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   overflow: hidden;
@@ -116,7 +116,7 @@ nav a{
   height: 140px;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid var(--gsbf-gold);
+  border: 4px solid #D4AF37; /* gold */
   margin: 0 auto 15px;
   display: block;
   transition: transform 0.3s;
@@ -128,15 +128,50 @@ nav a{
 
 /* Name and Role */
 .team-card h4 {
-  color: var(--gsbf-blue-dark);
+  color: #0B1F3A;
   margin: 10px 0 5px 0;
   font-size: 18px;
 }
 
 .team-card p {
-  color: var(--text-muted);
+  color: #555;
   margin: 0;
   font-size: 15px;
+}
+
+/* LinkedIn Overlay */
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.linkedin-overlay {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0a66c2;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  opacity: 0;
+  transition: bottom 0.3s, opacity 0.3s;
+}
+
+.team-card:hover .linkedin-overlay {
+  bottom: 15px;
+  opacity: 1;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .team-card img {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 /* CONTACT SECTION */
@@ -292,58 +327,23 @@ footer{
 </section>
 
 
-<!-- TEAM -->
-
 <section class="team-section">
   <h2>Meet The Team</h2>
+
   <div class="team-grid">
 
     <div class="team-card">
-  <div class="image-wrapper">
-    <img src="cropped-1713948169242.jpg" alt="Lewis Mwaba">
-    <a href="https://www.linkedin.com/in/mwaba-lewis-77a738134" target="_blank" class="linkedin-overlay">
-      Connect on LinkedIn
-    </a>
-  </div>
-  <h4>Mwaba Lewis</h4>
-  <p>Founder & Lead Mentor</p>
-</div>
-
-<style>
-/* Image wrapper for overlay */
-.image-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-/* LinkedIn overlay button */
-.linkedin-overlay {
-  position: absolute;
-  bottom: -40px; /* hidden by default below image */
-  left: 50%;
-  transform: translateX(-50%);
-  background: #0a66c2; /* LinkedIn blue */
-  color: white;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  opacity: 0;
-  transition: bottom 0.3s, opacity 0.3s;
-}
-
-/* Hover effect on card */
-.team-card:hover .linkedin-overlay {
-  bottom: 10px; /* slides up over image */
-  opacity: 1;
-}
-
-/* Optional: slightly scale image on hover */
-.team-card:hover img {
-  transform: scale(1.05);
-}
-</style>
+      <div class="image-wrapper">
+        <img src="cropped-1713948169242.jpg" alt="Lewis Mwaba">
+        <a href="https://www.linkedin.com/in/mwaba-lewis-77a738134"
+           target="_blank"
+           class="linkedin-overlay">
+           Connect on LinkedIn
+        </a>
+      </div>
+      <h4>Mwaba Lewis</h4>
+      <p>Founder & Lead Mentor</p>
+    </div>
 
     <div class="team-card">
       <img src="placeholder.jpg" alt="Daniel">
