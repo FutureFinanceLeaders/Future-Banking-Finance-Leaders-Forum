@@ -70,67 +70,73 @@ nav a{
   margin-bottom:2rem;
 }
 
+
 /* TEAM SECTION */
-.team-section{
-  padding:4rem 5%;
-  background:#fff;
-  text-align:center;
+
+.team-section {
+  max-width: 1100px;
+  margin: 70px auto;
+  padding: 0 20px;
+  text-align: center;
 }
 
-.team-section h2{
-  margin-bottom:3rem;
-  color:#0B1F3A;
+.team-section h2 {
+  color: var(--gsbf-blue-dark);
+  margin-bottom: 50px;
+  font-size: 32px;
+  position: relative;
 }
 
-.team-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-  max-width:1100px;
-  margin:auto;
+/* Team Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
 }
 
-.team-card{
-  background:#fff;
-  padding:20px;
-  border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
-  transition:0.3s;
+/* Team Card */
+.team-card {
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.team-card img{
-  width:100%;
-  border-radius:10px;
-  margin-bottom:15px;
-  transition:0.3s;
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-.team-card:hover{
-  transform:translateY(-5px);
+/* Circular Image */
+.team-card img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--gsbf-gold);
+  margin: 0 auto 15px;
+  display: block;
+  transition: transform 0.3s;
 }
 
-.image-wrapper{
-  position:relative;
+.team-card:hover img {
+  transform: scale(1.05);
 }
 
-.linkedin-overlay{
-  position:absolute;
-  bottom:10px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#0a66c2;
-  color:white;
-  padding:8px 16px;
-  border-radius:6px;
-  font-size:14px;
-  font-weight:bold;
-  text-decoration:none;
-  opacity:0;
-  transition:0.3s;
+/* Name and Role */
+.team-card h4 {
+  color: var(--gsbf-blue-dark);
+  margin: 10px 0 5px 0;
+  font-size: 18px;
 }
 
-.team-card:hover .linkedin-overlay{
-  opacity:1;
+.team-card p {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 15px;
 }
 
 /* CONTACT SECTION */
@@ -285,33 +291,73 @@ footer{
 </div>
 </section>
 
+
+<!-- TEAM -->
+
 <section class="team-section">
-<h2>Meet The Team</h2>
+  <h2>Meet The Team</h2>
+  <div class="team-grid">
 
-<div class="team-grid">
-
-<div class="team-card">
-<div class="image-wrapper">
-<img src="cropped-1713948169242.jpg" alt="Lewis Mwaba">
-<a href="https://www.linkedin.com/in/mwaba-lewis-77a738134" target="_blank" class="linkedin-overlay">Connect on LinkedIn</a>
-</div>
-<h4>Mwaba Lewis</h4>
-<p>Founder & Lead Mentor</p>
-</div>
-
-<div class="team-card">
-<img src="placeholder.jpg" alt="Daniel">
-<h4>Daniel C</h4>
-<p>Program Advisor</p>
+    <div class="team-card">
+  <div class="image-wrapper">
+    <img src="cropped-1713948169242.jpg" alt="Lewis Mwaba">
+    <a href="https://www.linkedin.com/in/mwaba-lewis-77a738134" target="_blank" class="linkedin-overlay">
+      Connect on LinkedIn
+    </a>
+  </div>
+  <h4>Mwaba Lewis</h4>
+  <p>Founder & Lead Mentor</p>
 </div>
 
-<div class="team-card">
-<img src="FB_IMG_1769259474344.jpg" alt="Mercy">
-<h4>Mercy K</h4>
-<p>Learning Coordinator</p>
-</div>
+<style>
+/* Image wrapper for overlay */
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
 
-</div>
+/* LinkedIn overlay button */
+.linkedin-overlay {
+  position: absolute;
+  bottom: -40px; /* hidden by default below image */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0a66c2; /* LinkedIn blue */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  opacity: 0;
+  transition: bottom 0.3s, opacity 0.3s;
+}
+
+/* Hover effect on card */
+.team-card:hover .linkedin-overlay {
+  bottom: 10px; /* slides up over image */
+  opacity: 1;
+}
+
+/* Optional: slightly scale image on hover */
+.team-card:hover img {
+  transform: scale(1.05);
+}
+</style>
+
+    <div class="team-card">
+      <img src="placeholder.jpg" alt="Daniel">
+      <h4>Daniel C</h4>
+      <p>Program Advisor</p>
+    </div>
+
+    <div class="team-card">
+      <img src="FB_IMG_1769259474344.jpg" alt="Mercy">
+      <h4>Mercy K</h4>
+      <p>Learning Coordinator</p>
+    </div>
+
+  </div>
 </section>
 
 <section class="contact-section">
