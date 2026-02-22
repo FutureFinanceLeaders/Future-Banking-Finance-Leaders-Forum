@@ -7,170 +7,243 @@
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
 }
 
 body{
-background:#F4F6F9;
-color:#1A1A1A;
+  background:#F4F6F9;
+  color:#1A1A1A;
 }
 
 /* NAV */
 nav{
-background:#0B1F3A;
-padding:1rem 5%;
-display:flex;
-justify-content:space-between;
-align-items:center;
+  background:#0B1F3A;
+  padding:1rem 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 nav img{height:45px;}
 
 nav a{
-color:white;
-text-decoration:none;
-margin-left:2rem;
+  color:white;
+  text-decoration:none;
+  margin-left:2rem;
+  font-weight:500;
 }
 
 /* HERO */
 .hero{
-background:linear-gradient(rgba(11,31,58,0.9),rgba(11,31,58,0.9)),
-url('Cover.png') center/cover no-repeat;
-color:white;
-text-align:center;
-padding:5rem 5%;
+  background:linear-gradient(rgba(11,31,58,0.9),rgba(11,31,58,0.9)),
+  url('Cover.png') center/cover no-repeat;
+  color:white;
+  text-align:center;
+  padding:5rem 5%;
 }
 
 .hero h1{
-font-size:2.5rem;
-margin-bottom:1rem;
+  font-size:2.5rem;
+  margin-bottom:1rem;
 }
 
 /* SECTIONS */
 .section{
-padding:4rem 5%;
-max-width:1100px;
-margin:auto;
+  padding:4rem 5%;
+  max-width:1100px;
+  margin:auto;
 }
 
 .section h2{
-margin-bottom:1.5rem;
-color:#0B1F3A;
+  margin-bottom:1.5rem;
+  color:#0B1F3A;
 }
 
 .card{
-background:white;
-padding:2rem;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
-margin-bottom:2rem;
+  background:white;
+  padding:2rem;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  margin-bottom:2rem;
 }
 
+/* TEAM SECTION */
+.team-section{
+  padding:4rem 5%;
+  background:#fff;
+  text-align:center;
+}
 
+.team-section h2{
+  margin-bottom:3rem;
+  color:#0B1F3A;
+}
+
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.team-card{
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  transition:0.3s;
+}
+
+.team-card img{
+  width:100%;
+  border-radius:10px;
+  margin-bottom:15px;
+  transition:0.3s;
+}
+
+.team-card:hover{
+  transform:translateY(-5px);
+}
+
+.image-wrapper{
+  position:relative;
+}
+
+.linkedin-overlay{
+  position:absolute;
+  bottom:10px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#0a66c2;
+  color:white;
+  padding:8px 16px;
+  border-radius:6px;
+  font-size:14px;
+  font-weight:bold;
+  text-decoration:none;
+  opacity:0;
+  transition:0.3s;
+}
+
+.team-card:hover .linkedin-overlay{
+  opacity:1;
+}
 
 /* CONTACT SECTION */
-.contact-section {
-  max-width: 1000px;
-  margin: 50px auto;
-  padding: 0 20px;
+.contact-section{
+  padding:4rem 5%;
+  background:#0B1F3A;
+  color:white;
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  max-width:1100px;
+  margin:auto;
 }
 
-.contact-info,
-.contact-form {
-  background: rgba(255,255,255,0.05);
-  padding: 30px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.08);
+.contact-box{
+  background:rgba(255,255,255,0.05);
+  padding:30px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.1);
 }
 
-.contact-info h3,
-.contact-form h3 {
-  color: var(--gold);
-  margin-bottom: 15px;
+.contact-box h3{
+  margin-bottom:15px;
+  color:#D4AF37;
 }
 
-.social-btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 12px 20px;
-  background: var(--green);
-  color: var(--white);
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
+.social-btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 20px;
+  background:#1DB954;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:bold;
 }
 
 .contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  border: 1px solid var(--soft);
-  background: rgba(255,255,255,0.05);
-  color: var(--white);
+.contact-form textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:6px;
+  border:none;
 }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: var(--soft);
+.contact-form button{
+  width:100%;
+  padding:12px;
+  background:#D4AF37;
+  border:none;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.contact-form button {
-  width: 100%;
-  padding: 12px;
-  background: var(--gold);
-  color: #000;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
+/* SUPPORT CARD */
+.support-card{
+  max-width:900px;
+  margin:60px auto;
+  padding:30px;
+  background:white;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
 
+.support-card h3{
+  margin-bottom:20px;
+  color:#0B1F3A;
+}
 
+.support-card a{
+  display:inline-block;
+  padding:12px 25px;
+  background:#1DB954;
+  color:white;
+  border-radius:6px;
+  font-weight:bold;
+  text-decoration:none;
+}
 
 /* FOOTER */
-footer {
-  text-align: center;
-  padding: 25px;
-  background: var(--navy);
-  color: var(--soft);
-  margin-top: 60px;
-  font-size: 14px;
+footer{
+  text-align:center;
+  padding:25px;
+  background:#0B1F3A;
+  color:#ccc;
+  font-size:14px;
 }
 
-/* WHATSAPP FLOATING BUTTON */
-.whatsapp-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: var(--white);
-  padding: 14px 18px;
-  border-radius: 50px;
-  font-size: 16px;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  font-weight: bold;
-  z-index: 1000;
+/* WHATSAPP BUTTON */
+.whatsapp-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:14px 18px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:bold;
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
+@media(max-width:768px){
+  .contact-grid{
+    grid-template-columns:1fr;
   }
 }
-
 </style>
 </head>
 
@@ -195,175 +268,86 @@ footer {
 <section class="section">
 <div class="card">
 <h2>Our Mission</h2>
-<p>
-To empower ambitious finance students, professionals, and entrepreneurs with practical knowledge,
-leadership development, and strategic networks that shape the future of global finance.
-</p>
+<p>To empower ambitious finance students, professionals, and entrepreneurs with practical knowledge, leadership development, and strategic networks.</p>
 </div>
 
 <div class="card">
 <h2>Our Vision</h2>
-<p>
-To become a leading global platform connecting emerging financial leaders with institutions,
-capital markets, innovation ecosystems, and policy dialogue.
-</p>
+<p>To become a leading global platform connecting emerging financial leaders with institutions and innovation ecosystems.</p>
 </div>
 
 <div class="card">
 <h2>Our Core Values</h2>
-<p>✔ Integrity in financial leadership</p>
-<p>✔ Excellence in learning and practice</p>
-<p>✔ Collaboration across sectors</p>
-<p>✔ Innovation in finance and technology</p>
+<p>✔ Integrity</p>
+<p>✔ Excellence</p>
+<p>✔ Collaboration</p>
+<p>✔ Innovation</p>
 </div>
 </section>
-
-<!-- TEAM -->
 
 <section class="team-section">
-  <h2>Meet The Team</h2>
-  <div class="team-grid">
+<h2>Meet The Team</h2>
 
-    <div class="team-card">
-  <div class="image-wrapper">
-    <img src="cropped-1713948169242.jpg" alt="Lewis Mwaba">
-    <a href="https://www.linkedin.com/in/mwaba-lewis-77a738134" target="_blank" class="linkedin-overlay">
-      Connect on LinkedIn
-    </a>
-  </div>
-  <h4>Mwaba Lewis</h4>
-  <p>Founder & Lead Mentor</p>
+<div class="team-grid">
+
+<div class="team-card">
+<div class="image-wrapper">
+<img src="cropped-1713948169242.jpg" alt="Lewis Mwaba">
+<a href="https://www.linkedin.com/in/mwaba-lewis-77a738134" target="_blank" class="linkedin-overlay">Connect on LinkedIn</a>
+</div>
+<h4>Mwaba Lewis</h4>
+<p>Founder & Lead Mentor</p>
 </div>
 
-<style>
-/* Image wrapper for overlay */
-.image-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-/* LinkedIn overlay button */
-.linkedin-overlay {
-  position: absolute;
-  bottom: -40px; /* hidden by default below image */
-  left: 50%;
-  transform: translateX(-50%);
-  background: #0a66c2; /* LinkedIn blue */
-  color: white;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  opacity: 0;
-  transition: bottom 0.3s, opacity 0.3s;
-}
-
-/* Hover effect on card */
-.team-card:hover .linkedin-overlay {
-  bottom: 10px; /* slides up over image */
-  opacity: 1;
-}
-
-/* Optional: slightly scale image on hover */
-.team-card:hover img {
-  transform: scale(1.05);
-}
-</style>
-
-    <div class="team-card">
-      <img src="placeholder.jpg" alt="Daniel">
-      <h4>Daniel C</h4>
-      <p>Program Advisor</p>
-    </div>
-
-    <div class="team-card">
-      <img src="FB_IMG_1769259474344.jpg" alt="Mercy">
-      <h4>Mercy K</h4>
-      <p>Learning Coordinator</p>
-    </div>
-
-<div class="team-member">
-<img src="https://via.placeholder.com/100">
-<h3>Head of Learning & Research</h3>
-<p>Content strategy and educational programs.</p>
+<div class="team-card">
+<img src="placeholder.jpg" alt="Daniel">
+<h4>Daniel C</h4>
+<p>Program Advisor</p>
 </div>
 
-<div class="team-member">
-<img src="https://via.placeholder.com/100">
-<h3>Community & Partnerships Lead</h3>
-<p>Member engagement and institutional collaborations.</p>
+<div class="team-card">
+<img src="FB_IMG_1769259474344.jpg" alt="Mercy">
+<h4>Mercy K</h4>
+<p>Learning Coordinator</p>
 </div>
 
-</div>
-  </div>
-</section>
-
-<section class="section">
-<h2>Partner With Us</h2>
-<div class="card">
-<p>
-We collaborate with universities, financial institutions, fintech companies, and policy organizations
-to provide high-impact learning experiences and professional development opportunities.
-</p>
 </div>
 </section>
 
 <section class="contact-section">
-  <div class="contact-grid">
+<div class="contact-grid">
 
-    <div class="contact-info">
-      <h3>Get In Touch</h3>
-      <p>
-        Have questions about FFL membership fees or events?
-        Reach out or connect on Facebook.
-      </p>
-      <a class="social-btn"
-         href="https://www.facebook.com/profile.php?id=61587936519955"
-         target="_blank">
-         Visit Our Facebook
-      </a>
-      <p style="margin-top:15px; font-weight:bold; color:var(--gold); display:flex; align-items:center; gap:8px;">
-  <!-- Google-style location pin SVG in gold -->
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
-    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
-  </svg>
-  Great East Road, Lusaka - Zambia
-</p>
-    </div>
+<div class="contact-box">
+<h3>Get In Touch</h3>
+<p>Have questions? Connect with us on Facebook.</p>
+<a class="social-btn" href="#" target="_blank">Visit Our Facebook</a>
+</div>
 
-    <div class="contact-form">
-      <h3>Send Us a Message</h3>
-      <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <textarea rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
+<div class="contact-box contact-form">
+<h3>Send Us a Message</h3>
+<form>
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<textarea rows="5" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+</div>
 
-  </div>
+</div>
 </section>
 
-<!-- SUPPORT CARD -->
-<section class="support-card" style="max-width:900px;margin:50px auto 20px auto;padding:30px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-align:center;">
-  <h3 style="color:var(--gold);font-size:24px;margin-bottom:15px;">Email Our Support Team Today!</h3>
-  <a href="mailto:hellogsbf@gmail.com" 
-     style="display:inline-block;padding:12px 25px;background:var(--green);color:var(--white);border-radius:6px;font-weight:bold;text-decoration:none;">
-     EMAIL
-  </a>
+<section class="support-card">
+<h3>Email Our Support Team Today!</h3>
+<a href="mailto:hellogsbf@gmail.com">EMAIL</a>
 </section>
 
 <footer>
-  © 2026 FFL — Future Banking & Finance Leaders Forum
+© 2026 FFL — Future Banking & Finance Leaders Forum
 </footer>
 
-<a class="whatsapp-btn"
-   href="https://wa.me/260958593261"
-   target="_blank">
-   WhatsApp Us
+<a class="whatsapp-btn" href="https://wa.me/260958593261" target="_blank">
+WhatsApp Us
 </a>
 
 </body>
 </html>
-
