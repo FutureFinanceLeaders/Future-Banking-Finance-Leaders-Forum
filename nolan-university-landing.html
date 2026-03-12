@@ -178,7 +178,7 @@ color:#ffd24c;
         <!-- BSc -->
         <li>
           <a href="#" class="toggle">🎓 3-Year Bachelor’s Degrees</a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu nested">
             <li><a href="#">BSc Finance & Investment</a></li>
             <li><a href="#">BSc Financial Technology</a></li>
             <li><a href="#">BSc Entrepreneurship & Venture Creation</a></li>
@@ -189,7 +189,7 @@ color:#ffd24c;
         <!-- MSc -->
         <li>
           <a href="#" class="toggle">🎓 1-Year Master’s Degrees</a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu nested">
             <li><a href="#">MSc Finance & Capital Markets</a></li>
             <li><a href="#">MSc Venture Capital & Private Equity</a></li>
             <li><a href="#">MBA Entrepreneurship & Innovation</a></li>
@@ -199,7 +199,7 @@ color:#ffd24c;
         <!-- Professional Diplomas -->
         <li>
           <a href="#" class="toggle">Professional Diploma in</a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu nested">
             <li><a href="#">1️⃣ Investment Banking</a></li>
             <li><a href="#">2️⃣ Venture Capital & Private Equity</a></li>
             <li><a href="#">3️⃣ Startup Builder Program</a></li>
@@ -211,7 +211,7 @@ color:#ffd24c;
         <!-- Career Programs -->
         <li>
           <a href="#" class="toggle">Career Accelerator Programs, Executive Certificates, Postgraduate Certificates & Industry Certifications</a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu nested">
             <li><a href="#">1️⃣ Investment Banking & Financial Markets</a></li>
             <li><a href="#">2️⃣ Venture Capital & Private Equity</a></li>
             <li><a href="#">3️⃣ Financial Technology (FinTech)</a></li>
@@ -228,7 +228,7 @@ color:#ffd24c;
         <!-- Youth Programmes -->
         <li>
           <a href="#" class="toggle">Youth Programmes</a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu nested">
             <li><a href="#">○ AI and Machine Learning Pioneers Summer School</a></li>
             <li><a href="#">○ Future Entrepreneurs Summer School</a></li>
             <li><a href="#">○ Future Climate Tech Innovators Summer School</a></li>
@@ -243,13 +243,44 @@ color:#ffd24c;
   </ul>
 </nav>
 
+<!-- CSS -->
+<style>
+body {margin:0; font-family:Arial, Helvetica, sans-serif; background:#0b2a5b; color:white;}
+.navbar {display:flex; justify-content:space-between; align-items:center; background:#04122b; padding:15px 20px; position:relative;}
+.logo {color:#ffd24c; font-weight:bold; font-size:18px;}
+.menu-icon {font-size:24px; cursor:pointer; color:white; display:block;}
+
+/* Nav Links hidden by default */
+.nav-links {list-style:none; margin:0; padding:0; display:none; flex-direction:column; background:#123d82; position:absolute; top:100%; right:0; width:300px; border-radius:6px; z-index:1000;}
+.nav-links.show {display:flex;}
+.nav-links li {border-bottom:1px solid #102f64; position:relative;}
+.nav-links a {text-decoration:none; color:white; display:block; padding:12px 15px;}
+.nav-links a:hover {background:#102f64;}
+
+/* Dropdown menus */
+.dropdown-menu {display:none; flex-direction:column; background:#102f64; padding-left:0;}
+.nested {padding-left:20px;} /* indent nested items for clean look */
+.toggle::after {content:" ▼"; float:right;}
+.dropdown:hover > .dropdown-menu {display:flex;} /* desktop hover */
+
+/* Responsive */
+@media screen and (min-width:768px){
+  .menu-icon {display:none;}
+  .nav-links {display:flex !important; flex-direction:row; position:static; width:auto; background:transparent;}
+  .nav-links li {border:none; margin:0 12px;}
+  .dropdown-menu {position:absolute; display:none; min-width:250px;}
+  .dropdown:hover > .dropdown-menu {display:block;}
+  .nested {padding-left:15px;} 
+}
+</style>
+
 <!-- JS -->
 <script>
 function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('show');
 }
 
-// Toggle submenus inside Programmes
+// Toggle submenus for mobile
 document.querySelectorAll('.toggle').forEach(item => {
   item.addEventListener('click', function(e){
     e.preventDefault();
