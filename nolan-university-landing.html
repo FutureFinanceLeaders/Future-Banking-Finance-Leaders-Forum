@@ -138,94 +138,151 @@ font-weight:bold;
 margin-bottom:15px;
 color:#ffd24c;
 }
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-background:#04122b;
-}
-
-.logo{
-color:#ffd24c;
-font-weight:bold;
-font-size:18px;
-}
-
-.nav-links{
-display:flex;
-list-style:none;
-}
-
-.nav-links li{
-margin:0 10px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:white;
-font-size:14px;
-}
-
-.dropdown-menu{
-display:none;
-position:absolute;
-background:#123d82;
-list-style:none;
-padding:10px;
-}
-
-.dropdown:hover .dropdown-menu{
-display:block;
-}
 
 </style>
 
 </head>
 
 <body>
+<!-- NAVBAR -->
 <nav class="navbar">
+  <div class="logo">NOLAN UNIVERSITY</div>
 
-<div class="logo">
-NOLAN UNIVERSITY
-</div>
+  <!-- Hamburger Menu Icon -->
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-<ul class="nav-links">
-
-<li><a href="index.html">Home</a></li>
-
-<li class="dropdown">
-<a href="#">Schools</a>
-
-<ul class="dropdown-menu">
-
-<li><a href="technology-ai.html">School of Technology & AI</a></li>
-
-<li><a href="gsbf.html">Graduate School of Banking & Finance</a></li>
-
-<li><a href="entrepreneurship.html">School of Entrepreneurship & Venture Creation</a></li>
-
-<li><a href="global-business.html">School of Global Business & Leadership</a></li>
-
-</ul>
-
-</li>
-
-<li><a href="admissions.html">Admissions</a></li>
-
-<li><a href="research.html">Research</a></li>
-
-<li><a href="faculty.html">Faculty</a></li>
-
-<li><a href="courses.html">Courses</a></li>
-
-<li><a href="apply.html">Apply</a></li>
-
-<li><a href="student-login.html">Student Login</a></li>
-
-</ul>
-
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li class="dropdown">
+      <a href="#">Schools ▼</a>
+      <ul class="dropdown-menu">
+        <li><a href="technology-ai.html">School of Technology & AI</a></li>
+        <li><a href="gsbf.html">Graduate School of Banking & Finance</a></li>
+        <li><a href="entrepreneurship.html">School of Entrepreneurship & Venture Creation</a></li>
+        <li><a href="global-business.html">School of Global Business & Leadership</a></li>
+      </ul>
+    </li>
+    <li><a href="admissions.html">Admissions</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="faculty.html">Faculty</a></li>
+    <li class="dropdown">
+      <a href="#">Courses ▼</a>
+      <ul class="dropdown-menu">
+        <li><a href="bachelors.html">Bachelor’s Degrees</a></li>
+        <li><a href="masters.html">Master’s Degrees</a></li>
+        <li><a href="professional-diplomas.html">Professional Diplomas</a></li>
+        <li><a href="executive-certificates.html">Executive Certificates</a></li>
+      </ul>
+    </li>
+    <li><a href="apply.html">Apply</a></li>
+    <li><a href="student-login.html">Student Login</a></li>
+  </ul>
 </nav>
+
+<!-- CSS -->
+<style>
+body {margin:0; font-family:Arial, Helvetica, sans-serif; background:#0b2a5b; color:white;}
+
+/* Navbar */
+.navbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#04122b;
+  padding:15px 20px;
+  position:relative;
+}
+
+.logo {
+  color:#ffd24c;
+  font-weight:bold;
+  font-size:18px;
+}
+
+/* Hamburger Icon */
+.menu-icon {
+  font-size:24px;
+  cursor:pointer;
+  color:white;
+  display:block;
+}
+
+/* Nav Links Hidden by Default */
+.nav-links {
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:none;
+  flex-direction:column;
+  background:#123d82;
+  position:absolute;
+  top:100%;
+  right:0;
+  width:250px;
+  border-radius:6px;
+  z-index:1000;
+}
+
+.nav-links li {
+  border-bottom:1px solid #102f64;
+}
+
+.nav-links a {
+  text-decoration:none;
+  color:white;
+  display:block;
+  padding:12px 15px;
+}
+
+.nav-links a:hover {
+  background:#102f64;
+}
+
+/* Dropdown Menus inside Hamburger */
+.dropdown-menu {
+  display:none;
+  flex-direction:column;
+  background:#102f64;
+}
+
+.dropdown:hover .dropdown-menu {
+  display:flex;
+}
+
+.nav-links li.dropdown > a::after {
+  content: " ▼";
+  float:right;
+}
+
+/* Show nav when toggled */
+.nav-links.show {
+  display:flex;
+}
+
+/* Responsive */
+@media screen and (min-width:768px){
+  .menu-icon {display:none;}
+  .nav-links {
+    display:flex !important;
+    position:static;
+    flex-direction:row;
+    width:auto;
+    background:transparent;
+  }
+  .nav-links li {border:none; margin:0 12px;}
+  .dropdown-menu {position:absolute; display:none;}
+  .dropdown:hover .dropdown-menu {display:block;}
+}
+</style>
+
+<!-- JS -->
+<script>
+function toggleMenu() {
+  const nav = document.getElementById('navLinks');
+  nav.classList.toggle('show');
+}
+</script>
+
 <!-- HEADER -->
 <header>
 <div class="logo-title">NOLAN UNIVERSITY</div>
