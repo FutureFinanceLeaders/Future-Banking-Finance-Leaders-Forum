@@ -144,6 +144,7 @@ color:#ffd24c;
 </head>
 
 <body>
+
 <!-- NAVBAR -->
 <nav class="navbar">
 
@@ -167,53 +168,63 @@ color:#ffd24c;
       </ul>
     </li>
 
+    <!-- Dropdown: Programmes -->
     <li class="dropdown">
       <a href="#">Programmes ▼</a>
       <ul class="dropdown-menu">
 
         <!-- Bachelor’s Degrees -->
-        <li><a href="bsc-finance.html">🎓 3-Year Bachelor’s Degrees</a>
+        <li><a href="#">🎓 3-Year Bachelor’s Degrees</a>
           <ul class="dropdown-submenu">
-            <li><a href="bsc-finance-investment.html">BSc Finance & Investment</a></li>
-            <li><a href="bsc-fintech.html">BSc Financial Technology</a></li>
-            <li><a href="bsc-entrepreneurship.html">BSc Entrepreneurship & Venture Creation</a></li>
-            <li><a href="bsc-business-analytics.html">BSc Business Analytics & AI</a></li>
+            <li><a href="#">BSc Finance & Investment</a></li>
+            <li><a href="#">BSc Financial Technology</a></li>
+            <li><a href="#">BSc Entrepreneurship & Venture Creation</a></li>
+            <li><a href="#">BSc Business Analytics & AI</a></li>
           </ul>
         </li>
 
         <!-- Master’s Degrees -->
-        <li><a href="msc.html">🎓 1-Year Master’s Degrees</a>
+        <li><a href="#">🎓 1-Year Master’s Degrees</a>
           <ul class="dropdown-submenu">
-            <li><a href="msc-finance.html">MSc Finance & Capital Markets</a></li>
-            <li><a href="msc-vc.html">MSc Venture Capital & Private Equity</a></li>
-            <li><a href="mba-entrepreneurship.html">MBA Entrepreneurship & Innovation</a></li>
+            <li><a href="#">MSc Finance & Capital Markets</a></li>
+            <li><a href="#">MSc Venture Capital & Private Equity</a></li>
+            <li><a href="#">MBA Entrepreneurship & Innovation</a></li>
           </ul>
         </li>
 
         <!-- Professional Diplomas -->
-        <li><a href="professional-diplomas.html">Professional Diploma in</a>
+        <li><a href="#">Professional Diploma in</a>
           <ul class="dropdown-submenu">
-            <li><a href="diploma-investment-banking.html">1️⃣ Investment Banking</a></li>
-            <li><a href="diploma-vc.html">2️⃣ Venture Capital & Private Equity</a></li>
-            <li><a href="diploma-startup.html">3️⃣ Startup Builder Program</a></li>
-            <li><a href="diploma-fintech.html">4️⃣ FinTech & Digital Finance</a></li>
-            <li><a href="diploma-ai.html">5️⃣ AI for Business & Finance</a></li>
+            <li><a href="#">1️⃣ Investment Banking</a></li>
+            <li><a href="#">2️⃣ Venture Capital & Private Equity</a></li>
+            <li><a href="#">3️⃣ Startup Builder Program</a></li>
+            <li><a href="#">4️⃣ FinTech & Digital Finance</a></li>
+            <li><a href="#">5️⃣ AI for Business & Finance</a></li>
           </ul>
         </li>
 
         <!-- Career Accelerator Programs & Certifications -->
-        <li><a href="career-programs.html">Career Accelerator Programs & Certifications</a>
+        <li><a href="#">Career Accelerator Programs, Executive Certificates, Postgraduate Certificates & Industry Certifications</a>
           <ul class="dropdown-submenu">
-            <li><a href="career-investment.html">1️⃣ Investment Banking & Financial Markets</a></li>
-            <li><a href="career-vc.html">2️⃣ Venture Capital & Private Equity</a></li>
-            <li><a href="career-fintech.html">3️⃣ Financial Technology (FinTech)</a></li>
-            <li><a href="career-entrepreneurship.html">4️⃣ Entrepreneurship & Startup Creation</a></li>
-            <li><a href="career-ai.html">5️⃣ Artificial Intelligence for Business</a></li>
-            <li><a href="career-data.html">6️⃣ Business Analytics & Data Strategy</a></li>
-            <li><a href="career-wealth.html">7️⃣ Wealth Management & Investment Advisory</a></li>
-            <li><a href="career-global.html">8️⃣ Global Business & Strategic Leadership</a></li>
-            <li><a href="career-digital.html">9️⃣ Digital Finance & Blockchain</a></li>
-            <li><a href="career-innovation.html">🔟 Innovation & Venture Building</a></li>
+            <li><a href="#">1️⃣ Investment Banking & Financial Markets</a></li>
+            <li><a href="#">2️⃣ Venture Capital & Private Equity</a></li>
+            <li><a href="#">3️⃣ Financial Technology (FinTech)</a></li>
+            <li><a href="#">4️⃣ Entrepreneurship & Startup Creation</a></li>
+            <li><a href="#">5️⃣ Artificial Intelligence for Business</a></li>
+            <li><a href="#">6️⃣ Business Analytics & Data Strategy</a></li>
+            <li><a href="#">7️⃣ Wealth Management & Investment Advisory</a></li>
+            <li><a href="#">8️⃣ Global Business & Strategic Leadership</a></li>
+            <li><a href="#">9️⃣ Digital Finance & Blockchain</a></li>
+            <li><a href="#">🔟 Innovation & Venture Building</a></li>
+          </ul>
+        </li>
+
+        <!-- Youth Programmes -->
+        <li><a href="#">Youth Programmes</a>
+          <ul class="dropdown-submenu">
+            <li><a href="#">○ AI and Machine Learning Pioneers Summer School</a></li>
+            <li><a href="#">○ Future Entrepreneurs Summer School</a></li>
+            <li><a href="#">○ Future Climate Tech Innovators Summer School</a></li>
           </ul>
         </li>
 
@@ -269,7 +280,7 @@ body {margin:0; font-family:Arial, Helvetica, sans-serif; background:#0b2a5b; co
   position:absolute;
   top:100%;
   right:0;
-  width:300px;
+  width:350px;
   border-radius:6px;
   z-index:1000;
 }
@@ -297,14 +308,15 @@ body {margin:0; font-family:Arial, Helvetica, sans-serif; background:#0b2a5b; co
   display:none;
   flex-direction:column;
   background:#102f64;
+  margin:0;
+  padding:0;
 }
 
-.dropdown:hover > .dropdown-menu, 
+.dropdown:hover > .dropdown-menu,
 .dropdown-submenu:hover > .dropdown-submenu {
   display:flex;
 }
 
-/* Submenus */
 .nav-links li ul {
   list-style:none;
   margin:0;
@@ -324,7 +336,7 @@ body {margin:0; font-family:Arial, Helvetica, sans-serif; background:#0b2a5b; co
   float:right;
 }
 
-/* Responsive */
+/* Submenu nesting positioning for desktop */
 @media screen and (min-width:768px){
   .menu-icon {display:none;}
   .nav-links {display:flex !important; position:static; flex-direction:row; width:auto; background:transparent;}
