@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>School of Global Business & Leadership</title>
+
+<style>
+
+body{font-family:Arial;background:#0b2a5b;color:white;margin:0}
+
+nav{background:#04122b;text-align:center;padding:15px}
+
+nav a{color:#ffd24c;margin:0 12px;text-decoration:none}
+
+.container{width:90%;max-width:1100px;margin:auto;padding:30px 0}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+
+.card{background:#123d82;padding:25px;border-radius:8px}
+
+h1,h2{color:#ffd24c}
+
+footer{background:#04122b;text-align:center;padding:25px}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="#">Programs</a>
+<a href="#">Admissions</a>
+<a href="#">Faculty</a>
+<a href="#">Research</a>
+<a href="#">Scholarships</a>
+<a href="#">Apply</a>
+
+</nav>
+
+
+<section class="container">
+
+<h1>School of Global Business & Leadership</h1>
+
+<p>Preparing leaders for global business, strategy, and management.</p>
+
+</section>
+
+
+<section class="container">
+
+<h2>Programs</h2>
+
+<div class="grid">
+
+<div class="card">🎓 Global Business & Strategic Leadership Certificate</div>
+
+<div class="card">🎓 Business Strategy & Leadership Program</div>
+
+<div class="card">🎓 Wealth Management & Investment Advisory</div>
+
+<div class="card">🎓 Global Business Management Diploma</div>
+
+</div>
+
+</section>
+
+
+<section class="container">
+
+<h2>Leadership Curriculum</h2>
+
+<div class="grid">
+
+<div class="card">Strategic leadership</div>
+<div class="card">Global markets</div>
+<div class="card">Corporate governance</div>
+<div class="card">Organizational leadership</div>
+
+</div>
+
+</section>
+
+
+<section class="container">
+
+<h2>Career Opportunities</h2>
+
+<div class="grid">
+
+<div class="card">Corporate Executive</div>
+<div class="card">Business Strategist</div>
+<div class="card">Management Consultant</div>
+<div class="card">Global Business Leader</div>
+
+</div>
+
+</section>
+
+
+<section class="container">
+
+<h2>Faculty</h2>
+
+<p>Global executives, leadership experts, and strategy consultants.</p>
+
+</section>
+
+
+<section class="container">
+
+<h2>Research</h2>
+
+<p>Research focuses on leadership development, international business, and corporate governance.</p>
+
+</section>
+
+
+<section class="container">
+
+<h2>Scholarships</h2>
+
+<p>Scholarships available for leadership and business students.</p>
+
+</section>
+
+
+<footer>
+
+<p>NOLAN UNIVERSITY</p>
+<p>Learn to Lead. Lead to Excel.</p>
+
+</footer>
+
+</body>
+</html>
