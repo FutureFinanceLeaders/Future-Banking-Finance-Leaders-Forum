@@ -161,35 +161,56 @@ Nolan University is a modern global & professional university built for company 
 </div>
 </section>
 <!-- SCHOOLS SECTION -->
-<section style="padding:20px 0; background:#04122b; text-align:center;">
+<section>
   <div class="container">
-    <h2 style="font-size:22px; color:#ffd24c; margin-bottom:20px;">Four Schools in Which to Pursue Your Passions</h2>
-    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px;">
+    <h2 style="text-align:center; font-size:22px; color:#ffd24c; margin-bottom:20px;">Four Schools in Which to Pursue Your Passions</h2>
+    <div class="program-grid">
 
-      <a href="#" class="school-link-small">🎓 GSBF — Graduate School of Banking & Finance</a>
-      <a href="#" class="school-link-small">🎓 School of Entrepreneurship & Venture Creation</a>
-      <a href="#" class="school-link-small">🎓 School of Technology & AI</a>
-      <a href="#" class="school-link-small">🎓 School of Global Business & Leadership</a>
+      <a href="#" class="school-card-link">
+        <div class="card">
+          🎓 GSBF — Graduate School of Banking & Finance
+        </div>
+      </a>
+
+      <a href="#" class="school-card-link">
+        <div class="card">
+          🎓 School of Entrepreneurship & Venture Creation
+        </div>
+      </a>
+
+      <a href="#" class="school-card-link">
+        <div class="card">
+          🎓 School of Technology & AI
+        </div>
+      </a>
+
+      <a href="#" class="school-card-link">
+        <div class="card">
+          🎓 School of Global Business & Leadership
+        </div>
+      </a>
 
     </div>
   </div>
 </section>
 
 <style>
-.school-link-small {
-  display:inline-block;
-  font-size:14px;
-  color:#ffd24c;
-  text-decoration:none;
-  padding:8px 12px;
-  border-radius:5px;
-  transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+.school-card-link {
+  text-decoration: none;
 }
 
-.school-link-small:hover {
-  color:#fff;
-  background:#1a4a9a;
-  transform: translateY(-3px);
+.school-card-link .card {
+  font-size: 14px;
+  text-align: center;
+  padding: 18px 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.school-card-link .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  background: #1a4a9a;
+  color: #fff;
 }
 </style>
 
