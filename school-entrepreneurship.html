@@ -10,6 +10,8 @@
 
 <style>
 
+/* GENERAL */
+
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
@@ -23,7 +25,8 @@ color:white;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 40px;
+flex-wrap:wrap;
+padding:15px 20px;
 background:#04122b;
 }
 
@@ -31,23 +34,26 @@ background:#04122b;
 color:#ffd24c;
 font-weight:bold;
 font-size:18px;
+margin-bottom:5px;
 }
 
 .nav-links{
 display:flex;
+flex-wrap:wrap;
 list-style:none;
 margin:0;
 padding:0;
 }
 
 .nav-links li{
-margin-left:25px;
+margin:6px 12px;
 }
 
 .nav-links a{
 text-decoration:none;
 color:white;
 font-size:14px;
+white-space:nowrap;
 }
 
 .nav-links a:hover{
@@ -62,7 +68,7 @@ margin-right:6px;
 
 header{
 text-align:center;
-padding:70px 20px;
+padding:60px 20px;
 }
 
 h1,h2,h3{
@@ -86,7 +92,7 @@ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
 }
 
-/* CARD */
+/* CARDS */
 
 .card{
 background:#123d82;
@@ -222,7 +228,10 @@ padding:30px;
 
 <h2>Entrepreneurship Curriculum</h2>
 
-<p>Students learn how to identify opportunities, build startups, raise capital, and scale businesses globally.</p>
+<p>
+Students learn how to identify opportunities, build startups,
+raise capital, and scale businesses globally.
+</p>
 
 </section>
 
@@ -255,8 +264,11 @@ padding:30px;
 <div class="grid">
 
 <div class="card">Startup Founder</div>
+
 <div class="card">Venture Builder</div>
+
 <div class="card">Innovation Consultant</div>
+
 <div class="card">Startup Advisor</div>
 
 </div>
@@ -269,7 +281,11 @@ padding:30px;
 
 <h2>Faculty</h2>
 
-<p>Our faculty includes successful entrepreneurs, venture capitalists, startup advisors, and innovation leaders.</p>
+<p>
+Our faculty includes successful entrepreneurs,
+venture capitalists, startup advisors,
+and innovation leaders.
+</p>
 
 </section>
 
@@ -279,7 +295,11 @@ padding:30px;
 
 <h2>Research</h2>
 
-<p>Research areas include entrepreneurship ecosystems, venture funding, startup innovation, and emerging markets.</p>
+<p>
+Research areas include entrepreneurship ecosystems,
+venture funding, startup innovation,
+and emerging markets.
+</p>
 
 </section>
 
@@ -289,11 +309,73 @@ padding:30px;
 
 <h2>Admissions</h2>
 
-<p>Applicants must demonstrate entrepreneurial ambition and leadership potential.</p>
+<p>
+Applicants must demonstrate entrepreneurial ambition
+and leadership potential.
+</p>
 
 </section>
 
-<!-- CTA -->
+<!-- INDUSTRY PARTNERS -->
+
+<section class="container">
+
+<h2>Industry Partners</h2>
+
+<p>
+We collaborate with startup incubators,
+venture capital firms,
+accelerators,
+and innovation hubs.
+</p>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="container">
+
+<h2>Student Testimonials</h2>
+
+<p>
+"This program helped me launch my first startup and connect
+with mentors and investors." — Student
+</p>
+
+</section>
+
+<!-- SCHOLARSHIPS -->
+
+<section class="container">
+
+<h2>Scholarships</h2>
+
+<p>
+Nolan University offers scholarships for aspiring
+entrepreneurs and startup founders.
+</p>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="container">
+
+<h2>FAQ</h2>
+
+<p>
+<strong>Can students launch startups during the program?</strong><br>
+Yes. Students are encouraged to build real ventures.
+</p>
+
+<p>
+<strong>Is the program global?</strong><br>
+Yes. Students from around the world can enroll online.
+</p>
+
+</section>
+
+<!-- APPLY -->
 
 <section class="cta" id="apply">
 
@@ -308,6 +390,7 @@ padding:30px;
 <footer>
 
 <p>NOLAN UNIVERSITY</p>
+
 <p>Learn to Lead. Lead to Excel.</p>
 
 </footer>
