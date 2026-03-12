@@ -148,6 +148,8 @@ color:#ffd24c;
 <!-- NAVBAR -->
 <nav class="navbar">
   <div class="logo">NOLAN UNIVERSITY</div>
+
+  <!-- Hamburger Menu Icon -->
   <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
   <ul class="nav-links" id="navLinks">
@@ -155,8 +157,8 @@ color:#ffd24c;
 
     <!-- Schools Dropdown -->
     <li class="dropdown">
-      <a href="#" class="toggle">Schools ▼</a>
-      <ul class="submenu">
+      <a href="#">Schools ▼</a>
+      <ul class="dropdown-menu">
         <li><a href="technology-ai.html">School of Technology & AI</a></li>
         <li><a href="gsbf.html">Graduate School of Banking & Finance</a></li>
         <li><a href="entrepreneurship.html">School of Entrepreneurship & Venture Creation</a></li>
@@ -164,15 +166,19 @@ color:#ffd24c;
       </ul>
     </li>
 
+    <li><a href="admissions.html">Admissions</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="faculty.html">Faculty</a></li>
+
     <!-- Programmes Dropdown -->
     <li class="dropdown">
       <a href="#" class="toggle">Programmes ▼</a>
-      <ul class="submenu">
+      <ul class="dropdown-menu">
 
         <!-- BSc -->
-        <li class="dropdown-submenu">
+        <li>
           <a href="#" class="toggle">🎓 3-Year Bachelor’s Degrees</a>
-          <ul class="submenu">
+          <ul class="dropdown-menu">
             <li><a href="#">BSc Finance & Investment</a></li>
             <li><a href="#">BSc Financial Technology</a></li>
             <li><a href="#">BSc Entrepreneurship & Venture Creation</a></li>
@@ -181,19 +187,19 @@ color:#ffd24c;
         </li>
 
         <!-- MSc -->
-        <li class="dropdown-submenu">
+        <li>
           <a href="#" class="toggle">🎓 1-Year Master’s Degrees</a>
-          <ul class="submenu">
+          <ul class="dropdown-menu">
             <li><a href="#">MSc Finance & Capital Markets</a></li>
             <li><a href="#">MSc Venture Capital & Private Equity</a></li>
             <li><a href="#">MBA Entrepreneurship & Innovation</a></li>
           </ul>
         </li>
 
-        <!-- Professional Diploma -->
-        <li class="dropdown-submenu">
+        <!-- Professional Diplomas -->
+        <li>
           <a href="#" class="toggle">Professional Diploma in</a>
-          <ul class="submenu">
+          <ul class="dropdown-menu">
             <li><a href="#">1️⃣ Investment Banking</a></li>
             <li><a href="#">2️⃣ Venture Capital & Private Equity</a></li>
             <li><a href="#">3️⃣ Startup Builder Program</a></li>
@@ -202,10 +208,10 @@ color:#ffd24c;
           </ul>
         </li>
 
-        <!-- Career Accelerator Programs -->
-        <li class="dropdown-submenu">
+        <!-- Career Programs -->
+        <li>
           <a href="#" class="toggle">Career Accelerator Programs, Executive Certificates, Postgraduate Certificates & Industry Certifications</a>
-          <ul class="submenu">
+          <ul class="dropdown-menu">
             <li><a href="#">1️⃣ Investment Banking & Financial Markets</a></li>
             <li><a href="#">2️⃣ Venture Capital & Private Equity</a></li>
             <li><a href="#">3️⃣ Financial Technology (FinTech)</a></li>
@@ -220,9 +226,9 @@ color:#ffd24c;
         </li>
 
         <!-- Youth Programmes -->
-        <li class="dropdown-submenu">
+        <li>
           <a href="#" class="toggle">Youth Programmes</a>
-          <ul class="submenu">
+          <ul class="dropdown-menu">
             <li><a href="#">○ AI and Machine Learning Pioneers Summer School</a></li>
             <li><a href="#">○ Future Entrepreneurs Summer School</a></li>
             <li><a href="#">○ Future Climate Tech Innovators Summer School</a></li>
@@ -232,37 +238,10 @@ color:#ffd24c;
       </ul>
     </li>
 
-    <li><a href="admissions.html">Admissions</a></li>
-    <li><a href="research.html">Research</a></li>
-    <li><a href="faculty.html">Faculty</a></li>
     <li><a href="apply.html">Apply</a></li>
     <li><a href="student-login.html">Student Login</a></li>
   </ul>
 </nav>
-
-<!-- CSS -->
-<style>
-body {margin:0; font-family:Arial,sans-serif; background:#0b2a5b; color:white;}
-.navbar {display:flex; justify-content:space-between; align-items:center; background:#04122b; padding:15px 20px; position:relative;}
-.logo {color:#ffd24c; font-weight:bold; font-size:18px;}
-.menu-icon {font-size:24px; cursor:pointer; color:white; display:block;}
-.nav-links {list-style:none; margin:0; padding:0; display:none; flex-direction:column; background:#123d82; position:absolute; top:100%; right:0; width:350px; border-radius:6px; z-index:1000;}
-.nav-links.show {display:flex;}
-.nav-links li {border-bottom:1px solid #102f64; position:relative;}
-.nav-links a {text-decoration:none; color:white; display:block; padding:12px 15px;}
-.nav-links a:hover {background:#102f64;}
-.submenu {display:none; flex-direction:column; background:#102f64; padding-left:10px;}
-.dropdown-submenu > a::after {content:" ▼"; float:right; margin-right:5px;}
-@media screen and (min-width:768px){
-  .menu-icon {display:none;}
-  .nav-links {display:flex !important; flex-direction:row; position:static; width:auto; background:transparent;}
-  .nav-links li {margin:0 12px; border:none;}
-  .dropdown-submenu > a::after {content:" ▼"; margin-left:5px;}
-  .submenu {position:absolute; left:0; top:100%; padding-left:0;}
-  .dropdown:hover > .submenu {display:flex;}
-  .dropdown-submenu:hover > .submenu {display:flex; top:0; left:100%;}
-}
-</style>
 
 <!-- JS -->
 <script>
@@ -270,11 +249,11 @@ function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('show');
 }
 
-// Toggle submenus on click
+// Toggle submenus inside Programmes
 document.querySelectorAll('.toggle').forEach(item => {
   item.addEventListener('click', function(e){
     e.preventDefault();
-    let submenu = this.nextElementSibling;
+    const submenu = this.nextElementSibling;
     if(submenu) submenu.classList.toggle('show');
   });
 });
