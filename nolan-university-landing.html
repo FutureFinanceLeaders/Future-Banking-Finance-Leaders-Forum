@@ -138,13 +138,94 @@ font-weight:bold;
 margin-bottom:15px;
 color:#ffd24c;
 }
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:#04122b;
+}
+
+.logo{
+color:#ffd24c;
+font-weight:bold;
+font-size:18px;
+}
+
+.nav-links{
+display:flex;
+list-style:none;
+}
+
+.nav-links li{
+margin:0 10px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-size:14px;
+}
+
+.dropdown-menu{
+display:none;
+position:absolute;
+background:#123d82;
+list-style:none;
+padding:10px;
+}
+
+.dropdown:hover .dropdown-menu{
+display:block;
+}
 
 </style>
 
 </head>
 
 <body>
+<nav class="navbar">
 
+<div class="logo">
+NOLAN UNIVERSITY
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li class="dropdown">
+<a href="#">Schools</a>
+
+<ul class="dropdown-menu">
+
+<li><a href="technology-ai.html">School of Technology & AI</a></li>
+
+<li><a href="gsbf.html">Graduate School of Banking & Finance</a></li>
+
+<li><a href="entrepreneurship.html">School of Entrepreneurship & Venture Creation</a></li>
+
+<li><a href="global-business.html">School of Global Business & Leadership</a></li>
+
+</ul>
+
+</li>
+
+<li><a href="admissions.html">Admissions</a></li>
+
+<li><a href="research.html">Research</a></li>
+
+<li><a href="faculty.html">Faculty</a></li>
+
+<li><a href="courses.html">Courses</a></li>
+
+<li><a href="apply.html">Apply</a></li>
+
+<li><a href="student-login.html">Student Login</a></li>
+
+</ul>
+
+</nav>
 <!-- HEADER -->
 <header>
 <div class="logo-title">NOLAN UNIVERSITY</div>
