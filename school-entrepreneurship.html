@@ -1,28 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
-<title>School of Entrepreneurship & Venture Creation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>School of Entrepreneurship & Venture Creation | Nolan University</title>
 
 <style>
 
-body{font-family:Arial;background:#0b2a5b;color:white;margin:0}
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#0b2a5b;
+color:white;
+}
 
-nav{background:#04122b;text-align:center;padding:15px}
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:#04122b;
+}
 
-nav a{color:#ffd24c;margin:0 12px;text-decoration:none}
+.logo{
+color:#ffd24c;
+font-weight:bold;
+font-size:18px;
+}
 
-.container{width:90%;max-width:1100px;margin:auto;padding:30px 0}
+.nav-links{
+display:flex;
+list-style:none;
+}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+.nav-links li{
+margin:0 10px;
+}
 
-.card{background:#123d82;padding:25px;border-radius:8px}
+.nav-links a{
+text-decoration:none;
+color:white;
+font-size:14px;
+}
 
-h1,h2{color:#ffd24c}
+header{
+text-align:center;
+padding:70px 20px;
+}
 
-.cta{background:#061a3a;text-align:center;padding:50px}
+h1,h2,h3{
+color:#ffd24c;
+}
 
-footer{background:#04122b;text-align:center;padding:25px}
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+padding:40px 0;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.card{
+background:#123d82;
+padding:25px;
+border-radius:8px;
+}
+
+.highlight{
+background:#102f64;
+padding:50px 20px;
+text-align:center;
+}
+
+.cta{
+background:#061a3a;
+text-align:center;
+padding:60px 20px;
+}
+
+button{
+background:#ffd24c;
+border:none;
+padding:15px 30px;
+font-weight:bold;
+cursor:pointer;
+}
+
+footer{
+background:#04122b;
+text-align:center;
+padding:30px;
+}
 
 </style>
 
@@ -30,23 +106,30 @@ footer{background:#04122b;text-align:center;padding:25px}
 
 <body>
 
-<nav>
-<a href="#">Programs</a>
-<a href="#">Admissions</a>
-<a href="#">Faculty</a>
-<a href="#">Research</a>
-<a href="#">Scholarships</a>
-<a href="#">Apply</a>
+<nav class="navbar">
+
+<div class="logo">NOLAN UNIVERSITY</div>
+
+<ul class="nav-links">
+
+<li><a href="#">Programs</a></li>
+<li><a href="#">Admissions</a></li>
+<li><a href="#">Faculty</a></li>
+<li><a href="#">Research</a></li>
+<li><a href="#">Apply</a></li>
+
+</ul>
+
 </nav>
 
 
-<section class="container">
+<header>
 
 <h1>School of Entrepreneurship & Venture Creation</h1>
 
-<p>Building founders, startup leaders, and venture creators.</p>
+<p>Building founders, innovators, and venture leaders who create the businesses of tomorrow.</p>
 
-</section>
+</header>
 
 
 <section class="container">
@@ -55,29 +138,65 @@ footer{background:#04122b;text-align:center;padding:25px}
 
 <div class="grid">
 
-<div class="card">🎓 BSc Entrepreneurship & Venture Creation</div>
+<div class="card">
 
-<div class="card">🎓 MBA Entrepreneurship & Innovation</div>
+<h3>🎓 BSc Entrepreneurship & Venture Creation</h3>
 
-<div class="card">🎓 Diploma in Startup Building</div>
+<p>3 Years</p>
 
-<div class="card">🎓 Startup Builder Program</div>
+</div>
+
+<div class="card">
+
+<h3>🎓 MBA Entrepreneurship & Innovation</h3>
+
+<p>1 Year</p>
+
+</div>
+
+<div class="card">
+
+<h3>🎓 Diploma in Startup Building</h3>
+
+<p>2 Years</p>
+
+</div>
+
+<div class="card">
+
+<h3>🎓 Startup Builder Program</h3>
+
+<p>3–6 Months</p>
+
+</div>
 
 </div>
 
 </section>
 
 
+<section class="highlight">
+
+<h2>Entrepreneurship Curriculum</h2>
+
+<p>Students learn how to identify opportunities, build startups, raise capital, and scale businesses globally.</p>
+
+</section>
+
+
 <section class="container">
 
-<h2>What You Learn</h2>
+<h2>What You Will Learn</h2>
 
 <div class="grid">
 
-<div class="card">Startup creation</div>
-<div class="card">Venture funding</div>
-<div class="card">Product innovation</div>
-<div class="card">Business scaling</div>
+<div class="card">Startup Ideation & Business Models</div>
+
+<div class="card">Product Development & Innovation</div>
+
+<div class="card">Venture Capital & Startup Funding</div>
+
+<div class="card">Business Scaling & Growth Strategy</div>
 
 </div>
 
@@ -91,9 +210,12 @@ footer{background:#04122b;text-align:center;padding:25px}
 <div class="grid">
 
 <div class="card">Startup Founder</div>
-<div class="card">Innovation Manager</div>
-<div class="card">Startup Advisor</div>
+
 <div class="card">Venture Builder</div>
+
+<div class="card">Innovation Consultant</div>
+
+<div class="card">Startup Advisor</div>
 
 </div>
 
@@ -104,7 +226,7 @@ footer{background:#04122b;text-align:center;padding:25px}
 
 <h2>Faculty</h2>
 
-<p>Entrepreneurs, venture capitalists, startup advisors.</p>
+<p>Our faculty includes successful entrepreneurs, venture capitalists, startup advisors, and innovation leaders.</p>
 
 </section>
 
@@ -113,7 +235,25 @@ footer{background:#04122b;text-align:center;padding:25px}
 
 <h2>Research</h2>
 
-<p>Entrepreneurship ecosystems, venture financing, startup scaling.</p>
+<p>Research areas include entrepreneurship ecosystems, venture funding, startup innovation, and emerging markets.</p>
+
+</section>
+
+
+<section class="container">
+
+<h2>Industry Partners</h2>
+
+<p>We collaborate with startup incubators, venture capital firms, accelerators, and innovation hubs.</p>
+
+</section>
+
+
+<section class="container">
+
+<h2>Student Testimonials</h2>
+
+<p>"This program helped me launch my first startup and connect with mentors and investors." — Student</p>
 
 </section>
 
@@ -122,23 +262,25 @@ footer{background:#04122b;text-align:center;padding:25px}
 
 <h2>Scholarships</h2>
 
-<p>Scholarships available for student founders.</p>
+<p>Nolan University offers scholarships for aspiring entrepreneurs and startup founders.</p>
 
 </section>
 
 
 <section class="container">
 
-<h2>Testimonials</h2>
+<h2>FAQ</h2>
 
-<p>"The startup builder program helped me launch my first company." — Student</p>
+<p><strong>Can students launch startups during the program?</strong><br>Yes. Students are encouraged to build real ventures.</p>
+
+<p><strong>Is the program global?</strong><br>Yes, students from around the world can enroll online.</p>
 
 </section>
 
 
 <section class="cta">
 
-<h2>Build Your Startup Future</h2>
+<h2>Build the Future Through Entrepreneurship</h2>
 
 <button>Apply Now</button>
 
@@ -149,7 +291,11 @@ footer{background:#04122b;text-align:center;padding:25px}
 
 <p>NOLAN UNIVERSITY</p>
 
+<p>Learn to Lead. Lead to Excel.</p>
+
 </footer>
 
+
 </body>
+
 </html>
