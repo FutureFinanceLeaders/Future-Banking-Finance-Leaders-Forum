@@ -144,13 +144,12 @@ color:#ffd24c;
 </head>
 
 <body>
-
 <!-- NAVBAR -->
 <nav class="navbar">
 
   <div class="logo">NOLAN UNIVERSITY</div>
 
-  <!-- Hamburger Menu Icon -->
+  <!-- Hamburger Icon -->
   <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
   <ul class="nav-links" id="navLinks">
@@ -159,7 +158,7 @@ color:#ffd24c;
 
     <!-- Dropdown: Schools -->
     <li class="dropdown">
-      <a href="#">Schools ▼</a>
+      <a href="#" class="dropdown-toggle">Schools ▼</a>
       <ul class="dropdown-menu">
         <li><a href="technology-ai.html">School of Technology & AI</a></li>
         <li><a href="gsbf.html">Graduate School of Banking & Finance</a></li>
@@ -170,12 +169,13 @@ color:#ffd24c;
 
     <!-- Dropdown: Programmes -->
     <li class="dropdown">
-      <a href="#">Programmes ▼</a>
+      <a href="#" class="dropdown-toggle">Programmes ▼</a>
       <ul class="dropdown-menu">
 
-        <!-- Bachelor’s Degrees -->
-        <li><a href="#">🎓 3-Year Bachelor’s Degrees</a>
-          <ul class="dropdown-submenu">
+        <!-- BSc -->
+        <li class="dropdown-submenu">
+          <a href="#">🎓 3-Year Bachelor’s Degrees</a>
+          <ul>
             <li><a href="#">BSc Finance & Investment</a></li>
             <li><a href="#">BSc Financial Technology</a></li>
             <li><a href="#">BSc Entrepreneurship & Venture Creation</a></li>
@@ -183,18 +183,20 @@ color:#ffd24c;
           </ul>
         </li>
 
-        <!-- Master’s Degrees -->
-        <li><a href="#">🎓 1-Year Master’s Degrees</a>
-          <ul class="dropdown-submenu">
+        <!-- MSc -->
+        <li class="dropdown-submenu">
+          <a href="#">🎓 1-Year Master’s Degrees</a>
+          <ul>
             <li><a href="#">MSc Finance & Capital Markets</a></li>
             <li><a href="#">MSc Venture Capital & Private Equity</a></li>
             <li><a href="#">MBA Entrepreneurship & Innovation</a></li>
           </ul>
         </li>
 
-        <!-- Professional Diplomas -->
-        <li><a href="#">Professional Diploma in</a>
-          <ul class="dropdown-submenu">
+        <!-- Professional Diploma -->
+        <li class="dropdown-submenu">
+          <a href="#">Professional Diploma in</a>
+          <ul>
             <li><a href="#">1️⃣ Investment Banking</a></li>
             <li><a href="#">2️⃣ Venture Capital & Private Equity</a></li>
             <li><a href="#">3️⃣ Startup Builder Program</a></li>
@@ -203,9 +205,10 @@ color:#ffd24c;
           </ul>
         </li>
 
-        <!-- Career Accelerator Programs & Certifications -->
-        <li><a href="#">Career Accelerator Programs, Executive Certificates, Postgraduate Certificates & Industry Certifications</a>
-          <ul class="dropdown-submenu">
+        <!-- Career Programs -->
+        <li class="dropdown-submenu">
+          <a href="#">Career Accelerator Programs, Executive Certificates, Postgraduate Certificates & Industry Certifications</a>
+          <ul>
             <li><a href="#">1️⃣ Investment Banking & Financial Markets</a></li>
             <li><a href="#">2️⃣ Venture Capital & Private Equity</a></li>
             <li><a href="#">3️⃣ Financial Technology (FinTech)</a></li>
@@ -220,8 +223,9 @@ color:#ffd24c;
         </li>
 
         <!-- Youth Programmes -->
-        <li><a href="#">Youth Programmes</a>
-          <ul class="dropdown-submenu">
+        <li class="dropdown-submenu">
+          <a href="#">Youth Programmes</a>
+          <ul>
             <li><a href="#">○ AI and Machine Learning Pioneers Summer School</a></li>
             <li><a href="#">○ Future Entrepreneurs Summer School</a></li>
             <li><a href="#">○ Future Climate Tech Innovators Summer School</a></li>
@@ -244,107 +248,26 @@ color:#ffd24c;
 <!-- CSS -->
 <style>
 body {margin:0; font-family:Arial, Helvetica, sans-serif; background:#0b2a5b; color:white;}
-
-/* Navbar */
-.navbar {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:#04122b;
-  padding:15px 20px;
-  position:relative;
-}
-
-.logo {
-  color:#ffd24c;
-  font-weight:bold;
-  font-size:18px;
-}
-
-/* Hamburger Icon */
-.menu-icon {
-  font-size:24px;
-  cursor:pointer;
-  color:white;
-  display:block;
-}
-
-/* Nav Links Hidden by Default */
-.nav-links {
-  list-style:none;
-  margin:0;
-  padding:0;
-  display:none;
-  flex-direction:column;
-  background:#123d82;
-  position:absolute;
-  top:100%;
-  right:0;
-  width:350px;
-  border-radius:6px;
-  z-index:1000;
-}
-
-.nav-links.show {
-  display:flex;
-}
-
-.nav-links li {
-  border-bottom:1px solid #102f64;
-  position: relative;
-}
-
-.nav-links a {
-  text-decoration:none;
-  color:white;
-  display:block;
-  padding:12px 15px;
-}
-
+.navbar {display:flex; justify-content:space-between; align-items:center; background:#04122b; padding:15px 20px; position:relative;}
+.logo {color:#ffd24c; font-weight:bold; font-size:18px;}
+.menu-icon {font-size:24px; cursor:pointer; color:white; display:block;}
+.nav-links {list-style:none; margin:0; padding:0; display:none; flex-direction:column; background:#123d82; position:absolute; top:100%; right:0; width:350px; border-radius:6px; z-index:1000;}
+.nav-links.show {display:flex;}
+.nav-links li {border-bottom:1px solid #102f64; position:relative;}
+.nav-links a {text-decoration:none; color:white; display:block; padding:12px 15px;}
 .nav-links a:hover {background:#102f64;}
-
-/* Dropdown menus */
-.dropdown-menu, .dropdown-submenu {
-  display:none;
-  flex-direction:column;
-  background:#102f64;
-  margin:0;
-  padding:0;
-}
-
-.dropdown:hover > .dropdown-menu,
-.dropdown-submenu:hover > .dropdown-submenu {
-  display:flex;
-}
-
-.nav-links li ul {
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-
-.nav-links li ul li {
-  border:none;
-}
-
-.nav-links li a::after {
-  content: "";
-}
-
-.dropdown > a::after {
-  content: " ▼";
-  float:right;
-}
-
-/* Submenu nesting positioning for desktop */
+.dropdown-menu, .dropdown-submenu ul {display:none; flex-direction:column; background:#102f64; margin:0; padding:0;}
+.nav-links li ul {list-style:none; margin:0; padding:0;}
+.nav-links li ul li {border:none;}
+.dropdown > a::after, .dropdown-submenu > a::after {content:" ▼"; float:right;}
 @media screen and (min-width:768px){
   .menu-icon {display:none;}
   .nav-links {display:flex !important; position:static; flex-direction:row; width:auto; background:transparent;}
   .nav-links li {margin:0 12px; border:none;}
   .dropdown-menu {position:absolute; display:none;}
-  .dropdown:hover .dropdown-menu {display:flex;}
-  .dropdown-submenu {position:absolute; left:100%; top:0; display:none;}
-  .dropdown-menu li:hover > .dropdown-submenu {display:flex;}
+  .dropdown:hover > .dropdown-menu {display:flex;}
+  .dropdown-submenu ul {position:absolute; left:100%; top:0; display:none;}
+  .dropdown-menu li:hover > .dropdown-submenu ul {display:flex;}
 }
 </style>
 
@@ -354,6 +277,24 @@ function toggleMenu() {
   const nav = document.getElementById('navLinks');
   nav.classList.toggle('show');
 }
+
+// Add click toggles for submenus
+document.querySelectorAll('.dropdown-toggle').forEach(item => {
+  item.addEventListener('click', function(e){
+    e.preventDefault();
+    const submenu = this.nextElementSibling;
+    if(submenu) submenu.classList.toggle('show');
+  });
+});
+
+// Click toggles for nested dropdown-submenu items
+document.querySelectorAll('.dropdown-submenu > a').forEach(item => {
+  item.addEventListener('click', function(e){
+    e.preventDefault();
+    const submenu = this.nextElementSibling;
+    if(submenu) submenu.classList.toggle('show');
+  });
+});
 </script>
 
 <!-- HEADER -->
