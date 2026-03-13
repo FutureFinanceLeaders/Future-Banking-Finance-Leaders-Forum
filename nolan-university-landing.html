@@ -138,78 +138,79 @@ font-weight:bold;
 margin-bottom:15px;
 color:#ffd24c;
 }
-/* HERO SECTION */
+/* HERO */
 
 .hero{
 position:relative;
 height:90vh;
 overflow:hidden;
+background:#000;
 }
 
-.hero-slide{
+/* SLIDES */
+
+.slide{
 position:absolute;
 width:100%;
 height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
 opacity:0;
-transition:opacity 1.5s ease-in-out;
+transition:opacity 1.2s ease;
 }
 
-.hero-slide img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.hero-slide.active{
+.slide.active{
 opacity:1;
 }
 
-/* Dark overlay */
-.hero::after{
-content:"";
+/* BLURRED BACKGROUND */
+
+.slide .bg{
 position:absolute;
-top:0;
-left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.55);
+background-size:cover;
+background-position:center;
+filter:blur(30px);
+transform:scale(1.2);
+z-index:0;
 }
 
-/* Hero Content */
+/* MAIN IMAGE */
 
-.hero-content{
+.slide img{
+position:relative;
+max-width:90%;
+max-height:90%;
+z-index:1;
+animation:zoom 12s infinite linear;
+}
+
+/* SLOW ZOOM EFFECT */
+
+@keyframes zoom{
+0%{transform:scale(1);}
+100%{transform:scale(1.08);}
+}
+
+/* CTA BUTTONS */
+
+.hero-buttons{
 position:absolute;
-top:50%;
+bottom:70px;
 left:50%;
-transform:translate(-50%,-50%);
-text-align:center;
-color:white;
-max-width:700px;
-z-index:2;
-animation:fadeUp 1.5s ease;
+transform:translateX(-50%);
+z-index:3;
 }
-
-.hero-content h1{
-font-size:48px;
-color:#ffd24c;
-margin-bottom:20px;
-}
-
-.hero-content p{
-font-size:18px;
-line-height:1.6;
-margin-bottom:30px;
-}
-
-/* Buttons */
 
 .hero-buttons a{
-text-decoration:none;
-padding:12px 28px;
+padding:14px 30px;
 margin:10px;
 border-radius:6px;
+text-decoration:none;
 font-weight:bold;
-display:inline-block;
+font-size:16px;
 }
 
 .btn-primary{
@@ -222,27 +223,53 @@ border:2px solid #ffd24c;
 color:#ffd24c;
 }
 
-.btn-primary:hover{
-background:#ffcc00;
-}
-
 .btn-secondary:hover{
 background:#ffd24c;
 color:#04122b;
 }
 
-/* Animation */
+/* ARROWS */
 
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translate(-50%,-40%);
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:38px;
+color:white;
+cursor:pointer;
+z-index:3;
+padding:10px;
 }
-to{
+
+.left{left:25px;}
+.right{right:25px;}
+
+/* DOTS */
+
+.dots{
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+z-index:3;
+}
+
+.dots span{
+height:12px;
+width:12px;
+background:white;
+display:inline-block;
+margin:5px;
+border-radius:50%;
+cursor:pointer;
+opacity:0.6;
+}
+
+.dots span.active{
 opacity:1;
-transform:translate(-50%,-50%);
+background:#ffd24c;
 }
-}
+
 </style>
 
 </head>
@@ -402,44 +429,52 @@ document.querySelectorAll('.toggle').forEach(item => {
 <!-- HERO SECTION -->
 <section class="hero">
 
-  <!-- Slides -->
-  <div class="hero-slide active">
-    <img src="http://afrileapcapital.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-13-2026-03_13_18-PM.png" alt="Students learning technology">
-  </div>
+<div class="slider">
 
-  <div class="hero-slide">
-    <img src="ChatGPT Image Mar 13, 2026, 01_45_01 PM.jpg" alt="Business leadership class">
-  </div>
+<div class="slide active">
+<div class="bg" style="background-image:url('http://afrileapcapital.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-13-2026-03_13_18-PM.png')"></div>
+<img src="http://afrileapcapital.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-13-2026-03_13_18-PM.png">
+</div>
 
-  <div class="hero-slide">
-    <img src="ChatGPT Image Mar 13, 2026, 03_10_37 PM.png" alt="Entrepreneurship innovation lab">
-  </div>
-<div class="hero-slide active">
-    <img src="ChatGPT Image Mar 13, 2026, 03_13_18 PM.png" alt="Students learning technology">
-  </div>
-<div class="hero-slide active">
-    <img src="ChatGPT Image Mar 13, 2026, 03_28_15 PM.png" alt="Students learning technology">
-  </div>
-<div class="hero-slide active">
-    <img src="ChatGPT Image Mar 13, 2026, 03_36_34 PM.png" alt="Students learning technology">
-  </div>
-  <!-- Overlay Content -->
-  <div class="hero-content">
+<div class="slide">
+<div class="bg" style="background-image:url('ChatGPT Image Mar 13, 2026, 01_45_01 PM.jpg')"></div>
+<img src="ChatGPT Image Mar 13, 2026, 01_45_01 PM.jpg">
+</div>
 
-    <h1>Welcome to Nolan University</h1>
+<div class="slide">
+<div class="bg" style="background-image:url('ChatGPT Image Mar 13, 2026, 03_10_37 PM.png')"></div>
+<img src="ChatGPT Image Mar 13, 2026, 03_10_37 PM.png">
+</div>
 
-    <p>
-      Learn to Lead. Lead to Excel.  
-      A global institution shaping the next generation of leaders
-      in finance, technology, entrepreneurship, and global business.
-    </p>
+<div class="slide">
+<div class="bg" style="background-image:url('ChatGPT Image Mar 13, 2026, 03_13_18 PM.png')"></div>
+<img src="ChatGPT Image Mar 13, 2026, 03_13_18 PM.png">
+</div>
 
-    <div class="hero-buttons">
-      <a href="apply.html" class="btn-primary">Apply Now</a>
-      <a href="#programmes" class="btn-secondary">Explore Programmes</a>
-    </div>
+<div class="slide">
+<div class="bg" style="background-image:url('ChatGPT Image Mar 13, 2026, 03_28_15 PM.png')"></div>
+<img src="ChatGPT Image Mar 13, 2026, 03_28_15 PM.png">
+</div>
 
-  </div>
+<div class="slide">
+<div class="bg" style="background-image:url('ChatGPT Image Mar 13, 2026, 03_36_34 PM.png')"></div>
+<img src="ChatGPT Image Mar 13, 2026, 03_36_34 PM.png">
+</div>
+
+</div>
+
+<!-- NAVIGATION ARROWS -->
+<div class="arrow left" onclick="prevSlide()">❮</div>
+<div class="arrow right" onclick="nextSlide()">❯</div>
+
+<!-- DOTS -->
+<div class="dots" id="dotsContainer"></div>
+
+<!-- CTA BUTTONS -->
+<div class="hero-buttons">
+<a href="apply.html" class="btn-primary">Apply Now</a>
+<a href="#programmes" class="btn-secondary">Explore Programmes</a>
+</div>
 
 </section>
 <!-- HERO SECTION -->
@@ -614,24 +649,48 @@ color:#ffd24c;
 </footer>
 <script>
 
-let slides = document.querySelectorAll(".hero-slide");
+let slides = document.querySelectorAll(".slide");
+let dotsContainer = document.getElementById("dotsContainer");
 let index = 0;
 
-function showSlide(){
+/* CREATE DOTS AUTOMATICALLY */
 
-slides.forEach(slide => slide.classList.remove("active"));
+slides.forEach((slide,i)=>{
+let dot = document.createElement("span");
+dot.addEventListener("click",()=>showSlide(i));
+dotsContainer.appendChild(dot);
+});
 
-index++;
+let dots = dotsContainer.querySelectorAll("span");
 
-if(index >= slides.length){
-index = 0;
-}
+function showSlide(i){
+
+slides.forEach(s=>s.classList.remove("active"));
+dots.forEach(d=>d.classList.remove("active"));
+
+index = i;
+
+if(index >= slides.length) index = 0;
+if(index < 0) index = slides.length - 1;
 
 slides[index].classList.add("active");
+dots[index].classList.add("active");
 
 }
 
-setInterval(showSlide,5000);
+function nextSlide(){
+showSlide(index+1);
+}
+
+function prevSlide(){
+showSlide(index-1);
+}
+
+/* AUTO SLIDE */
+
+setInterval(nextSlide,5000);
+
+showSlide(0);
 
 </script>
 </body>
