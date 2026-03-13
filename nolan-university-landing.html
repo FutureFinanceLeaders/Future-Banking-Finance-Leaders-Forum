@@ -295,179 +295,53 @@ document.querySelectorAll('.toggle').forEach(item => {
 <div class="logo-title">NOLAN UNIVERSITY</div>
 <div class="tagline">Learn to Lead. Lead to Excel.</div>
 </header>
-<!-- HERO IMAGES SECTION -->
-<section class="hero-slider">
+<!-- HERO SECTION -->
+<section class="hero-slider" style="position:relative; width:100%; max-width:900px; margin:auto; height:0; padding-bottom:100%; overflow:hidden; background:#000;">
 
-<style>
+  <!-- Slides -->
+  <div class="slide active" style="position:absolute; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+    <img src="http://afrileapcapital.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-13-2026-03_13_18-PM.png" 
+         style="max-width:100%; max-height:100%; object-fit:contain;">
+  </div>
 
-/* HERO */
+  <div class="slide" style="position:absolute; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+    <img src="ChatGPT Image Mar 13, 2026, 01_45_01 PM.jpg" 
+         style="max-width:100%; max-height:100%; object-fit:contain;">
+  </div>
 
-.hero-slider{
-position:relative;
-height:90vh;
-overflow:hidden;
-background:#000;
-}
+  <div class="slide" style="position:absolute; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+    <img src="ChatGPT Image Mar 13, 2026, 03_10_37 PM.png" 
+         style="max-width:100%; max-height:100%; object-fit:contain;">
+  </div>
 
-/* SLIDES */
-
-.hero-slider .slide{
-position:absolute;
-width:100%;
-height:100%;
-display:flex;
-align-items:center;
-justify-content:center;
-opacity:0;
-transition:opacity 1.2s ease;
-}
-
-.hero-slider .slide.active{
-opacity:1;
-}
-
-/* BLURRED BACKGROUND */
-
-.hero-slider .slide .bg{
-position:absolute;
-width:100%;
-height:100%;
-background-size:cover;
-background-position:center;
-filter:blur(30px);
-transform:scale(1.2);
-z-index:0;
-}
-
-/* MAIN IMAGE */
-
-.hero-slider .slide img{
-position:relative;
-max-width:90%;
-max-height:90%;
-z-index:1;
-animation:zoom 12s infinite linear;
-}
-
-/* ZOOM ANIMATION */
-
-@keyframes zoom{
-0%{transform:scale(1);}
-100%{transform:scale(1.08);}
-}
-
-/* CTA BUTTONS */
-
-.hero-slider .hero-buttons{
-position:absolute;
-bottom:70px;
-left:50%;
-transform:translateX(-50%);
-z-index:3;
-}
-
-.hero-slider .hero-buttons a{
-padding:14px 30px;
-margin:10px;
-border-radius:6px;
-text-decoration:none;
-font-weight:bold;
-font-size:16px;
-}
-
-.hero-slider .btn-primary{
-background:#ffd24c;
-color:#04122b;
-}
-
-.hero-slider .btn-secondary{
-border:2px solid #ffd24c;
-color:#ffd24c;
-}
-
-.hero-slider .btn-secondary:hover{
-background:#ffd24c;
-color:#04122b;
-}
-
-/* ARROWS */
-
-.hero-slider .arrow{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-font-size:38px;
-color:white;
-cursor:pointer;
-z-index:3;
-padding:10px;
-}
-
-.hero-slider .left{left:25px;}
-.hero-slider .right{right:25px;}
-
-/* DOTS */
-
-.hero-slider .dots{
-position:absolute;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-z-index:3;
-}
-
-.hero-slider .dots span{
-height:12px;
-width:12px;
-background:white;
-display:inline-block;
-margin:5px;
-border-radius:50%;
-cursor:pointer;
-opacity:0.6;
-}
-
-.hero-slider .dots span.active{
-opacity:1;
-background:#ffd24c;
-}
-
-</style>
-
-
-<div class="slider">
-
-<div class="slide active">
-<div class="bg" style="background-image:url('http://afrileapcapital.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-13-2026-03_13_18-PM.png')"></div>
-<img src="http://afrileapcapital.com/wp-content/uploads/2026/03/ChatGPT-Image-Mar-13-2026-03_13_18-PM.png">
-</div>
-
-<div class="slide">
-<div class="bg" style="background-image:url('ChatGPT Image Mar 13, 2026, 01_45_01 PM.jpg')"></div>
-<img src="ChatGPT Image Mar 13, 2026, 01_45_01 PM.jpg">
-</div>
-
-<div class="slide">
-<div class="bg" style="background-image:url('ChatGPT Image Mar 13, 2026, 03_10_37 PM.png')"></div>
-<img src="ChatGPT Image Mar 13, 2026, 03_10_37 PM.png">
-</div>
-
-</div>
-
-<!-- ARROWS -->
-<div class="arrow left" onclick="prevSlide()">❮</div>
-<div class="arrow right" onclick="nextSlide()">❯</div>
-
-<!-- DOTS -->
-<div class="dots" id="dotsContainer"></div>
-
-<!-- CTA BUTTONS -->
-<div class="hero-buttons">
-<a href="apply.html" class="btn-primary">Apply Now</a>
-<a href="#programmes" class="btn-secondary">Explore Programmes</a>
-</div>
+  <!-- CTA Buttons -->
+  <div class="hero-buttons" style="position:absolute; bottom:15px; left:50%; transform:translateX(-50%); display:flex; gap:15px; z-index:2;">
+    <a href="apply.html" style="padding:12px 25px; background:#ffd24c; color:#04122b; border-radius:5px; text-decoration:none; font-weight:bold;">Apply Now</a>
+    <a href="#programmes" style="padding:12px 25px; border:2px solid #ffd24c; color:#ffd24c; border-radius:5px; text-decoration:none; font-weight:bold;">Explore Programmes</a>
+  </div>
 
 </section>
+
+<!-- SIMPLE JS SLIDER -->
+<script>
+let slides = document.querySelectorAll(".hero-slider .slide");
+let index = 0;
+
+function showSlide(i){
+  slides.forEach(s => s.style.display = "none");
+  index = i;
+  if(index >= slides.length) index = 0;
+  if(index < 0) index = slides.length - 1;
+  slides[index].style.display = "flex";
+}
+
+// Auto Slide
+setInterval(()=>{ showSlide(index+1); }, 5000);
+
+// Initial
+showSlide(0);
+</script>
+
 <!-- HERO SECTION -->
 <section class="hero">
 <div class="container">
