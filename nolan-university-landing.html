@@ -602,11 +602,79 @@ color:#ffd24c;
 <button>👉 Enroll in Nolan University Online Today</button>
 </section>
 
-<!-- FOOTER -->
-<footer>
-<div class="logo-title">NOLAN UNIVERSITY</div>
-<p>Learn to Lead. Lead to Excel.</p>
+<!-- FOOTER SECTION -->
+<footer style="background:#0b2a5b; color:white; padding:50px 20px; font-family:Arial, Helvetica, sans-serif;">
+
+  <div style="max-width:1100px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:30px;">
+
+    <!-- Quick Links -->
+    <div>
+      <h3 style="color:#ffd24c; margin-bottom:15px;">Quick Links</h3>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li><a href="programmes.html" style="color:white; text-decoration:none; transition:color 0.3s;">Programs</a></li>
+        <li><a href="about.html" style="color:white; text-decoration:none; transition:color 0.3s;">About Us</a></li>
+        <li><a href="admissions.html" style="color:white; text-decoration:none; transition:color 0.3s;">Admissions</a></li>
+        <li><a href="contact.html" style="color:white; text-decoration:none; transition:color 0.3s;">Contact</a></li>
+        <li><a href="faq.html" style="color:white; text-decoration:none; transition:color 0.3s;">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div>
+      <h3 style="color:#ffd24c; margin-bottom:15px;">Follow Us</h3>
+      <div style="display:flex; gap:15px; font-size:24px;">
+        <a href="#" style="color:white; transition:color 0.3s;"><img src="facebook-icon.png" alt="Facebook" width="28"></a>
+        <a href="#" style="color:white; transition:color 0.3s;"><img src="twitter-icon.png" alt="Twitter" width="28"></a>
+        <a href="#" style="color:white; transition:color 0.3s;"><img src="linkedin-icon.png" alt="LinkedIn" width="28"></a>
+        <a href="#" style="color:white; transition:color 0.3s;"><img src="instagram-icon.png" alt="Instagram" width="28"></a>
+      </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div>
+      <h3 style="color:#ffd24c; margin-bottom:15px;">Newsletter</h3>
+      <p style="margin:0 0 10px 0;">Stay updated on new courses and certifications</p>
+      <form style="display:flex; flex-wrap:wrap; gap:10px;">
+        <input type="email" placeholder="Enter your email" 
+               style="padding:10px; border-radius:5px; border:none; flex:1; min-width:150px;">
+        <button type="submit" 
+                style="background:#ffd24c; color:#0b2a5b; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; transition:background 0.3s;">
+          Subscribe
+        </button>
+      </form>
+    </div>
+
+    <!-- Accreditation & Legal Info -->
+    <div>
+      <h3 style="color:#ffd24c; margin-bottom:15px;">Accreditation & Legal Info</h3>
+      <p style="font-size:14px; line-height:1.5;">
+        Nolan University is accredited by the International Education Council and recognized globally.  
+        &copy; 2026 Nolan University. All rights reserved.  
+        <a href="terms.html" style="color:#ffd24c; text-decoration:none;">Terms of Service</a> | 
+        <a href="privacy.html" style="color:#ffd24c; text-decoration:none;">Privacy Policy</a>
+      </p>
+    </div>
+
+  </div>
+
 </footer>
+
+<!-- FOOTER HOVER EFFECTS -->
+<style>
+footer a:hover {
+  color: #ffd24c;
+}
+
+footer button:hover {
+  background: #fff200;
+}
+
+footer img:hover {
+  transform: scale(1.15);
+  transition: transform 0.3s;
+}
+</style>
+
 <script>
 
 let slides = document.querySelectorAll(".slide");
