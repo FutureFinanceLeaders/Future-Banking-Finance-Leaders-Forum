@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan University · BSc FinTech & MSc Finance · Programmes</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0B2A3B;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
+            padding-bottom: 1.25rem;
+        }
+
+        .uni-logo {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--nolan-navy);
+        }
+
+        .uni-name span {
+            color: var(--nolan-navy);
+            font-weight: 600;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        /* global tagline */
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: #3b687d;
+        }
+        .breadcrumb a {
+            color: var(--nolan-navy);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .degree-tag {
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-weight: 700;
+            padding: 0.35rem 1.5rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 0.5rem 0 1rem 0;
+            font-size: 1.2rem;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        .program-section {
+            background: var(--nolan-white);
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 25px -10px rgba(11,42,59,0.25);
+            border: 1px solid #dde7ed;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-left: 8px solid var(--nolan-gold);
+            padding-left: 1.5rem;
+        }
+
+        .overview-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .overview-text { flex: 2; min-width: 280px; }
+        .overview-stats {
+            flex: 1;
+            background: var(--nanol-gray-soft);
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid #cbdae3;
+        }
+        .stat-item { margin-bottom: 1.8rem; }
+        .stat-label {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--nolan-navy);
+        }
+        .stat-value {
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--nolan-navy);
+            line-height: 1.2;
+        }
+        .stat-desc { font-size: 0.95rem; color: #2d4f62; }
+
+        .year-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .year-card {
+            background: #f2f9ff;
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 2px solid var(--nolan-gold);
+        }
+        .year-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--nolan-gold);
+            padding-bottom: 0.5rem;
+        }
+        .year-card ul { list-style: none; }
+        .year-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .year-card li::before {
+            content: "▹";
+            color: var(--nolan-gold);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        .module-item {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.4rem;
+            border-left: 6px solid var(--nolan-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .module-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.3rem;
+        }
+        .module-credits {
+            font-size: 0.8rem;
+            background: var(--nolan-navy);
+            color: white;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin: 0.3rem 0 0.5rem;
+        }
+        .module-desc { color: #235a72; font-size: 0.95rem; }
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .career-card {
+            background: #fafdff;
+            border-radius: 24px;
+            padding: 1.8rem 1rem;
+            text-align: center;
+            border: 1px solid #cbdae3;
+            border-bottom: 4px solid var(--nolan-gold);
+        }
+        .career-icon { font-size: 2.5rem; }
+        .career-role { font-weight: 700; font-size: 1.3rem; color: var(--nolan-navy); margin: 0.5rem 0; }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+        }
+        .btn-gold:hover {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3b687d;
+            border-top: 2px solid var(--nolan-gold);
+            padding-top: 2rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed var(--nolan-gold);
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 800px) {
+            .year-grid, .career-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="university-header">
+        <div class="uni-logo">NU</div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
+    </div>
+
+    <!-- global tagline -->
+    <div class="global-tagline">
+        <strong>A Modern Global & Professional University</strong> for FINANCE, TECHNOLOGY, AND ENTREPRENEURSHIP.
+    </div>
+
+    <!-- ========== BSc FINANCIAL TECHNOLOGY ========== -->
+    <div class="breadcrumb">
+        <a href="#">Home</a> > <a href="#">3-year Bachelor's</a> > <span style="font-weight:600;">BSc Financial Technology</span>
+    </div>
+    <div class="degree-tag">💻 3-year BSc · Financial Technology</div>
+
+    <!-- BSc FinTech Overview -->
+    <section class="program-section">
+        <h2 class="section-title">📋 Overview · BSc Financial Technology</h2>
+        <div class="overview-grid">
+            <div class="overview-text">
+                <p style="font-size:1.3rem; margin-bottom:1rem;"><strong>Where finance meets the future.</strong> The BSc in Financial Technology equips you with the skills to innovate at the intersection of finance, data science, and programming.</p>
+                <p>You'll master Python, blockchain fundamentals, AI applications in finance, and digital payments – alongside a strong foundation in financial principles. Graduates build the next generation of fintech solutions or join leading digital banks, payment firms, and investment tech teams.</p>
+                <p style="margin-top:1rem;"><span style="background: var(--nolan-gold); color: var(--nolan-navy); padding:0.3rem 1.2rem; border-radius:40px; font-weight:600;">Tech-driven · Industry co-designed</span></p>
+            </div>
+            <div class="overview-stats">
+                <div class="stat-item"><span class="stat-label">UCAS code</span><div class="stat-value">GN34</div><div class="stat-desc">apply by 29 Jan</div></div>
+                <div class="stat-item"><span class="stat-label">Duration</span><div class="stat-value">3 years</div><div class="stat-desc">+ optional placement</div></div>
+                <div class="stat-item"><span class="stat-label">2026 fees</span><div class="stat-value">£14,500</div><div class="stat-desc">home / £24,800 int'l</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BSc FinTech Curriculum -->
+    <section class="program-section">
+        <h2 class="section-title">📚 Curriculum · year by year</h2>
+        <div class="year-grid">
+            <div class="year-card"><div class="year-title">Year 1 · Foundations</div><ul><li>Principles of Finance</li><li>Programming for Finance (Python)</li><li>Financial Accounting</li><li>Quantitative Methods</li><li>Intro to FinTech & Digital Payments</li><li>Professional Skills</li></ul></div>
+            <div class="year-card"><div class="year-title">Year 2 · Core Tech & Finance</div><ul><li>Blockchain & Distributed Ledgers</li><li>Machine Learning for Finance</li><li>Corporate Finance</li><li>Database Systems (SQL)</li><li>Financial Econometrics</li><li>Digital Banking & APIs</li></ul></div>
+            <div class="year-card"><div class="year-title">Year 3 · Advanced Applications</div><ul><li>AI in Investment Management</li><li>Smart Contracts & DeFi</li><li>FinTech Risk & Regulation</li><li>Alternative Data Analytics</li><li><strong>FinTech Capstone Project</strong></li><li>Elective: Cryptoassets / InsurTech</li></ul></div>
+        </div>
+    </section>
+
+    <!-- BSc FinTech Detailed Modules -->
+    <section class="program-section">
+        <h2 class="section-title">🔧 Core modules · BSc Financial Technology</h2>
+        <div class="module-grid">
+            <div class="module-item"><h4>Programming for Finance (Python)</h4><div class="module-credits">15 credits</div><div class="module-desc">Data structures, pandas, financial data APIs, basic algorithmic trading.</div><span class="pillar-tag">builder</span></div>
+            <div class="module-item"><h4>Blockchain & Distributed Ledgers</h4><div class="module-credits">15 credits</div><div class="module-desc">Cryptography, consensus mechanisms, Ethereum, smart contract basics.</div><span class="pillar-tag">innovator</span></div>
+            <div class="module-item"><h4>Machine Learning for Finance</h4><div class="module-credits">20 credits</div><div class="module-desc">Regression, classification, time series forecasting, sentiment analysis.</div><span class="pillar-tag">innovator</span></div>
+            <div class="module-item"><h4>Digital Banking & APIs</h4><div class="module-credits">15 credits</div><div class="module-desc">Open banking, REST APIs, core banking systems, payment rails.</div><span class="pillar-tag">builder</span></div>
+            <div class="module-item"><h4>AI in Investment Management</h4><div class="module-credits">15 credits</div><div class="module-desc">Natural language processing for earnings calls, robo-advisors, portfolio optimisation.</div><span class="pillar-tag">investor</span></div>
+            <div class="module-item"><h4>FinTech Capstone Project</h4><div class="module-credits">30 credits</div><div class="module-desc">Build a working fintech prototype (web3, payment, or analytics solution).</div><span class="pillar-tag">builder · innovator</span></div>
+        </div>
+    </section>
+
+    <!-- BSc FinTech Careers -->
+    <section class="program-section">
+        <h2 class="section-title">🚀 BSc FinTech · career outcomes</h2>
+        <div class="career-grid">
+            <div class="career-card"><div class="career-icon">💳</div><div class="career-role">FinTech Analyst</div><div>Revolut, Stripe, Monzo, Adyen</div></div>
+            <div class="career-card"><div class="career-icon">🤖</div><div class="career-role">Quantitative Developer</div><div>Hedge funds, prop trading, investment banks</div></div>
+            <div class="career-card"><div class="career-icon">🔗</div><div class="career-role">Blockchain Specialist</div><div>ConsenSys, Chainlink, crypto funds</div></div>
+        </div>
+    </section>
+
+    <!-- ========== MSc FINANCE & CAPITAL MARKETS ========== -->
+    <hr>
+    <div class="breadcrumb">
+        <a href="#">Home</a> > <a href="#">1-year Master's</a> > <span style="font-weight:600;">MSc Finance & Capital Markets</span>
+    </div>
+    <div class="degree-tag">📈 1-year MSc · Finance & Capital Markets</div>
+
+    <!-- MSc Overview -->
+    <section class="program-section">
+        <h2 class="section-title">📋 Overview · MSc Finance & Capital Markets</h2>
+        <div class="overview-grid">
+            <div class="overview-text">
+                <p style="font-size:1.3rem; margin-bottom:1rem;"><strong>Deepen your expertise. Accelerate your career.</strong> The MSc in Finance & Capital Markets is designed for graduates seeking advanced knowledge in corporate finance, investment analysis, and financial markets.</p>
+                <p>You'll master advanced valuation techniques, structured finance, M&A, and portfolio management – with direct exposure to industry practitioners and preparation for CFA Levels.</p>
+                <p style="margin-top:1rem;"><span style="background: var(--nolan-gold); color: var(--nolan-navy); padding:0.3rem 1.2rem; border-radius:40px; font-weight:600;">CFA affiliated · Fast-track to CFA</span></p>
+            </div>
+            <div class="overview-stats">
+                <div class="stat-item"><span class="stat-label">Duration</span><div class="stat-value">12 months</div><div class="stat-desc">full-time</div></div>
+                <div class="stat-item"><span class="stat-label">2026 fees</span><div class="stat-value">£22,500</div><div class="stat-desc">home / £32,800 int'l</div></div>
+                <div class="stat-item"><span class="stat-label">Entry</span><div class="stat-value">2:1</div><div class="stat-desc">in Finance, Economics, or related</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MSc Curriculum (terms) -->
+    <section class="program-section">
+        <h2 class="section-title">📚 Programme structure · term by term</h2>
+        <div class="year-grid">
+            <div class="year-card"><div class="year-title">Term 1 · Core Foundations</div><ul><li>Advanced Corporate Finance</li><li>Investment Analysis</li><li>Financial Econometrics</li><li>Derivatives & Risk Management</li></ul></div>
+            <div class="year-card"><div class="year-title">Term 2 · Specialisation</div><ul><li>Mergers & Acquisitions</li><li>Fixed Income & Credit Markets</li><li>Alternative Investments</li><li>Elective: Private Equity / FinTech</li></ul></div>
+            <div class="year-card"><div class="year-title">Term 3 · Capstone</div><ul><li>Advanced Portfolio Management</li><li>Global Capital Markets</li><li><strong>Applied Research Project</strong> or Internship</li></ul></div>
+        </div>
+    </section>
+
+    <!-- MSc Detailed Modules -->
+    <section class="program-section">
+        <h2 class="section-title">🔧 Core modules · MSc Finance & Capital Markets</h2>
+        <div class="module-grid">
+            <div class="module-item"><h4>Advanced Corporate Finance</h4><div class="module-credits">15 credits</div><div class="module-desc">Valuation, capital structure, dividend policy, LBO modelling, real options.</div><span class="pillar-tag">investor</span></div>
+            <div class="module-item"><h4>Investment Analysis</h4><div class="module-credits">15 credits</div><div class="module-desc">Equity valuation, portfolio theory, factor models, performance attribution.</div><span class="pillar-tag">investor</span></div>
+            <div class="module-item"><h4>Mergers & Acquisitions</h4><div class="module-credits">15 credits</div><div class="module-desc">Deal structuring, synergy valuation, accretion/dilution, negotiation tactics.</div><span class="pillar-tag">builder · investor</span></div>
+            <div class="module-item"><h4>Fixed Income & Credit Markets</h4><div class="module-credits">15 credits</div><div class="module-desc">Bond pricing, duration/convexity, credit default swaps, structured products.</div><span class="pillar-tag">investor</span></div>
+            <div class="module-item"><h4>Alternative Investments</h4><div class="module-credits">15 credits</div><div class="module-desc">Private equity, hedge funds, real assets, infrastructure, carry modelling.</div><span class="pillar-tag">investor</span></div>
+            <div class="module-item"><h4>Applied Research Project</h4><div class="module-credits">30 credits</div><div class="module-desc">In-depth industry research or investment thesis, supervised by faculty.</div><span class="pillar-tag">builder · innovator</span></div>
+        </div>
+        <p style="margin-top:1rem;"><em>Electives: Private Equity, FinTech, Behavioural Finance, ESG Investing, International Finance</em></p>
+    </section>
+
+    <!-- MSc Career Outcomes -->
+    <section class="program-section">
+        <h2 class="section-title">🚀 MSc · career outcomes</h2>
+        <div class="career-grid">
+            <div class="career-card"><div class="career-icon">🏛️</div><div class="career-role">Investment Banker</div><div>M&A, Leveraged Finance, ECM/DCM</div></div>
+            <div class="career-card"><div class="career-icon">📈</div><div class="career-role">Asset Manager</div><div>BlackRock, Fidelity, Schroders, Amundi</div></div>
+            <div class="career-card"><div class="career-icon">💹</div><div class="career-role">Research Analyst</div><div>Sell-side / buy-side equity research</div></div>
+        </div>
+        <p style="margin-top:1.8rem; background:#e5f1f7; padding:1rem 2rem; border-radius:50px;"><strong>Recent destinations:</strong> Goldman Sachs, JPMorgan, Morgan Stanley, BlackRock, PwC Corporate Finance, Rothschild & Co.</p>
+    </section>
+
+    <!-- Entry & How to apply (MSc) -->
+    <section class="program-section">
+        <h2 class="section-title">📝 Entry requirements & applying</h2>
+        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:2rem;">
+            <div>
+                <div class="stat-label">Academic</div>
+                <div class="stat-value">2:1 honours</div>
+                <div class="stat-desc">in Finance, Economics, Business, or quantitative degree</div>
+                <p style="margin-top:1rem;">GMAT/GRE may be required for non-quantitative backgrounds.</p>
+            </div>
+            <div>
+                <div class="stat-label">English language</div>
+                <div class="stat-value">IELTS 7.0</div>
+                <div class="stat-desc">minimum 6.5 in each component</div>
+                <p style="margin-top:1rem;"><strong>Apply by:</strong> 30 June 2026 (international), 31 August 2026 (home)</p>
+                <a href="#" class="btn-gold">📄 Apply now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related pathways / MBA link -->
+    <hr>
+    <div style="background: #eef3f6; border-radius: 48px; padding: 2rem 2.5rem; border: 2px solid var(--nolan-gold);">
+        <h2 style="font-size: 2rem; font-weight: 800; color: var(--nolan-navy);">Continue your journey</h2>
+        <p style="font-size: 1.1rem; margin-bottom:1rem;">After your MSc, consider the Nolan MBA for Entrepreneurship & Innovation – where company builders, investors, and innovators are educated.</p>
+        <a href="#" class="btn-gold">→ view MBA programme</a>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · Triple accredited: AMBA, EQUIS, AACSB<br>
+        © 2025 Nolan University · BSc Financial Technology (GN34) · MSc Finance & Capital Markets</p>
+    </div>
+</div>
+</body>
+</html>
