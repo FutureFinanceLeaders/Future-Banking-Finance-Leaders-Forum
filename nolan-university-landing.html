@@ -408,7 +408,6 @@ It is a place where Company Builders, Investors, and Innovators Are Educated.
 </p>
 </div>
 </section>
-
 <!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -416,18 +415,15 @@ It is a place where Company Builders, Investors, and Innovators Are Educated.
 
 <!-- SLIDES -->
 <div class="slide">
-<img src="ChatGPT Image Mar 13, 2026, 02_54_02 PM.png"
-style="max-width:100%; max-height:100%; object-fit:contain;">
+<img src="ChatGPT Image Mar 13, 2026, 02_54_02 PM.png" style="max-width:100%; max-height:100%; object-fit:contain;">
 </div>
 
 <div class="slide">
-<img src="ChatGPT Image Mar 13, 2026, 03_41_46 PM.png"
-style="max-width:100%; max-height:100%; object-fit:contain;">
+<img src="ChatGPT Image Mar 13, 2026, 03_41_46 PM.png" style="max-width:100%; max-height:100%; object-fit:contain;">
 </div>
 
 <div class="slide">
-<img src="ChatGPT Image Mar 11, 2026, 11_47_33 PM.png"
-style="max-width:100%; max-height:100%; object-fit:contain;">
+<img src="ChatGPT Image Mar 11, 2026, 11_47_33 PM.png" style="max-width:100%; max-height:100%; object-fit:contain;">
 </div>
 
 </section>
@@ -484,7 +480,11 @@ align-items:center;
 justify-content:center;
 }
 
-.hero-slider .slide img{
+.hero-slider .slide:first-child{
+display:flex;
+}
+
+.hero-slider img{
 width:100%;
 height:100%;
 object-fit:contain;
@@ -515,7 +515,6 @@ color:#333;
 margin-bottom:30px;
 }
 
-
 /* VALUE GRID */
 
 .value-grid{
@@ -542,8 +541,7 @@ color:#222;
 font-weight:500;
 }
 
-
-/* CTA BUTTON */
+/* CTA */
 
 .cta-btn{
 display:inline-block;
@@ -565,27 +563,29 @@ background:#ffea7a;
 
 <script>
 
+window.onload = function(){
+
 let slides = document.querySelectorAll(".hero-slider .slide");
 let index = 0;
 
 function showSlide(i){
 
-slides.forEach(slide => slide.style.display = "none");
+slides.forEach(slide => slide.style.display="none");
 
 index = i;
 
 if(index >= slides.length) index = 0;
-if(index < 0) index = slides.length - 1;
+if(index < 0) index = slides.length-1;
 
-slides[index].style.display = "flex";
+slides[index].style.display="flex";
 
 }
 
 setInterval(function(){
-showSlide(index + 1);
-}, 5000);
+showSlide(index+1);
+},5000);
 
-showSlide(0);
+}
 
 </script>
 
