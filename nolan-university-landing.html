@@ -408,18 +408,32 @@ It is a place where Company Builders, Investors, and Innovators Are Educated.
 </p>
 </div>
 </section>
-<!-- FONT AWESOME (FOR ICONS) -->
+
+<!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <section class="excellence-section">
 
-<!-- IMAGE SLIDES -->
+<!-- SLIDER -->
 <div class="slider">
 
 <img class="slide active" src="ChatGPT Image Mar 13, 2026, 03_20_27 PM.png">
-<img class="slide active" src=ChatGPT Image Mar 11, 2026, 11_47_33 PM.png">
+<img class="slide" src="ChatGPT Image Mar 11, 2026, 11_47_33 PM.png">
 <img class="slide" src="ChatGPT Image Mar 13, 2026, 03_41_46 PM.png">
 <img class="slide" src="ChatGPT Image Mar 13, 2026, 02_54_02 PM.png">
+
+<!-- ARROWS -->
+<div class="arrow left" onclick="prevSlide()">❮</div>
+<div class="arrow right" onclick="nextSlide()">❯</div>
+
+<!-- DOTS -->
+<div class="dots">
+<span class="dot active" onclick="currentSlide(0)"></span>
+<span class="dot" onclick="currentSlide(1)"></span>
+<span class="dot" onclick="currentSlide(2)"></span>
+<span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
 </div>
 
 <!-- CONTENT -->
@@ -465,7 +479,7 @@ Nolan University prepares ambitious professionals to stand out in competitive in
 
 .excellence-section{
 max-width:1100px;
-margin:60px auto;
+margin:0 auto;
 font-family:Arial, Helvetica, sans-serif;
 }
 
@@ -491,93 +505,7 @@ transition:opacity 1s ease;
 opacity:1;
 }
 
-/* CONTENT */
-
-.excellence-content{
-padding:35px 20px;
-text-align:center;
-margin-top:0;
-}
-
-.excellence-content h2{
-color:#0b2a5b;
-font-size:34px;
-margin-bottom:10px;
-}
-
-.subheadline{
-max-width:750px;
-margin:auto;
-font-size:17px;
-color:#444;
-margin-bottom:35px;
-}
-
-/* VALUE GRID */
-
-.value-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-}
-
-.value-card{
-background:#f5f7fb;
-padding:25px;
-border-radius:8px;
-text-align:center;
-transition:transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.value-card:hover{
-transform:translateY(-5px);
-box-shadow:0 8px 18px rgba(0,0,0,0.1);
-}
-
-.value-card i{
-font-size:30px;
-color:#0b2a5b;
-margin-bottom:12px;
-display:block;
-}
-
-/* CTA BUTTON */
-
-.cta-btn{
-display:inline-block;
-margin-top:40px;
-background:#ffd24c;
-color:#0b2a5b;
-padding:16px 38px;
-text-decoration:none;
-font-weight:bold;
-border-radius:6px;
-}
-
-.cta-btn:hover{
-background:#ffea7a;
-}
-
-</style>
-
-<script>
-
-/* SIMPLE IMAGE SLIDER */
-
-let slides = document.querySelectorAll(".slide");
-let index = 0;
-
-setInterval(() => {
-
-slides[index].classList.remove("active");
-
-index = (index + 1) % slides.length;
-
-slides[index].classList.add("active");
-
-}, 4000);
-
-</script>
+/* ARROWS */
 
 <!-- SCHOOLS SECTION -->
 <section>
