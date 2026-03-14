@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan University · All Master's Degrees · Finance, Technology, Entrepreneurship</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0B2A3B;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
+            padding-bottom: 1.25rem;
+        }
+
+        .uni-logo {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--nolan-navy);
+        }
+
+        .uni-name span {
+            color: var(--nolan-navy);
+            font-weight: 600;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        /* global tagline */
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--nolan-navy);
+            margin: 2rem 0 0.5rem 0;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #2d4f62;
+            margin-bottom: 2rem;
+            max-width: 800px;
+        }
+
+        /* filter tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        .filter-tab {
+            background: white;
+            border: 2px solid var(--nolan-navy);
+            color: var(--nolan-navy);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: default;
+        }
+        .filter-tab.active {
+            background: var(--nolan-gold);
+            border-color: var(--nolan-navy);
+        }
+
+        /* programme cards grid */
+        .programmes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .programme-card {
+            background: var(--nolan-white);
+            border-radius: 28px;
+            padding: 1.8rem;
+            border: 1px solid #dde7ed;
+            box-shadow: 0 10px 20px -10px rgba(11,42,59,0.15);
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .programme-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--nolan-gold);
+            box-shadow: 0 20px 30px -10px rgba(11,42,59,0.25);
+        }
+        .programme-badge {
+            display: inline-block;
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+            border: 1px solid var(--nolan-gold);
+        }
+        .programme-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.5rem;
+        }
+        .programme-school {
+            color: #3b687d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        .programme-desc {
+            color: #235a72;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        .programme-stats {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-top: 1px dashed #cbdae3;
+            padding-top: 1rem;
+        }
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #5f7d8f;
+        }
+        .stat-value {
+            font-weight: 700;
+            color: var(--nolan-navy);
+        }
+        .pillar-tags {
+            margin: 1rem 0;
+        }
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+        .investor-tag {
+            background: var(--nolan-navy);
+            color: white;
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-gold);
+        }
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: var(--nolan-navy);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .btn-outline:hover {
+            background: var(--nolan-navy);
+            color: white;
+        }
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .comparison-section {
+            background: var(--nanol-gray-soft);
+            border-radius: 36px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3b687d;
+            border-top: 2px solid var(--nolan-gold);
+            padding-top: 2rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed var(--nolan-gold);
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 800px) {
+            .programmes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="university-header">
+        <div class="uni-logo">NU</div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
+    </div>
+
+    <!-- global tagline -->
+    <div class="global-tagline">
+        <strong>100% Online Master's Degrees</strong> · FINANCE · TECHNOLOGY · ENTREPRENEURSHIP
+    </div>
+
+    <!-- page heading -->
+    <h1 class="page-title">🎓 All Master's Programmes</h1>
+    <p class="page-subtitle">Choose your path. Six specialised 1-year degrees designed for ambitious professionals. Same rigour, same faculty, same network – 100% online.</p>
+
+    <!-- filter tabs (static, for visual) -->
+    <div class="filter-tabs">
+        <span class="filter-tab active">All Programmes</span>
+        <span class="filter-tab">Finance</span>
+        <span class="filter-tab">Entrepreneurship</span>
+        <span class="filter-tab">Technology</span>
+        <span class="filter-tab">Investment</span>
+    </div>
+
+    <!-- ===== MASTER'S PROGRAMMES GRID ===== -->
+    <div class="programmes-grid">
+        <!-- 1. MBA Entrepreneurship & Innovation -->
+        <div class="programme-card">
+            <span class="programme-badge">FLAGSHIP · MBA</span>
+            <div class="programme-title">MBA Entrepreneurship & Innovation</div>
+            <div class="programme-school">School of Entrepreneurship & Venture Creation</div>
+            <div class="programme-desc">For founders, innovators, and investors. Master venture creation, fundraising, and scaling. Launch your own venture or lead innovation inside corporates.</div>
+            <div class="pillar-tags">
+                <span class="pillar-tag">BUILDER</span>
+                <span class="investor-tag">INVESTOR</span>
+                <span class="pillar-tag">INNOVATOR</span>
+            </div>
+            <div class="programme-stats">
+                <div class="stat"><span class="stat-label">Duration</span><span class="stat-value">12 months</span></div>
+                <div class="stat"><span class="stat-label">Fees (home)</span><span class="stat-value">£52,000</span></div>
+                <div class="stat"><span class="stat-label">Next start</span><span class="stat-value">Sep 2026</span></div>
+            </div>
+            <a href="#" class="btn-gold">View programme →</a>
+        </div>
+
+        <!-- 2. MSc Finance & Capital Markets -->
+        <div class="programme-card">
+            <span class="programme-badge">MSc</span>
+            <div class="programme-title">MSc Finance & Capital Markets</div>
+            <div class="programme-school">Graduate School of Banking & Finance (GSBF)</div>
+            <div class="programme-desc">Deepen your expertise in corporate finance, investment analysis, and financial markets. CFA-affiliated, fast-track to CFA Level 1.</div>
+            <div class="pillar-tags">
+                <span class="investor-tag">INVESTOR</span>
+                <span class="pillar-tag">BUILDER</span>
+            </div>
+            <div class="programme-stats">
+                <div class="stat"><span class="stat-label">Duration</span><span class="stat-value">12 months</span></div>
+                <div class="stat"><span class="stat-label">Fees (home)</span><span class="stat-value">£22,500</span></div>
+                <div class="stat"><span class="stat-label">Entry</span><span class="stat-value">2:1</span></div>
+            </div>
+            <a href="#" class="btn-outline">View programme →</a>
+        </div>
+
+        <!-- 3. MSc Venture Capital & Private Equity -->
+        <div class="programme-card">
+            <span class="programme-badge">MSc · SPECIALIST</span>
+            <div class="programme-title">MSc Venture Capital & Private Equity</div>
+            <div class="programme-school">Graduate School of Banking & Finance</div>
+            <div class="programme-desc">Master the deal: LBO modelling, term sheets, fund economics, due diligence. Co-designed with leading VC/PE firms.</div>
+            <div class="pillar-tags">
+                <span class="investor-tag">INVESTOR</span>
+                <span class="pillar-tag">BUILDER</span>
+            </div>
+            <div class="programme-stats">
+                <div class="stat"><span class="stat-label">Duration</span><span class="stat-value">12 months</span></div>
+                <div class="stat"><span class="stat-label">Fees (home)</span><span class="stat-value">£24,500</span></div>
+                <div class="stat"><span class="stat-label">Int'l</span><span class="stat-value">£34,800</span></div>
+            </div>
+            <a href="#" class="btn-outline">View programme →</a>
+        </div>
+
+        <!-- 4. MSc Financial Technology -->
+        <div class="programme-card">
+            <span class="programme-badge">MSc · TECH</span>
+            <div class="programme-title">MSc Financial Technology</div>
+            <div class="programme-school">School of Technology & AI</div>
+            <div class="programme-desc">Blockchain, AI in finance, digital payments, smart contracts, and DeFi. Build the next generation of fintech solutions.</div>
+            <div class="pillar-tags">
+                <span class="pillar-tag">INNOVATOR</span>
+                <span class="pillar-tag">BUILDER</span>
+                <span class="investor-tag">INVESTOR</span>
+            </div>
+            <div class="programme-stats">
+                <div class="stat"><span class="stat-label">Duration</span><span class="stat-value">12 months</span></div>
+                <div class="stat"><span class="stat-label">Fees (home)</span><span class="stat-value">£23,500</span></div>
+                <div class="stat"><span class="stat-label">Int'l</span><span class="stat-value">£33,800</span></div>
+            </div>
+            <a href="#" class="btn-outline">View programme →</a>
+        </div>
+
+        <!-- 5. MSc Investment Banking -->
+        <div class="programme-card">
+            <span class="programme-badge">MSc · PROFESSIONAL</span>
+            <div class="programme-title">MSc Investment Banking</div>
+            <div class="programme-school">Graduate School of Banking & Finance</div>
+            <div class="programme-desc">M&A, LBO, valuation, restructuring, and financial modelling. Direct pathway to investment banking roles.</div>
+            <div class="pillar-tags">
+                <span class="investor-tag">INVESTOR</span>
+                <span class="pillar-tag">BUILDER</span>
+            </div>
+            <div class="programme-stats">
+                <div class="stat"><span class="stat-label">Duration</span><span class="stat-value">12 months</span></div>
+                <div class="stat"><span class="stat-label">Fees (home)</span><span class="stat-value">£23,000</span></div>
+                <div class="stat"><span class="stat-label">Int'l</span><span class="stat-value">£33,000</span></div>
+            </div>
+            <a href="#" class="btn-outline">View programme →</a>
+        </div>
+
+        <!-- 6. MSc Business Analytics & AI -->
+        <div class="programme-card">
+            <span class="programme-badge">MSc · DATA & AI</span>
+            <div class="programme-title">MSc Business Analytics & AI</div>
+            <div class="programme-school">School of Technology & AI</div>
+            <div class="programme-desc">Machine learning, big data, AI strategy, and business intelligence. Turn data into competitive advantage.</div>
+            <div class="pillar-tags">
+                <span class="pillar-tag">INNOVATOR</span>
+                <span class="investor-tag">INVESTOR</span>
+                <span class="pillar-tag">BUILDER</span>
+            </div>
+            <div class="programme-stats">
+                <div class="stat"><span class="stat-label">Duration</span><span class="stat-value">12 months</span></div>
+                <div class="stat"><span class="stat-label">Fees (home)</span><span class="stat-value">£22,000</span></div>
+                <div class="stat"><span class="stat-label">Int'l</span><span class="stat-value">£32,000</span></div>
+            </div>
+            <a href="#" class="btn-outline">View programme →</a>
+        </div>
+    </div>
+
+    <!-- key facts comparison (summary) -->
+    <div class="comparison-section">
+        <h2 style="font-size: 1.8rem; color: var(--nolan-navy); margin-bottom: 1rem;">📊 At a glance</h2>
+        <div style="display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; text-align: center;">
+            <div><span style="font-weight:700; font-size:2rem;">6</span><br>Master's degrees</div>
+            <div><span style="font-weight:700; font-size:2rem;">12</span><br>months duration</div>
+            <div><span style="font-weight:700; font-size:2rem;">100%</span><br>online delivery</div>
+            <div><span style="font-weight:700; font-size:2rem;">£22k–£52k</span><br>fee range</div>
+        </div>
+    </div>
+
+    <!-- application process summary (linked from journey) -->
+    <div style="background: var(--nolan-white); border-radius: 28px; padding: 2rem; margin: 2rem 0; border: 2px solid var(--nolan-gold);">
+        <h2 style="font-size: 1.8rem; color: var(--nolan-navy);">📋 Common application process</h2>
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1.5rem;">
+            <div style="flex:1;">
+                <h3>Requirements</h3>
+                <ul style="list-style:none;">
+                    <li>✓ 2:1 honours degree (or equivalent)</li>
+                    <li>✓ English language: IELTS 7.0 / TOEFL 100</li>
+                    <li>✓ CV/Resume (2+ years exp for MBA)</li>
+                    <li>✓ Personal statement (500 words)</li>
+                    <li>✓ Two references</li>
+                </ul>
+            </div>
+            <div style="flex:1;">
+                <h3>Deadlines</h3>
+                <ul style="list-style:none;">
+                    <li>📅 30 June 2026 (international)</li>
+                    <li>📅 31 August 2026 (home)</li>
+                    <li>⏳ Decision within 2 weeks of interview</li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="#" class="btn-gold" style="font-size: 1.1rem;">Start your application</a>
+        </div>
+    </div>
+
+    <!-- related bachelor's link -->
+    <hr>
+    <div style="background: #eef3f6; border-radius: 48px; padding: 2rem 2.5rem; border: 2px solid var(--nolan-gold);">
+        <h2 style="font-size: 2rem; font-weight: 800; color: var(--nolan-navy);">Looking for undergraduate degrees?</h2>
+        <p style="font-size: 1.1rem; margin-bottom:1rem;">We also offer 3-year BSc programmes in Finance, Financial Technology, Entrepreneurship, and Business Analytics & AI.</p>
+        <a href="#" class="btn-gold">→ View all Bachelor's programmes</a>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · 100% Online Master's Degrees · Triple accredited: AMBA, EQUIS, AACSB<br>
+        © 2025 Nolan University · London · Where Company Builders, Investors & Innovators Are Educated</p>
+    </div>
+</div>
+</body>
+</html>
