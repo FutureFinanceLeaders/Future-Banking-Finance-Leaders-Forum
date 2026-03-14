@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan MBA · Self-Study Materials · New Venture Finance</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #0B2A3B;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .study-header {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            margin-bottom: 2rem;
+            border: 2px solid var(--nolan-gold);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .header-logo {
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-weight: 800;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+        .header-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .header-title span {
+            color: var(--nolan-gold);
+        }
+        .module-badge {
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 700;
+        }
+
+        /* main grid */
+        .materials-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* cards */
+        .card {
+            background: var(--nolan-white);
+            border-radius: 28px;
+            padding: 1.8rem;
+            box-shadow: 0 10px 25px -10px rgba(11,42,59,0.2);
+            border: 1px solid #dde7ed;
+            margin-bottom: 1.5rem;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-left: 6px solid var(--nolan-gold);
+            padding-left: 1rem;
+        }
+
+        /* video lecture section */
+        .video-player {
+            background: #0B2A3B;
+            border-radius: 20px;
+            padding: 1rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        .video-placeholder {
+            background: #1a3a4a;
+            border-radius: 16px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 2px solid var(--nolan-gold);
+            margin-bottom: 1rem;
+        }
+        .video-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .progress-bar {
+            flex: 1;
+            height: 8px;
+            background: #3a5a6a;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            width: 45%;
+            height: 100%;
+            background: var(--nolan-gold);
+        }
+
+        .lecture-list {
+            list-style: none;
+        }
+        .lecture-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px dashed #cbdae3;
+        }
+        .lecture-item.completed {
+            opacity: 0.7;
+        }
+        .lecture-play {
+            width: 30px;
+            height: 30px;
+            background: var(--nolan-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--nolan-navy);
+            font-weight: 700;
+        }
+        .lecture-info {
+            flex: 1;
+        }
+        .lecture-title {
+            font-weight: 600;
+        }
+        .lecture-duration {
+            font-size: 0.8rem;
+            color: #3b687d;
+        }
+
+        /* reading materials */
+        .reading-item {
+            background: #fafdff;
+            border-radius: 18px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--nolan-gold);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .reading-icon {
+            font-size: 2rem;
+        }
+        .reading-content {
+            flex: 1;
+        }
+        .reading-title {
+            font-weight: 700;
+        }
+        .reading-meta {
+            font-size: 0.8rem;
+            color: #2e637a;
+        }
+        .btn-download {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            border: 1px solid var(--nolan-gold);
+        }
+
+        /* template section */
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .template-card {
+            background: #eef3f6;
+            border-radius: 18px;
+            padding: 1.2rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .template-card:hover {
+            border-color: var(--nolan-gold);
+        }
+        .template-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* case study */
+        .case-study {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 2px dashed var(--nolan-gold);
+        }
+        .case-meta {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            color: #2e637a;
+        }
+
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+
+        .btn-workout {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+            text-align: center;
+        }
+        .btn-workout:hover {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #3b687d;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="study-header">
+        <div class="header-left">
+            <div class="header-logo">NU</div>
+            <div class="header-title">NOLAN <span>MBA</span> · SELF-STUDY PORTAL</div>
+        </div>
+        <div class="module-badge">ENT501 · NEW VENTURE FINANCE</div>
+    </div>
+
+    <!-- main materials grid -->
+    <div class="materials-grid">
+        <!-- LEFT COLUMN: VIDEO LECTURES & READINGS -->
+        <div>
+            <!-- Video Lecture Series -->
+            <div class="card">
+                <div class="card-title">🎥 VIDEO LECTURE SERIES · TERM SHEETS</div>
+                
+                <!-- featured video -->
+                <div class="video-player">
+                    <div class="video-placeholder">▶️ 4.3 · NEGOTIATING THE TERM SHEET</div>
+                    <div class="video-controls">
+                        <span>⏪</span>
+                        <span>⏯️</span>
+                        <span>⏩</span>
+                        <div class="progress-bar"><div class="progress-fill"></div></div>
+                        <span>45:00 / 1:02:00</span>
+                    </div>
+                </div>
+
+                <!-- lecture playlist -->
+                <ul class="lecture-list">
+                    <li class="lecture-item completed">
+                        <div class="lecture-play">✓</div>
+                        <div class="lecture-info">
+                            <div class="lecture-title">4.1 · Introduction to Term Sheets</div>
+                            <div class="lecture-duration">28 min · Prof. Daley</div>
+                        </div>
+                    </li>
+                    <li class="lecture-item completed">
+                        <div class="lecture-play">✓</div>
+                        <div class="lecture-info">
+                            <div class="lecture-title">4.2 · Key Clauses: Valuation, Liquidation Preference</div>
+                            <div class="lecture-duration">34 min · Prof. Daley</div>
+                        </div>
+                    </li>
+                    <li class="lecture-item">
+                        <div class="lecture-play">▶️</div>
+                        <div class="lecture-info">
+                            <div class="lecture-title">4.3 · Negotiating the Term Sheet (current)</div>
+                            <div class="lecture-duration">62 min · Prof. Daley</div>
+                        </div>
+                    </li>
+                    <li class="lecture-item">
+                        <div class="lecture-play">⏸️</div>
+                        <div class="lecture-info">
+                            <div class="lecture-title">4.4 · Convertible Notes vs. SAFEs</div>
+                            <div class="lecture-duration">41 min · Prof. Daley</div>
+                        </div>
+                    </li>
+                    <li class="lecture-item">
+                        <div class="lecture-play">⏸️</div>
+                        <div class="lecture-info">
+                            <div class="lecture-title">4.5 · Case Study: Uber's Series A</div>
+                            <div class="lecture-duration">53 min · Prof. Daley</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Required Readings -->
+            <div class="card">
+                <div class="card-title">📚 REQUIRED READINGS</div>
+                
+                <div class="reading-item">
+                    <div class="reading-icon">📘</div>
+                    <div class="reading-content">
+                        <div class="reading-title">Venture Deals · Chapters 4-7</div>
+                        <div class="reading-meta">Feld & Mendelson · 45 pages</div>
+                    </div>
+                    <a href="#" class="btn-download">PDF</a>
+                </div>
+
+                <div class="reading-item">
+                    <div class="reading-icon">📁</div>
+                    <div class="reading-content">
+                        <div class="reading-title">Uber Series A (HBS Case)</div>
+                        <div class="reading-meta">Harvard Business School · 18 pages</div>
+                    </div>
+                    <a href="#" class="btn-download">PDF</a>
+                </div>
+
+                <div class="reading-item">
+                    <div class="reading-icon">📄</div>
+                    <div class="reading-content">
+                        <div class="reading-title">The Theranos Term Sheet: A Cautionary Tale</div>
+                        <div class="reading-meta">Nolan Case Study · 12 pages</div>
+                    </div>
+                    <a href="#" class="btn-download">PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: TEMPLATES & CASE STUDIES -->
+        <div>
+            <!-- Templates -->
+            <div class="card">
+                <div class="card-title">📊 DOWNLOADABLE TEMPLATES</div>
+                <div class="template-grid">
+                    <div class="template-card">
+                        <div class="template-icon">📈</div>
+                        <div>Cap Table Template</div>
+                        <div style="font-size:0.8rem; color:#2e637a;">Excel · multi-round</div>
+                        <a href="#" style="display:block; margin-top:0.5rem;">⬇️ .xlsx</a>
+                    </div>
+                    <div class="template-card">
+                        <div class="template-icon">📑</div>
+                        <div>Term Sheet Comparison</div>
+                        <div style="font-size:0.8rem; color:#2e637a;">Excel · 15 clauses</div>
+                        <a href="#" style="display:block; margin-top:0.5rem;">⬇️ .xlsx</a>
+                    </div>
+                    <div class="template-card">
+                        <div class="template-icon">📊</div>
+                        <div>Valuation Model</div>
+                        <div style="font-size:0.8rem; color:#2e637a;">Excel · DCF + comps</div>
+                        <a href="#" style="display:block; margin-top:0.5rem;">⬇️ .xlsx</a>
+                    </div>
+                    <div class="template-card">
+                        <div class="template-icon">📝</div>
+                        <div>Investment Memo Template</div>
+                        <div style="font-size:0.8rem; color:#2e637a;">Word · 5 pages</div>
+                        <a href="#" style="display:block; margin-top:0.5rem;">⬇️ .docx</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study in Depth -->
+            <div class="card">
+                <div class="card-title">🔍 CASE STUDY · UBER SERIES A</div>
+                <div class="case-study">
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                        <span class="pillar-tag">INVESTOR</span>
+                        <span class="pillar-tag">BUILDER</span>
+                    </div>
+                    <p><strong>The Situation:</strong> In 2011, Uber sought a $10M Series A at a $50M pre-money valuation. Benchmark Capital led the round. But the term sheet included unusual provisions...</p>
+                    <div class="case-meta">
+                        <span>📊 Valuation: $50M pre</span>
+                        <span>💰 Investment: $10M</span>
+                    </div>
+                    <p style="margin: 1rem 0;"><strong>Your task:</strong> Analyse the term sheet. What clauses protected Benchmark? What did Uber's founders concede? Build a pro-forma cap table showing ownership after the round.</p>
+                    <a href="#" class="btn-workout" style="display:inline-block; padding:0.5rem 1.5rem; font-size:0.9rem;">📥 Download Case Materials</a>
+                </div>
+            </div>
+
+            <!-- Interactive Tool -->
+            <div class="card">
+                <div class="card-title">🎮 INTERACTIVE SIMULATION</div>
+                <div style="background: #eef3f6; border-radius: 20px; padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
+                    <h3>Term Sheet Negotiation Game</h3>
+                    <p style="margin: 1rem 0;">Play as founder or VC. Negotiate valuation, liquidation preference, board seats. Get scored on your deal.</p>
+                    <a href="#" class="btn-workout">🎮 Launch Simulation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Professor's Video Introduction -->
+    <div style="background: linear-gradient(145deg, #f2f9fc, white); border-radius: 28px; padding: 1.5rem; margin: 1.5rem 0; border: 2px solid var(--nolan-gold);">
+        <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+            <div style="width: 80px; height: 80px; background: var(--nolan-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--nolan-gold); font-weight: 700; font-size: 2rem; border: 3px solid var(--nolan-gold);">JD</div>
+            <div style="flex:1;">
+                <h2 style="color: var(--nolan-navy);">Prof. Julia Daley · Your Coach for This Module</h2>
+                <p style="margin-top:0.5rem;">"I've negotiated over 50 term sheets. The template is just paper – the real learning is in the negotiation. Watch the lectures, then come to Wednesday's live session ready to fight for your side."</p>
+            </div>
+            <a href="#" class="btn-workout">📹 Watch Intro Video</a>
+        </div>
+    </div>
+
+    <!-- Self-Study Checklist -->
+    <div style="background: var(--nolan-navy); color: white; border-radius: 28px; padding: 1.5rem; margin-top: 1.5rem;">
+        <h3 style="color: var(--nolan-gold); margin-bottom: 1rem;">✅ YOUR SELF-STUDY CHECKLIST · WEEK 3</h3>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+            <div>📺 Watch lectures 4.1–4.3</div>
+            <div>📘 Read Venture Deals Ch 4-7</div>
+            <div>📊 Build cap table template</div>
+            <div>📁 Analyse Uber case</div>
+            <div>✍️ Draft term sheet memo</div>
+            <div>🤝 Join Wed live session</div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p>© 2025 Nolan University · 100% Online MBA · Self-Study Materials · Let's do the workout.</p>
+    </div>
+</div>
+</body>
+</html>
