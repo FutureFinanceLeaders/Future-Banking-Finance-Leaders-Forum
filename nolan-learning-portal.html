@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan University · 100% Online Degrees · How It Works</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0B2A3B;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
+            padding-bottom: 1.25rem;
+        }
+
+        .uni-logo {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--nolan-navy);
+        }
+
+        .uni-name span {
+            color: var(--nolan-navy);
+            font-weight: 600;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        /* global tagline */
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin: 2.5rem 0 1.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-left: 8px solid var(--nolan-gold);
+            padding-left: 1.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--nolan-navy);
+            margin: 2rem 0 1rem 0;
+        }
+
+        .program-section {
+            background: var(--nolan-white);
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 25px -10px rgba(11,42,59,0.25);
+            border: 1px solid #dde7ed;
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .journey-step {
+            background: var(--nolan-navy);
+            color: white;
+            border-radius: 24px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 2px solid var(--nolan-gold);
+        }
+        .step-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--nolan-gold);
+            margin-bottom: 0.5rem;
+        }
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .onboarding-timeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .timeline-card {
+            background: #f2f9ff;
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 2px solid var(--nolan-gold);
+        }
+        .timeline-day {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--nolan-gold);
+            padding-bottom: 0.5rem;
+        }
+
+        .material-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        .material-card {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.4rem;
+            border-left: 6px solid var(--nolan-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .material-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.5rem;
+        }
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .tool-item {
+            background: #eef3f6;
+            border-radius: 40px;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .portal-preview {
+            background: var(--nolan-navy);
+            color: white;
+            border-radius: 32px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid var(--nolan-gold);
+        }
+        .portal-dashboard {
+            background: #1a3a4a;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            font-family: monospace;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+            margin: 0.5rem 0;
+        }
+        .btn-gold:hover {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3b687d;
+            border-top: 2px solid var(--nolan-gold);
+            padding-top: 2rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed var(--nolan-gold);
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 800px) {
+            .journey-grid, .onboarding-timeline, .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="university-header">
+        <div class="uni-logo">NU</div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
+    </div>
+
+    <!-- global tagline -->
+    <div class="global-tagline">
+        <strong>100% Online Degrees</strong> · FINANCE, TECHNOLOGY, ENTREPRENEURSHIP · Where Company Builders, Investors & Innovators Are Educated
+    </div>
+
+    <!-- Hero: The Nolan Online Experience -->
+    <div style="text-align: center; margin: 2rem 0;">
+        <h1 style="font-size: 3rem; color: var(--nolan-navy);">Your Online MBA Journey</h1>
+        <p style="font-size: 1.3rem; max-width: 800px; margin: 1rem auto;">From application to graduation – everything you need, delivered to your screen. Same degree, same rigour, same network. 100% online.</p>
+        <a href="#" class="btn-gold" style="font-size: 1.2rem; padding: 1rem 3rem;">🎓 Start Your Application</a>
+    </div>
+
+    <!-- ===== PHASE 1: APPLICATION & ADMISSION ===== -->
+    <div class="section-title">📋 Phase 1: Application & Admission</div>
+    <div class="program-section">
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+            <div style="flex: 1;">
+                <h3 style="font-size: 1.5rem; color: var(--nolan-navy);">What you submit</h3>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li style="margin-bottom: 0.7rem;">✓ Online application form</li>
+                    <li style="margin-bottom: 0.7rem;">✓ Academic transcripts (2:1 or equivalent)</li>
+                    <li style="margin-bottom: 0.7rem;">✓ GMAT/GRE (recommended 600+)</li>
+                    <li style="margin-bottom: 0.7rem;">✓ English language: IELTS 7.0 / TOEFL 100</li>
+                    <li style="margin-bottom: 0.7rem;">✓ CV/Resume (2+ years experience)</li>
+                    <li style="margin-bottom: 0.7rem;">✓ Personal statement (500 words)</li>
+                    <li style="margin-bottom: 0.7rem;">✓ Two references</li>
+                </ul>
+            </div>
+            <div style="flex: 1;">
+                <h3 style="font-size: 1.5rem; color: var(--nolan-navy);">What you receive</h3>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li style="margin-bottom: 0.7rem;">✓ Offer letter within 2 weeks of interview</li>
+                    <li style="margin-bottom: 0.7rem;">✓ Student visa guidance (if applicable)</li>
+                    <li style="margin-bottom: 0.7rem;">✓ Scholarship notifications</li>
+                    <li style="margin-bottom: 0.7rem;">✓ Pre-arrival checklist</li>
+                    <li style="margin-bottom: 0.7rem;">✓ Access to Nolan Learning Portal (pre-reading)</li>
+                </ul>
+            </div>
+        </div>
+        <div style="background: #eef3f6; border-radius: 24px; padding: 1rem; margin-top: 1.5rem;">
+            <p><strong>Application deadlines:</strong> 30 June (international), 31 August (home) · Fee: £75</p>
+        </div>
+    </div>
+
+    <!-- ===== PHASE 2: ONBOARDING & INDUCTION (DIGITAL) ===== -->
+    <div class="section-title">🚀 Phase 2: Digital Onboarding & Induction</div>
+    <div class="program-section">
+        <div class="onboarding-timeline">
+            <div class="timeline-card">
+                <div class="timeline-day">2 Weeks Before Start</div>
+                <ul style="list-style: none;">
+                    <li>📚 Pre-reading pack (foundational concepts)</li>
+                    <li>📊 Online diagnostic tests (maths, Excel)</li>
+                    <li>📅 Induction schedule</li>
+                    <li>📖 Student handbook (digital)</li>
+                    <li>💻 IT setup guide & software downloads</li>
+                    <li>🎥 Welcome video from Dean</li>
+                </ul>
+            </div>
+            <div class="timeline-card">
+                <div class="timeline-day">Induction Week (Live Online)</div>
+                <ul style="list-style: none;">
+                    <li>🆔 Virtual registration & ID card mail</li>
+                    <li>📚 Module guides (PDF downloads)</li>
+                    <li>📚 Library & database induction</li>
+                    <li>💬 Meet faculty (live Zoom sessions)</li>
+                    <li>🤝 Cohort networking (virtual coffee)</li>
+                    <li>🎓 Welcome ceremony (live stream)</li>
+                </ul>
+            </div>
+            <div class="timeline-card">
+                <div class="timeline-day">What you receive</div>
+                <ul style="list-style: none;">
+                    <li>✅ Student ID (digital + posted)</li>
+                    <li>✅ Software licenses (Python, Excel, Figma)</li>
+                    <li>✅ Bloomberg terminal access (remote)</li>
+                    <li>✅ Preqin / PitchBook credentials</li>
+                    <li>✅ Nolan hoodie (posted to your home)</li>
+                    <li>✅ Full portal access</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PHASE 3: THE LEARNING JOURNEY ===== -->
+    <div class="section-title">📚 Phase 3: Your Learning Journey · 12 Months</div>
+
+    <!-- Learning Materials Overview -->
+    <div class="program-section">
+        <h3 class="section-subtitle">📦 Your Learning Toolkit · 7 Types of Materials</h3>
+        <div class="tools-grid">
+            <div class="tool-item">📘 Textbooks</div>
+            <div class="tool-item">📁 Case Studies</div>
+            <div class="tool-item">📽️ Video Lectures</div>
+            <div class="tool-item">📊 Excel Models</div>
+            <div class="tool-item">🐍 Python Scripts</div>
+            <div class="tool-item">🎮 Simulations</div>
+            <div class="tool-item">📈 Bloomberg</div>
+            <div class="tool-item">👥 Live Sessions</div>
+        </div>
+
+        <!-- Sample Module: New Venture Finance -->
+        <h3 style="font-size: 1.4rem; margin: 2rem 0 1rem 0;">Sample Module: New Venture Finance (15 credits)</h3>
+        <div class="material-grid">
+            <div class="material-card"><h4>📘 Textbook</h4> <em>Venture Deals</em> by Feld & Mendelson (chapters 1-5)</div>
+            <div class="material-card"><h4>📁 Case Studies</h4> "Uber's Series A" (HBS), "The Theranos Term Sheet"</div>
+            <div class="material-card"><h4>📽️ Video Content</h4> VC interviews, term sheet negotiation role-play</div>
+            <div class="material-card"><h4>📊 Practical Tools</h4> Cap table template, term sheet matrix (Excel)</div>
+            <div class="material-card"><h4>🎮 Simulation</h4> Term Sheet Negotiation Game (paired online)</div>
+            <div class="material-card"><h4>📝 Assessment</h4> Build a cap table + 2-page investment memo</div>
+        </div>
+
+        <!-- Full Module List with Tags -->
+        <h3 style="font-size: 1.4rem; margin: 2rem 0 1rem 0;">🔧 Core Modules (MBA Entrepreneurship & Innovation)</h3>
+        <div class="material-grid">
+            <div class="material-card"><h4>New Venture Finance</h4> <span class="pillar-tag">BUILDER</span><span class="pillar-tag">INVESTOR</span><div class="module-desc">Cap tables, term sheets, valuation</div></div>
+            <div class="material-card"><h4>Venture Capital & PE</h4> <span class="pillar-tag">INVESTOR</span><span class="pillar-tag">BUILDER</span><div class="module-desc">LBO models, fund economics</div></div>
+            <div class="material-card"><h4>Design Thinking</h4> <span class="pillar-tag">INNOVATOR</span><span class="pillar-tag">BUILDER</span><div class="module-desc">Figma prototyping, user testing</div></div>
+            <div class="material-card"><h4>Data Analytics</h4> <span class="pillar-tag">INNOVATOR</span><span class="pillar-tag">INVESTOR</span><div class="module-desc">Python, pandas, cohort analysis</div></div>
+            <div class="material-card"><h4>New Venture Lab</h4> <span class="pillar-tag">BUILDER</span><span class="pillar-tag">INNOVATOR</span><div class="module-desc">Capstone: launch real venture</div></div>
+            <div class="material-card"><h4>Tech Strategy</h4> <span class="pillar-tag">INNOVATOR</span><span class="pillar-tag">INVESTOR</span><div class="module-desc">Disruption, IP, platform strategy</div></div>
+        </div>
+    </div>
+
+    <!-- Software & Platforms -->
+    <div class="program-section">
+        <h3 class="section-subtitle">🛠️ Software & Platforms You'll Master</h3>
+        <div class="tools-grid">
+            <div class="tool-item">Excel (Advanced)</div>
+            <div class="tool-item">Python / pandas</div>
+            <div class="tool-item">Bloomberg</div>
+            <div class="tool-item">Preqin</div>
+            <div class="tool-item">PitchBook</div>
+            <div class="tool-item">Figma</div>
+            <div class="tool-item">Tableau</div>
+            <div class="tool-item">Jupyter</div>
+        </div>
+    </div>
+
+    <!-- The Nolan Learning Portal (Dashboard Preview) -->
+    <div class="portal-preview">
+        <h2 style="color: var(--nolan-gold); font-size: 2rem;">🏠 Nolan Learning Portal</h2>
+        <p>Your digital campus – accessible 24/7 from anywhere.</p>
+        <div class="portal-dashboard">
+            <pre style="color: #eee;">
+┌─────────────────────────────────────────┐
+│  NOLAN LEARNING PORTAL   Welcome, Alex  │
+├─────────────────────────────────────────┤
+│  MY MODULES (Term 1)                     │
+│  ┌──────────────────┐                   │
+│  │ New Venture      │  Due: 15 Oct      │
+│  │ Finance          │  Term sheet sim   │
+│  └──────────────────┘                   │
+│  ┌──────────────────┐                   │
+│  │ Entrepreneurial  │  Due: 22 Oct      │
+│  │ Mindset          │  Interview report │
+│  └──────────────────┘                   │
+│                                         │
+│  RESOURCES                              │
+│  • Library • Bloomberg • Preqin • Python│
+└─────────────────────────────────────────┘
+            </pre>
+        </div>
+        <p style="margin-top: 1rem;">📱 Mobile app available · All materials downloadable for offline study</p>
+    </div>
+
+    <!-- Assessment & Feedback -->
+    <div class="program-section">
+        <h3 class="section-subtitle">📝 Assessment & Feedback</h3>
+        <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;">
+            <div style="background:#eef3f6; border-radius:20px; padding:1rem;">
+                <strong>Individual assignments</strong> (40-60%) – Investment memos, models
+            </div>
+            <div style="background:#eef3f6; border-radius:20px; padding:1rem;">
+                <strong>Group projects</strong> (20-30%) – Venture lab, case presentations
+            </div>
+            <div style="background:#eef3f6; border-radius:20px; padding:1rem;">
+                <strong>Participation</strong> (10-20%) – Live session engagement
+            </div>
+        </div>
+        <p style="margin-top:1rem;">You receive written feedback on every assignment within 2 weeks. Personal tutor meetings monthly (video).</p>
+    </div>
+
+    <!-- ===== PHASE 4: GRADUATION & BEYOND ===== -->
+    <div class="section-title">🎓 Phase 4: Graduation & Beyond</div>
+    <div class="program-section">
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+            <div style="flex:1;">
+                <h3>Final Weeks</h3>
+                <ul style="list-style:none;">
+                    <li>✓ Week 48: Final assignments submitted</li>
+                    <li>✓ Week 49: Virtual Demo Day (pitch to investors)</li>
+                    <li>✓ Week 50: Graduation rehearsals</li>
+                    <li>✓ Week 51: Online Graduation Ceremony</li>
+                    <li>✓ Week 52: Alumni induction</li>
+                </ul>
+            </div>
+            <div style="flex:1;">
+                <h3>What You Receive</h3>
+                <ul style="list-style:none;">
+                    <li>🎓 MBA Certificate (posted to you)</li>
+                    <li>📄 Official transcript (digital + printed)</li>
+                    <li>📁 Portfolio of your work (models, memos, pitches)</li>
+                    <li>🤝 Lifetime alumni network access</li>
+                    <li>💼 Ongoing career support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <hr>
+    <div style="background: #eef3f6; border-radius: 48px; padding: 2.5rem; text-align: center; border: 2px solid var(--nolan-gold);">
+        <h2 style="font-size: 2.2rem; color: var(--nolan-navy);">Ready to start your Nolan journey?</h2>
+        <p style="font-size: 1.2rem; margin: 1rem 0;">100% online · Same degree as on-campus · Flexible learning</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#" class="btn-gold" style="font-size: 1.2rem;">📄 Apply Now</a>
+            <a href="#" class="btn-gold" style="background: transparent; border: 2px solid var(--nolan-navy);">📞 Book a Call</a>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · 100% Online Degrees · Triple accredited: AMBA, EQUIS, AACSB<br>
+        © 2025 Nolan University · London · Your journey starts here.</p>
+    </div>
+</div>
+</body>
+</html>
