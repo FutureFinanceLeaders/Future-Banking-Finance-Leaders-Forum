@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan University · BSc Entrepreneurship & BSc Business Analytics & AI</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0B2A3B;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
+            padding-bottom: 1.25rem;
+        }
+
+        .uni-logo {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--nolan-navy);
+        }
+
+        .uni-name span {
+            color: var(--nolan-navy);
+            font-weight: 600;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        /* global tagline */
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: #3b687d;
+        }
+        .breadcrumb a {
+            color: var(--nolan-navy);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .degree-tag {
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-weight: 700;
+            padding: 0.35rem 1.5rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 0.5rem 0 1rem 0;
+            font-size: 1.2rem;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        .program-section {
+            background: var(--nolan-white);
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 25px -10px rgba(11,42,59,0.25);
+            border: 1px solid #dde7ed;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-left: 8px solid var(--nolan-gold);
+            padding-left: 1.5rem;
+        }
+
+        .overview-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .overview-text { flex: 2; min-width: 280px; }
+        .overview-stats {
+            flex: 1;
+            background: var(--nanol-gray-soft);
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid #cbdae3;
+        }
+        .stat-item { margin-bottom: 1.8rem; }
+        .stat-label {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--nolan-navy);
+        }
+        .stat-value {
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--nolan-navy);
+            line-height: 1.2;
+        }
+        .stat-desc { font-size: 0.95rem; color: #2d4f62; }
+
+        .year-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .year-card {
+            background: #f2f9ff;
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 2px solid var(--nolan-gold);
+        }
+        .year-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--nolan-gold);
+            padding-bottom: 0.5rem;
+        }
+        .year-card ul { list-style: none; }
+        .year-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .year-card li::before {
+            content: "▹";
+            color: var(--nolan-gold);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        .module-item {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.4rem;
+            border-left: 6px solid var(--nolan-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .module-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.3rem;
+        }
+        .module-credits {
+            font-size: 0.8rem;
+            background: var(--nolan-navy);
+            color: white;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin: 0.3rem 0 0.5rem;
+        }
+        .module-desc { color: #235a72; font-size: 0.95rem; }
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .career-card {
+            background: #fafdff;
+            border-radius: 24px;
+            padding: 1.8rem 1rem;
+            text-align: center;
+            border: 1px solid #cbdae3;
+            border-bottom: 4px solid var(--nolan-gold);
+        }
+        .career-icon { font-size: 2.5rem; }
+        .career-role { font-weight: 700; font-size: 1.3rem; color: var(--nolan-navy); margin: 0.5rem 0; }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+        }
+        .btn-gold:hover {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3b687d;
+            border-top: 2px solid var(--nolan-gold);
+            padding-top: 2rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed var(--nolan-gold);
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 800px) {
+            .year-grid, .career-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="university-header">
+        <div class="uni-logo">NU</div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
+    </div>
+
+    <!-- global tagline -->
+    <div class="global-tagline">
+        <strong>A Modern Global & Professional University</strong> for FINANCE, TECHNOLOGY, AND ENTREPRENEURSHIP.
+    </div>
+
+    <!-- ========== BSc ENTREPRENEURSHIP & VENTURE CREATION ========== -->
+    <div class="breadcrumb">
+        <a href="#">Home</a> > <a href="#">3-year Bachelor's</a> > <span style="font-weight:600;">BSc Entrepreneurship & Venture Creation</span>
+    </div>
+    <div class="degree-tag">🚀 3-year BSc · Entrepreneurship & Venture Creation</div>
+
+    <!-- BSc Entrepreneurship Overview -->
+    <section class="program-section">
+        <h2 class="section-title">📋 Overview · Build what matters</h2>
+        <div class="overview-grid">
+            <div class="overview-text">
+                <p style="font-size:1.3rem; margin-bottom:1rem;"><strong>For those who don't just study business – they create it.</strong> The BSc in Entrepreneurship & Venture Creation is designed for aspiring founders, innovators, and startup leaders. You'll learn by doing: launching ventures, pitching to investors, and building real products.</p>
+                <p>You'll master lean startup methodology, entrepreneurial finance, growth marketing, and venture scaling – all while being mentored by seasoned entrepreneurs and investors. By graduation, you'll have launched a real venture or built a substantial portfolio of entrepreneurial projects.</p>
+                <p style="margin-top:1rem;"><span style="background: var(--nolan-gold); color: var(--nolan-navy); padding:0.3rem 1.2rem; border-radius:40px; font-weight:600;">Learn by Building · Nolan Venture Incubator</span></p>
+            </div>
+            <div class="overview-stats">
+                <div class="stat-item"><span class="stat-label">UCAS code</span><div class="stat-value">N2N1</div><div class="stat-desc">apply by 29 Jan</div></div>
+                <div class="stat-item"><span class="stat-label">Duration</span><div class="stat-value">3 years</div><div class="stat-desc">+ optional placement year</div></div>
+                <div class="stat-item"><span class="stat-label">2026 fees</span><div class="stat-value">£14,500</div><div class="stat-desc">home / £24,800 int'l</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BSc Entrepreneurship Curriculum -->
+    <section class="program-section">
+        <h2 class="section-title">📚 Curriculum · from idea to scale</h2>
+        <div class="year-grid">
+            <div class="year-card">
+                <div class="year-title">Year 1 · Founder Mindset</div>
+                <ul>
+                    <li>Entrepreneurial Mindset & Creativity</li>
+                    <li>Introduction to Venture Creation</li>
+                    <li>Marketing for Startups</li>
+                    <li>Financial Accounting Basics</li>
+                    <li>Design Thinking</li>
+                    <li>Professional Skills & Networking</li>
+                </ul>
+            </div>
+            <div class="year-card">
+                <div class="year-title">Year 2 · Building & Funding</div>
+                <ul>
+                    <li>New Venture Finance</li>
+                    <li>Lean Startup & Customer Discovery</li>
+                    <li>Growth Marketing & Analytics</li>
+                    <li>Entrepreneurial Operations</li>
+                    <li>Legal & IP for Startups</li>
+                    <li>Elective: Social Entrepreneurship</li>
+                </ul>
+            </div>
+            <div class="year-card">
+                <div class="year-title">Year 3 · Launch & Scale</div>
+                <ul>
+                    <li>Venture Capital & Fundraising</li>
+                    <li>Scaling Ventures</li>
+                    <li>Family Business & Succession</li>
+                    <li><strong>Venture Creation Lab (Capstone)</strong></li>
+                    <li>Elective: Tech Ventures / Impact</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- BSc Entrepreneurship Detailed Modules -->
+    <section class="program-section">
+        <h2 class="section-title">🔧 Core modules · BSc Entrepreneurship</h2>
+        <div class="module-grid">
+            <div class="module-item"><h4>New Venture Finance</h4><div class="module-credits">15 credits</div><div class="module-desc">Valuation, term sheets, cap tables, convertible notes, fundraising simulations.</div><span class="pillar-tag">BUILDER</span><span class="pillar-tag">INVESTOR</span></div>
+            <div class="module-item"><h4>Lean Startup & Customer Discovery</h4><div class="module-credits">15 credits</div><div class="module-desc">MVP design, customer interviews, problem-solution fit, pivoting.</div><span class="pillar-tag">BUILDER</span><span class="pillar-tag">INNOVATOR</span></div>
+            <div class="module-item"><h4>Growth Marketing & Analytics</h4><div class="module-credits">15 credits</div><div class="module-desc">Acquisition channels, cohort analysis, LTV/CAC, conversion optimisation.</div><span class="pillar-tag">BUILDER</span></div>
+            <div class="module-item"><h4>Venture Capital & Fundraising</h4><div class="module-credits">15 credits</div><div class="module-desc">VC landscape, pitch deck creation, investor negotiation, due diligence.</div><span class="pillar-tag">INVESTOR</span><span class="pillar-tag">BUILDER</span></div>
+            <div class="module-item"><h4>Scaling Ventures</h4><div class="module-credits">15 credits</div><div class="module-desc">Hiring, culture, international expansion, operational scaling.</div><span class="pillar-tag">BUILDER</span></div>
+            <div class="module-item"><h4>Venture Creation Lab (Capstone)</h4><div class="module-credits">30 credits</div><div class="module-desc">Launch a real venture or project, pitch at Demo Day, access seed funding.</div><span class="pillar-tag">BUILDER</span><span class="pillar-tag">INNOVATOR</span></div>
+        </div>
+        <p style="margin-top:1rem;"><em>Electives: Social Entrepreneurship, Tech Ventures, Family Business, Innovation Strategy</em></p>
+    </section>
+
+    <!-- BSc Entrepreneurship Career Outcomes -->
+    <section class="program-section">
+        <h2 class="section-title">🚀 Career outcomes · entrepreneurs & innovators</h2>
+        <div class="career-grid">
+            <div class="career-card"><div class="career-icon">🦄</div><div class="career-role">Founder / Co-founder</div><div>25% launch within 2 years</div></div>
+            <div class="career-card"><div class="career-icon">📦</div><div class="career-role">Product Manager</div><div>Tech startups, scale-ups</div></div>
+            <div class="career-card"><div class="career-icon">💼</div><div class="career-role">Innovation Consultant</div><div>Strategy houses, corporate innovation</div></div>
+        </div>
+        <p style="margin-top:1.8rem; background:#e5f1f7; padding:1rem 2rem; border-radius:50px;"><strong>Recent graduate paths:</strong> founded edtech (raised £500k), product manager at Revolut, innovation analyst at Accenture, joined startup studio as venture builder.</p>
+    </section>
+
+    <!-- ========== BSc BUSINESS ANALYTICS & AI ========== -->
+    <hr>
+    <div class="breadcrumb">
+        <a href="#">Home</a> > <a href="#">3-year Bachelor's</a> > <span style="font-weight:600;">BSc Business Analytics & AI</span>
+    </div>
+    <div class="degree-tag">🤖 3-year BSc · Business Analytics & AI</div>
+
+    <!-- BSc Analytics Overview -->
+    <section class="program-section">
+        <h2 class="section-title">📋 Overview · Data-driven decisions</h2>
+        <div class="overview-grid">
+            <div class="overview-text">
+                <p style="font-size:1.3rem; margin-bottom:1rem;"><strong>Turn data into strategy.</strong> The BSc in Business Analytics & AI equips you with the technical and analytical skills to solve real business problems using data science, machine learning, and artificial intelligence.</p>
+                <p>You'll master Python, SQL, predictive modelling, and AI applications – alongside business fundamentals like finance, marketing, and strategy. Graduates are sought after as data analysts, business intelligence specialists, and AI consultants across every industry.</p>
+                <p style="margin-top:1rem;"><span style="background: var(--nolan-gold); color: var(--nolan-navy); padding:0.3rem 1.2rem; border-radius:40px; font-weight:600;">Industry co-designed · SAS & Tableau certified</span></p>
+            </div>
+            <div class="overview-stats">
+                <div class="stat-item"><span class="stat-label">UCAS code</span><div class="stat-value">GN54</div><div class="stat-desc">apply by 29 Jan</div></div>
+                <div class="stat-item"><span class="stat-label">Duration</span><div class="stat-value">3 years</div><div class="stat-desc">+ optional placement</div></div>
+                <div class="stat-item"><span class="stat-label">2026 fees</span><div class="stat-value">£14,500</div><div class="stat-desc">home / £24,800 int'l</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BSc Analytics Curriculum -->
+    <section class="program-section">
+        <h2 class="section-title">📚 Curriculum · from data to impact</h2>
+        <div class="year-grid">
+            <div class="year-card">
+                <div class="year-title">Year 1 · Foundations</div>
+                <ul>
+                    <li>Programming for Analytics (Python)</li>
+                    <li>Business Statistics</li>
+                    <li>Database & SQL</li>
+                    <li>Principles of Management</li>
+                    <li>Data Visualisation</li>
+                    <li>Mathematics for Data Science</li>
+                </ul>
+            </div>
+            <div class="year-card">
+                <div class="year-title">Year 2 · Core Analytics</div>
+                <ul>
+                    <li>Machine Learning Fundamentals</li>
+                    <li>Predictive Analytics</li>
+                    <li>Big Data Technologies</li>
+                    <li>Marketing Analytics</li>
+                    <li>Financial Analytics</li>
+                    <li>Ethics & AI Governance</li>
+                </ul>
+            </div>
+            <div class="year-card">
+                <div class="year-title">Year 3 · Advanced AI & Applications</div>
+                <ul>
+                    <li>Deep Learning & Neural Networks</li>
+                    <li>Natural Language Processing</li>
+                    <li>Business Intelligence & Dashboards</li>
+                    <li>Reinforcement Learning for Business</li>
+                    <li><strong>Analytics Capstone Project</strong></li>
+                    <li>Elective: Time Series / Optimisation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- BSc Analytics Detailed Modules -->
+    <section class="program-section">
+        <h2 class="section-title">🔧 Core modules · BSc Business Analytics & AI</h2>
+        <div class="module-grid">
+            <div class="module-item"><h4>Programming for Analytics (Python)</h4><div class="module-credits">15 credits</div><div class="module-desc">Pandas, NumPy, data cleaning, exploratory analysis, visualisation.</div><span class="pillar-tag">INNOVATOR</span></div>
+            <div class="module-item"><h4>Machine Learning Fundamentals</h4><div class="module-credits">20 credits</div><div class="module-desc">Regression, classification, clustering, model evaluation, scikit-learn.</div><span class="pillar-tag">INNOVATOR</span></div>
+            <div class="module-item"><h4>Database & SQL</h4><div class="module-credits">15 credits</div><div class="module-desc">Querying, joins, aggregations, database design, cloud databases.</div><span class="pillar-tag">BUILDER</span></div>
+            <div class="module-item"><h4>Predictive Analytics</h4><div class="module-credits">15 credits</div><div class="module-desc">Time series forecasting, logistic regression, decision trees, ensemble methods.</div><span class="pillar-tag">INVESTOR</span></div>
+            <div class="module-item"><h4>Marketing Analytics</h4><div class="module-credits">15 credits</div><div class="module-desc">Customer segmentation, churn prediction, A/B testing, attribution modelling.</div><span class="pillar-tag">BUILDER</span></div>
+            <div class="module-item"><h4>Financial Analytics</h4><div class="module-credits">15 credits</div><div class="module-desc">Risk modelling, algorithmic trading signals, credit scoring, fraud detection.</div><span class="pillar-tag">INVESTOR</span></div>
+            <div class="module-item"><h4>Deep Learning & Neural Networks</h4><div class="module-credits">15 credits</div><div class="module-desc">CNNs, RNNs, TensorFlow, Keras, applications in finance/marketing.</div><span class="pillar-tag">INNOVATOR</span></div>
+            <div class="module-item"><h4>Analytics Capstone Project</h4><div class="module-credits">30 credits</div><div class="module-desc">Real-world industry project: from data to actionable insights and presentation.</div><span class="pillar-tag">BUILDER</span><span class="pillar-tag">INNOVATOR</span></div>
+        </div>
+        <p style="margin-top:1rem;"><em>Electives: Time Series Analysis, Optimisation, AI for Social Good, Cloud Computing</em></p>
+    </section>
+
+    <!-- BSc Analytics Career Outcomes -->
+    <section class="program-section">
+        <h2 class="section-title">🚀 Career outcomes · data & AI leaders</h2>
+        <div class="career-grid">
+            <div class="career-card"><div class="career-icon">📊</div><div class="career-role">Data Analyst</div><div>Tech, finance, consulting, retail</div></div>
+            <div class="career-card"><div class="career-icon">🤖</div><div class="career-role">Business Intelligence Analyst</div><div>Power BI, Tableau, dashboarding</div></div>
+            <div class="career-card"><div class="career-icon">📈</div><div class="career-role">AI Consultant</div><div>Strategy houses, AI startups</div></div>
+        </div>
+        <p style="margin-top:1.8rem; background:#e5f1f7; padding:1rem 2rem; border-radius:50px;"><strong>Recent graduate destinations:</strong> Google (Data Analyst), Deloitte (AI Consulting), Barclays (Analytics), Monzo (Data Scientist), and AI startups.</p>
+    </section>
+
+    <!-- ===== ENTRY REQUIREMENTS (both) ===== -->
+    <section class="program-section">
+        <h2 class="section-title">📝 Entry requirements · BSc programmes</h2>
+        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:2rem;">
+            <div>
+                <div class="stat-label">A-levels</div>
+                <div class="stat-value">ABB – A*AA</div>
+                <div class="stat-desc">depending on programme; Mathematics preferred for Analytics</div>
+            </div>
+            <div>
+                <div class="stat-label">IB</div>
+                <div class="stat-value">32–38 points</div>
+                <div class="stat-desc">specific subject requirements vary</div>
+            </div>
+        </div>
+        <p style="margin-top:1rem;">GCSE: Mathematics at grade 6/B and English at grade 5/C. English language requirements: IELTS 7.0 overall (min 6.5).</p>
+        <div style="margin-top:1.5rem;">
+            <a href="#" class="btn-gold">📄 Apply via UCAS</a>
+        </div>
+    </section>
+
+    <!-- footer with pathways -->
+    <hr>
+    <div style="background: #eef3f6; border-radius: 48px; padding: 2rem 2.5rem; border: 2px solid var(--nolan-gold);">
+        <h2 style="font-size: 2rem; font-weight: 800; color: var(--nolan-navy);">Continue your journey</h2>
+        <p style="font-size: 1.1rem; margin-bottom:1rem;">After your BSc, consider our MSc programmes or the MBA for Entrepreneurship & Innovation.</p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="#" class="btn-gold">→ MSc Finance & Capital Markets</a>
+            <a href="#" class="btn-gold">→ MBA Entrepreneurship</a>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · Triple accredited: AMBA, EQUIS, AACSB<br>
+        © 2025 Nolan University · BSc Entrepreneurship (N2N1) · BSc Business Analytics & AI (GN54)</p>
+    </div>
+</div>
+</body>
+</html>
