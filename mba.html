@@ -1,1134 +1,555 @@
-<!-- wp:pagelayer/pl_post_props {"post_title":"MBA Entrepreneurship & Innovation - Nolan University","post_status":"publish","post_date":"2026-03-14 14:00:00","post_author":"1","post_name":"mba-entrepreneurship-innovation","featured_image":0,"post_excerpt":"Build, fund, and scale the next generation of African ventures. A program for company builders, innovators, and investors.","post_password":"","comment_status":"closed","ping_status":"closed","post_sticky":"0","post_parent":0,"menu_order":0,"post_category":"","post_tags":"","pagelayer-id":"mba-entre-root"} /-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan University · BSc & MBA · Finance, Technology, Entrepreneurship</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- wp:pagelayer/pl_row {"stretch":"full","col_gap":"20","row_height":"default","ele_padding":"40px,20px,40px,20px","pagelayer-id":"mba-hero-row"} -->
-<!-- wp:pagelayer/pl_col {"col":"12","pagelayer-id":"mba-hero-col"} -->
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0B2A3B; /* Nolan navy */
+            line-height: 1.5;
+        }
 
-<!-- wp:pagelayer/pl_embed {"data":"<style>
-  :root {
-    --nolan-blue: #0b3d91;
-    --nolan-green: #27ae60;
-    --nolan-gold: #f39c12;
-    --nolan-dark: #1e293b;
-    --nolan-light: #f8fafc;
-    --nolan-muted: #64748b;
-    --nolan-purple: #6b21a5;
-  }
-  
-  .program-hero {
-    background: linear-gradient(135deg, #0b3d91 0%, #6b21a5 100%);
-    color: white;
-    padding: 60px 20px;
-    border-radius: 24px;
-    margin-bottom: 40px;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .program-hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 300px;
-    height: 300px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 50%;
-  }
-  
-  .program-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -30%;
-    left: -10%;
-    width: 250px;
-    height: 250px;
-    background: rgba(39,174,96,0.1);
-    border-radius: 50%;
-  }
-  
-  .program-hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  
-  .program-badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(5px);
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-    border: 1px solid rgba(255,255,255,0.2);
-  }
-  
-  .program-hero h1 {
-    font-size: 3.2rem;
-    font-weight: 800;
-    margin: 0 0 15px;
-    line-height: 1.1;
-  }
-  
-  .program-hero h1 span {
-    color: #27ae60;
-    display: block;
-    font-size: 1.8rem;
-    font-weight: 400;
-    margin-top: 5px;
-  }
-  
-  .program-tagline {
-    font-size: 1.3rem;
-    opacity: 0.9;
-    margin-bottom: 30px;
-    max-width: 700px;
-  }
-  
-  .program-stats {
-    display: flex;
-    gap: 30px;
-    margin: 40px 0;
-    flex-wrap: wrap;
-  }
-  
-  .stat-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .stat-number {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: #27ae60;
-    line-height: 1;
-  }
-  
-  .stat-label {
-    font-size: 0.95rem;
-    opacity: 0.8;
-    max-width: 120px;
-  }
-  
-  .hero-buttons {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .hero-btn-primary {
-    background: #27ae60;
-    color: white;
-    padding: 14px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-block;
-  }
-  
-  .hero-btn-primary:hover {
-    background: #219a52;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(39,174,96,0.3);
-  }
-  
-  .hero-btn-secondary {
-    background: transparent;
-    color: white;
-    padding: 14px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    border: 2px solid rgba(255,255,255,0.3);
-    transition: all 0.3s ease;
-    display: inline-block;
-  }
-  
-  .hero-btn-secondary:hover {
-    background: white;
-    color: #0b3d91;
-    border-color: white;
-  }
-  
-  /* Tab Navigation */
-  .program-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 40px 0;
-    flex-wrap: wrap;
-  }
-  
-  .tab-btn {
-    padding: 14px 28px;
-    border: none;
-    background: #f1f5f9;
-    border-radius: 50px;
-    font-weight: 600;
-    color: #1e293b;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-  }
-  
-  .tab-btn.active {
-    background: #0b3d91;
-    color: white;
-    box-shadow: 0 5px 15px rgba(11,61,145,0.2);
-  }
-  
-  .tab-btn:hover:not(.active) {
-    background: #e2e8f0;
-  }
-  
-  .tab-pane {
-    display: none;
-    animation: fadeIn 0.5s ease;
-  }
-  
-  .tab-pane.active {
-    display: block;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  /* Overview Section */
-  .overview-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    margin: 40px 0;
-  }
-  
-  .overview-card {
-    background: white;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border: 1px solid #eef2f6;
-  }
-  
-  .overview-card h3 {
-    color: #0b3d91;
-    font-size: 1.5rem;
-    margin: 0 0 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .overview-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .overview-list li {
-    padding: 10px 0;
-    border-bottom: 1px solid #eef2f6;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .overview-list li:last-child {
-    border-bottom: none;
-  }
-  
-  .overview-list li::before {
-    content: '✓';
-    color: #27ae60;
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-  
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin: 30px 0;
-  }
-  
-  .stat-box {
-    text-align: center;
-    padding: 20px;
-    background: #f8fafc;
-    border-radius: 12px;
-  }
-  
-  .stat-box .number {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #0b3d91;
-  }
-  
-  .stat-box .label {
-    color: #64748b;
-    font-size: 0.9rem;
-  }
-  
-  /* Curriculum Section */
-  .curriculum-intro {
-    background: #f8fafc;
-    padding: 30px;
-    border-radius: 16px;
-    margin-bottom: 30px;
-    border-left: 6px solid #27ae60;
-  }
-  
-  .curriculum-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin: 40px 0;
-  }
-  
-  .module-card {
-    background: white;
-    border-radius: 16px;
-    padding: 25px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-    border: 1px solid #eef2f6;
-  }
-  
-  .module-card h3 {
-    color: #0b3d91;
-    margin: 0 0 15px;
-    font-size: 1.3rem;
-    border-bottom: 2px solid #27ae60;
-    padding-bottom: 10px;
-  }
-  
-  .module-credits {
-    background: #27ae60;
-    color: white;
-    padding: 4px 12px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: 15px;
-  }
-  
-  .course-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .course-item {
-    padding: 10px 0;
-    border-bottom: 1px solid #eef2f6;
-  }
-  
-  .course-item:last-child {
-    border-bottom: none;
-  }
-  
-  .course-name {
-    font-weight: 600;
-    color: #1e293b;
-  }
-  
-  .course-desc {
-    font-size: 0.9rem;
-    color: #64748b;
-    margin-top: 4px;
-  }
-  
-  .practicum-highlight {
-    background: linear-gradient(135deg, #f8fafc, #ffffff);
-    border: 2px solid #27ae60;
-    border-radius: 16px;
-    padding: 30px;
-    margin: 40px 0;
-  }
-  
-  /* Career Outcomes */
-  .career-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin: 40px 0;
-  }
-  
-  .career-card {
-    background: white;
-    border-radius: 16px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-    border: 1px solid #eef2f6;
-    transition: transform 0.3s ease;
-  }
-  
-  .career-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(107,33,165,0.1);
-  }
-  
-  .career-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #0b3d91, #6b21a5);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    color: white;
-    font-size: 2rem;
-  }
-  
-  .career-card h4 {
-    color: #0b3d91;
-    margin: 0 0 10px;
-    font-size: 1.2rem;
-  }
-  
-  .salary-range {
-    background: #f8fafc;
-    padding: 8px;
-    border-radius: 8px;
-    font-weight: 700;
-    color: #27ae60;
-    margin: 15px 0 0;
-  }
-  
-  /* Founders Gallery */
-  .founders-gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin: 40px 0;
-  }
-  
-  .founder-card {
-    text-align: center;
-  }
-  
-  .founder-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-    border: 3px solid #27ae60;
-  }
-  
-  .founder-name {
-    font-weight: 700;
-    color: #0b3d91;
-  }
-  
-  .founder-company {
-    font-size: 0.85rem;
-    color: #64748b;
-  }
-  
-  /* Detailed Courses */
-  .courses-accordion {
-    margin: 40px 0;
-  }
-  
-  .course-module {
-    margin-bottom: 15px;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  
-  .module-header {
-    background: #f8fafc;
-    padding: 18px 25px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background 0.3s ease;
-  }
-  
-  .module-header:hover {
-    background: #f1f5f9;
-  }
-  
-  .module-header h4 {
-    margin: 0;
-    color: #0b3d91;
-    font-size: 1.2rem;
-  }
-  
-  .module-header .code {
-    color: #64748b;
-    font-size: 0.9rem;
-    margin-left: 15px;
-  }
-  
-  .module-content {
-    padding: 25px;
-    background: white;
-    border-top: 1px solid #e2e8f0;
-    display: none;
-  }
-  
-  .module-content.active {
-    display: block;
-  }
-  
-  .module-meta {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .meta-item {
-    background: #f8fafc;
-    padding: 6px 15px;
-    border-radius: 50px;
-    font-size: 0.9rem;
-  }
-  
-  .learning-outcomes {
-    margin: 20px 0;
-    padding-left: 20px;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .program-hero h1 {
-      font-size: 2.2rem;
-    }
-    .overview-grid {
-      grid-template-columns: 1fr;
-    }
-    .career-grid {
-      grid-template-columns: 1fr;
-    }
-    .curriculum-grid {
-      grid-template-columns: 1fr;
-    }
-    .founders-gallery {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-</style>
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
 
-<!-- Hero Section -->
-<section class="program-hero">
-  <div class="program-hero-content">
-    <div class="program-badge">🏛️ Nolan University • School of Entrepreneurship</div>
-    <h1>
-      MBA Entrepreneurship & Innovation
-      <span>Where Company Builders Are Made</span>
-    </h1>
-    <p class="program-tagline">A transformative program for founders, innovators, and investors who want to build, fund, and scale the next generation of African ventures.</p>
-    
-    <div class="program-stats">
-      <div class="stat-item">
-        <div class="stat-number">12</div>
-        <div class="stat-label">Months Duration</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">60</div>
-        <div class="stat-label">Credit Hours</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">40+</div>
-        <div class="stat-label">Ventures Launched</div>
-      </div>
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header with brand colors */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
+            padding-bottom: 1.25rem;
+        }
+
+        .uni-logo {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--nolan-navy);
+        }
+
+        .uni-name span {
+            color: var(--nolan-navy);
+            font-weight: 600;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        /* tagline from image */
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
+        }
+
+        .identity-strip {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 6px 0 var(--nolan-gold);
+            border: 2px solid var(--nolan-gold);
+        }
+        .identity-strip span {
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            margin: 0 0.5rem;
+        }
+
+        .degree-tag {
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-weight: 700;
+            padding: 0.35rem 1.5rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 0.5rem 0 1rem 0;
+            font-size: 1.2rem;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        /* section style */
+        .program-section {
+            background: var(--nolan-white);
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 25px -10px rgba(11,42,59,0.25);
+            border: 1px solid #dde7ed;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-left: 8px solid var(--nolan-gold);
+            padding-left: 1.5rem;
+        }
+
+        .section-title i {
+            font-size: 2rem;
+            color: var(--nolan-navy);
+        }
+
+        .overview-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .overview-text {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        .overview-stats {
+            flex: 1;
+            background: var(--nanol-gray-soft);
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid #cbdae3;
+        }
+
+        .stat-item {
+            margin-bottom: 1.8rem;
+        }
+
+        .stat-label {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            color: var(--nolan-navy);
+        }
+
+        .stat-value {
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--nolan-navy);
+            line-height: 1.2;
+        }
+
+        .stat-desc {
+            font-size: 0.95rem;
+            color: #2d4f62;
+        }
+
+        /* school cards (from image) */
+        .schools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .school-card {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 1.2rem 0.8rem;
+            border-radius: 24px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 2px solid var(--nolan-gold);
+        }
+        .school-card strong {
+            color: var(--nolan-gold);
+            font-size: 1rem;
+        }
+
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .pillar-card {
+            background: #eef3f6;
+            border-radius: 24px;
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            border: 2px solid var(--nolan-gold);
+        }
+        .pillar-icon {
+            font-size: 3rem;
+        }
+        .pillar-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .module-card {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            margin-bottom: 1.2rem;
+            border-left: 8px solid var(--nolan-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .module-header {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+        }
+        .module-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+        }
+        .module-term {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .module-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1rem;
+            margin: 0.5rem 0 0.8rem 0;
+        }
+        .tag-builder {
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+        .tag-investor {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .tag-innovator {
+            background: #0B2A3B;
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-gold);
+        }
+        .module-outcomes {
+            margin-top: 1rem;
+            background: #f4fafd;
+            padding: 1rem 1.5rem;
+            border-radius: 20px;
+            border-left: 4px solid var(--nolan-gold);
+        }
+        .module-outcomes ul {
+            list-style: none;
+        }
+        .module-outcomes li {
+            margin-bottom: 0.3rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .module-outcomes li::before {
+            content: "▹";
+            color: var(--nolan-gold);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .career-card {
+            background: #fafdff;
+            border-radius: 24px;
+            padding: 1.8rem 1rem;
+            text-align: center;
+            border: 1px solid #cbdae3;
+            border-bottom: 4px solid var(--nolan-gold);
+        }
+        .career-icon { font-size: 2.5rem; }
+        .career-role { font-weight: 700; font-size: 1.3rem; color: var(--nolan-navy); }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3b687d;
+            border-top: 2px solid var(--nolan-gold);
+            padding-top: 2rem;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+        }
+        .btn-gold:hover {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed var(--nolan-gold);
+            margin: 2rem 0;
+        }
+
+        /* responsive */
+        @media (max-width: 800px) {
+            .schools-grid { grid-template-columns: repeat(2,1fr); }
+            .pillar-grid { grid-template-columns: 1fr; }
+            .career-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header with brand -->
+    <div class="university-header">
+        <div class="uni-logo">NU</div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
     </div>
-    
-    <div class="hero-buttons">
-      <a href="#apply" class="hero-btn-primary">Apply Now</a>
-      <a href="#curriculum" class="hero-btn-secondary">View Curriculum</a>
-    </div>
-  </div>
-</section>
 
-<!-- Tab Navigation -->
-<div class="program-tabs">
-  <button class="tab-btn active" onclick="switchTab('overview')">📋 Overview</button>
-  <button class="tab-btn" onclick="switchTab('curriculum')">📚 Curriculum</button>
-  <button class="tab-btn" onclick="switchTab('careers')">💼 Outcomes</button>
-  <button class="tab-btn" onclick="switchTab('courses')">📖 Courses</button>
+    <!-- global tagline from image -->
+    <div class="global-tagline">
+        <strong>A Modern Global & Professional University</strong> for FINANCE, TECHNOLOGY, AND ENTREPRENEURSHIP.
+    </div>
+
+    <!-- core identity -->
+    <div class="identity-strip">
+        ⚡ WHERE COMPANY BUILDERS, INVESTORS & INNOVATORS ARE EDUCATED <span>EST 2026</span>
+    </div>
+
+    <!-- Our 4 Schools (exactly as in image) -->
+    <div class="schools-grid">
+        <div class="school-card"><strong>Graduate School of</strong><br>Banking & Finance (GSBF)</div>
+        <div class="school-card"><strong>School of</strong><br>Entrepreneurship & Venture Creation</div>
+        <div class="school-card"><strong>School of</strong><br>Technology & AI</div>
+        <div class="school-card"><strong>School of</strong><br>Global Business & Leadership</div>
+    </div>
+
+    <!-- ===== BACHELOR'S DEGREE (BSc Finance & Investment) ===== -->
+    <div class="degree-tag">🎓 3-year BSc · Finance & Investment</div>
+
+    <!-- overview section BSc -->
+    <section class="program-section">
+        <h2 class="section-title">📋 Overview · BSc Finance & Investment</h2>
+        <div class="overview-grid">
+            <div class="overview-text">
+                <p style="font-size:1.2rem;">Shape the future of global finance. Nolan’s BSc blends rigorous quantitative training with real‑world investment practice, fully aligned with the CFA Institute.</p>
+                <p>You will master financial modelling, portfolio management, and ethical decision‑making – taught by research leaders and industry practitioners. From day one you engage with Bloomberg terminals, trading simulations, and spring week preparation.</p>
+                <p><span style="background: var(--nolan-gold); color: var(--nolan-navy); padding:0.3rem 1.2rem; border-radius:40px; font-weight:600;">Triple‑crown accredited</span></p>
+            </div>
+            <div class="overview-stats">
+                <div class="stat-item"><span class="stat-label">Duration</span><div class="stat-value">3 years</div><div class="stat-desc">full‑time, optional placement</div></div>
+                <div class="stat-item"><span class="stat-label">UCAS code</span><div class="stat-value">N3N5</div><div class="stat-desc">apply by 29 Jan</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BSc Curriculum snippet -->
+    <section class="program-section">
+        <h2 class="section-title">📚 BSc Curriculum · core modules (sample)</h2>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem;">
+            <div style="background:#eef3f6; border-radius:20px; padding:1.2rem;"><strong>Year 1</strong><br>Principles of Finance, Financial Accounting, Quantitative Methods</div>
+            <div style="background:#eef3f6; border-radius:20px; padding:1.2rem;"><strong>Year 2</strong><br>Corporate Finance, Equity Analysis, Financial Modelling (Excel/Python)</div>
+            <div style="background:#eef3f6; border-radius:20px; padding:1.2rem;"><strong>Year 3</strong><br>Advanced Portfolio Mgmt, Applied Investment Project, Alternatives</div>
+        </div>
+    </section>
+
+    <!-- ===== MBA PAGE (full detailed modules with builder/investor/innovator) ===== -->
+    <hr>
+    <div class="degree-tag">🚀 1-year MBA · Entrepreneurship & Innovation</div>
+
+    <!-- MBA overview -->
+    <section class="program-section">
+        <h2 class="section-title">📋 Overview · MBA Entrepreneurship & Innovation</h2>
+        <div style="display:flex; flex-wrap:wrap; gap:2rem;">
+            <div style="flex:2;">
+                <p style="font-size:1.3rem;">The Nolan MBA is built for those who refuse to choose between building, funding, and creating. You will master the tools of the <strong>investor</strong>, the mindset of the <strong>builder</strong>, and the curiosity of the <strong>innovator</strong> – because in today's world, you need all three.</p>
+                <p>We are the only programme where a single curriculum integrates venture creation, investment mechanics, and innovation strategy.</p>
+            </div>
+            <div style="flex:1; background:#eef3f6; border-radius:24px; padding:1.5rem;">
+                <div><span class="stat-label">Duration</span><div class="stat-value">12 months</div></div>
+                <div style="margin-top:1rem;"><span class="stat-label">Cohort</span><div class="stat-value">~45</div><div>builders, investors, innovators</div></div>
+            </div>
+        </div>
+        <!-- three pillars visual -->
+        <div class="pillar-grid">
+            <div class="pillar-card"><div class="pillar-icon">🏗️</div><div class="pillar-title">Builder</div><div>Venture creation, unit economics</div></div>
+            <div class="pillar-card"><div class="pillar-icon">💰</div><div class="pillar-title">Investor</div><div>Term sheets, fund modelling, cap tables</div></div>
+            <div class="pillar-card"><div class="pillar-icon">💡</div><div class="pillar-title">Innovator</div><div>Design thinking, prototyping, strategy</div></div>
+        </div>
+    </section>
+
+    <!-- MBA detailed modules (core) -->
+    <section class="program-section">
+        <h2 class="section-title">🔧 MBA core modules · built for all three</h2>
+
+        <!-- module 1 -->
+        <div class="module-card">
+            <div class="module-header"><span class="module-name">New Venture Finance</span><span class="module-term">term 1</span></div>
+            <div class="module-tags"><span class="tag-builder">BUILDER</span><span class="tag-investor">INVESTOR</span><span class="tag-innovator">INNOVATOR</span></div>
+            <div class="module-outcomes"><p>📌 practical outcomes:</p><ul><li>Build a dynamic cap table with multiple funding rounds (builder).</li><li>Simulate a seed negotiation and term sheet (investor).</li><li>Model different funding scenarios for a new product (innovator).</li></ul></div>
+        </div>
+
+        <!-- module 2 -->
+        <div class="module-card">
+            <div class="module-header"><span class="module-name">Venture Capital & Private Equity</span><span class="module-term">term 2</span></div>
+            <div class="module-tags"><span class="tag-investor">INVESTOR</span><span class="tag-builder">BUILDER</span></div>
+            <div class="module-outcomes"><p>📌 practical outcomes:</p><ul><li>Build a full LBO model with debt schedules (investor).</li><li>Calculate carried interest and distribution waterfalls (investor).</li><li>Analyse a real early‑stage deal (builder).</li></ul></div>
+        </div>
+
+        <!-- module 3 -->
+        <div class="module-card">
+            <div class="module-header"><span class="module-name">Design Thinking & Product Development</span><span class="module-term">term 2</span></div>
+            <div class="module-tags"><span class="tag-innovator">INNOVATOR</span><span class="tag-builder">BUILDER</span></div>
+            <div class="module-outcomes"><p>📌 practical outcomes:</p><ul><li>Create a clickable prototype (Figma) and conduct user tests (innovator).</li><li>Define MVP scope using story maps (builder).</li></ul></div>
+        </div>
+
+        <!-- module 4 capstone -->
+        <div class="module-card">
+            <div class="module-header"><span class="module-name">New Venture Creation Lab (Capstone)</span><span class="module-term">term 3</span></div>
+            <div class="module-tags"><span class="tag-builder">BUILDER</span><span class="tag-investor">INVESTOR</span><span class="tag-innovator">INNOVATOR</span></div>
+            <div class="module-outcomes"><p>📌 practical outcomes:</p><ul><li>Develop a full 3‑statement projection with unit economics (builder).</li><li>Create an investor pitch deck (investor).</li><li>Pitch at Demo Day in front of 50+ investors (innovator).</li></ul></div>
+        </div>
+
+        <!-- module 5 -->
+        <div class="module-card">
+            <div class="module-header"><span class="module-name">Technology & Innovation Strategy</span><span class="module-term">term 2</span></div>
+            <div class="module-tags"><span class="tag-innovator">INNOVATOR</span><span class="tag-investor">INVESTOR</span></div>
+            <div class="module-outcomes"><p>📌 practical outcomes:</p><ul><li>Prepare a tech scouting report (innovator).</li><li>Draft a patent landscape (innovator).</li><li>Analyse a platform ecosystem for investment (investor).</li></ul></div>
+        </div>
+    </section>
+
+    <!-- MBA career outcomes -->
+    <section class="program-section">
+        <h2 class="section-title">🚀 MBA career outcomes</h2>
+        <div class="career-grid">
+            <div class="career-card"><div class="career-icon">🏗️</div><div class="career-role">Founder / Co‑founder</div><div>40% launch within 2 years</div></div>
+            <div class="career-card"><div class="career-icon">💰</div><div class="career-role">Venture Capital</div><div>Balderton, Atomico, LocalGlobe</div></div>
+            <div class="career-card"><div class="career-icon">💡</div><div class="career-role">Innovation Lead / PM</div><div>Google, BCG DV, Unilever</div></div>
+        </div>
+    </section>
+
+    <!-- Professional Diplomas & Career Accelerators (from image) -->
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; background: var(--nolan-navy); color: white; border-radius: 48px; padding: 2rem 2.5rem; margin: 2rem 0;">
+        <div style="flex:1;">
+            <h3 style="color: var(--nolan-gold); font-size: 1.5rem;">Professional Diplomas</h3>
+            <ul style="list-style:none; margin-top:1rem;">
+                <li>▹ Investment Banking</li>
+                <li>▹ Venture Capital & Private Equity</li>
+                <li>▹ Startup Builder Program</li>
+                <li>▹ FinTech & Digital Finance</li>
+                <li>▹ AI for Business</li>
+            </ul>
+        </div>
+        <div style="flex:1;">
+            <h3 style="color: var(--nolan-gold); font-size: 1.5rem;">Career Accelerator</h3>
+            <p>Certifications & short programmes designed with industry partners.</p>
+            <div style="margin-top:1rem;"><span class="tag-builder">BUILDER</span> <span class="tag-investor" style="background:var(--nolan-gold); color:var(--nolan-navy);">INVESTOR</span> <span class="tag-innovator">INNOVATOR</span></div>
+        </div>
+    </div>
+
+    <!-- BSc teaser -->
+    <div style="background: #eef3f6; border-radius: 48px; padding: 2rem 2.5rem; border: 2px solid var(--nolan-gold);">
+        <h2 style="font-size: 2rem; font-weight: 800; color: var(--nolan-navy);">BSc Finance & Investment</h2>
+        <p style="font-size: 1.1rem;">The undergraduate degree where future financiers master valuation, modelling, and analysis – the foundation for builders, investors, and innovators.</p>
+        <a href="#" class="btn-gold" style="margin-top:1rem; display:inline-block;">→ view BSc programme</a>
+    </div>
+
+    <!-- footer with motto -->
+    <div class="footer-note">
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · Triple accredited: AMBA, EQUIS, AACSB<br>
+        © 2025 Nolan University · Finance, Technology, Entrepreneurship · 100% Online Degrees</p>
+    </div>
 </div>
-
-<!-- Tab: Overview -->
-<div id="overview" class="tab-pane active">
-  <div class="overview-grid">
-    <div class="overview-card">
-      <h3>🚀 Program Overview</h3>
-      <p style="margin-bottom: 20px; line-height: 1.7;">The MBA in Entrepreneurship & Innovation at Nolan University is designed for builders. Whether you're launching your own venture, joining a high-growth startup, or leading innovation within a corporation, this program gives you the toolkit to turn ideas into scalable, fundable, and sustainable businesses.</p>
-      <p style="margin-bottom: 20px; line-height: 1.7;">You'll learn from successful founders, venture capitalists, and industry leaders through a blend of rigorous academics and hands-on venture creation. By graduation, you'll have developed a real business, pitched to investors, and built a network that lasts a lifetime.</p>
-      
-      <div class="stats-grid">
-        <div class="stat-box">
-          <div class="number">#1</div>
-          <div class="label">In Africa for Entrepreneurship</div>
-        </div>
-        <div class="stat-box">
-          <div class="number">$2.5M</div>
-          <div class="label">Raised by Alumni Ventures</div>
-        </div>
-        <div class="stat-box">
-          <div class="number">100+</div>
-          <div class="label">Mentor Network</div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="overview-card">
-      <h3>⚡ Key Program Features</h3>
-      <ul class="overview-list">
-        <li>Launch your own venture as your capstone project</li>
-        <li>Access to Nolan Venture Fund for seed funding</li>
-        <li>One-on-one mentorship from successful founders</li>
-        <li>Global study tours to innovation hubs (Silicon Valley, Tel Aviv, Nairobi)</li>
-        <li>Investor pitch nights with leading VCs</li>
-        <li>Cross-registration with BSc Finance & Investment courses</li>
-        <li>Co-working space in the Nolan Innovation Hub</li>
-        <li>Lifetime access to Nolan Founder Network</li>
-      </ul>
-    </div>
-  </div>
-  
-  <div style="background: #f8fafc; padding: 30px; border-radius: 16px; margin-top: 20px;">
-    <h3 style="color: #0b3d91; margin: 0 0 20px;">🎯 What You'll Master</h3>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <span style="color: #27ae60; font-size: 1.5rem;">💡</span>
-        <span><strong>Venture Creation</strong> – From idea to minimum viable product</span>
-      </div>
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <span style="color: #27ae60; font-size: 1.5rem;">💰</span>
-        <span><strong>Fundraising</strong> – Pitch decks, term sheets, and investor relations</span>
-      </div>
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <span style="color: #27ae60; font-size: 1.5rem;">📈</span>
-        <span><strong>Growth Strategy</strong> – Scaling ventures across Africa</span>
-      </div>
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <span style="color: #27ae60; font-size: 1.5rem;">🤝</span>
-        <span><strong>Leadership</strong> – Building and leading high-performance teams</span>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Option B: Bold Statement -->
-  <div style="background: linear-gradient(135deg, #0b3d91, #6b21a5); color: white; padding: 40px; border-radius: 16px; margin: 40px 0; text-align: center;">
-    <p style="font-size: 2rem; font-weight: 800; margin: 0 0 15px;">⚡ At Nolan University, we don't just teach entrepreneurship — we build company builders.</p>
-    <p style="font-size: 1.3rem; opacity: 0.9;">MBA Entrepreneurship & Innovation: Where founders, investors, and innovators are educated.</p>
-  </div>
-  
-  <!-- Founder Stories Preview -->
-  <div style="margin: 40px 0;">
-    <h3 style="color: #0b3d91; text-align: center; margin-bottom: 30px;">🌟 Recent Ventures by Our Alumni</h3>
-    <div class="founders-gallery">
-      <div class="founder-card">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Founder">
-        <div class="founder-name">Amina Diallo</div>
-        <div class="founder-company">PayAfrika • Raised $1.2M</div>
-      </div>
-      <div class="founder-card">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Founder">
-        <div class="founder-name">Kwame Osei</div>
-        <div class="founder-company">AgriTech Solutions • Raised $800K</div>
-      </div>
-      <div class="founder-card">
-        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Founder">
-        <div class="founder-name">Zanele Mbeki</div>
-        <div class="founder-company">EduLeap • Raised $500K</div>
-      </div>
-      <div class="founder-card">
-        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Founder">
-        <div class="founder-name">Thabo Nkosi</div>
-        <div class="founder-company">LogiMove • Series A</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Tab: Curriculum -->
-<div id="curriculum" class="tab-pane">
-  <div class="curriculum-intro">
-    <h3 style="color: #0b3d91; margin: 0 0 10px;">📚 Curriculum Structure</h3>
-    <p style="margin: 0; font-size: 1.1rem;">Our 12-month, 60-credit MBA combines intensive core modules with a hands-on venture practicum. You'll learn, build, and launch — all within one year.</p>
-  </div>
-  
-  <div class="curriculum-grid">
-    <!-- Term 1: Foundation -->
-    <div class="module-card">
-      <h3>Term 1 • Foundation</h3>
-      <span class="module-credits">15 Credits</span>
-      <ul class="course-list">
-        <li class="course-item">
-          <div class="course-name">ENT601: Entrepreneurial Mindset & Opportunity Recognition</div>
-          <div class="course-desc">Identifying and validating business opportunities</div>
-        </li>
-        <li class="course-item">
-          <div class="course-name">ENT610: Venture Finance for Founders</div>
-          <div class="course-desc">Financial modeling, unit economics, and fundraising</div>
-        </li>
-        <li class="course-item">
-          <div class="course-name">MKT620: Customer Discovery & Lean Startup</div>
-          <div class="course-desc">MVP development, customer interviews, and pivoting</div>
-        </li>
-        <li class="course-item">
-          <div class="course-name">ENT620: Design Thinking for Innovation</div>
-          <div class="course-desc">Human-centered design and creative problem-solving</div>
-        </li>
-      </ul>
-    </div>
-    
-    <!-- Term 2: Building -->
-    <div class="module-card">
-      <h3>Term 2 • Building</h3>
-      <span class="module-credits">15 Credits</span>
-      <ul class="course-list">
-        <li class="course-item">
-          <div class="course-name">ENT630: Building & Leading Teams</div>
-          <div class="course-desc">Hiring, culture, and leading high-growth organizations</div>
-        </li>
-        <li class="course-item">
-          <div class="course-name">ENT640: Product-Market Fit & Growth</div>
-          <div class="course-desc">Scaling strategies, metrics, and growth hacking</div>
-        </li>
-        <li class="course-item">
-          <div class="course-name">LAW650: Legal Foundations for Startups</div>
-          <div class="course-desc">Entity formation, IP, contracts, and cap tables</div>
-        </li>
-        <li class="course-item">
-          <div class="course-name">ENT660: Pitching & Storytelling</div>
-          <div class="course-desc">Crafting compelling narratives for investors</div>
-        </li>
-      </ul>
-    </div>
-    
-    <!-- Term 3: Scaling -->
-    <div class="module-card">
-      <h3>Term 3 • Scaling</h3>
-      <span class="module-credits">15 Credits</span>
-      <ul class="course-list">
-        <li class="course-item">
-          <div class="course-name">ENT710: Venture Capital & Alternative Financing</div>
-          <div class="course-desc">VC landscape, term sheets, and negotiation</div>
-        </li>
-        <li class="course-item">
-          <div class="course-name">ENT720: Scaling Operations</div>
-          <div class="course-desc">Supply chain, logistics, and operational excellence</div>
-        </li>
-        <li class="course-item">
-          <div class="course-name">ENT730: Innovation in African Markets</div>
-          <div class="course-desc">Navigating the unique challenges of African markets</div>
-        </li>
-        <li class="course-item">
-          <div class="course-name">ENT740: Corporate Innovation & Intrapreneurship</div>
-          <div class="course-desc">Driving innovation within established organizations</div>
-        </li>
-      </ul>
-    </div>
-    
-    <!-- Term 4: Launch -->
-    <div class="module-card">
-      <h3>Term 4 • Launch</h3>
-      <span class="module-credits">15 Credits</span>
-      <ul class="course-list">
-        <li class="course-item">
-          <div class="course-name">ENT800: Venture Practicum (Capstone)</div>
-          <div class="course-desc">Launch your venture with mentorship and funding</div>
-        </li>
-        <li class="course-item">
-          <div class="course-name">ENT810: Investor Pitch Night</div>
-          <div class="course-desc">Present to leading VCs and angel investors</div>
-        </li>
-        <li class="course-item">
-          <div class="course-name">ENT820: Global Innovation Tour</div>
-          <div class="course-desc">Immersion in leading startup ecosystems</div>
-        </li>
-        <li class="course-item">
-          <div class="course-name">ENT830: Founder's Toolkit</div>
-          <div class="course-desc">Practical skills for post-MBA journey</div>
-        </li>
-      </ul>
-    </div>
-  </div>
-  
-  <!-- Practicum Highlight -->
-  <div class="practicum-highlight">
-    <h3 style="color: #0b3d91; margin: 0 0 15px;">🚀 Venture Practicum — Your Capstone Experience</h3>
-    <p style="font-size: 1.1rem; margin-bottom: 20px;">Throughout the program, you'll work on your own venture idea. By Term 4, you'll have a minimum viable product, initial traction, and a polished pitch deck. Top ventures receive seed funding from the Nolan Venture Fund.</p>
-    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-      <div style="background: white; padding: 15px; border-radius: 12px; flex: 1;">
-        <strong>📊 15+</strong> ventures launched in 2025
-      </div>
-      <div style="background: white; padding: 15px; border-radius: 12px; flex: 1;">
-        <strong>💰 $2.5M</strong> raised by alumni
-      </div>
-      <div style="background: white; padding: 15px; border-radius: 12px; flex: 1;">
-        <strong>🤝 40+</strong> active mentors
-      </div>
-    </div>
-  </div>
-  
-  <!-- Option B -->
-  <div style="background: #27ae60; color: white; padding: 30px; border-radius: 16px; margin: 30px 0; text-align: center;">
-    <p style="font-size: 1.6rem; font-weight: 800; margin: 0;">⚡ You don't just study entrepreneurship — you build a real company.</p>
-  </div>
-</div>
-
-<!-- Tab: Career Outcomes -->
-<div id="careers" class="tab-pane">
-  <div style="text-align: center; margin-bottom: 40px;">
-    <h2 style="color: #0b3d91; font-size: 2.2rem; margin: 0 0 15px;">💼 Where Our Graduates Go</h2>
-    <p style="font-size: 1.2rem; color: #64748b; max-width: 700px; margin: 0 auto;">Nolan entrepreneurs go on to launch ventures, join high-growth startups, and lead innovation at major corporations.</p>
-  </div>
-  
-  <div class="career-grid">
-    <div class="career-card">
-      <div class="career-icon">🚀</div>
-      <h4>Founder / CEO</h4>
-      <p>Launch and scale your own venture across Africa's most exciting sectors.</p>
-      <div class="salary-range">$100k - $500k+ (equity)</div>
-    </div>
-    
-    <div class="career-card">
-      <div class="career-icon">💼</div>
-      <h4>Venture Capital Associate</h4>
-      <p>Source and evaluate investments for leading VC firms and family offices.</p>
-      <div class="salary-range">$70k - $120k + carry</div>
-    </div>
-    
-    <div class="career-card">
-      <div class="career-icon">🏢</div>
-      <h4>Product Manager</h4>
-      <p>Lead product development and innovation at high-growth tech companies.</p>
-      <div class="salary-range">$65k - $110k</div>
-    </div>
-    
-    <div class="career-card">
-      <div class="career-icon">📈</div>
-      <h4>Innovation Lead</h4>
-      <p>Drive corporate innovation and new venture development within established firms.</p>
-      <div class="salary-range">$80k - $130k</div>
-    </div>
-    
-    <div class="career-card">
-      <div class="career-icon">🌍</div>
-      <h4>Startup Operator</h4>
-      <p>Join high-growth startups in leadership roles (COO, CMO, Head of Growth).</p>
-      <div class="salary-range">$60k - $150k + equity</div>
-    </div>
-    
-    <div class="career-card">
-      <div class="career-icon">🤝</div>
-      <h4>Angel Investor</h4>
-      <p>Invest in and mentor the next generation of African founders.</p>
-      <div class="salary-range">Portfolio dependent</div>
-    </div>
-  </div>
-  
-  <div style="background: #f8fafc; padding: 40px; border-radius: 16px; margin: 40px 0;">
-    <h3 style="color: #0b3d91; text-align: center;">🏢 Where Our Alumni Work</h3>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin: 30px 0;">
-      <span style="font-weight: 600; color: #1e293b;">Y Combinator</span>
-      <span style="font-weight: 600; color: #1e293b;">Techstars</span>
-      <span style="font-weight: 600; color: #1e293b;">Andela</span>
-      <span style="font-weight: 600; color: #1e293b;">Flutterwave</span>
-      <span style="font-weight: 600; color: #1e293b;">Paystack</span>
-      <span style="font-weight: 600; color: #1e293b;">TLcom Capital</span>
-      <span style="font-weight: 600; color: #1e293b;">Partech</span>
-      <span style="font-weight: 600; color: #1e293b;">Google Launchpad</span>
-    </div>
-  </div>
-  
-  <!-- Option B -->
-  <div style="background: #0b3d91; color: white; padding: 30px; border-radius: 16px; text-align: center;">
-    <p style="font-size: 1.6rem; font-weight: 800; margin: 0;">⚡ 70% of our graduates launch a venture within 2 years of completing the program.</p>
-  </div>
-</div>
-
-<!-- Tab: Detailed Courses -->
-<div id="courses" class="tab-pane">
-  <div class="curriculum-intro">
-    <h3 style="color: #0b3d91; margin: 0 0 10px;">📖 Complete Course Catalog</h3>
-    <p style="margin: 0; font-size: 1.1rem;">Explore our comprehensive curriculum, designed by founders for founders.</p>
-  </div>
-  
-  <div style="margin: 20px 0; display: flex; gap: 15px; flex-wrap: wrap;">
-    <input type="text" class="search-input" placeholder="🔍 Search courses..." id="courseSearch" style="flex: 1; padding: 14px 20px; border: 2px solid #e2e8f0; border-radius: 12px;">
-    <select class="filter-select" id="termFilter" style="padding: 14px 20px; border: 2px solid #e2e8f0; border-radius: 12px; min-width: 150px;">
-      <option value="all">All Terms</option>
-      <option value="1">Term 1</option>
-      <option value="2">Term 2</option>
-      <option value="3">Term 3</option>
-      <option value="4">Term 4</option>
-    </select>
-  </div>
-  
-  <div class="courses-accordion" id="coursesAccordion">
-    <!-- Term 1 Courses -->
-    <div class="course-module" data-term="1">
-      <div class="module-header" onclick="toggleModule(this)">
-        <div>
-          <h4>ENT601: Entrepreneurial Mindset & Opportunity Recognition <span class="code">• 3 Credits</span></h4>
-        </div>
-        <span style="font-size: 1.5rem;">▼</span>
-      </div>
-      <div class="module-content">
-        <div class="module-meta">
-          <span class="meta-item">📚 Core Course</span>
-          <span class="meta-item">📊 Prerequisite: None</span>
-          <span class="meta-item">⏱️ 45 Contact Hours</span>
-        </div>
-        <p><strong>Course Description:</strong> This course explores the entrepreneurial mindset and the process of identifying and evaluating business opportunities. Students learn to recognize patterns, assess market needs, and validate ideas through customer discovery.</p>
-        <p><strong>Learning Outcomes:</strong></p>
-        <ul class="learning-outcomes">
-          <li>Develop an entrepreneurial mindset and identify personal strengths</li>
-          <li>Apply frameworks for opportunity recognition and evaluation</li>
-          <li>Conduct customer interviews and synthesize findings</li>
-          <li>Articulate a clear value proposition</li>
-        </ul>
-        <p><strong>Assessment:</strong> Opportunity Journal (30%), Customer Interviews (30%), Final Opportunity Pitch (40%)</p>
-      </div>
-    </div>
-    
-    <div class="course-module" data-term="1">
-      <div class="module-header" onclick="toggleModule(this)">
-        <div>
-          <h4>ENT610: Venture Finance for Founders <span class="code">• 3 Credits</span></h4>
-        </div>
-        <span style="font-size: 1.5rem;">▼</span>
-      </div>
-      <div class="module-content">
-        <div class="module-meta">
-          <span class="meta-item">📚 Core Course</span>
-          <span class="meta-item">📊 Prerequisite: None</span>
-          <span class="meta-item">⏱️ 45 Contact Hours</span>
-        </div>
-        <p><strong>Course Description:</strong> Financial literacy for entrepreneurs. Covers unit economics, financial modeling, valuation, and fundraising strategies tailored for early-stage ventures.</p>
-      </div>
-    </div>
-    
-    <div class="course-module" data-term="1">
-      <div class="module-header" onclick="toggleModule(this)">
-        <div>
-          <h4>MKT620: Customer Discovery & Lean Startup <span class="code">• 3 Credits</span></h4>
-        </div>
-        <span style="font-size: 1.5rem;">▼</span>
-      </div>
-      <div class="module-content">
-        <div class="module-meta">
-          <span class="meta-item">📚 Core Course</span>
-          <span class="meta-item">📊 Prerequisite: None</span>
-          <span class="meta-item">⏱️ 45 Contact Hours</span>
-        </div>
-        <p><strong>Course Description:</strong> Hands-on application of Lean Startup methodology. Students build MVPs, run experiments, and iterate based on customer feedback.</p>
-      </div>
-    </div>
-    
-    <!-- Term 2 Courses -->
-    <div class="course-module" data-term="2">
-      <div class="module-header" onclick="toggleModule(this)">
-        <div>
-          <h4>ENT630: Building & Leading Teams <span class="code">• 3 Credits</span></h4>
-        </div>
-        <span style="font-size: 1.5rem;">▼</span>
-      </div>
-      <div class="module-content">
-        <div class="module-meta">
-          <span class="meta-item">📚 Core Course</span>
-          <span class="meta-item">📊 Prerequisite: None</span>
-          <span class="meta-item">⏱️ 45 Contact Hours</span>
-        </div>
-        <p><strong>Course Description:</strong> The art and science of building high-performing teams. Topics include hiring, culture, motivation, and leading through growth stages.</p>
-      </div>
-    </div>
-    
-    <div class="course-module" data-term="2">
-      <div class="module-header" onclick="toggleModule(this)">
-        <div>
-          <h4>ENT640: Product-Market Fit & Growth <span class="code">• 3 Credits</span></h4>
-        </div>
-        <span style="font-size: 1.5rem;">▼</span>
-      </div>
-      <div class="module-content">
-        <div class="module-meta">
-          <span class="meta-item">📚 Core Course</span>
-          <span class="meta-item">📊 Prerequisite: MKT620</span>
-          <span class="meta-item">⏱️ 45 Contact Hours</span>
-        </div>
-        <p><strong>Course Description:</strong> Achieving product-market fit and designing growth strategies. Covers metrics, channels, and scaling tactics for startups.</p>
-      </div>
-    </div>
-    
-    <!-- Term 3 Courses -->
-    <div class="course-module" data-term="3">
-      <div class="module-header" onclick="toggleModule(this)">
-        <div>
-          <h4>ENT710: Venture Capital & Alternative Financing <span class="code">• 3 Credits</span></h4>
-        </div>
-        <span style="font-size: 1.5rem;">▼</span>
-      </div>
-      <div class="module-content">
-        <div class="module-meta">
-          <span class="meta-item">📚 Core Course</span>
-          <span class="meta-item">📊 Prerequisite: ENT610</span>
-          <span class="meta-item">⏱️ 45 Contact Hours</span>
-        </div>
-        <p><strong>Course Description:</strong> Deep dive into the venture capital landscape, term sheets, valuation, and negotiation. Includes simulations and guest lectures from VCs.</p>
-      </div>
-    </div>
-    
-    <div class="course-module" data-term="3">
-      <div class="module-header" onclick="toggleModule(this)">
-        <div>
-          <h4>ENT730: Innovation in African Markets <span class="code">• 3 Credits</span></h4>
-        </div>
-        <span style="font-size: 1.5rem;">▼</span>
-      </div>
-      <div class="module-content">
-        <div class="module-meta">
-          <span class="meta-item">📚 Core Course</span>
-          <span class="meta-item">📊 Prerequisite: None</span>
-          <span class="meta-item">⏱️ 45 Contact Hours</span>
-        </div>
-        <p><strong>Course Description:</strong> Understanding the unique opportunities and challenges of building ventures in African markets. Case studies of successful African startups.</p>
-      </div>
-    </div>
-    
-    <!-- Term 4 Courses -->
-    <div class="course-module" data-term="4">
-      <div class="module-header" onclick="toggleModule(this)">
-        <div>
-          <h4>ENT800: Venture Practicum (Capstone) <span class="code">• 6 Credits</span></h4>
-        </div>
-        <span style="font-size: 1.5rem;">▼</span>
-      </div>
-      <div class="module-content">
-        <div class="module-meta">
-          <span class="meta-item">📚 Capstone</span>
-          <span class="meta-item">📊 Prerequisite: All core courses</span>
-          <span class="meta-item">⏱️ 90 Contact Hours</span>
-        </div>
-        <p><strong>Course Description:</strong> The culminating experience where students launch their ventures. Includes mentorship, workspace, and access to the Nolan Venture Fund. Final presentations to a panel of investors.</p>
-      </div>
-    </div>
-    
-    <div class="course-module" data-term="4">
-      <div class="module-header" onclick="toggleModule(this)">
-        <div>
-          <h4>ENT810: Investor Pitch Night <span class="code">• 2 Credits</span></h4>
-        </div>
-        <span style="font-size: 1.5rem;">▼</span>
-      </div>
-      <div class="module-content">
-        <div class="module-meta">
-          <span class="meta-item">📚 Practicum</span>
-          <span class="meta-item">📊 Prerequisite: ENT710</span>
-          <span class="meta-item">⏱️ 30 Contact Hours</span>
-        </div>
-        <p><strong>Course Description:</strong> Preparation for and participation in a live pitch event with leading venture capitalists and angel investors from across Africa.</p>
-      </div>
-    </div>
-  </div>
-  
-  <div style="text-align: center; margin: 40px 0;">
-    <a href="#apply" class="hero-btn-primary" style="display: inline-block;">Apply to MBA Entrepreneurship & Innovation</a>
-  </div>
-</div>
-
-<script>
-  function switchTab(tabId) {
-    // Hide all tabs
-    document.querySelectorAll('.tab-pane').forEach(pane => {
-      pane.classList.remove('active');
-    });
-    
-    // Show selected tab
-    document.getElementById(tabId).classList.add('active');
-    
-    // Update button states
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    
-    // Find the clicked button and make it active
-    event.target.classList.add('active');
-  }
-  
-  function toggleModule(header) {
-    const content = header.nextElementSibling;
-    const arrow = header.querySelector('span:last-child');
-    
-    if (content.classList.contains('active')) {
-      content.classList.remove('active');
-      arrow.textContent = '▼';
-    } else {
-      content.classList.add('active');
-      arrow.textContent = '▲';
-    }
-  }
-  
-  // Simple search functionality
-  document.getElementById('courseSearch').addEventListener('input', function(e) {
-    const searchTerm = e.target.value.toLowerCase();
-    const modules = document.querySelectorAll('.course-module');
-    
-    modules.forEach(module => {
-      const title = module.querySelector('h4').textContent.toLowerCase();
-      if (title.includes(searchTerm)) {
-        module.style.display = 'block';
-      } else {
-        module.style.display = 'none';
-      }
-    });
-  });
-  
-  // Term filter
-  document.getElementById('termFilter').addEventListener('change', function(e) {
-    const term = e.target.value;
-    const modules = document.querySelectorAll('.course-module');
-    
-    modules.forEach(module => {
-      if (term === 'all' || module.dataset.term === term) {
-        module.style.display = 'block';
-      } else {
-        module.style.display = 'none';
-      }
-    });
-  });
-</script>","pagelayer-id":"mba-content-embed"} /-->
-
-<!-- /wp:pagelayer/pl_col --><!-- /wp:pagelayer/pl_row -->
-
-<!-- wp:pagelayer/pl_row {"stretch":"full","ele_padding":"60px,20px,60px,20px","bg_type":"color","bg_color":"#f8fafc","pagelayer-id":"mba-cta-row"} -->
-<!-- wp:pagelayer/pl_col {"col":"12","pagelayer-id":"mba-cta-col"} -->
-
-<!-- wp:pagelayer/pl_embed {"data":"
-<!-- Call to Action -->
-<section style=\"max-width: 900px; margin: 0 auto; text-align: center; padding: 40px 20px;\">
-  <h2 style=\"color: #0b3d91; font-size: 2.2rem; margin: 0 0 20px;\">Ready to Build the Next Great African Venture?</h2>
-  <p style=\"font-size: 1.2rem; color: #1e293b; margin-bottom: 30px;\">Join a community of founders, investors, and innovators at Nolan University. Applications are now open for the MBA Entrepreneurship & Innovation program.</p>
-  
-  <div style=\"display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;\">
-    <a href=\"/apply\" style=\"background: #27ae60; color: white; padding: 16px 36px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem;\">Apply Now</a>
-    <a href=\"/contact\" style=\"background: transparent; color: #0b3d91; padding: 16px 36px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; border: 2px solid #0b3d91;\">Request Information</a>
-  </div>
-  
-  <p style=\"margin-top: 30px; color: #64748b;\">📅 Next cohort: January 2027 • Early application deadline: October 15, 2026</p>
-  
-  <!-- Option B: Final Bold Statement -->
-  <div style=\"margin-top: 40px; padding: 20px; background: white; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);\">
-    <p style=\"font-size: 1.4rem; font-weight: 700; color: #0b3d91; margin: 0;\">⚡ Nolan University: Where Company Builders, Investors, and Innovators Are Educated.</p>
-  </div>
-</section>
-","pagelayer-id":"mba-cta-embed"} /-->
-
-<!-- /wp:pagelayer/pl_col --><!-- /wp:pagelayer/pl_row --></code>
-</p>
+</body>
+</html>
