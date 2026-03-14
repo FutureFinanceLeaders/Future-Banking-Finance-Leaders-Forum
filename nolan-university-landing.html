@@ -126,13 +126,6 @@ margin-top:15px;
 background:white;
 }
 
-footer{
-background:#04122b;
-text-align:center;
-padding:20px;
-font-size:15px;
-}
-
 .duration{
 font-weight:bold;
 margin-bottom:15px;
@@ -603,36 +596,36 @@ color:#ffd24c;
 </section>
 
 <!-- FOOTER SECTION -->
-<footer style="background:#0b2a5b; color:white; padding:50px 20px; font-family:Arial, Helvetica, sans-serif;">
+<footer style="background:#0b2a5b; color:white; padding:60px 20px; font-family:Arial, Helvetica, sans-serif;">
 
-  <div style="max-width:1100px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:30px;">
+  <div style="max-width:1100px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:30px;">
 
-    <!-- Quick Links -->
-    <div>
-      <h3 style="color:#ffd24c; margin-bottom:15px;">Quick Links</h3>
+    <!-- Quick Links Card -->
+    <div style="background:#04122b; padding:25px; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.2);">
+      <h3 style="color:#ffd24c; margin-bottom:20px; font-size:20px;">Quick Links</h3>
       <ul style="list-style:none; padding:0; margin:0;">
-        <li><a href="programmes.html" style="color:white; text-decoration:none; transition:color 0.3s;">Programs</a></li>
-        <li><a href="about.html" style="color:white; text-decoration:none; transition:color 0.3s;">About Us</a></li>
-        <li><a href="admissions.html" style="color:white; text-decoration:none; transition:color 0.3s;">Admissions</a></li>
-        <li><a href="contact.html" style="color:white; text-decoration:none; transition:color 0.3s;">Contact</a></li>
+        <li style="margin-bottom:12px;"><a href="programmes.html" style="color:white; text-decoration:none; transition:color 0.3s;">Programs</a></li>
+        <li style="margin-bottom:12px;"><a href="about.html" style="color:white; text-decoration:none; transition:color 0.3s;">About Us</a></li>
+        <li style="margin-bottom:12px;"><a href="admissions.html" style="color:white; text-decoration:none; transition:color 0.3s;">Admissions</a></li>
+        <li style="margin-bottom:12px;"><a href="contact.html" style="color:white; text-decoration:none; transition:color 0.3s;">Contact</a></li>
         <li><a href="faq.html" style="color:white; text-decoration:none; transition:color 0.3s;">FAQ</a></li>
       </ul>
     </div>
 
-    <!-- Social Media -->
-    <div>
-      <h3 style="color:#ffd24c; margin-bottom:15px;">Follow Us</h3>
+    <!-- Social Media Card -->
+    <div style="background:#04122b; padding:25px; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.2);">
+      <h3 style="color:#ffd24c; margin-bottom:20px; font-size:20px;">Follow Us</h3>
       <div style="display:flex; gap:15px; font-size:24px;">
-        <a href="#" style="color:white; transition:color 0.3s;"><img src="facebook-icon.png" alt="Facebook" width="28"></a>
-        <a href="#" style="color:white; transition:color 0.3s;"><img src="twitter-icon.png" alt="Twitter" width="28"></a>
-        <a href="#" style="color:white; transition:color 0.3s;"><img src="linkedin-icon.png" alt="LinkedIn" width="28"></a>
-        <a href="#" style="color:white; transition:color 0.3s;"><img src="instagram-icon.png" alt="Instagram" width="28"></a>
+        <a href="#" style="color:white; transition:color 0.3s;"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" style="color:white; transition:color 0.3s;"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color:white; transition:color 0.3s;"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" style="color:white; transition:color 0.3s;"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
 
-    <!-- Newsletter Signup -->
-    <div>
-      <h3 style="color:#ffd24c; margin-bottom:15px;">Newsletter</h3>
+    <!-- Newsletter Card -->
+    <div style="background:#04122b; padding:25px; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.2);">
+      <h3 style="color:#ffd24c; margin-bottom:15px; font-size:20px;">Newsletter</h3>
       <p style="margin:0 0 10px 0;">Stay updated on new courses and certifications</p>
       <form style="display:flex; flex-wrap:wrap; gap:10px;">
         <input type="email" placeholder="Enter your email" 
@@ -644,10 +637,10 @@ color:#ffd24c;
       </form>
     </div>
 
-    <!-- Accreditation & Legal Info -->
-    <div>
-      <h3 style="color:#ffd24c; margin-bottom:15px;">Accreditation & Legal Info</h3>
-      <p style="font-size:14px; line-height:1.5;">
+    <!-- Accreditation & Legal Card -->
+    <div style="background:#04122b; padding:25px; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.2);">
+      <h3 style="color:#ffd24c; margin-bottom:15px; font-size:20px;">Accreditation & Legal Info</h3>
+      <p style="font-size:14px; line-height:1.6;">
         Nolan University is accredited by the International Education Council and recognized globally.  
         &copy; 2026 Nolan University. All rights reserved.  
         <a href="terms.html" style="color:#ffd24c; text-decoration:none;">Terms of Service</a> | 
@@ -658,6 +651,25 @@ color:#ffd24c;
   </div>
 
 </footer>
+
+<!-- FONT AWESOME -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- FOOTER HOVER EFFECTS -->
+<style>
+footer a:hover {
+  color: #ffd24c;
+}
+
+footer button:hover {
+  background: #fff200;
+}
+
+footer i:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s;
+}
+</style>
 
 <!-- FOOTER HOVER EFFECTS -->
 <style>
