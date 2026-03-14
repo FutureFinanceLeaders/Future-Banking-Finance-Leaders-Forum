@@ -412,17 +412,21 @@ It is a place where Company Builders, Investors, and Innovators Are Educated.
 <!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<section class="excellence-section">
+<section class="hero-slider" style="position:relative; width:100%; max-width:900px; margin:auto; height:0; padding-bottom:115%; overflow:hidden; background:#0b2a5b;">
 
-<!-- SLIDER -->
-<div class="slider">
-
-<img class="slide active" src="ChatGPT Image Mar 13, 2026, 03_20_27 PM.png">
-<img class="slide" src="ChatGPT Image Mar 11, 2026, 11_47_33 PM.png">
-<img class="slide" src="ChatGPT Image Mar 13, 2026, 03_41_46 PM.png">
-<img class="slide" src="ChatGPT Image Mar 13, 2026, 02_54_02 PM.png">
-
-</div>
+  <!-- Slides -->
+  <div class="slide active" style="position:absolute; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+    <img src="ChatGPT Image Mar 13, 2026, 02_54_02 PM.png" 
+         style="max-width:100%; max-height:100%; object-fit:contain;">
+  </div>
+<div class="slide active" style="position:absolute; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+    <img src="ChatGPT Image Mar 13, 2026, 03_41_46 PM.png" 
+         style="max-width:100%; max-height:100%; object-fit:contain;">
+  </div>
+<div class="slide active" style="position:absolute; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+    <img src="ChatGPT Image Mar 11, 2026, 11_47_33 PM.png" 
+         style="max-width:100%; max-height:100%; object-fit:contain;">
+  </div>
 
 <!-- CONTENT -->
 <div class="excellence-content">
@@ -469,29 +473,6 @@ Nolan University prepares ambitious professionals to stand out in competitive in
 max-width:1100px;
 margin:0 auto; /* removed spacing */
 font-family:Arial, Helvetica, sans-serif;
-}
-
-/* SLIDER */
-
-.slider{
-position:relative;
-width:100%;
-height:420px;
-overflow:hidden;
-margin:0;
-}
-
-.slide{
-position:absolute;
-width:100%;
-height:100%;
-object-fit:cover;
-opacity:0;
-transition:opacity 1s ease;
-}
-
-.slide.active{
-opacity:1;
 }
 
 /* CONTENT */
@@ -561,24 +542,22 @@ background:#ffea7a;
 </style>
 
 <script>
-
-document.addEventListener("DOMContentLoaded", function(){
-
-let slides = document.querySelectorAll(".slide");
+let slides = document.querySelectorAll(".hero-slider .slide");
 let index = 0;
 
-setInterval(function(){
+function showSlide(i){
+  slides.forEach(s => s.style.display = "none");
+  index = i;
+  if(index >= slides.length) index = 0;
+  if(index < 0) index = slides.length - 1;
+  slides[index].style.display = "flex";
+}
 
-slides[index].classList.remove("active");
+// Auto Slide
+setInterval(()=>{ showSlide(index+1); }, 5000);
 
-index = (index + 1) % slides.length;
-
-slides[index].classList.add("active");
-
-}, 3500);
-
-});
-
+// Initial
+showSlide(0);
 </script>
 
 <!-- SCHOOLS SECTION -->
