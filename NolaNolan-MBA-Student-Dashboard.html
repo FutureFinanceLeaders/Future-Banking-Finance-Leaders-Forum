@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan MBA · Candidate Dashboard · Let's Do The Workout</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #0B2A3B;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--nolan-navy);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            margin-bottom: 2rem;
+            border: 2px solid var(--nolan-gold);
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .header-logo {
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-weight: 800;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+        .header-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .header-title span {
+            color: var(--nolan-gold);
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .candidate-badge {
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.3rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .workout-tagline {
+            background: #1a3a4a;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+        }
+
+        /* main grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* cards */
+        .card {
+            background: var(--nolan-white);
+            border-radius: 28px;
+            padding: 1.8rem;
+            box-shadow: 0 10px 25px -10px rgba(11,42,59,0.2);
+            border: 1px solid #dde7ed;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-left: 6px solid var(--nolan-gold);
+            padding-left: 1rem;
+        }
+
+        /* current module */
+        .current-module {
+            background: linear-gradient(145deg, #f2f9fc, white);
+        }
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .module-code {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            padding: 0.2rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .module-progress {
+            color: #3b687d;
+            font-weight: 500;
+        }
+        .module-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 1rem;
+        }
+        .professor-card {
+            background: #eef3f6;
+            border-radius: 20px;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .professor-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--nolan-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--nolan-navy);
+            border: 3px solid var(--nolan-navy);
+        }
+        .professor-details h3 {
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+        .professor-details p {
+            color: #235a72;
+            font-size: 0.9rem;
+        }
+
+        /* workout plan */
+        .workout-week {
+            list-style: none;
+        }
+        .workout-day {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px dashed #cbdae3;
+        }
+        .day-name {
+            width: 100px;
+            font-weight: 600;
+            color: var(--nolan-navy);
+        }
+        .day-activity {
+            flex: 1;
+            color: #235a72;
+        }
+        .day-type {
+            background: #eef3f6;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .type-material { background: #e1eff7; color: #1a4b63; }
+        .type-professor { background: var(--nolan-gold); color: var(--nolan-navy); }
+        .type-peers { background: var(--nolan-navy); color: white; }
+
+        /* materials grid */
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .material-item {
+            background: #fafdff;
+            border-radius: 18px;
+            padding: 1.2rem;
+            border-left: 4px solid var(--nolan-gold);
+        }
+        .material-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .material-title {
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+        .material-desc {
+            font-size: 0.9rem;
+            color: #2e637a;
+        }
+
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+
+        .btn-workout {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+            width: 100%;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .btn-workout:hover {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #3b687d;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="dashboard-header">
+        <div class="header-left">
+            <div class="header-logo">NU</div>
+            <div class="header-title">NOLAN <span>MBA</span> · ONLINE</div>
+        </div>
+        <div class="header-right">
+            <div class="candidate-badge">ALEX CHEN · CANDIDATE</div>
+            <div class="workout-tagline">🏋️ LET'S DO THE WORKOUT</div>
+        </div>
+    </div>
+
+    <!-- main dashboard grid -->
+    <div class="dashboard-grid">
+        <!-- LEFT COLUMN: CURRENT MODULE + WORKOUT PLAN -->
+        <div>
+            <!-- Current Module Card -->
+            <div class="card current-module">
+                <div class="card-title">📋 CURRENT MODULE · TERM 1</div>
+                <div class="module-header">
+                    <span class="module-code">ENT501 · 15 CREDITS</span>
+                    <span class="module-progress">Week 3 of 6 · 45% complete</span>
+                </div>
+                <div class="module-name">New Venture Finance</div>
+                <p style="color:#235a72; margin-bottom:1rem;">Master the mechanics of early-stage capital: valuation, term sheets, cap tables, convertible notes. This week: term sheet negotiation.</p>
+                
+                <!-- Professor introduction -->
+                <div class="professor-card">
+                    <div class="professor-avatar">JD</div>
+                    <div class="professor-details">
+                        <h3>Prof. Julia Daley</h3>
+                        <p>Former Partner at Balderton Capital · 20+ years VC experience · "I've sat on both sides of the table. Let me show you how it really works."</p>
+                    </div>
+                </div>
+
+                <!-- This Week's Workout Plan -->
+                <h3 style="margin: 1.5rem 0 1rem 0;">📅 THIS WEEK'S WORKOUT</h3>
+                <ul class="workout-week">
+                    <li class="workout-day">
+                        <span class="day-name">Monday</span>
+                        <span class="day-activity">Watch: Term Sheet lecture (videos 4.1–4.3) · 45 min</span>
+                        <span class="day-type type-material">MATERIAL</span>
+                    </li>
+                    <li class="workout-day">
+                        <span class="day-name">Tuesday</span>
+                        <span class="day-activity">Download cap table template · Build your first model</span>
+                        <span class="day-type type-material">MATERIAL</span>
+                    </li>
+                    <li class="workout-day">
+                        <span class="day-name">Wednesday</span>
+                        <span class="day-activity">Live seminar: Term sheet negotiation role-play (Zoom, 90 min)</span>
+                        <span class="day-type type-professor">PROFESSOR</span>
+                    </li>
+                    <li class="workout-day">
+                        <span class="day-name">Thursday</span>
+                        <span class="day-activity">Discussion board: "What's the most important clause?" · Post & reply</span>
+                        <span class="day-type type-peers">PEERS</span>
+                    </li>
+                    <li class="workout-day">
+                        <span class="day-name">Friday</span>
+                        <span class="day-activity">Submit term sheet negotiation memo · 2 pages max</span>
+                        <span class="day-type type-material">ASSIGNMENT</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Materials Card -->
+            <div class="card" style="margin-top:1.5rem;">
+                <div class="card-title">📚 THIS MODULE'S MATERIALS</div>
+                <div class="materials-grid">
+                    <div class="material-item">
+                        <div class="material-icon">📘</div>
+                        <div class="material-title">Venture Deals</div>
+                        <div class="material-desc">Feld & Mendelson · Ch 4–7</div>
+                    </div>
+                    <div class="material-item">
+                        <div class="material-icon">📁</div>
+                        <div class="material-title">Uber Series A Case</div>
+                        <div class="material-desc">HBS case · analysis questions</div>
+                    </div>
+                    <div class="material-item">
+                        <div class="material-icon">📊</div>
+                        <div class="material-title">Cap Table Template</div>
+                        <div class="material-desc">Excel · dynamic, multi-round</div>
+                    </div>
+                    <div class="material-item">
+                        <div class="material-icon">🎮</div>
+                        <div class="material-title">Term Sheet Sim</div>
+                        <div class="material-desc">Interactive negotiation game</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: TOOLKIT & PEERS -->
+        <div>
+            <!-- Toolkit Card -->
+            <div class="card">
+                <div class="card-title">🧰 YOUR TOOLKIT</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                    <span class="pillar-tag">EXCEL</span>
+                    <span class="pillar-tag">PYTHON</span>
+                    <span class="pillar-tag">BLOOMBERG</span>
+                    <span class="pillar-tag">PREQIN</span>
+                    <span class="pillar-tag">FIGMA</span>
+                    <span class="pillar-tag">TABLEAU</span>
+                </div>
+                <div style="background: #eef3f6; border-radius: 20px; padding: 1rem; margin-bottom: 1rem;">
+                    <strong>🔑 Access Granted:</strong> Bloomberg Terminal (remote), Preqin, PitchBook, CapSim simulation.
+                </div>
+                <div style="background: #eef3f6; border-radius: 20px; padding: 1rem;">
+                    <strong>📁 Your Portfolio:</strong> 3 models built · 1 memo submitted · feedback pending
+                </div>
+            </div>
+
+            <!-- Professor Feedback Card -->
+            <div class="card" style="margin-top:1.5rem;">
+                <div class="card-title">📝 LATEST PROFESSOR FEEDBACK</div>
+                <div style="background: #fafdff; border-radius: 18px; padding: 1.2rem; border-left: 4px solid var(--nolan-gold);">
+                    <p style="font-weight:600;">"Your cap table is clean, but watch the dilution on the down round. Let's discuss in office hours."</p>
+                    <p style="color:#2e637a; margin-top:0.5rem;">— Prof. Daley, on Assignment 1</p>
+                </div>
+                <div style="margin-top:1rem;">
+                    <a href="#" class="btn-workout">📅 BOOK OFFICE HOURS</a>
+                </div>
+            </div>
+
+            <!-- Peer Interaction Card -->
+            <div class="card" style="margin-top:1.5rem;">
+                <div class="card-title">👥 PEER WORKOUT · DISCUSSION BOARD</div>
+                <div style="background: #fafdff; border-radius: 18px; padding: 1rem; margin-bottom: 1rem;">
+                    <strong>🔥 Hot topic:</strong> "What's the most important clause in a term sheet?"
+                    <div style="color:#2e637a; font-size:0.9rem; margin-top:0.5rem;">24 replies · last post 2h ago</div>
+                </div>
+                <div style="background: #fafdff; border-radius: 18px; padding: 1rem;">
+                    <strong>🤝 Your study group:</strong> Maria (Lisbon), Raj (Mumbai), Chloe (NYC)
+                    <div style="color:#2e637a; font-size:0.9rem; margin-top:0.5rem;">Next group call: Thu 4pm GMT</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Motivational footer -->
+    <div style="background: var(--nolan-navy); color: white; border-radius: 60px; padding: 1.5rem 2rem; margin-top: 2rem; text-align: center; border: 2px solid var(--nolan-gold);">
+        <p style="font-size: 1.3rem;">🏋️ <strong>YOU'RE DOING THE WORKOUT.</strong> Every model you build, every case you analyse, every negotiation you simulate — that's where the MBA happens.</p>
+        <p style="margin-top:0.5rem;">Professor Daley is in your corner. Your peers are sweating with you. The materials are your gym.</p>
+        <p style="margin-top:1rem; color: var(--nolan-gold);">NOLAN MBA · LEARN TO LEAD. LEAD TO EXCEL.</p>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p>© 2025 Nolan University · 100% Online MBA · Candidate Dashboard</p>
+    </div>
+</div>
+</body>
+</html>
