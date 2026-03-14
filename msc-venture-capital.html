@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan University · MSc Venture Capital & Private Equity</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0B2A3B;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
+            padding-bottom: 1.25rem;
+        }
+
+        .uni-logo {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--nolan-navy);
+        }
+
+        .uni-name span {
+            color: var(--nolan-navy);
+            font-weight: 600;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        /* global tagline */
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: #3b687d;
+        }
+        .breadcrumb a {
+            color: var(--nolan-navy);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .degree-tag {
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-weight: 700;
+            padding: 0.35rem 1.5rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 0.5rem 0 1rem 0;
+            font-size: 1.2rem;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        .program-section {
+            background: var(--nolan-white);
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 25px -10px rgba(11,42,59,0.25);
+            border: 1px solid #dde7ed;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-left: 8px solid var(--nolan-gold);
+            padding-left: 1.5rem;
+        }
+
+        .overview-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .overview-text { flex: 2; min-width: 280px; }
+        .overview-stats {
+            flex: 1;
+            background: var(--nanol-gray-soft);
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid #cbdae3;
+        }
+        .stat-item { margin-bottom: 1.8rem; }
+        .stat-label {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--nolan-navy);
+        }
+        .stat-value {
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--nolan-navy);
+            line-height: 1.2;
+        }
+        .stat-desc { font-size: 0.95rem; color: #2d4f62; }
+
+        .term-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .term-card {
+            background: #f2f9ff;
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 2px solid var(--nolan-gold);
+        }
+        .term-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--nolan-gold);
+            padding-bottom: 0.5rem;
+        }
+        .term-card ul { list-style: none; }
+        .term-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .term-card li::before {
+            content: "▹";
+            color: var(--nolan-gold);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        .module-item {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.4rem;
+            border-left: 6px solid var(--nolan-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .module-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.3rem;
+        }
+        .module-credits {
+            font-size: 0.8rem;
+            background: var(--nolan-navy);
+            color: white;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin: 0.3rem 0 0.5rem;
+        }
+        .module-desc { color: #235a72; font-size: 0.95rem; }
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+        .investor-tag {
+            background: var(--nolan-navy);
+            color: white;
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-gold);
+        }
+
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .career-card {
+            background: #fafdff;
+            border-radius: 24px;
+            padding: 1.8rem 1rem;
+            text-align: center;
+            border: 1px solid #cbdae3;
+            border-bottom: 4px solid var(--nolan-gold);
+        }
+        .career-icon { font-size: 2.5rem; }
+        .career-role { font-weight: 700; font-size: 1.3rem; color: var(--nolan-navy); margin: 0.5rem 0; }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+        }
+        .btn-gold:hover {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3b687d;
+            border-top: 2px solid var(--nolan-gold);
+            padding-top: 2rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed var(--nolan-gold);
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 800px) {
+            .term-grid, .career-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="university-header">
+        <div class="uni-logo">NU</div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
+    </div>
+
+    <!-- global tagline -->
+    <div class="global-tagline">
+        <strong>A Modern Global & Professional University</strong> for FINANCE, TECHNOLOGY, AND ENTREPRENEURSHIP.
+    </div>
+
+    <!-- breadcrumb -->
+    <div class="breadcrumb">
+        <a href="#">Home</a> > <a href="#">1-year Master's</a> > <span style="font-weight:600;">MSc Venture Capital & Private Equity</span>
+    </div>
+
+    <!-- degree title -->
+    <div class="degree-tag">💰 1-year MSc · Venture Capital & Private Equity</div>
+
+    <!-- ===== OVERVIEW ===== -->
+    <section class="program-section">
+        <h2 class="section-title">📋 Overview · Master the deal</h2>
+        <div class="overview-grid">
+            <div class="overview-text">
+                <p style="font-size:1.3rem; margin-bottom:1rem;"><strong>For future leaders of the private capital markets.</strong> The MSc in Venture Capital & Private Equity is a highly intensive programme designed to equip you with the technical, analytical, and deal-making skills required to excel in VC, PE, and growth equity.</p>
+                <p>You'll master LBO modelling, term sheet negotiation, fund structuring, due diligence, and portfolio management – learning directly from practising investors and entrepreneurs. The curriculum is co-designed with leading firms including Balderton, Index Ventures, and Permira.</p>
+                <p style="margin-top:1rem;"><span style="background: var(--nolan-gold); color: var(--nolan-navy); padding:0.3rem 1.2rem; border-radius:40px; font-weight:600;">Industry co-designed · 100% deal-focused</span></p>
+            </div>
+            <div class="overview-stats">
+                <div class="stat-item"><span class="stat-label">Duration</span><div class="stat-value">12 months</div><div class="stat-desc">full-time</div></div>
+                <div class="stat-item"><span class="stat-label">2026 fees</span><div class="stat-value">£24,500</div><div class="stat-desc">home / £34,800 int'l</div></div>
+                <div class="stat-item"><span class="stat-label">Entry</span><div class="stat-value">2:1 or equivalent</div><div class="stat-desc">strong quantitative background</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROGRAM STRUCTURE (TERMS) ===== -->
+    <section class="program-section">
+        <h2 class="section-title">📚 Programme structure · term by term</h2>
+        <div class="term-grid">
+            <div class="term-card">
+                <div class="term-title">Term 1 · Foundations</div>
+                <ul>
+                    <li>Financial Analysis & Valuation</li>
+                    <li>Private Equity & LBO Modelling</li>
+                    <li>Venture Capital & Term Sheets</li>
+                    <li>Accounting for Deals</li>
+                </ul>
+            </div>
+            <div class="term-card">
+                <div class="term-title">Term 2 · Execution</div>
+                <ul>
+                    <li>Deal Sourcing & Due Diligence</li>
+                    <li>Fund Economics & Structuring</li>
+                    <li>Growth Equity & Minority Investments</li>
+                    <li>Elective: Tech Investing / Impact</li>
+                </ul>
+            </div>
+            <div class="term-card">
+                <div class="term-title">Term 3 · Capstone</div>
+                <ul>
+                    <li>Portfolio Management & Exits</li>
+                    <li>Advanced PE & VC Cases</li>
+                    <li><strong>Live Deal Project</strong> (with industry)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DETAILED MODULES ===== -->
+    <section class="program-section">
+        <h2 class="section-title">🔧 Core modules · master every dimension</h2>
+        <div class="module-grid">
+            <!-- Module 1 -->
+            <div class="module-item">
+                <h4>Private Equity & LBO Modelling</h4>
+                <div class="module-credits">20 credits</div>
+                <div class="module-desc">Build full LBO models: debt schedules, cash flow waterfalls, IRR analysis, sensitivity. Use live deals.</div>
+                <span class="investor-tag">INVESTOR</span> <span class="pillar-tag">BUILDER</span>
+            </div>
+            <!-- Module 2 -->
+            <div class="module-item">
+                <h4>Venture Capital & Term Sheets</h4>
+                <div class="module-credits">15 credits</div>
+                <div class="module-desc">Convertible notes, SAFEs, priced rounds, participation, liquidation preferences, anti-dilution.</div>
+                <span class="investor-tag">INVESTOR</span> <span class="pillar-tag">INNOVATOR</span>
+            </div>
+            <!-- Module 3 -->
+            <div class="module-item">
+                <h4>Fund Economics & Structuring</h4>
+                <div class="module-credits">15 credits</div>
+                <div class="module-desc">Carried interest, distribution waterfalls, fund governance, LP relationships, fund marketing.</div>
+                <span class="investor-tag">INVESTOR</span>
+            </div>
+            <!-- Module 4 -->
+            <div class="module-item">
+                <h4>Deal Sourcing & Due Diligence</h4>
+                <div class="module-credits">15 credits</div>
+                <div class="module-desc">Sourcing strategies, commercial/legal/financial DD, red flags, industry analysis.</div>
+                <span class="investor-tag">INVESTOR</span> <span class="pillar-tag">BUILDER</span>
+            </div>
+            <!-- Module 5 -->
+            <div class="module-item">
+                <h4>Financial Analysis & Valuation</h4>
+                <div class="module-credits">15 credits</div>
+                <div class="module-desc">DCF, comps, precedent transactions, sum-of-the-parts, valuation in illiquid settings.</div>
+                <span class="investor-tag">INVESTOR</span>
+            </div>
+            <!-- Module 6 -->
+            <div class="module-item">
+                <h4>Growth Equity & Minority Investments</h4>
+                <div class="module-credits">10 credits</div>
+                <div class="module-desc">Structuring minority stakes, governance rights, downside protection, staged financing.</div>
+                <span class="investor-tag">INVESTOR</span> <span class="pillar-tag">BUILDER</span>
+            </div>
+            <!-- Module 7 -->
+            <div class="module-item">
+                <h4>Portfolio Management & Exits</h4>
+                <div class="module-credits">15 credits</div>
+                <div class="module-desc">Monitoring, value creation plans, secondary sales, IPOs, trade sales, dividend recaps.</div>
+                <span class="investor-tag">INVESTOR</span> <span class="pillar-tag">BUILDER</span>
+            </div>
+            <!-- Module 8 -->
+            <div class="module-item">
+                <h4>Live Deal Project (Capstone)</h4>
+                <div class="module-credits">30 credits</div>
+                <div class="module-desc">Work on a real deal sourced from our partner funds – full investment memo and presentation.</div>
+                <span class="investor-tag">INVESTOR</span> <span class="pillar-tag">BUILDER</span> <span class="pillar-tag">INNOVATOR</span>
+            </div>
+        </div>
+        <p style="margin-top:1rem;"><em>Electives: Tech Investing, Impact & ESG Private Equity, Real Assets, Family Office, Entrepreneurial Finance</em></p>
+    </section>
+
+    <!-- ===== PRACTICAL SKILLS & TOOLS ===== -->
+    <section class="program-section">
+        <h2 class="section-title">🛠️ What you'll master · practical toolkit</h2>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; text-align:center;">
+            <div style="background:#eef3f6; border-radius:40px; padding:1rem;"><span style="font-weight:700;">LBO modelling</span><br>Excel, advanced</div>
+            <div style="background:#eef3f6; border-radius:40px; padding:1rem;"><span style="font-weight:700;">Term sheet negotiation</span><br>real-world simulations</div>
+            <div style="background:#eef3f6; border-radius:40px; padding:1rem;"><span style="font-weight:700;">Carry & waterfall</span><br>fund modelling</div>
+            <div style="background:#eef3f6; border-radius:40px; padding:1rem;"><span style="font-weight:700;">Due diligence</span><br>commercial & financial</div>
+        </div>
+        <p style="margin-top:1.5rem;">You'll also gain proficiency in <strong>Bloomberg, Preqin, PitchBook, and Intralinks</strong> – standard tools in the industry.</p>
+    </section>
+
+    <!-- ===== CAREER OUTCOMES ===== -->
+    <section class="program-section">
+        <h2 class="section-title">🚀 Career outcomes · where our graduates go</h2>
+        <div class="career-grid">
+            <div class="career-card">
+                <div class="career-icon">🏦</div>
+                <div class="career-role">Private Equity Analyst</div>
+                <div>Permira, CVC, Blackstone, KKR, EQT</div>
+            </div>
+            <div class="career-card">
+                <div class="career-icon">💡</div>
+                <div class="career-role">Venture Capital Associate</div>
+                <div>Balderton, Index, Accel, Sequoia, LocalGlobe</div>
+            </div>
+            <div class="career-card">
+                <div class="career-icon">📊</div>
+                <div class="career-role">Investment Banking / M&A</div>
+                <div>M&A advisory, leveraged finance, ECM</div>
+            </div>
+        </div>
+        <div style="margin-top:2rem; background:#e5f1f7; padding:1.5rem; border-radius:36px;">
+            <p><strong>Recent graduate destinations:</strong> Permira (Analyst), Balderton (Investment Associate), Blackstone (Private Equity Analyst), PwC Corporate Finance (Deals), and several joined early-stage VC funds or founded their own investment vehicles.</p>
+        </div>
+    </section>
+
+    <!-- ===== INDUSTRY CONNECTIONS ===== -->
+    <section class="program-section">
+        <h2 class="section-title">🤝 Industry network · learn from the best</h2>
+        <div style="display:flex; flex-wrap:wrap; gap:2rem;">
+            <div style="flex:1;">
+                <p>Our faculty includes practising investors from leading firms. You'll benefit from:</p>
+                <ul style="list-style:none; margin-top:1rem;">
+                    <li style="margin-bottom:0.7rem;">✓ Guest lectures by partners at <strong>Index Ventures, Balderton, Permira</strong></li>
+                    <li style="margin-bottom:0.7rem;">✓ Live deal projects sponsored by real funds</li>
+                    <li style="margin-bottom:0.7rem;">✓ Access to Nolan Angel Network & Demo Days</li>
+                    <li style="margin-bottom:0.7rem;">✓ Mentorship from 40+ VC/PE practitioners</li>
+                </ul>
+            </div>
+            <div style="flex:1; background:var(--nolan-navy); color:white; border-radius:32px; padding:1.8rem;">
+                <span style="font-size:2rem; font-weight:700;">£500M+</span><br>capital deployed by our alumni network
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ENTRY REQUIREMENTS & APPLY ===== -->
+    <section class="program-section">
+        <h2 class="section-title">📝 Entry requirements & applying</h2>
+        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:2rem;">
+            <div>
+                <div class="stat-label">Academic</div>
+                <div class="stat-value">2:1 honours</div>
+                <div class="stat-desc">or equivalent in any discipline, but strong quantitative/numeracy required</div>
+                <p style="margin-top:1rem;">GMAT/GRE recommended if non-quantitative background.</p>
+            </div>
+            <div>
+                <div class="stat-label">English language</div>
+                <div class="stat-value">IELTS 7.0</div>
+                <div class="stat-desc">minimum 6.5 in each component</div>
+                <p style="margin-top:1rem;"><strong>Deadlines:</strong> 30 June 2026 (international), 31 August 2026 (home)</p>
+                <a href="#" class="btn-gold">📄 Apply now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PATHWAYS (MBA / BSC) ===== -->
+    <hr>
+    <div style="background: #eef3f6; border-radius: 48px; padding: 2rem 2.5rem; border: 2px solid var(--nolan-gold);">
+        <h2 style="font-size: 2rem; font-weight: 800; color: var(--nolan-navy);">Related programmes</h2>
+        <div style="display:flex; gap:2rem; flex-wrap:wrap; margin-top:1rem;">
+            <div><span class="pillar-tag">MBA</span> <strong>MBA Entrepreneurship & Innovation</strong> – for founders and investors</div>
+            <div><span class="pillar-tag">MSc</span> <strong>MSc Finance & Capital Markets</strong> – broader finance specialisation</div>
+        </div>
+        <div style="margin-top:1.5rem;">
+            <a href="#" class="btn-gold">→ view all programmes</a>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · Triple accredited: AMBA, EQUIS, AACSB<br>
+        © 2025 Nolan University · MSc Venture Capital & Private Equity · Where Company Builders, Investors & Innovators Are Educated</p>
+    </div>
+</div>
+</body>
+</html>
