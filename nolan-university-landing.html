@@ -408,21 +408,27 @@ It is a place where Company Builders, Investors, and Innovators Are Educated.
 </p>
 </div>
 </section>
-<!-- FONT AWESOME FOR ICONS -->
+<!-- FONT AWESOME (FOR ICONS) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- EXCELLENCE SECTION -->
 <section class="excellence-section">
 
-<img src="ChatGPT Image Mar 13, 2026, 03_41_46 PM.png" alt="Professionals learning online" class="excellence-image">
+<!-- IMAGE SLIDES -->
+<div class="slider">
 
+<img class="slide active" src="ChatGPT Image Mar 13, 2026, 03_20_27 PM.png">
+<img class="slide" src="ChatGPT Image Mar 13, 2026, 03_41_46 PM.png">
+<img class="slide" src="ChatGPT Image Mar 13, 2026, 02_54_02 PM.png">
+
+</div>
+
+<!-- CONTENT -->
 <div class="excellence-content">
 
 <h2>Prepare to Stand Out</h2>
 
-<p class="excellence-subheadline">
-Nolan University prepares ambitious professionals to stand out in competitive industries
-through online programs in finance, entrepreneurship, and leadership.
+<p class="subheadline">
+Nolan University prepares ambitious professionals to stand out in competitive industries through online programs in finance, entrepreneurship, and leadership.
 </p>
 
 <div class="value-grid">
@@ -455,39 +461,59 @@ through online programs in finance, entrepreneurship, and leadership.
 
 </section>
 
-
 <style>
 
 .excellence-section{
 max-width:1100px;
-margin:70px auto;
+margin:60px auto;
 font-family:Arial, Helvetica, sans-serif;
-text-align:center;
 }
 
-.excellence-image{
+/* SLIDER */
+
+.slider{
+position:relative;
 width:100%;
-border-radius:8px;
-display:block;
+height:420px;
+overflow:hidden;
 }
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transition:opacity 1s ease;
+}
+
+.slide.active{
+opacity:1;
+}
+
+/* CONTENT */
 
 .excellence-content{
-padding:40px 20px;
+padding:35px 20px;
+text-align:center;
+margin-top:0;
 }
 
 .excellence-content h2{
 color:#0b2a5b;
 font-size:34px;
-margin-bottom:15px;
+margin-bottom:10px;
 }
 
-.excellence-subheadline{
+.subheadline{
 max-width:750px;
 margin:auto;
 font-size:17px;
 color:#444;
-margin-bottom:40px;
+margin-bottom:35px;
 }
+
+/* VALUE GRID */
 
 .value-grid{
 display:grid;
@@ -504,15 +530,18 @@ transition:transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .value-card:hover{
-transform:translateY(-6px);
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
+transform:translateY(-5px);
+box-shadow:0 8px 18px rgba(0,0,0,0.1);
 }
 
 .value-card i{
 font-size:30px;
 color:#0b2a5b;
 margin-bottom:12px;
+display:block;
 }
+
+/* CTA BUTTON */
 
 .cta-btn{
 display:inline-block;
@@ -520,19 +549,36 @@ margin-top:40px;
 background:#ffd24c;
 color:#0b2a5b;
 padding:16px 38px;
-font-weight:bold;
 text-decoration:none;
+font-weight:bold;
 border-radius:6px;
-font-size:16px;
-transition:transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cta-btn:hover{
-transform:translateY(-2px);
-box-shadow:0 6px 16px rgba(0,0,0,0.2);
+background:#ffea7a;
 }
 
 </style>
+
+<script>
+
+/* SIMPLE IMAGE SLIDER */
+
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+setInterval(() => {
+
+slides[index].classList.remove("active");
+
+index = (index + 1) % slides.length;
+
+slides[index].classList.add("active");
+
+}, 4000);
+
+</script>
+
 <!-- SCHOOLS SECTION -->
 <section>
   <div class="container">
