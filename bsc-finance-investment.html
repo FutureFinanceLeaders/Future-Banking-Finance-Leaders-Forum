@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nolan University · BSc Finance &amp; Investment</title>
+    <title>Nolan University · BSc Finance & Investment · Undergraduate degree</title>
     <!-- Font & base styling -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
-            color: #0b2b3c;
+            color: #0B2A3B; /* Nolan navy */
             line-height: 1.5;
         }
 
@@ -28,85 +28,127 @@
             padding: 2rem 2rem 3rem;
         }
 
-        /* header / identity */
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
         .university-header {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 2rem;
-            border-bottom: 3px solid #cfd33b;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
             padding-bottom: 1.25rem;
         }
 
         .uni-logo {
-            background: #1e4a6d;
-            color: white;
-            font-weight: 700;
-            font-size: 1.8rem;
-            width: 60px;
-            height: 60px;
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 12px 4px 12px 4px;
-            box-shadow: 0 6px 0 #0f2c3b;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
         }
 
         .uni-name {
-            font-size: 1.9rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            font-weight: 800;
             letter-spacing: -0.02em;
-            color: #0b2b3c;
+            color: var(--nolan-navy);
         }
 
         .uni-name span {
-            color: #1e4a6d;
+            color: var(--nolan-navy);
             font-weight: 600;
-            background: #e7f0f8;
-            padding: 0.15rem 0.75rem;
-            border-radius: 30px;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
             font-size: 1.2rem;
             margin-left: 1rem;
             vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: #3b687d;
+        }
+        .breadcrumb a {
+            color: var(--nolan-navy);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* global tagline */
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
         }
 
         .degree-tag {
-            background: #cfd33b;
-            color: #0a2a2f;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
             font-weight: 700;
             padding: 0.35rem 1.5rem;
             border-radius: 40px;
             display: inline-block;
             margin: 0.5rem 0 1rem 0;
             font-size: 1.2rem;
-            border: 2px solid #0b2b3c;
+            border: 2px solid var(--nolan-navy);
         }
 
         /* section style */
         .program-section {
-            background: white;
+            background: var(--nolan-white);
             border-radius: 28px;
             padding: 2rem 2.2rem;
             margin-bottom: 2.5rem;
-            box-shadow: 0 10px 25px -10px rgba(0,40,50,0.2);
-            border: 1px solid #e2edf2;
+            box-shadow: 0 10px 25px -10px rgba(11,42,59,0.25);
+            border: 1px solid #dde7ed;
         }
 
         .section-title {
             font-size: 2rem;
             font-weight: 700;
-            color: #0b2b3c;
+            color: var(--nolan-navy);
             margin-bottom: 1.75rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            border-left: 8px solid #cfd33b;
+            border-left: 8px solid var(--nolan-gold);
             padding-left: 1.5rem;
-        }
-
-        .section-title i {
-            font-size: 2rem;
-            color: #1e4a6d;
         }
 
         .overview-grid {
@@ -122,10 +164,10 @@
 
         .overview-stats {
             flex: 1;
-            background: #f0f6fa;
+            background: var(--nanol-gray-soft);
             border-radius: 24px;
             padding: 1.8rem 1.5rem;
-            border: 1px solid #d7e3e9;
+            border: 1px solid #cbdae3;
         }
 
         .stat-item {
@@ -137,13 +179,13 @@
             font-weight: 600;
             font-size: 0.85rem;
             letter-spacing: 0.5px;
-            color: #1e4a6d;
+            color: var(--nolan-navy);
         }
 
         .stat-value {
             font-weight: 800;
             font-size: 2rem;
-            color: #0b2b3c;
+            color: var(--nolan-navy);
             line-height: 1.2;
         }
 
@@ -152,150 +194,121 @@
             color: #2d4f62;
         }
 
-        .curriculum-grid {
+        /* year cards */
+        .year-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.8rem;
-            margin-top: 0.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
-
         .year-card {
-            background: #fafdff;
+            background: #f2f9ff;
             border-radius: 24px;
-            padding: 1.8rem 1.4rem;
-            border: 1px solid #cee2eb;
-            transition: 0.2s;
+            padding: 1.5rem;
+            border: 2px solid var(--nolan-gold);
         }
-
-        .year-card:hover {
-            background: #ffffff;
-            box-shadow: 0 12px 22px -16px #0b3a4b;
-        }
-
-        .year-head {
+        .year-title {
+            font-size: 1.6rem;
             font-weight: 700;
-            font-size: 1.5rem;
-            background: #1e4a6d;
-            color: white;
-            display: inline-block;
-            padding: 0.2rem 1.4rem;
-            border-radius: 40px;
-            margin-bottom: 1.2rem;
-            border: 2px solid #0b2b3c;
+            color: var(--nolan-navy);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--nolan-gold);
+            padding-bottom: 0.5rem;
         }
-
-        .course-list {
+        .year-card ul {
             list-style: none;
         }
-
-        .course-list li {
-            padding: 0.45rem 0;
-            border-bottom: 1px dashed #b9d3e0;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .course-list li::before {
-            content: "▹";
-            color: #cfd33b;
-            font-weight: 700;
-        }
-
-        .elective-note {
-            font-size: 0.9rem;
-            background: #f2f0d6;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            margin-top: 1.2rem;
-            color: #1f4d5e;
-            font-weight: 500;
-        }
-
-        /* detailed courses alternative presentation (accordion‑like) */
-        .detail-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .course-detail-item {
-            background: #f2f9ff;
-            border-radius: 18px;
-            padding: 1rem 1.8rem;
-            border-left: 6px solid #cfd33b;
-            font-weight: 500;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            justify-content: space-between;
-        }
-
-        .course-detail-item strong {
-            color: #0b2b3c;
-            min-width: 200px;
-            font-size: 1.1rem;
-        }
-
-        .course-detail-item .credits {
-            background: #1e4a6d;
-            color: white;
-            padding: 0.2rem 1rem;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .course-detail-item .desc {
-            width: 100%;
-            color: #2b5f74;
-            font-size: 0.95rem;
-            margin-top: 0.35rem;
-            font-weight: 400;
-        }
-
-        .career-outcomes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.2rem;
-        }
-
-        .career-card {
-            background: #fbfeff;
-            border: 1px solid #d0e2eb;
-            border-radius: 20px;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            transition: 0.15s;
-        }
-
-        .career-card:hover {
-            background: #1e4a6d;
-            border-color: #1e4a6d;
-        }
-
-        .career-card:hover .career-title,
-        .career-card:hover .career-desc {
-            color: white;
-        }
-
-        .career-icon {
-            font-size: 2.5rem;
+        .year-card li {
             margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
         }
-
-        .career-title {
+        .year-card li::before {
+            content: "▹";
+            color: var(--nolan-gold);
             font-weight: 700;
-            font-size: 1.25rem;
-            color: #0b2b3c;
+            position: absolute;
+            left: 0;
         }
 
-        .career-desc {
-            color: #2e637a;
-            font-size: 0.9rem;
-            margin-top: 0.4rem;
+        /* module detail cards */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        .module-item {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.4rem;
+            border-left: 6px solid var(--nolan-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .module-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.3rem;
+        }
+        .module-credits {
+            font-size: 0.8rem;
+            background: var(--nolan-navy);
+            color: white;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin: 0.3rem 0 0.5rem;
+        }
+        .module-desc {
+            color: #235a72;
+            font-size: 0.95rem;
+        }
+
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .career-card {
+            background: #fafdff;
+            border-radius: 24px;
+            padding: 1.8rem 1rem;
+            text-align: center;
+            border: 1px solid #cbdae3;
+            border-bottom: 4px solid var(--nolan-gold);
+        }
+        .career-icon { font-size: 2.5rem; }
+        .career-role { font-weight: 700; font-size: 1.3rem; color: var(--nolan-navy); margin: 0.5rem 0; }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+        }
+        .btn-gold:hover {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
         }
 
         .footer-note {
@@ -303,208 +316,201 @@
             text-align: center;
             font-size: 0.95rem;
             color: #3b687d;
-            border-top: 2px solid #c4d7e0;
+            border-top: 2px solid var(--nolan-gold);
             padding-top: 2rem;
-        }
-
-        .btn-mba {
-            display: inline-block;
-            background: #1e4a6d;
-            color: white;
-            padding: 0.7rem 2rem;
-            border-radius: 40px;
-            font-weight: 600;
-            text-decoration: none;
-            margin-top: 0.5rem;
-            border: 2px solid #0b2b3c;
-        }
-
-        .btn-mba:hover {
-            background: #cfd33b;
-            color: #0b2b3c;
         }
 
         hr {
             border: none;
-            border-top: 2px dashed #b2cfdd;
+            border-top: 2px dashed var(--nolan-gold);
             margin: 2rem 0;
+        }
+
+        @media (max-width: 800px) {
+            .year-grid, .career-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- header with Nolan identity -->
+    <!-- header -->
     <div class="university-header">
         <div class="uni-logo">NU</div>
-        <div class="uni-name">Nolan University <span>London</span></div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
     </div>
 
-    <!-- BACHELOR'S PAGE -->
-    <div class="degree-tag">🎓 Bachelor of Science in Finance &amp; Investment · 2026 entry</div>
+    <!-- global tagline -->
+    <div class="global-tagline">
+        <strong>A Modern Global & Professional University</strong> for FINANCE, TECHNOLOGY, AND ENTREPRENEURSHIP.
+    </div>
 
-    <!-- OVERVIEW section -->
+    <!-- breadcrumb -->
+    <div class="breadcrumb">
+        <a href="#">Home</a> > <a href="#">3-year Bachelor's</a> > <span style="font-weight:600;">BSc Finance & Investment</span>
+    </div>
+
+    <!-- degree title with identity connection -->
+    <div class="degree-tag">🎓 3-year BSc · Finance & Investment</div>
+
+    <!-- hero / overview section -->
     <section class="program-section">
-        <h2 class="section-title">📋 Overview</h2>
+        <h2 class="section-title">📋 Overview · Build your financial foundation</h2>
         <div class="overview-grid">
             <div class="overview-text">
-                <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong>Shape the future of global finance.</strong> Nolan’s BSc in Finance &amp; Investment blends rigorous quantitative training with real‑world investment practice. You will master financial modelling, portfolio management, and ethical decision‑making – taught by research leaders and industry practitioners.</p>
-                <p>The programme is designed in close collaboration with the CFA Institute and prepares you for roles in investment banking, asset management, and financial analysis. From day one you engage with Bloomberg terminals, trading simulations, and spring week preparation.</p>
-                <p style="margin-top: 1.4rem;"><span style="background: #1e4a6d; color: white; padding: 0.3rem 1.2rem; border-radius: 40px; font-weight: 600;"> Triple‑crown accredited</span> <span style="margin-left: 0.7rem;">🏆 1st in the UK for career impact (Nolan 2025).</span></p>
+                <p style="font-size:1.3rem; margin-bottom:1rem;"><strong>At Nolan University, we educate Company Builders, Investors, and Innovators.</strong> The BSc in Finance & Investment is your first step – mastering the language of capital, the tools of analysis, and the ethics of leadership.</p>
+                <p>This rigorous, CFA-affiliated programme blends quantitative training with real-world practice. From day one, you'll engage with Bloomberg terminals, trading simulations, and spring week preparation. You'll graduate ready to launch your career in investment banking, asset management, or corporate finance.</p>
+                <p style="margin-top:1rem;"><span style="background: var(--nolan-gold); color: var(--nolan-navy); padding:0.3rem 1.2rem; border-radius:40px; font-weight:600;">Triple‑crown accredited</span> <span style="margin-left:0.7rem;">🏆 1st in the UK for career impact (Nolan 2025)</span></p>
             </div>
             <div class="overview-stats">
                 <div class="stat-item">
-                    <div class="stat-label">Duration</div>
-                    <div class="stat-value">3 years</div>
-                    <div class="stat-desc">full‑time, optional placement year</div>
+                    <div class="stat-label">UCAS code</div>
+                    <div class="stat-value">N3N5</div>
+                    <div class="stat-desc">apply by 29 January</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-label">2025/26 fees</div>
+                    <div class="stat-label">Duration</div>
+                    <div class="stat-value">3 years</div>
+                    <div class="stat-desc">full-time, optional placement year</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">2026 fees</div>
                     <div class="stat-value">£14,500</div>
                     <div class="stat-desc">home / £24,800 international</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-label">UCAS code</div>
-                    <div class="stat-value">N3N5</div>
-                    <div class="stat-desc"> · apply by 29 Jan</div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- CURRICULUM (yearly structure) -->
+    <!-- Program structure: year by year -->
     <section class="program-section">
-        <h2 class="section-title">📚 Curriculum – Year by year</h2>
-        <div class="curriculum-grid">
+        <h2 class="section-title">📚 Program structure · year by year</h2>
+        <div class="year-grid">
             <div class="year-card">
-                <div class="year-head">Year 1</div>
-                <ul class="course-list">
+                <div class="year-title">Year 1 · Foundations</div>
+                <ul>
                     <li>Principles of Finance</li>
                     <li>Financial Accounting</li>
-                    <li>Macroeconomics for Investors</li>
                     <li>Quantitative Methods 1</li>
+                    <li>Macroeconomics for Investors</li>
                     <li>Introduction to Investment Banking</li>
-                    <li>Professional Skills &amp; Ethics</li>
+                    <li>Professional Skills & Ethics</li>
                 </ul>
             </div>
             <div class="year-card">
-                <div class="year-head">Year 2</div>
-                <ul class="course-list">
+                <div class="year-title">Year 2 · Core Finance</div>
+                <ul>
                     <li>Corporate Finance</li>
-                    <li>Equity &amp; Fixed Income Analysis</li>
-                    <li>Financial Modelling with Excel &amp; Python</li>
-                    <li>Derivatives &amp; Risk Management</li>
+                    <li>Equity & Fixed Income Analysis</li>
+                    <li>Financial Modelling (Excel & Python)</li>
+                    <li>Derivatives & Risk Management</li>
                     <li>Financial Econometrics</li>
-                    <li>Mergers &amp; Acquisitions</li>
+                    <li>Mergers & Acquisitions</li>
                 </ul>
             </div>
             <div class="year-card">
-                <div class="year-head">Year 3</div>
-                <ul class="course-list">
+                <div class="year-title">Year 3 · Advanced Applications</div>
+                <ul>
                     <li>Advanced Portfolio Management</li>
                     <li>Alternative Investments (PE/Hedge Funds)</li>
-                    <li>Behavioural Finance</li>
+                    <li>Behavioural Finance & ESG</li>
                     <li>International Finance</li>
-                    <li>Applied Investment Project</li>
-                    <li>Finance &amp; Sustainability</li>
+                    <li><strong>Applied Investment Project (capstone)</strong></li>
+                    <li>+ two electives (FinTech, Private Equity, Real Estate)</li>
                 </ul>
-                <div class="elective-note">➕ two electives: FinTech / Private Equity / Real Estate</div>
             </div>
         </div>
     </section>
 
-    <!-- DETAILED COURSES (with credits & description) -->
+    <!-- Detailed module list (20+ courses) -->
     <section class="program-section">
-        <h2 class="section-title">🔎 Detailed courses (core modules)</h2>
-        <div class="detail-cards">
-            <div class="course-detail-item">
-                <strong>FN1002 – Principles of Finance</strong> <span class="credits">15 credits</span>
-                <div class="desc">Time value of money, valuation, CAPM, market efficiency. Includes Bloomberg Market Concepts.</div>
-            </div>
-            <div class="course-detail-item">
-                <strong>FN2005 – Equity &amp; Fixed Income Analysis</strong> <span class="credits">20 credits</span>
-                <div class="desc">DCF, relative valuation, bond pricing, duration, credit risk. Real company cases.</div>
-            </div>
-            <div class="course-detail-item">
-                <strong>FN2010 – Financial Modelling</strong> <span class="credits">15 credits</span>
-                <div class="desc">Build integrated 3‑statement models, DCF, LBO, and scenario analysis in Excel + Python intro.</div>
-            </div>
-            <div class="course-detail-item">
-                <strong>FN3012 – Advanced Portfolio Management</strong> <span class="credits">20 credits</span>
-                <div class="desc">Mean‑variance optimisation, factor models, performance attribution, and trading strategies.</div>
-            </div>
-            <div class="course-detail-item">
-                <strong>FN3020 – Applied Investment Project</strong> <span class="credits">30 credits</span>
-                <div class="desc">Capstone: manage a real £100k virtual portfolio, pitch to industry panel.</div>
-            </div>
+        <h2 class="section-title">🔎 Detailed modules · 20+ courses</h2>
+        <p style="margin-bottom:1rem;">Every module combines theory with practical application. Here are core modules you'll study:</p>
+        <div class="module-grid">
+            <!-- row 1 -->
+            <div class="module-item"><h4>Principles of Finance</h4><div class="module-credits">15 credits</div><div class="module-desc">Time value of money, NPV/IRR, CAPM, market efficiency. Includes Bloomberg Market Concepts.</div><span class="pillar-tag">investor</span></div>
+            <div class="module-item"><h4>Financial Accounting</h4><div class="module-credits">15 credits</div><div class="module-desc">Double-entry, 3-statement modelling, ratio analysis. Work with real annual reports.</div><span class="pillar-tag">builder</span></div>
+            <div class="module-item"><h4>Quantitative Methods 1</h4><div class="module-credits">15 credits</div><div class="module-desc">Probability, distributions, regression, hypothesis testing with R and Excel.</div><span class="pillar-tag">innovator</span></div>
+            <div class="module-item"><h4>Corporate Finance</h4><div class="module-credits">20 credits</div><div class="module-desc">WACC, DCF valuation, capital structure, dividend policy. Real-world case studies.</div><span class="pillar-tag">investor</span></div>
+            <div class="module-item"><h4>Equity & Fixed Income Analysis</h4><div class="module-credits">20 credits</div><div class="module-desc">DCF, comps, bond pricing, duration, credit analysis. Write an equity research report.</div><span class="pillar-tag">investor</span></div>
+            <div class="module-item"><h4>Financial Modelling (Excel & Python)</h4><div class="module-credits">15 credits</div><div class="module-desc">Build integrated 3-statement models, DCF with scenarios, and use Python/pandas.</div><span class="pillar-tag">builder</span></div>
+            <div class="module-item"><h4>Derivatives & Risk Management</h4><div class="module-credits">15 credits</div><div class="module-desc">Options (Black-Scholes), futures, swaps, Greeks, hedging strategies.</div><span class="pillar-tag">investor</span></div>
+            <div class="module-item"><h4>Financial Econometrics</h4><div class="module-credits">15 credits</div><div class="module-desc">Time series, volatility modelling, factor models. Apply to real market data.</div><span class="pillar-tag">innovator</span></div>
+            <div class="module-item"><h4>Advanced Portfolio Management</h4><div class="module-credits">20 credits</div><div class="module-desc">Mean-variance optimisation, factor investing, performance attribution.</div><span class="pillar-tag">investor</span></div>
+            <div class="module-item"><h4>Alternative Investments</h4><div class="module-credits">15 credits</div><div class="module-desc">Private equity, hedge funds, real assets. Build an LBO model.</div><span class="pillar-tag">builder</span></div>
+            <div class="module-item"><h4>Behavioural Finance & ESG</h4><div class="module-credits">15 credits</div><div class="module-desc">Cognitive biases, sustainable investing, impact measurement.</div><span class="pillar-tag">innovator</span></div>
+            <div class="module-item"><h4>Applied Investment Project</h4><div class="module-credits">30 credits</div><div class="module-desc">Capstone: manage a £100k virtual portfolio, pitch to industry panel.</div><span class="pillar-tag">builder · investor</span></div>
         </div>
-        <p style="margin-top: 1rem; font-size: 0.95rem;">* full module catalogue available in programme specification.</p>
+        <p style="margin-top:1rem;"><em>+ electives: FinTech, Private Equity, Real Estate, International Finance, Mergers & Acquisitions</em></p>
     </section>
 
-    <!-- CAREER OUTCOMES -->
+    <!-- Learning experience & tools -->
     <section class="program-section">
-        <h2 class="section-title">🚀 Career outcomes</h2>
-        <div class="career-outcomes">
-            <div class="career-card">
-                <div class="career-icon">🏦</div>
-                <div class="career-title">Investment Analyst</div>
-                <div class="career-desc">Goldman Sachs, BlackRock, JP Morgan · median £65k</div>
-            </div>
-            <div class="career-card">
-                <div class="career-icon">📊</div>
-                <div class="career-title">Portfolio Manager</div>
-                <div class="career-desc">Fidelity, Schroders, Bridgewater · 15% within 5 years</div>
-            </div>
-            <div class="career-card">
-                <div class="career-icon">💹</div>
-                <div class="career-title">Corporate Fin. Associate</div>
-                <div class="career-desc">M&A, restructuring · boutiques & bulge bracket</div>
-            </div>
-            <div class="career-card">
-                <div class="career-icon">📈</div>
-                <div class="career-title">Research / Sales & Trading</div>
-                <div class="career-desc">Citadel, Barclays, boutique prop shops</div>
-            </div>
+        <h2 class="section-title">🛠️ Learning experience · tools you'll master</h2>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; text-align:center;">
+            <div style="background:#eef3f6; border-radius:40px; padding:1rem;"><span style="font-weight:700;">Bloomberg terminal</span><br>certification</div>
+            <div style="background:#eef3f6; border-radius:40px; padding:1rem;"><span style="font-weight:700;">Excel / VBA</span><br>financial modelling</div>
+            <div style="background:#eef3f6; border-radius:40px; padding:1rem;"><span style="font-weight:700;">Python / pandas</span><br>data analysis</div>
+            <div style="background:#eef3f6; border-radius:40px; padding:1rem;"><span style="font-weight:700;">Trading sims</span><br>real-time markets</div>
         </div>
-        <p style="margin-top: 1.8rem; background: #e5f1f7; padding: 1rem 2rem; border-radius: 50px;"><strong>Recent graduate destinations:</strong> Goldman Sachs, Morgan Stanley, PwC Corporate Finance, BlackRock, HM Treasury, and top investment boutiques.</p>
     </section>
 
-    <!-- Divider before MBA teaser (Bachelor's page ends) -->
+    <!-- Career outcomes -->
+    <section class="program-section">
+        <h2 class="section-title">🚀 Career outcomes · where our graduates go</h2>
+        <div class="career-grid">
+            <div class="career-card"><div class="career-icon">🏦</div><div class="career-role">Investment Analyst</div><div>Goldman Sachs, BlackRock, JP Morgan · median £65k</div></div>
+            <div class="career-card"><div class="career-icon">📊</div><div class="career-role">Portfolio Manager</div><div>Fidelity, Schroders, Bridgewater</div></div>
+            <div class="career-card"><div class="career-icon">💼</div><div class="career-role">Corporate Fin. Associate</div><div>M&A, restructuring, boutiques & bulge bracket</div></div>
+        </div>
+        <p style="margin-top:1.8rem; background: #e5f1f7; padding:1rem 2rem; border-radius:50px;"><strong>Recent graduate destinations:</strong> Goldman Sachs, Morgan Stanley, PwC Corporate Finance, BlackRock, HM Treasury, and top investment boutiques.</p>
+    </section>
+
+    <!-- Entry requirements -->
+    <section class="program-section">
+        <h2 class="section-title">📝 Entry requirements · 2026 entry</h2>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;">
+            <div><span class="stat-label">A-levels</span><div class="stat-value">ABB – A*AA</div></div>
+            <div><span class="stat-label">IB</span><div class="stat-value">32–38 points</div></div>
+            <div><span class="stat-label">UCAS tariff</span><div class="stat-value">128–160</div></div>
+        </div>
+        <p style="margin-top:1rem;">GCSE: Mathematics at grade 6/B and English at grade 5/C. <br>English language requirements: IELTS 7.0 overall (min 6.5 in each component).</p>
+    </section>
+
+    <!-- How to apply / fees -->
+    <section class="program-section">
+        <h2 class="section-title">📌 Fees & how to apply</h2>
+        <div style="display:flex; gap:2rem; flex-wrap:wrap;">
+            <div style="flex:1;">
+                <div class="stat-value">£14,500</div><div class="stat-desc">home fees (2026)</div>
+                <div class="stat-value" style="margin-top:1rem;">£24,800</div><div class="stat-desc">international fees</div>
+                <p style="margin-top:1rem;">Scholarships available: Nolan Excellence Award, Women in Finance Scholarship.</p>
+            </div>
+            <div style="flex:1;">
+                <p><strong>Apply through UCAS</strong><br>Institution code: N38 · Course code: N3N5</p>
+                <p>Deadline: 29 January 2026</p>
+                <a href="#" class="btn-gold">📄 Apply via UCAS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related programmes / MBA pathway -->
     <hr>
-
-    <!-- MBA Entrepreneurship & Innovation (teaser / quick view) -->
-    <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; background: #e4edf3; border-radius: 48px; padding: 2rem 2.5rem; margin-top: 2rem;">
-        <div style="flex: 1; min-width: 200px;">
-            <span style="background: #0b2b3c; color: white; font-weight: 700; padding: 0.2rem 1.2rem; border-radius: 30px;">NEXT · MBA</span>
-            <h2 style="font-size: 2.5rem; font-weight: 800; margin: 0.7rem 0 0.2rem; color: #1e4a6d;">Entrepreneurship & Innovation</h2>
-            <p style="font-size: 1.1rem; margin: 0.4rem 0;">for visionary builders, disruptors and scale‑up leaders.</p>
+    <div style="background: #eef3f6; border-radius: 48px; padding: 2rem 2.5rem; border: 2px solid var(--nolan-gold);">
+        <h2 style="font-size: 2rem; font-weight: 800; color: var(--nolan-navy);">Future pathways</h2>
+        <p style="font-size: 1.1rem; margin-bottom:1rem;">After your BSc, continue your journey at Nolan:</p>
+        <div style="display:flex; gap:2rem; flex-wrap:wrap;">
+            <div><span class="pillar-tag">MBA</span> <strong>MBA Entrepreneurship & Innovation</strong> – for builders, investors, innovators</div>
+            <div><span class="pillar-tag">MSc</span> <strong>MSc Finance & Capital Markets</strong> – advanced finance specialisation</div>
         </div>
-        <div style="flex: 1.5;">
-            <p><strong>Overview:</strong> A 12‑month MBA blending lean startup, venture finance, design thinking, and corporate innovation. You will launch a real venture or scale an existing one with Nolan’s incubator.</p>
-            <p><strong>Curriculum highlights:</strong> Entrepreneurial Finance, New Venture Creation, Tech Commercialisation, Innovation Strategy, Venture Capital & PE, plus a final venture project.</p>
-            <p><strong>Career outcomes:</strong> founder, venture capitalist, innovation manager, product leader · 40% start a venture within 2 years.</p>
-            <a href="#" class="btn-mba">📄 view full MBA page →</a>
+        <div style="margin-top:1.5rem;">
+            <a href="#" class="btn-gold">→ view MBA programme</a>
         </div>
     </div>
 
-    <!-- Detailed courses for MBA (quick summary) -->
-    <section class="program-section" style="margin-top: 2rem;">
-        <h2 class="section-title">📘 MBA Entrepreneurship & Innovation – core modules</h2>
-        <div class="detail-cards">
-            <div class="course-detail-item"><strong>Leading Innovation & Change</strong> <span class="credits">10 ECTS</span><div class="desc">Organisational behaviour, culture for creativity.</div></div>
-            <div class="course-detail-item"><strong>Entrepreneurial Finance & VC</strong> <span class="credits">10 ECTS</span><div class="desc">Valuing start‑ups, term sheets, fund raising, unit economics.</div></div>
-            <div class="course-detail-item"><strong>New Venture Creation Lab</strong> <span class="credits">15 ECTS</span><div class="desc">From ideation to MVP, customer discovery, pitch practice.</div></div>
-            <div class="course-detail-item"><strong>Technology & Innovation Strategy</strong> <span class="credits">10 ECTS</span><div class="desc">Disruptive tech, IP, platform ecosystems.</div></div>
-            <div class="course-detail-item"><strong>Venture Growth & Scaling</strong> <span class="credits">10 ECTS</span><div class="desc">Scaling operations, hiring, internationalisation.</div></div>
-        </div>
-        <div style="margin-top: 1.5rem; background: #fff9dd; border-radius: 28px; padding: 1.2rem 2rem;">
-            ⚡ <strong>Career outcomes:</strong> 70% launch a venture within 3 years · roles at Balderton, Atomico, McKinsey Innovation, or founding own startup.
-        </div>
-    </section>
-
-    <!-- footer / accreditation -->
+    <!-- footer -->
     <div class="footer-note">
-        <p>Nolan University · Department of Finance & Entrepreneurship · Triple accredited: AMBA, EQUIS, AACSB<br>
-        © 2025 Nolan University. This is a concept page for BSc Finance & Investment and MBA Entrepreneurship & Innovation.</p>
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · Triple accredited: AMBA, EQUIS, AACSB<br>
+        © 2025 Nolan University · BSc Finance & Investment · UCAS code N3N5</p>
     </div>
 </div>
 </body>
