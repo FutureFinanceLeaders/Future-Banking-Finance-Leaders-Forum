@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan MBA · Complete Learning Materials · Theory to Capstone</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0B2A3B;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
+            padding-bottom: 1.25rem;
+        }
+
+        .uni-logo {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--nolan-navy);
+        }
+
+        .uni-name span {
+            color: var(--nolan-navy);
+            font-weight: 600;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--nolan-navy);
+            margin: 2rem 0 0.5rem 0;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #2d4f62;
+            margin-bottom: 2rem;
+        }
+
+        /* resource type tabs */
+        .resource-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+        .resource-tab {
+            background: white;
+            border: 2px solid var(--nolan-navy);
+            color: var(--nolan-navy);
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+        .resource-tab.active {
+            background: var(--nolan-gold);
+            border-color: var(--nolan-navy);
+        }
+        .resource-tab:hover {
+            background: var(--nolan-navy);
+            color: white;
+        }
+
+        /* module selector */
+        .module-selector {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+        .module-btn {
+            background: var(--nanol-gray-soft);
+            border: 1px solid var(--nolan-navy);
+            color: var(--nolan-navy);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .module-btn.active {
+            background: var(--nolan-gold);
+            border-color: var(--nolan-navy);
+            font-weight: 600;
+        }
+        .module-btn:hover {
+            background: var(--nolan-navy);
+            color: white;
+        }
+
+        /* main content area */
+        .content-area {
+            background: var(--nolan-white);
+            border-radius: 32px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 2px solid var(--nolan-gold);
+            min-height: 600px;
+        }
+
+        .resource-section {
+            display: none;
+        }
+        .resource-section.active {
+            display: block;
+        }
+
+        .module-content {
+            display: none;
+        }
+        .module-content.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 1.5rem;
+            border-left: 6px solid var(--nolan-gold);
+            padding-left: 1rem;
+        }
+
+        .subsection-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--nolan-navy);
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        /* cards */
+        .resource-card {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--nolan-gold);
+        }
+        .resource-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .resource-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+        }
+        .resource-source {
+            background: var(--nanol-gray-soft);
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: var(--nolan-navy);
+        }
+        .resource-meta {
+            color: #3b687d;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .resource-content {
+            color: #235a72;
+        }
+        .resource-content ul, .resource-content ol {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .resource-content li {
+            margin-bottom: 0.3rem;
+        }
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+        .video-link {
+            display: inline-block;
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+            margin-top: 0.5rem;
+        }
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3b687d;
+            border-top: 2px solid var(--nolan-gold);
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 800px) {
+            .module-selector {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="university-header">
+        <div class="uni-logo">NU</div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
+    </div>
+
+    <!-- global tagline -->
+    <div class="global-tagline">
+        <strong>MBA in Entrepreneurship & Innovation</strong> · Complete Learning Materials · 8 Resource Types
+    </div>
+
+    <!-- page heading -->
+    <h1 class="page-title">📚 Your Complete MBA Learning Portal</h1>
+    <p class="page-subtitle">Eight integrated resource types: Theory notes, textbook readings, case studies, video lectures, practical exercises, peer discussions, assignments, and capstone project framework.</p>
+
+    <!-- resource type tabs -->
+    <div class="resource-tabs">
+        <button class="resource-tab active" onclick="showResource('theory')">📘 Theory Notes</button>
+        <button class="resource-tab" onclick="showResource('textbooks')">📚 Textbook Readings</button>
+        <button class="resource-tab" onclick="showResource('cases')">📁 Case Studies</button>
+        <button class="resource-tab" onclick="showResource('videos')">🎥 Video Lectures</button>
+        <button class="resource-tab" onclick="showResource('practical')">🛠️ Practical Exercises</button>
+        <button class="resource-tab" onclick="showResource('discussion')">💬 Peer Discussion</button>
+        <button class="resource-tab" onclick="showResource('assignments')">📝 Assignments</button>
+        <button class="resource-tab" onclick="showResource('capstone')">🚀 Capstone Project</button>
+    </div>
+
+    <!-- module selector (core modules) -->
+    <div class="module-selector">
+        <button class="module-btn active" onclick="showModule('nvf')">New Venture Finance</button>
+        <button class="module-btn" onclick="showModule('mindset')">Entrepreneurial Mindset</button>
+        <button class="module-btn" onclick="showModule('data')">Data Analytics</button>
+        <button class="module-btn" onclick="showModule('marketing')">Marketing for Startups</button>
+        <button class="module-btn" onclick="showModule('vcpe')">VC & Private Equity</button>
+        <button class="module-btn" onclick="showModule('design')">Design Thinking</button>
+        <button class="module-btn" onclick="showModule('tech')">Technology Strategy</button>
+        <button class="module-btn" onclick="showModule('ops')">Entrepreneurial Operations</button>
+        <button class="module-btn" onclick="showModule('lab')">Venture Lab</button>
+    </div>
+
+    <!-- main content area -->
+    <div class="content-area" id="content-area">
+        <!-- THEORY NOTES SECTION -->
+        <div id="theory-section" class="resource-section active">
+            <!-- New Venture Finance Theory -->
+            <div id="theory-nvf" class="module-content active">
+                <div class="section-title">📘 New Venture Finance · Theory Notes</div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">1. Valuation Fundamentals</span><span class="resource-source">Week 1</span></div>
+                    <div class="resource-content">
+                        <p><strong>Key Concepts:</strong></p>
+                        <ul>
+                            <li><strong>Pre-money vs Post-money valuation:</strong> Pre-money is value before investment. Post-money = Pre-money + Investment. Example: £5M pre + £2M investment = £7M post. Investor owns 2/7 = 28.6%.</li>
+                            <li><strong>Discounted Cash Flow (DCF):</strong> Project future cash flows, discount at appropriate rate. For startups, high discount rates (30-50%) reflect risk.</li>
+                            <li><strong>Venture Capital Method:</strong> Terminal value ÷ expected ROI. If exit at £50M, target 10x return, post-money = £5M.</li>
+                            <li><strong>Scorecard Method:</strong> Compare to similar startups, adjust for team, market, product.</li>
+                            <li><strong>Berkus Method:</strong> Assign value to key success factors (up to £2M).</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">2. Term Sheets: Economic Terms</span><span class="resource-source">Week 2</span></div>
+                    <div class="resource-content">
+                        <p><strong>Key Clauses:</strong></p>
+                        <ul>
+                            <li><strong>Liquidation Preference:</strong> 1x non-participating is standard. 1x participating is founder-unfriendly.</li>
+                            <li><strong>Conversion Rights:</strong> Preferred converts to common at IPO or acquisition.</li>
+                            <li><strong>Anti-dilution:</strong> Weighted average (broad/narrow) vs full ratchet.</li>
+                            <li><strong>Dividends:</strong> Usually cumulative, rarely paid.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">3. Term Sheets: Control Terms</span><span class="resource-source">Week 3</span></div>
+                    <div class="resource-content">
+                        <ul>
+                            <li><strong>Board Composition:</strong> Typical: 2 founders, 2 VCs, 1 independent.</li>
+                            <li><strong>Protective Provisions:</strong> VC veto rights on major decisions.</li>
+                            <li><strong>Drag-Along:</strong> Forces minority shareholders to join a sale.</li>
+                            <li><strong>Right of First Refusal (ROFR):</strong> Investors can match any share sale.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Entrepreneurial Mindset Theory -->
+            <div id="theory-mindset" class="module-content">
+                <div class="section-title">🧠 Entrepreneurial Mindset · Theory Notes</div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Effectuation Principles</span></div>
+                    <div class="resource-content">
+                        <p><strong>Saras Sarasvathy's 5 principles [citation:2]:</strong></p>
+                        <ul>
+                            <li><strong>Bird-in-hand:</strong> Start with who you are, what you know, whom you know.</li>
+                            <li><strong>Affordable loss:</strong> Invest what you can afford to lose, not expected return.</li>
+                            <li><strong>Lemonade principle:</strong> Leverage surprises and contingencies.</li>
+                            <li><strong>Crazy quilt:</strong> Build partnerships and pre-commitments.</li>
+                            <li><strong>Pilot-in-the-plane:</strong> Focus on activities you can control.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Opportunity Recognition Framework</span></div>
+                    <div class="resource-content">
+                        <p>Three essential components: <strong>Pain points</strong> (customer problems), <strong>market gaps</strong> (underserved needs), and <strong>trends</strong> (technological, social, regulatory shifts) [citation:5].</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Data Analytics Theory -->
+            <div id="theory-data" class="module-content">
+                <div class="section-title">📊 Data Analytics · Theory Notes</div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Cohort Analysis</span></div>
+                    <div class="resource-content">
+                        <p>Cohorts group users by acquisition date. Track retention, revenue, engagement over time. Key metrics: retention curve, LTV, CAC, payback period.</p>
+                        <p><strong>LTV formula:</strong> (Average Order Value × Purchase Frequency × Gross Margin) / Churn Rate</p>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">A/B Testing Fundamentals</span></div>
+                    <div class="resource-content">
+                        <ul>
+                            <li>Statistical significance (p < 0.05)</li>
+                            <li>Minimum sample size calculation</li>
+                            <li>Avoiding common pitfalls (novelty effect, selection bias)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEXTBOOK READINGS SECTION -->
+        <div id="textbooks-section" class="resource-section">
+            <div class="section-title">📚 Essential Textbook Readings by Module</div>
+            
+            <div id="textbooks-nvf" class="module-content active">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Venture Deals</span><span class="resource-source">Feld & Mendelson</span></div>
+                    <div class="resource-content">
+                        <p><strong>Required chapters:</strong> 1-3 (Valuation), 4-5 (Economic terms), 6-7 (Control terms), 8-9 (Capitalization), 10 (Negotiation).</p>
+                        <p><strong>4th or 5th edition:</strong> Both acceptable. Available on Amazon and Wiley.</p>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Entrepreneurial Finance</span><span class="resource-source">Smith & Smith</span></div>
+                    <div class="resource-content">
+                        <p>Chapters 5-8: Valuation methods for early-stage ventures. Chapters 12-14: Term sheets and deal structures.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="textbooks-mindset" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Entrepreneurship, 6th Edition</span><span class="resource-source">Zacharakis, Corbett & Bygrave</span></div>
+                    <div class="resource-content">
+                        <p>The leading Babson College textbook [citation:7][citation:10]. <strong>Key chapters:</strong> 1-2 (Entrepreneurial mindset), 4 (Opportunity recognition), 5 (Business models), 6 (Customer discovery). Includes "Opportunity Journal" exercises and real-world cases [citation:7].</p>
+                        <p><em>Publisher: Wiley · ISBN: 9781394262809</em></p>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Effectuation: Elements of Entrepreneurial Expertise</span><span class="resource-source">Saras Sarasvathy</span></div>
+                    <div class="resource-content">
+                        <p>Chapters 2-4: The five principles of effectuation. Chapters 6-7: Expert entrepreneurial thinking.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="textbooks-vcpe" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Private Equity</span><span class="resource-source">Cendrowski et al.</span></div>
+                    <div class="resource-content">
+                        <p>Chapters 3-5: LBO modelling and fund economics. Chapters 8-10: Deal structuring and due diligence.</p>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Venture Capital & Private Equity</span><span class="resource-source">Lerner, Leamon & Hardymon</span></div>
+                    <div class="resource-content">
+                        <p>Part I: Industry structure and fund formation. Part II: Deal sourcing and execution. Part III: Governance and exits.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="textbooks-tech" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">The Innovator's Dilemma</span><span class="resource-source">Clayton Christensen</span></div>
+                    <div class="resource-content">
+                        <p>Chapters 1-4: Disruptive innovation theory. Chapters 7-8: Managing disruptive technologies.</p>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Corporate Entrepreneurship and Innovation, 5th Edition</span><span class="resource-source">Paul Burns</span></div>
+                    <div class="resource-content">
+                        <p>Features the entrepreneurial architecture framework: culture, structures, leadership, and strategy. Over 75 global case insights including DeepMind, Patagonia, Samsung. Includes 'Explore Further' feature with video links [citation:1][citation:4]. <strong>Published April 2025 · 528 pages</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CASE STUDIES SECTION -->
+        <div id="cases-section" class="resource-section">
+            <div class="section-title">📁 Real-World Case Studies</div>
+            
+            <div id="cases-nvf" class="module-content active">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Uber Series A</span><span class="resource-source">HBS Case · 2011</span></div>
+                    <div class="resource-content">
+                        <p><strong>Situation:</strong> Uber sought £10M Series A at £50M pre-money. Benchmark Capital led the round with unusual provisions.</p>
+                        <p><strong>Discussion questions:</strong></p>
+                        <ul>
+                            <li>What clauses protected Benchmark? What did founders concede?</li>
+                            <li>Build pro-forma cap table showing ownership after round.</li>
+                            <li>How did the valuation compare to comps?</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">The Theranos Term Sheet</span><span class="resource-source">Nolan Custom Case</span></div>
+                    <div class="resource-content">
+                        <p>Analysis of red flags in term sheets: excessive control provisions, valuation discrepancies, and governance failures.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="cases-vcpe" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">The Blackstone IPO</span><span class="resource-source">HBS Case</span></div>
+                    <div class="resource-content">
+                        <p>Fund economics and governance in a leading PE firm. Examines carried interest, management fees, and public market trade-offs.</p>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Permira's Acquisition of Just Eat</span><span class="resource-source">Custom Case</span></div>
+                    <div class="resource-content">
+                        <p>LBO execution in a tech-enabled business. Debt structure, valuation, and exit strategy.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="cases-mindset" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Airbnb: From Cereal Boxes to Unicorn</span><span class="resource-source">Stanford Case</span></div>
+                    <div class="resource-content">
+                        <p>Customer discovery and pivoting. How the founders validated demand through unconventional methods.</p>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Tesla's Vertical Integration</span><span class="resource-source">Custom Case</span></div>
+                    <div class="resource-content">
+                        <p>Innovation strategy and operational scaling in a capital-intensive venture.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIDEO LECTURES SECTION -->
+        <div id="videos-section" class="resource-section">
+            <div class="section-title">🎥 Expert Video Lectures</div>
+            
+            <div id="videos-nvf" class="module-content active">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Term Sheet Negotiation (Prof. Julia Daley)</span><span class="resource-source">62 min</span></div>
+                    <div class="resource-content">
+                        <p>Step-by-step walkthrough of a real VC negotiation. Covers liquidation preferences, anti-dilution, and board composition.</p>
+                        <a href="#" class="video-link" onclick="alert('Video would play: Term Sheet Negotiation')">▶️ Watch lecture</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Cap Table Modelling in Excel</span><span class="resource-source">45 min</span></div>
+                    <div class="resource-content">
+                        <p>Screen-recorded tutorial building multi-round cap tables with option pools and down-round protection.</p>
+                        <a href="#" class="video-link" onclick="alert('Video would play: Cap Table Modelling')">▶️ Watch tutorial</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="videos-mindset" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">The DNA of the World's Most Innovative Companies</span><span class="resource-source">16 min</span></div>
+                    <div class="resource-content">
+                        <p>Analysis of innovation cultures at leading companies [citation:5].</p>
+                        <a href="#" class="video-link" onclick="alert('Video would play: Innovation DNA')">▶️ Watch lecture</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">How to Identify Customer Pain Points</span><span class="resource-source">24 min playlist</span></div>
+                    <div class="resource-content">
+                        <p>Series of short videos on opportunity recognition and value proposition design [citation:5].</p>
+                        <a href="#" class="video-link" onclick="alert('Video playlist would open')">▶️ Watch playlist</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="videos-design" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Design Thinking Process (IDEO)</span><span class="resource-source">50 min</span></div>
+                    <div class="resource-content">
+                        <p>Stanford webinar on applying design thinking to business challenges [citation:5].</p>
+                        <a href="#" class="video-link" onclick="alert('Video would play: Design Thinking')">▶️ Watch webinar</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">GV's Sprint Process in 90 Seconds</span><span class="resource-source">1.5 min</span></div>
+                    <div class="resource-content">
+                        <p>Quick overview of Google Ventures' design sprint methodology [citation:5].</p>
+                        <a href="#" class="video-link" onclick="alert('Video would play: GV Sprint')">▶️ Watch video</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRACTICAL EXERCISES SECTION -->
+        <div id="practical-section" class="resource-section">
+            <div class="section-title">🛠️ Hands-On Skill Building</div>
+            
+            <div id="practical-nvf" class="module-content active">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Build a 3-Round Cap Table</span></div>
+                    <div class="resource-content">
+                        <p><strong>Scenario:</strong> Seed: £500k at £2M pre. Series A: £3M at £8M pre. Series B: £5M at £15M pre (down round). Option pool: 15%.</p>
+                        <p><strong>Deliverable:</strong> Excel file showing ownership percentages, fully diluted shares, and anti-dilution impact.</p>
+                        <button class="btn-gold" onclick="alert('Cap table template would download')">📥 Download Starter Excel</button>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Term Sheet Comparison</span></div>
+                    <div class="resource-content">
+                        <p>Compare two term sheets for the same company. Calculate outcomes at £30M, £50M, and £100M exits. Which term sheet is more founder-friendly?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="practical-data" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Python Cohort Analysis</span></div>
+                    <div class="resource-content">
+                        <p>Using provided e-commerce transaction dataset, build a cohort retention table in Python. Calculate LTV for each cohort.</p>
+                        <button class="btn-gold" onclick="alert('Dataset would download')">📥 Download Dataset</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="practical-vcpe" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">LBO Model Build</span></div>
+                    <div class="resource-content">
+                        <p><strong>Assumptions:</strong> Acquisition price £100M, debt £60M (5% interest), EBITDA £15M growing 5% annually, exit multiple 8x in year 5.</p>
+                        <p>Calculate IRR, cash-on-cash return, and debt paydown schedule.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PEER DISCUSSION SECTION -->
+        <div id="discussion-section" class="resource-section">
+            <div class="section-title">💬 Collaborative Learning · Discussion Prompts</div>
+            
+            <div id="discussion-nvf" class="module-content active">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Week 2 Discussion</span></div>
+                    <div class="resource-content">
+                        <p><strong>Prompt:</strong> "What's the most important clause in a term sheet and why? Share a real example where a clause significantly impacted a startup's outcome."</p>
+                        <p><em>Post your response (300-400 words) and reply to two classmates.</em></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="discussion-mindset" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Week 4 Discussion</span></div>
+                    <div class="resource-content">
+                        <p><strong>Prompt:</strong> "Describe a time you identified a business opportunity. Which of Sarasvathy's effectuation principles did you apply (consciously or unconsciously)?" [citation:2]</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="discussion-tech" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Week 8 Discussion</span></div>
+                    <div class="resource-content">
+                        <p><strong>Prompt:</strong> "Is Uber a tech company or a transportation company? How does that framing affect its valuation and strategy?"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="discussion-lab" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Capstone Peer Exchange</span></div>
+                    <div class="resource-content">
+                        <p>Share your venture idea and get feedback from classmates. Use the structured feedback template: 1) What's compelling? 2) What's missing? 3) What would you change?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ASSIGNMENTS SECTION -->
+        <div id="assignments-section" class="resource-section">
+            <div class="section-title">📝 Summative Assessments</div>
+            
+            <div id="assignments-nvf" class="module-content active">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Investment Memo</span><span class="resource-source">40% · Due Week 6</span></div>
+                    <div class="resource-content">
+                        <p>Choose a real early-stage startup. Write a 3-page investment memo including:</p>
+                        <ul>
+                            <li>Company overview and problem</li>
+                            <li>Market analysis</li>
+                            <li>Financial projections and valuation</li>
+                            <li>Terms and structure recommendation</li>
+                            <li>Risk factors and mitigants</li>
+                        </ul>
+                        <button class="btn-gold" onclick="alert('Assignment rubric would open')">📋 View Rubric</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="assignments-mindset" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Opportunity Brief</span><span class="resource-source">50% · Due Week 6</span></div>
+                    <div class="resource-content">
+                        <p>Identify a business opportunity. Submit a 2-page brief covering: problem, solution, customer, market size, and next steps.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="assignments-vcpe" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">LBO Model & Investment Memo</span><span class="resource-source">50% · Due Week 6</span></div>
+                    <div class="resource-content">
+                        <p>Submit an Excel LBO model and 2-page investment memo for a leveraged buyout opportunity.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="assignments-lab" class="module-content">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Video Pitch (Group)</span><span class="resource-source">30% of capstone</span></div>
+                    <div class="resource-content">
+                        <p>Following real MBA program assessments [citation:2], submit a video presentation of your venture idea (5-7 minutes).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CAPSTONE PROJECT SECTION -->
+        <div id="capstone-section" class="resource-section">
+            <div class="section-title">🚀 Venture Creation Lab · Capstone Project</div>
+            
+            <div id="capstone-lab" class="module-content active">
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Project Overview</span></div>
+                    <div class="resource-content">
+                        <p>Based on real MBA capstone experiences [citation:3][citation:9], you will work in teams to develop a comprehensive venture plan. This is the culmination of your MBA, integrating all prior learning.</p>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Phase 1: Problem Validation (Weeks 1-2)</span></div>
+                    <div class="resource-content">
+                        <ul>
+                            <li>Conduct 20+ customer discovery interviews [citation:5]</li>
+                            <li>Develop problem-solution canvas</li>
+                            <li>Deliverable: Problem validation report (3 pages)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Phase 2: MVP Development (Weeks 3-4)</span></div>
+                    <div class="resource-content">
+                        <ul>
+                            <li>Build working prototype (Figma, no-code, or simple app)</li>
+                            <li>Conduct user tests with 5-10 potential users</li>
+                            <li>Deliverable: Prototype + user test results</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Phase 3: Business Model & Financials (Weeks 5-6)</span></div>
+                    <div class="resource-content">
+                        <ul>
+                            <li>Business Model Canvas</li>
+                            <li>Unit economics (LTV, CAC, payback period)</li>
+                            <li>3-year financial projections (P&L, balance sheet, cash flow)</li>
+                            <li>Cap table and fundraising plan</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Phase 4: Pitch Preparation (Weeks 7-8)</span></div>
+                    <div class="resource-content">
+                        <ul>
+                            <li>Investor pitch deck (10-12 slides)</li>
+                            <li>Pitch rehearsal and feedback sessions</li>
+                            <li>Deliverable: Pitch deck + 5-minute video pitch [citation:2]</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-header"><span class="resource-title">Demo Day (Week 9)</span></div>
+                    <div class="resource-content">
+                        <p>Present to a panel of investors, entrepreneurs, and faculty. Following Imperial College's model, you'll receive feedback from an esteemed panel [citation:9].</p>
+                        <p><strong>Final deliverable:</strong> Full venture package including all above components.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        function showResource(resource) {
+            // Update tab buttons
+            var tabs = document.getElementsByClassName('resource-tab');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            event.target.classList.add('active');
+            
+            // Show selected resource section
+            var sections = document.getElementsByClassName('resource-section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active');
+            }
+            document.getElementById(resource + '-section').classList.add('active');
+            
+            // Get active module
+            var activeModule = document.querySelector('.module-btn.active');
+            if (activeModule) {
+                var moduleId = activeModule.getAttribute('onclick').match(/'([^']+)'/)[1];
+                showModuleInCurrentSection(moduleId);
+            }
+        }
+
+        function showModule(moduleId) {
+            // Update module buttons
+            var btns = document.getElementsByClassName('module-btn');
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].classList.remove('active');
+            }
+            event.target.classList.add('active');
+            
+            showModuleInCurrentSection(moduleId);
+        }
+
+        function showModuleInCurrentSection(moduleId) {
+            // Get current active section
+            var activeSection = document.querySelector('.resource-section.active').id;
+            var sectionPrefix = activeSection.replace('-section', '');
+            
+            // Hide all module contents in this section
+            var section = document.getElementById(activeSection);
+            var moduleContents = section.getElementsByClassName('module-content');
+            for (var i = 0; i < moduleContents.length; i++) {
+                moduleContents[i].classList.remove('active');
+            }
+            
+            // Show selected module
+            var targetId = sectionPrefix + '-' + moduleId;
+            var targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.classList.add('active');
+            } else {
+                // Fallback to first module if specific combo not found
+                var firstModule = section.getElementsByClassName('module-content')[0];
+                if (firstModule) firstModule.classList.add('active');
+            }
+        }
+
+        // Initialize: ensure first module shows in each section
+        window.onload = function() {
+            showModuleInCurrentSection('nvf');
+        };
+    </script>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · 100% Online MBA · Complete Learning Materials<br>
+        © 2025 Nolan University · All resources are part of the official MBA curriculum · Updated for 2026 cohort</p>
+    </div>
+</div>
+</body>
+</html>
