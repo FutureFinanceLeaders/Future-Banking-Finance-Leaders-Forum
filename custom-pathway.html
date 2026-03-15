@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nolan University · Special Case: Accelerated Concurrent BSc + MBA</title>
+    <title>Nolan University · Special Case: Accelerated Concurrent BSc + MBA (Corrected MBA Structure)</title>
     <!-- Font & base styling -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -242,6 +242,13 @@
             font-size: 0.8rem;
             margin-left: 0.3rem;
         }
+        .term-total {
+            margin-top: 0.8rem;
+            font-weight: 600;
+            color: var(--nolan-navy);
+            border-top: 1px dashed var(--nolan-gold);
+            padding-top: 0.5rem;
+        }
 
         .synergy-grid {
             display: grid;
@@ -337,11 +344,11 @@
     </div>
 
     <!-- special badge -->
-    <div class="special-badge">⚡ STUDENT-CUSTOMISED PATHWAY · OFFICIAL PROGRAMME PLAN</div>
+    <div class="special-badge">⚡ STUDENT-CUSTOMISED PATHWAY · OFFICIAL PROGRAMME PLAN · CORRECTED MBA STRUCTURE</div>
 
     <!-- page heading -->
     <h1 class="page-title">Your 3-Year Accelerated Concurrent Degree Plan</h1>
-    <p class="page-subtitle">BSc completed in 2.5 years · MBA completed in 12 months · MBA Certificate awarded after Year 1</p>
+    <p class="page-subtitle">BSc completed in 2.5 years · MBA completed in 12 months (90 credits: 45+45+30) · MBA Certificate awarded after Year 1</p>
 
     <!-- timeline visual -->
     <div class="timeline">
@@ -375,10 +382,21 @@
     <!-- milestone: MBA after Year 1 -->
     <div class="milestone">
         <h2 style="color: var(--nolan-gold);">🎓 END OF YEAR 1 · YOU RECEIVE YOUR MBA CERTIFICATE</h2>
-        <p style="margin-top:0.5rem;">After 12 months of intensive concurrent study, you are awarded the MBA in Entrepreneurship & Innovation. You may begin working in MBA-level roles while completing your BSc.</p>
+        <p style="margin-top:0.5rem;">After 12 months of intensive concurrent study, you are awarded the MBA in Entrepreneurship & Innovation (90 credits total). You may begin working in MBA-level roles while completing your BSc.</p>
     </div>
 
-    <!-- Year 1: The Intensive Year -->
+    <!-- MBA Credit Structure Summary -->
+    <div style="background: var(--nanol-gray-soft); border-radius: 30px; padding: 1.5rem; margin-bottom: 2rem; text-align: center; border: 2px solid var(--nolan-gold);">
+        <h2 style="color: var(--nolan-navy);">📊 MBA Programme Credit Structure</h2>
+        <div style="display: flex; justify-content: center; gap: 3rem; margin-top: 1rem; flex-wrap: wrap;">
+            <div><span style="font-weight:700; font-size:2rem;">45</span><br>Term 1 Credits</div>
+            <div><span style="font-weight:700; font-size:2rem;">45</span><br>Term 2 Credits</div>
+            <div><span style="font-weight:700; font-size:2rem;">30</span><br>Term 3 Credits</div>
+            <div><span style="font-weight:700; font-size:2rem;">90</span><br>Total Credits</div>
+        </div>
+    </div>
+
+    <!-- Year 1: The Intensive Year (Corrected MBA Structure) -->
     <h2 class="section-title">📅 Year 1 · Concurrent Study (BSc + MBA)</h2>
     <div class="term-grid">
         <!-- Term 1 Fall -->
@@ -392,12 +410,14 @@
                 <li>Quantitative Methods 1 <span class="credits">20</span></li>
                 <li>Macroeconomics <span class="credits">20</span></li>
             </ul>
-            <div style="margin:0.8rem 0;"><strong>MBA Modules (35 credits)</strong></div>
+            <div style="margin:0.8rem 0;"><strong>MBA Modules (45 credits) · Term 1</strong></div>
             <ul class="module-list">
                 <li>New Venture Finance <span class="credits">15</span></li>
-                <li>Entrepreneurial Mindset <span class="credits">10</span></li>
+                <li>Entrepreneurial Mindset & Creativity <span class="credits">10</span></li>
                 <li>Data Analytics for Startups <span class="credits">10</span></li>
+                <li>Marketing for Startups <span class="credits">10</span></li>
             </ul>
+            <div class="term-total">MBA Term Total: 45 credits</div>
         </div>
         <!-- Term 2 Spring -->
         <div class="term-card">
@@ -410,12 +430,14 @@
                 <li>Introduction to Investment Banking <span class="credits">20</span></li>
                 <li>Professional Skills <span class="credits">20</span></li>
             </ul>
-            <div style="margin:0.8rem 0;"><strong>MBA Modules (35 credits)</strong></div>
+            <div style="margin:0.8rem 0;"><strong>MBA Modules (45 credits) · Term 2</strong></div>
             <ul class="module-list">
                 <li>Venture Capital & Private Equity <span class="credits">15</span></li>
-                <li>Design Thinking <span class="credits">10</span></li>
-                <li>Technology Strategy <span class="credits">10</span></li>
+                <li>Design Thinking & Product Development <span class="credits">10</span></li>
+                <li>Technology & Innovation Strategy <span class="credits">10</span></li>
+                <li>Entrepreneurial Operations <span class="credits">10</span></li>
             </ul>
+            <div class="term-total">MBA Term Total: 45 credits</div>
         </div>
         <!-- Term 3 Summer -->
         <div class="term-card">
@@ -426,13 +448,14 @@
                 <li>Light load or break</li>
                 <li>Optional: Begin capstone preparation</li>
             </ul>
-            <div style="margin:0.8rem 0;"><strong>MBA Modules (30 credits)</strong></div>
+            <div style="margin:0.8rem 0;"><strong>MBA Modules (30 credits) · Term 3</strong></div>
             <ul class="module-list">
                 <li>New Venture Creation Lab (Capstone) <span class="credits">15</span></li>
-                <li>Corporate Innovation <span class="credits">10</span></li>
-                <li>Global Immersion (optional) <span class="credits">5</span></li>
+                <li>Corporate Innovation & Intrapreneurship <span class="credits">10</span></li>
+                <li>Global Immersion (Elective) <span class="credits">5</span></li>
             </ul>
-            <div style="margin-top:1rem; background:var(--nolan-gold); padding:0.3rem; border-radius:30px; text-align:center; font-weight:700;">✅ MBA COMPLETE</div>
+            <div class="term-total">MBA Term Total: 30 credits</div>
+            <div style="margin-top:1rem; background:var(--nolan-gold); padding:0.3rem; border-radius:30px; text-align:center; font-weight:700;">✅ MBA COMPLETE (90 credits)</div>
         </div>
     </div>
 
@@ -531,7 +554,7 @@
             <div>08-10 BSc: Finance<br>10-12 MBA: Venture<br>14-16 BSc: Quant<br>19-21 MBA readings</div>
             <div>08-10 BSc: Accounting<br>10-12 MBA: Mindset<br>14-16 BSc: Macro<br>19-21 MBA assignment</div>
             <div>08-10 BSc: Tutorial<br>10-12 MBA: Data Lab<br>14-16 BSc: Group<br>19-21 MBA discussion</div>
-            <div>08-10 BSc: Quant live<br>10-12 MBA: Case study<br>14-16 BSc: Tutorial<br>19-21 BSc assignments</div>
+            <div>08-10 BSc: Quant live<br>10-12 MBA: Marketing<br>14-16 BSc: Tutorial<br>19-21 BSc assignments</div>
             <div>09-12 BSc review<br>13-17 MBA group project</div>
         </div>
         <div style="margin-top:1rem; background:#eef3f6; padding:0.8rem; border-radius:20px;">
@@ -588,14 +611,14 @@
     <!-- Summary -->
     <div class="milestone" style="background: var(--nolan-gold); color: var(--nolan-navy);">
         <h2 style="color: var(--nolan-navy);">✅ Pathway Summary</h2>
-        <p style="font-size:1.2rem; margin-top:0.5rem;">BSc Finance & Investment (2.5 years) + MBA Entrepreneurship & Innovation (12 months) = <strong>BOTH DEGREES IN 3 YEARS</strong></p>
+        <p style="font-size:1.2rem; margin-top:0.5rem;">BSc Finance & Investment (2.5 years) + MBA Entrepreneurship & Innovation (12 months, 90 credits: 45+45+30) = <strong>BOTH DEGREES IN 3 YEARS</strong></p>
         <p style="margin-top:0.5rem;">MBA Certificate awarded after Year 1 · BSc Certificate awarded after Year 3</p>
     </div>
 
     <!-- footer -->
     <div class="footer-note">
         <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · This is an official programme plan for a student-customised accelerated concurrent pathway.<br>
-        © 2025 Nolan University · Approved for the special case of BSc + MBA concurrent study.</p>
+        © 2025 Nolan University · Approved for the special case of BSc + MBA concurrent study · MBA structure: Term 1 (45 credits, 4 modules), Term 2 (45 credits, 4 modules), Term 3 (30 credits, 3 modules) · Total 90 credits.</p>
     </div>
 </div>
 </body>
