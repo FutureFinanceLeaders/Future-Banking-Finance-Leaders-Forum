@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan University · Career Accelerator · Executive Certificates · Industry Certifications</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0B2A3B;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
+            padding-bottom: 1.25rem;
+        }
+
+        .uni-logo {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--nolan-navy);
+        }
+
+        .uni-name span {
+            color: var(--nolan-navy);
+            font-weight: 600;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--nolan-navy);
+            margin: 2rem 0 0.5rem 0;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #2d4f62;
+            margin-bottom: 2rem;
+        }
+
+        /* category tabs */
+        .category-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+        .category-tab {
+            background: white;
+            border: 2px solid var(--nolan-navy);
+            color: var(--nolan-navy);
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .category-tab.active {
+            background: var(--nolan-gold);
+            border-color: var(--nolan-navy);
+        }
+        .category-tab:hover {
+            background: var(--nolan-navy);
+            color: white;
+        }
+
+        /* programme cards grid */
+        .programmes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .programme-card {
+            background: var(--nolan-white);
+            border-radius: 28px;
+            padding: 1.5rem;
+            border: 1px solid #dde7ed;
+            box-shadow: 0 10px 20px -10px rgba(11,42,59,0.15);
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .programme-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--nolan-gold);
+            box-shadow: 0 20px 30px -10px rgba(11,42,59,0.25);
+        }
+        .programme-card.selected {
+            border: 3px solid var(--nolan-gold);
+            background: #fafdff;
+        }
+        .programme-badge {
+            display: inline-block;
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+            border: 1px solid var(--nolan-gold);
+            text-transform: uppercase;
+        }
+        .programme-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.5rem;
+        }
+        .programme-provider {
+            color: #3b687d;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        .programme-desc {
+            color: #235a72;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        .programme-meta {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-top: 1px dashed #cbdae3;
+            padding-top: 1rem;
+        }
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .meta-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #5f7d8f;
+        }
+        .meta-value {
+            font-weight: 700;
+            color: var(--nolan-navy);
+        }
+        .pillar-tags {
+            margin-top: 0.5rem;
+        }
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+        .investor-tag {
+            background: var(--nolan-navy);
+            color: white;
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-gold);
+        }
+
+        /* detailed programme view */
+        .programme-detail {
+            background: var(--nolan-white);
+            border-radius: 32px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 2px solid var(--nolan-gold);
+            display: none;
+        }
+        .programme-detail.active {
+            display: block;
+        }
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .detail-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+        }
+        .detail-type {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            padding: 0.5rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+        .modules-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .module-row {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.2rem 1.5rem;
+            border-left: 6px solid var(--nolan-gold);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+        }
+        .module-name {
+            font-weight: 700;
+            min-width: 200px;
+        }
+        .module-hours {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+        .module-desc {
+            color: #235a72;
+            flex: 1;
+            font-size: 0.95rem;
+        }
+        .back-btn {
+            background: var(--nanol-gray-soft);
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            border: 1px solid var(--nolan-navy);
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+        }
+        .btn-gold:hover {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3b687d;
+            border-top: 2px solid var(--nolan-gold);
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 800px) {
+            .programmes-grid {
+                grid-template-columns: 1fr;
+            }
+            .module-row {
+                flex-direction: column;
+                align-items: start;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="university-header">
+        <div class="uni-logo">NU</div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
+    </div>
+
+    <!-- global tagline -->
+    <div class="global-tagline">
+        <strong>Career Accelerator · Executive Certificates · Industry Certifications</strong> · Fast-track Your Professional Growth
+    </div>
+
+    <!-- page heading -->
+    <h1 class="page-title">⚡ Short Programmes for Working Professionals</h1>
+    <p class="page-subtitle">Intensive, practical, and flexible. Earn credentials that matter – from 2 days to 12 weeks. All programmes are 100% online.</p>
+
+    <!-- category tabs -->
+    <div class="category-tabs">
+        <span class="category-tab active" onclick="filterProgrammes('all')">All</span>
+        <span class="category-tab" onclick="filterProgrammes('accelerator')">Career Accelerator</span>
+        <span class="category-tab" onclick="filterProgrammes('executive')">Executive Certificates</span>
+        <span class="category-tab" onclick="filterProgrammes('certification')">Industry Certifications</span>
+    </div>
+
+    <!-- programmes grid -->
+    <div class="programmes-grid" id="programmesGrid">
+        <!-- CAREER ACCELERATOR PROGRAMMES -->
+        <div class="programme-card" data-category="accelerator" onclick="showDetail('ib-accelerator')">
+            <span class="programme-badge">CAREER ACCELERATOR</span>
+            <div class="programme-title">Investment Banking Accelerator</div>
+            <div class="programme-provider">GSBF · 8 weeks</div>
+            <div class="programme-desc">Intensive financial modelling, valuation, and deal execution. Prepares for IB interviews.</div>
+            <div class="pillar-tags"><span class="investor-tag">INVESTOR</span><span class="pillar-tag">BUILDER</span></div>
+            <div class="programme-meta"><div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">10 hrs/week</span></div><div class="meta-item"><span class="meta-label">Next start</span><span class="meta-value">May 2026</span></div></div>
+        </div>
+
+        <div class="programme-card" data-category="accelerator" onclick="showDetail('vc-accelerator')">
+            <span class="programme-badge">CAREER ACCELERATOR</span>
+            <div class="programme-title">Venture Capital Accelerator</div>
+            <div class="programme-provider">GSBF · 8 weeks</div>
+            <div class="programme-desc">Term sheets, deal sourcing, due diligence, and fund economics.</div>
+            <div class="pillar-tags"><span class="investor-tag">INVESTOR</span></div>
+            <div class="programme-meta"><div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">10 hrs/week</span></div></div>
+        </div>
+
+        <div class="programme-card" data-category="accelerator" onclick="showDetail('fintech-accelerator')">
+            <span class="programme-badge">CAREER ACCELERATOR</span>
+            <div class="programme-title">FinTech Accelerator</div>
+            <div class="programme-provider">School of Technology · 8 weeks</div>
+            <div class="programme-desc">Python, blockchain, digital payments, and AI in finance.</div>
+            <div class="pillar-tags"><span class="pillar-tag">INNOVATOR</span><span class="pillar-tag">BUILDER</span></div>
+            <div class="programme-meta"><div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">10 hrs/week</span></div></div>
+        </div>
+
+        <div class="programme-card" data-category="accelerator" onclick="showDetail('startup-accelerator')">
+            <span class="programme-badge">CAREER ACCELERATOR</span>
+            <div class="programme-title">Startup Accelerator</div>
+            <div class="programme-provider">Entrepreneurship School · 8 weeks</div>
+            <div class="programme-desc">Customer discovery, MVP, pitching, and early-stage fundraising.</div>
+            <div class="pillar-tags"><span class="pillar-tag">BUILDER</span><span class="pillar-tag">INNOVATOR</span></div>
+            <div class="programme-meta"><div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">10 hrs/week</span></div></div>
+        </div>
+
+        <!-- EXECUTIVE CERTIFICATES -->
+        <div class="programme-card" data-category="executive" onclick="showDetail('exec-finance')">
+            <span class="programme-badge">EXECUTIVE CERTIFICATE</span>
+            <div class="programme-title">Executive Certificate in Finance</div>
+            <div class="programme-provider">GSBF · 12 weeks</div>
+            <div class="programme-desc">Strategic financial management, valuation, and capital markets for senior leaders.</div>
+            <div class="pillar-tags"><span class="investor-tag">INVESTOR</span></div>
+            <div class="programme-meta"><div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">6 hrs/week</span></div></div>
+        </div>
+
+        <div class="programme-card" data-category="executive" onclick="showDetail('exec-strategy')">
+            <span class="programme-badge">EXECUTIVE CERTIFICATE</span>
+            <div class="programme-title">Executive Certificate in Strategy & Innovation</div>
+            <div class="programme-provider">School of Global Business · 12 weeks</div>
+            <div class="programme-desc">Corporate strategy, disruption, and innovation for executives.</div>
+            <div class="pillar-tags"><span class="pillar-tag">INNOVATOR</span></div>
+            <div class="programme-meta"><div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">6 hrs/week</span></div></div>
+        </div>
+
+        <div class="programme-card" data-category="executive" onclick="showDetail('exec-ai')">
+            <span class="programme-badge">EXECUTIVE CERTIFICATE</span>
+            <div class="programme-title">Executive Certificate in AI for Leaders</div>
+            <div class="programme-provider">School of Technology · 12 weeks</div>
+            <div class="programme-desc">AI strategy, implementation, and governance for non-technical executives.</div>
+            <div class="pillar-tags"><span class="pillar-tag">INNOVATOR</span></div>
+            <div class="programme-meta"><div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">6 hrs/week</span></div></div>
+        </div>
+
+        <div class="programme-card" data-category="executive" onclick="showDetail('exec-entrepreneurship')">
+            <span class="programme-badge">EXECUTIVE CERTIFICATE</span>
+            <div class="programme-title">Executive Certificate in Entrepreneurship</div>
+            <div class="programme-provider">Entrepreneurship School · 12 weeks</div>
+            <div class="programme-desc">Venture creation, fundraising, and scaling for experienced professionals.</div>
+            <div class="pillar-tags"><span class="pillar-tag">BUILDER</span></div>
+            <div class="programme-meta"><div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">6 hrs/week</span></div></div>
+        </div>
+
+        <!-- INDUSTRY CERTIFICATIONS -->
+        <div class="programme-card" data-category="certification" onclick="showDetail('cfa-prep')">
+            <span class="programme-badge">INDUSTRY CERTIFICATION</span>
+            <div class="programme-title">CFA® Level 1 Prep</div>
+            <div class="programme-provider">GSBF · 16 weeks</div>
+            <div class="programme-desc">Comprehensive preparation for CFA Level 1 exam with mock exams and question banks.</div>
+            <div class="pillar-tags"><span class="investor-tag">INVESTOR</span></div>
+            <div class="programme-meta"><div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">15 hrs/week</span></div></div>
+        </div>
+
+        <div class="programme-card" data-category="certification" onclick="showDetail('cima-prep')">
+            <span class="programme-badge">INDUSTRY CERTIFICATION</span>
+            <div class="programme-title">CIMA Certificate in Business Accounting</div>
+            <div class="programme-provider">GSBF · 12 weeks</div>
+            <div class="programme-desc">Foundation-level management accounting certification.</div>
+            <div class="pillar-tags"><span class="pillar-tag">BUILDER</span></div>
+            <div class="programme-meta"><div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">10 hrs/week</span></div></div>
+        </div>
+
+        <div class="programme-card" data-category="certification" onclick="showDetail('bloomberg')">
+            <span class="programme-badge">INDUSTRY CERTIFICATION</span>
+            <div class="programme-title">Bloomberg Market Concepts (BMC)</div>
+            <div class="programme-provider">GSBF · 2 days</div>
+            <div class="programme-desc">Self-paced introduction to Bloomberg terminal and financial markets.</div>
+            <div class="pillar-tags"><span class="investor-tag">INVESTOR</span></div>
+            <div class="programme-meta"><div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">8 hrs total</span></div></div>
+        </div>
+
+        <div class="programme-card" data-category="certification" onclick="showDetail('python')">
+            <span class="programme-badge">INDUSTRY CERTIFICATION</span>
+            <div class="programme-title">Python for Finance Certification</div>
+            <div class="programme-provider">School of Technology · 6 weeks</div>
+            <div class="programme-desc">Hands-on Python programming for financial analysis and modelling.</div>
+            <div class="pillar-tags"><span class="pillar-tag">INNOVATOR</span></div>
+            <div class="programme-meta"><div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">8 hrs/week</span></div></div>
+        </div>
+
+        <div class="programme-card" data-category="certification" onclick="showDetail('tableau')">
+            <span class="programme-badge">INDUSTRY CERTIFICATION</span>
+            <div class="programme-title">Tableau Desktop Specialist</div>
+            <div class="programme-provider">School of Technology · 4 weeks</div>
+            <div class="programme-desc">Data visualisation and dashboarding with Tableau.</div>
+            <div class="pillar-tags"><span class="pillar-tag">INNOVATOR</span></div>
+            <div class="programme-meta"><div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">6 hrs/week</span></div></div>
+        </div>
+
+        <div class="programme-card" data-category="certification" onclick="showDetail('frm')">
+            <span class="programme-badge">INDUSTRY CERTIFICATION</span>
+            <div class="programme-title">FRM® Part 1 Prep</div>
+            <div class="programme-provider">GSBF · 14 weeks</div>
+            <div class="programme-desc">Financial Risk Manager exam preparation.</div>
+            <div class="pillar-tags"><span class="investor-tag">INVESTOR</span></div>
+            <div class="programme-meta"><div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">12 hrs/week</span></div></div>
+        </div>
+    </div>
+
+    <!-- detailed programme views -->
+    <div id="detail-view" class="programme-detail">
+        <button class="back-btn" onclick="hideDetail()">← Back to all programmes</button>
+        
+        <!-- Investment Banking Accelerator -->
+        <div id="ib-accelerator-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header"><div class="detail-title">Investment Banking Accelerator</div><div class="detail-type">CAREER ACCELERATOR</div></div>
+            <p><strong>8 weeks · 10 hrs/week · GSBF</strong></p>
+            <p style="margin:1rem 0;">Intensive programme designed to prepare you for investment banking interviews and internships. Master financial modelling, valuation, and deal execution.</p>
+            <h3>Curriculum</h3>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Financial Modelling</span><span class="module-hours">2 weeks</span><span class="module-desc">3-statement models, forecasting, scenarios.</span></div>
+                <div class="module-row"><span class="module-name">Valuation Techniques</span><span class="module-hours">2 weeks</span><span class="module-desc">DCF, trading comps, precedent transactions.</span></div>
+                <div class="module-row"><span class="module-name">M&A & LBO Modelling</span><span class="module-hours">2 weeks</span><span class="module-desc">Accretion/dilution, LBO structures.</span></div>
+                <div class="module-row"><span class="module-name">Deal Execution & Pitch Decks</span><span class="module-hours">1 week</span><span class="module-desc">Process, documentation, presentations.</span></div>
+                <div class="module-row"><span class="module-name">Interview Preparation</span><span class="module-hours">1 week</span><span class="module-desc">Technical questions, case studies, mock interviews.</span></div>
+            </div>
+        </div>
+
+        <!-- Venture Capital Accelerator -->
+        <div id="vc-accelerator-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header"><div class="detail-title">Venture Capital Accelerator</div><div class="detail-type">CAREER ACCELERATOR</div></div>
+            <p><strong>8 weeks · 10 hrs/week · GSBF</strong></p>
+            <p>Master the fundamentals of venture capital: deal sourcing, term sheets, due diligence, and fund economics.</p>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">VC Landscape & Deal Sourcing</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">Term Sheets & Negotiation</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">Financial & Commercial Due Diligence</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">Fund Economics & Portfolio Management</span><span class="module-hours">1 week</span></div>
+                <div class="module-row"><span class="module-name">Investment Memo Project</span><span class="module-hours">1 week</span></div>
+            </div>
+        </div>
+
+        <!-- FinTech Accelerator -->
+        <div id="fintech-accelerator-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header"><div class="detail-title">FinTech Accelerator</div><div class="detail-type">CAREER ACCELERATOR</div></div>
+            <p><strong>8 weeks · 10 hrs/week · School of Technology</strong></p>
+            <p>Build practical skills in Python, blockchain, and AI for finance.</p>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Python for Finance</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">Blockchain & Digital Assets</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">AI & Machine Learning in Finance</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">Digital Payments & Open Banking</span><span class="module-hours">1 week</span></div>
+                <div class="module-row"><span class="module-name">FinTech Project</span><span class="module-hours">1 week</span></div>
+            </div>
+        </div>
+
+        <!-- Startup Accelerator -->
+        <div id="startup-accelerator-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header"><div class="detail-title">Startup Accelerator</div><div class="detail-type">CAREER ACCELERATOR</div></div>
+            <p><strong>8 weeks · 10 hrs/week · Entrepreneurship School</strong></p>
+            <p>From idea to launch. Build your venture with hands-on mentoring.</p>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Customer Discovery</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">MVP Development</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">Startup Finance & Fundraising</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">Pitch Preparation</span><span class="module-hours">1 week</span></div>
+                <div class="module-row"><span class="module-name">Demo Day</span><span class="module-hours">1 week</span></div>
+            </div>
+        </div>
+
+        <!-- Executive Certificate in Finance -->
+        <div id="exec-finance-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header"><div class="detail-title">Executive Certificate in Finance</div><div class="detail-type">EXECUTIVE CERTIFICATE</div></div>
+            <p><strong>12 weeks · 6 hrs/week · GSBF</strong></p>
+            <p>Strategic financial management for senior leaders. No prior finance degree required.</p>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Financial Statement Analysis</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Corporate Finance & Valuation</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Capital Markets & Funding</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Strategic Decision Making</span><span class="module-hours">3 weeks</span></div>
+            </div>
+        </div>
+
+        <!-- Executive Certificate in Strategy & Innovation -->
+        <div id="exec-strategy-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header"><div class="detail-title">Executive Certificate in Strategy & Innovation</div><div class="detail-type">EXECUTIVE CERTIFICATE</div></div>
+            <p><strong>12 weeks · 6 hrs/week · School of Global Business</strong></p>
+            <p>Develop strategic frameworks for growth and disruption.</p>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Competitive Strategy</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Disruptive Innovation</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Corporate Strategy & Diversification</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Strategy Execution</span><span class="module-hours">3 weeks</span></div>
+            </div>
+        </div>
+
+        <!-- Executive Certificate in AI for Leaders -->
+        <div id="exec-ai-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header"><div class="detail-title">Executive Certificate in AI for Leaders</div><div class="detail-type">EXECUTIVE CERTIFICATE</div></div>
+            <p><strong>12 weeks · 6 hrs/week · School of Technology</strong></p>
+            <p>AI strategy for non-technical executives. No coding required.</p>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">AI Fundamentals</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">AI Strategy & Roadmaps</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">AI Implementation & Change</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">AI Ethics & Governance</span><span class="module-hours">3 weeks</span></div>
+            </div>
+        </div>
+
+        <!-- Executive Certificate in Entrepreneurship -->
+        <div id="exec-entrepreneurship-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header"><div class="detail-title">Executive Certificate in Entrepreneurship</div><div class="detail-type">EXECUTIVE CERTIFICATE</div></div>
+            <p><strong>12 weeks · 6 hrs/week · Entrepreneurship School</strong></p>
+            <p>For experienced professionals launching new ventures.</p>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Opportunity Recognition</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Venture Finance</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Growth & Scaling</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Venture Capital & Fundraising</span><span class="module-hours">3 weeks</span></div>
+            </div>
+        </div>
+
+        <!-- CFA Level 1 Prep -->
+        <div id="cfa-prep-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header"><div class="detail-title">CFA® Level 1 Prep</div><div class="detail-type">INDUSTRY CERTIFICATION</div></div>
+            <p><strong>16 weeks · 15 hrs/week · GSBF</strong></p>
+            <p>Comprehensive preparation for the CFA Level 1 exam. Includes mock exams, question banks, and study materials.</p>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Ethical & Professional Standards</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">Quantitative Methods</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">Economics</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">Financial Reporting & Analysis</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Corporate Finance</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">Equity Investments</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">Fixed Income</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">Derivatives & Alternative Investments</span><span class="module-hours">1 week</span></div>
+            </div>
+        </div>
+
+        <!-- CIMA Certificate -->
+        <div id="cima-prep-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header"><div class="detail-title">CIMA Certificate in Business Accounting</div><div class="detail-type">INDUSTRY CERTIFICATION</div></div>
+            <p><strong>12 weeks · 10 hrs/week · GSBF</strong></p>
+            <p>Foundation-level management accounting certification.</p>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Fundamentals of Management Accounting</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Fundamentals of Financial Accounting</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Fundamentals of Business Economics</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Fundamentals of Ethics, Governance & Law</span><span class="module-hours">3 weeks</span></div>
+            </div>
+        </div>
+
+        <!-- Bloomberg Market Concepts -->
+        <div id="bloomberg-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header"><div class="detail-title">Bloomberg Market Concepts (BMC)</div><div class="detail-type">INDUSTRY CERTIFICATION</div></div>
+            <p><strong>2 days · 8 hrs total · Self-paced</strong></p>
+            <p>Self-paced introduction to the Bloomberg terminal and financial markets. Earn a Bloomberg certificate.</p>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Economic Indicators</span><span class="module-hours">2 hrs</span></div>
+                <div class="module-row"><span class="module-name">Currencies</span><span class="module-hours">2 hrs</span></div>
+                <div class="module-row"><span class="module-name">Fixed Income</span><span class="module-hours">2 hrs</span></div>
+                <div class="module-row"><span class="module-name">Equities</span><span class="module-hours">2 hrs</span></div>
+            </div>
+        </div>
+
+        <!-- Python for Finance -->
+        <div id="python-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header"><div class="detail-title">Python for Finance Certification</div><div class="detail-type">INDUSTRY CERTIFICATION</div></div>
+            <p><strong>6 weeks · 8 hrs/week · School of Technology</strong></p>
+            <p>Hands-on Python programming for financial analysis and modelling.</p>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Python Basics & Data Structures</span><span class="module-hours">1 week</span></div>
+                <div class="module-row"><span class="module-name">Pandas for Financial Data</span><span class="module-hours">2 weeks</span></div>
+                <div class="module-row"><span class="module-name">Data Visualisation</span><span class="module-hours">1 week</span></div>
+                <div class="module-row"><span class="module-name">Financial Analysis & Modelling</span><span class="module-hours">2 weeks</span></div>
+            </div>
+        </div>
+
+        <!-- Tableau Desktop Specialist -->
+        <div id="tableau-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header"><div class="detail-title">Tableau Desktop Specialist</div><div class="detail-type">INDUSTRY CERTIFICATION</div></div>
+            <p><strong>4 weeks · 6 hrs/week · School of Technology</strong></p>
+            <p>Data visualisation and dashboarding with Tableau. Prepares for Tableau certification exam.</p>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Tableau Fundamentals</span><span class="module-hours">1 week</span></div>
+                <div class="module-row"><span class="module-name">Data Connections & Preparation</span><span class="module-hours">1 week</span></div>
+                <div class="module-row"><span class="module-name">Visual Analytics & Dashboards</span><span class="module-hours">1 week</span></div>
+                <div class="module-row"><span class="module-name">Sharing & Storytelling</span><span class="module-hours">1 week</span></div>
+            </div>
+        </div>
+
+        <!-- FRM Part 1 Prep -->
+        <div id="frm-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header"><div class="detail-title">FRM® Part 1 Prep</div><div class="detail-type">INDUSTRY CERTIFICATION</div></div>
+            <p><strong>14 weeks · 12 hrs/week · GSBF</strong></p>
+            <p>Financial Risk Manager exam preparation.</p>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Foundations of Risk Management</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Quantitative Analysis</span><span class="module-hours">3 weeks</span></div>
+                <div class="module-row"><span class="module-name">Financial Markets & Products</span><span class="module-hours">4 weeks</span></div>
+                <div class="module-row"><span class="module-name">Valuation & Risk Models</span><span class="module-hours">4 weeks</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        function filterProgrammes(category) {
+            var cards = document.getElementsByClassName('programme-card');
+            var tabs = document.getElementsByClassName('category-tab');
+            
+            // Update active tab
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            event.target.classList.add('active');
+            
+            // Filter cards
+            for (var i = 0; i < cards.length; i++) {
+                if (category === 'all' || cards[i].dataset.category === category) {
+                    cards[i].style.display = 'flex';
+                } else {
+                    cards[i].style.display = 'none';
+                }
+            }
+        }
+
+        function showDetail(programmeId) {
+            // Hide grid and tabs
+            document.getElementById('programmesGrid').style.display = 'none';
+            var tabs = document.getElementsByClassName('category-tabs')[0];
+            tabs.style.display = 'none';
+            
+            // Show detail view
+            var detailView = document.getElementById('detail-view');
+            detailView.style.display = 'block';
+            
+            // Hide all detail contents
+            var details = document.getElementsByClassName('programme-detail-content');
+            for (var i = 0; i < details.length; i++) {
+                details[i].style.display = 'none';
+            }
+            
+            // Show selected detail
+            document.getElementById(programmeId + '-detail').style.display = 'block';
+        }
+
+        function hideDetail() {
+            document.getElementById('detail-view').style.display = 'none';
+            document.getElementById('programmesGrid').style.display = 'grid';
+            document.getElementsByClassName('category-tabs')[0].style.display = 'flex';
+        }
+    </script>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · 100% Online Short Programmes · Triple accredited: AMBA, EQUIS, AACSB<br>
+        © 2025 Nolan University · Rolling admissions · Enroll anytime</p>
+    </div>
+</div>
+</body>
+</html>
