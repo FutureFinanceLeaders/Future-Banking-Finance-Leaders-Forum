@@ -27,12 +27,29 @@
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
 
-        /* University header */
+        /* University header with logo */
         .university-header {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
             margin-bottom: 2rem;
             border-bottom: 3px solid #0B2A3B;
             padding-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .header-text {
+            flex: 1;
         }
 
         .uni-name {
@@ -40,6 +57,7 @@
             font-weight: 800;
             color: #0B2A3B;
             letter-spacing: 1px;
+            line-height: 1.2;
         }
 
         .uni-sub {
@@ -117,6 +135,7 @@
             color: #F4C542;
             padding: 0.8rem;
             text-align: left;
+            font-weight: 600;
         }
 
         td {
@@ -192,16 +211,28 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
+            .logo img {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
         }
     </style>
 </head>
 <body>
 <div class="document-container">
-    <!-- University Header -->
+    <!-- University Header with Logo -->
     <div class="university-header">
-        <div class="uni-name">NOLAN UNIVERSITY</div>
-        <div class="uni-sub">Graduate School of Banking & Finance · School of Entrepreneurship & Venture Creation</div>
-        <div class="divider"></div>
+        <div class="logo">
+            <a href="index.html">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" 
+                     alt="Nolan University Logo" 
+                     style="height:60px; object-fit:contain;">
+            </a>
+        </div>
+        <div class="header-text">
+            <div class="uni-name">NOLAN UNIVERSITY</div>
+            <div class="uni-sub">Graduate School of Banking & Finance · School of Entrepreneurship & Venture Creation</div>
+        </div>
     </div>
 
     <!-- Document Title -->
