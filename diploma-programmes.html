@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan University · Professional & Postgraduate Diplomas · Full Programmes</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0B2A3B;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
+            padding-bottom: 1.25rem;
+        }
+
+        .uni-logo {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--nolan-navy);
+        }
+
+        .uni-name span {
+            color: var(--nolan-navy);
+            font-weight: 600;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--nolan-navy);
+            margin: 2rem 0 0.5rem 0;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #2d4f62;
+            margin-bottom: 2rem;
+        }
+
+        /* filter tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+        .filter-tab {
+            background: white;
+            border: 2px solid var(--nolan-navy);
+            color: var(--nolan-navy);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .filter-tab.active {
+            background: var(--nolan-gold);
+            border-color: var(--nolan-navy);
+        }
+        .filter-tab:hover {
+            background: var(--nolan-navy);
+            color: white;
+        }
+
+        /* diploma cards grid */
+        .diplomas-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .diploma-card {
+            background: var(--nolan-white);
+            border-radius: 28px;
+            padding: 1.8rem;
+            border: 1px solid #dde7ed;
+            box-shadow: 0 10px 20px -10px rgba(11,42,59,0.15);
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .diploma-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--nolan-gold);
+            box-shadow: 0 20px 30px -10px rgba(11,42,59,0.25);
+        }
+        .diploma-card.selected {
+            border: 3px solid var(--nolan-gold);
+            background: #fafdff;
+        }
+        .diploma-badge {
+            display: inline-block;
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+            border: 1px solid var(--nolan-gold);
+        }
+        .diploma-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.5rem;
+        }
+        .diploma-school {
+            color: #3b687d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        .diploma-desc {
+            color: #235a72;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        .diploma-meta {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            border-top: 1px dashed #cbdae3;
+            padding-top: 1rem;
+        }
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .meta-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #5f7d8f;
+        }
+        .meta-value {
+            font-weight: 700;
+            color: var(--nolan-navy);
+        }
+        .pillar-tags {
+            margin: 1rem 0;
+        }
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+        .investor-tag {
+            background: var(--nolan-navy);
+            color: white;
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-gold);
+        }
+
+        /* detailed programme view */
+        .programme-detail {
+            background: var(--nolan-white);
+            border-radius: 32px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 2px solid var(--nolan-gold);
+            display: none;
+        }
+        .programme-detail.active {
+            display: block;
+        }
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .detail-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+        }
+        .detail-credits {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            padding: 0.5rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+        .modules-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .module-row {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.2rem 1.5rem;
+            border-left: 6px solid var(--nolan-gold);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+        }
+        .module-name {
+            font-weight: 700;
+            min-width: 200px;
+        }
+        .module-credits {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+        .module-desc {
+            color: #235a72;
+            flex: 1;
+            font-size: 0.95rem;
+        }
+        .back-btn {
+            background: var(--nanol-gray-soft);
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            border: 1px solid var(--nolan-navy);
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+        }
+        .btn-gold:hover {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3b687d;
+            border-top: 2px solid var(--nolan-gold);
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 800px) {
+            .diplomas-grid {
+                grid-template-columns: 1fr;
+            }
+            .module-row {
+                flex-direction: column;
+                align-items: start;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="university-header">
+        <div class="uni-logo">NU</div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
+    </div>
+
+    <!-- global tagline -->
+    <div class="global-tagline">
+        <strong>Professional & Postgraduate Diplomas</strong> · Finance · Technology · Entrepreneurship · Accelerate Your Career
+    </div>
+
+    <!-- page heading -->
+    <h1 class="page-title">🎓 All Diploma Programmes</h1>
+    <p class="page-subtitle">Specialised, career-focused programmes designed for working professionals. 3–6 months, fully online, with practical, industry-aligned curricula.</p>
+
+    <!-- filter tabs (static) -->
+    <div class="filter-tabs">
+        <span class="filter-tab active" onclick="filterDiplomas('all')">All Diplomas</span>
+        <span class="filter-tab" onclick="filterDiplomas('finance')">Finance</span>
+        <span class="filter-tab" onclick="filterDiplomas('tech')">Technology</span>
+        <span class="filter-tab" onclick="filterDiplomas('entrepreneurship')">Entrepreneurship</span>
+    </div>
+
+    <!-- diplomas grid -->
+    <div class="diplomas-grid" id="diplomasGrid">
+        <!-- Investment Banking -->
+        <div class="diploma-card" data-category="finance" onclick="showDetail('ib')">
+            <span class="diploma-badge">PROFESSIONAL DIPLOMA</span>
+            <div class="diploma-title">Investment Banking</div>
+            <div class="diploma-school">Graduate School of Banking & Finance</div>
+            <div class="diploma-desc">M&A, LBO, valuation, financial modelling, and deal execution. Prepares for entry-level IB roles.</div>
+            <div class="pillar-tags">
+                <span class="investor-tag">INVESTOR</span>
+                <span class="pillar-tag">BUILDER</span>
+            </div>
+            <div class="diploma-meta">
+                <div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">6 months</span></div>
+                <div class="meta-item"><span class="meta-label">Credits</span><span class="meta-value">30</span></div>
+                <div class="meta-item"><span class="meta-label">Effort</span><span class="meta-value">15 hrs/week</span></div>
+            </div>
+        </div>
+
+        <!-- Venture Capital & Private Equity -->
+        <div class="diploma-card" data-category="finance" onclick="showDetail('vcpe')">
+            <span class="diploma-badge">PROFESSIONAL DIPLOMA</span>
+            <div class="diploma-title">Venture Capital & Private Equity</div>
+            <div class="diploma-school">Graduate School of Banking & Finance</div>
+            <div class="diploma-desc">Term sheets, LBO modelling, fund economics, deal sourcing, and due diligence.</div>
+            <div class="pillar-tags">
+                <span class="investor-tag">INVESTOR</span>
+                <span class="pillar-tag">BUILDER</span>
+            </div>
+            <div class="diploma-meta">
+                <div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">6 months</span></div>
+                <div class="meta-item"><span class="meta-label">Credits</span><span class="meta-value">30</span></div>
+            </div>
+        </div>
+
+        <!-- Startup Builder Program -->
+        <div class="diploma-card" data-category="entrepreneurship" onclick="showDetail('startup')">
+            <span class="diploma-badge">PROFESSIONAL DIPLOMA</span>
+            <div class="diploma-title">Startup Builder Program</div>
+            <div class="diploma-school">School of Entrepreneurship & Venture Creation</div>
+            <div class="diploma-desc">From idea to launch: customer discovery, MVP, fundraising, and pitch. Launch your venture.</div>
+            <div class="pillar-tags">
+                <span class="pillar-tag">BUILDER</span>
+                <span class="pillar-tag">INNOVATOR</span>
+            </div>
+            <div class="diploma-meta">
+                <div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">6 months</span></div>
+                <div class="meta-item"><span class="meta-label">Credits</span><span class="meta-value">30</span></div>
+            </div>
+        </div>
+
+        <!-- FinTech & Digital Finance -->
+        <div class="diploma-card" data-category="tech" onclick="showDetail('fintech')">
+            <span class="diploma-badge">PROFESSIONAL DIPLOMA</span>
+            <div class="diploma-title">FinTech & Digital Finance</div>
+            <div class="diploma-school">School of Technology & AI</div>
+            <div class="diploma-desc">Blockchain, digital payments, DeFi, Python for finance, and AI applications.</div>
+            <div class="pillar-tags">
+                <span class="pillar-tag">INNOVATOR</span>
+                <span class="pillar-tag">BUILDER</span>
+            </div>
+            <div class="diploma-meta">
+                <div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">6 months</span></div>
+                <div class="meta-item"><span class="meta-label">Credits</span><span class="meta-value">30</span></div>
+            </div>
+        </div>
+
+        <!-- AI for Business -->
+        <div class="diploma-card" data-category="tech" onclick="showDetail('ai')">
+            <span class="diploma-badge">PROFESSIONAL DIPLOMA</span>
+            <div class="diploma-title">AI for Business</div>
+            <div class="diploma-school">School of Technology & AI</div>
+            <div class="diploma-desc">Machine learning, NLP, AI strategy, and business intelligence for managers.</div>
+            <div class="pillar-tags">
+                <span class="pillar-tag">INNOVATOR</span>
+                <span class="investor-tag">INVESTOR</span>
+            </div>
+            <div class="diploma-meta">
+                <div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">6 months</span></div>
+                <div class="meta-item"><span class="meta-label">Credits</span><span class="meta-value">30</span></div>
+            </div>
+        </div>
+
+        <!-- Postgraduate Diploma in Finance -->
+        <div class="diploma-card" data-category="finance" onclick="showDetail('pgd-finance')">
+            <span class="diploma-badge">POSTGRADUATE DIPLOMA</span>
+            <div class="diploma-title">PGDip Finance</div>
+            <div class="diploma-school">Graduate School of Banking & Finance</div>
+            <div class="diploma-desc">Advanced corporate finance, investments, and financial analysis. Exit with 120 credits.</div>
+            <div class="pillar-tags">
+                <span class="investor-tag">INVESTOR</span>
+            </div>
+            <div class="diploma-meta">
+                <div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">9 months</span></div>
+                <div class="meta-item"><span class="meta-label">Credits</span><span class="meta-value">120</span></div>
+            </div>
+        </div>
+
+        <!-- Postgraduate Diploma in Entrepreneurship -->
+        <div class="diploma-card" data-category="entrepreneurship" onclick="showDetail('pgd-entre')">
+            <span class="diploma-badge">POSTGRADUATE DIPLOMA</span>
+            <div class="diploma-title">PGDip Entrepreneurship</div>
+            <div class="diploma-school">School of Entrepreneurship & Venture Creation</div>
+            <div class="diploma-desc">Venture creation, entrepreneurial finance, scaling, and innovation management.</div>
+            <div class="pillar-tags">
+                <span class="pillar-tag">BUILDER</span>
+                <span class="pillar-tag">INNOVATOR</span>
+            </div>
+            <div class="diploma-meta">
+                <div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">9 months</span></div>
+                <div class="meta-item"><span class="meta-label">Credits</span><span class="meta-value">120</span></div>
+            </div>
+        </div>
+
+        <!-- Postgraduate Diploma in Business Analytics -->
+        <div class="diploma-card" data-category="tech" onclick="showDetail('pgd-analytics')">
+            <span class="diploma-badge">POSTGRADUATE DIPLOMA</span>
+            <div class="diploma-title">PGDip Business Analytics</div>
+            <div class="diploma-school">School of Technology & AI</div>
+            <div class="diploma-desc">Data science, machine learning, big data, and AI for business leaders.</div>
+            <div class="pillar-tags">
+                <span class="pillar-tag">INNOVATOR</span>
+                <span class="investor-tag">INVESTOR</span>
+            </div>
+            <div class="diploma-meta">
+                <div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">9 months</span></div>
+                <div class="meta-item"><span class="meta-label">Credits</span><span class="meta-value">120</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- detailed programme views (hidden initially) -->
+    <div id="detail-view" class="programme-detail">
+        <button class="back-btn" onclick="hideDetail()">← Back to all diplomas</button>
+        <div id="ib-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">Professional Diploma in Investment Banking</div>
+                <div class="detail-credits">30 Credits</div>
+            </div>
+            <p style="margin-bottom:1.5rem;">Intensive 6-month programme designed to prepare you for entry-level investment banking roles. Master financial modelling, valuation, and deal execution.</p>
+            <h3 style="color:var(--nolan-navy); margin-bottom:1rem;">Core Modules</h3>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Financial Modelling</span><span class="module-credits">8 credits</span><span class="module-desc">3-statement modelling, DCF, LBO, comps.</span></div>
+                <div class="module-row"><span class="module-name">M&A & Deal Structuring</span><span class="module-credits">6 credits</span><span class="module-desc">Accretion/dilution, synergy analysis, deal process.</span></div>
+                <div class="module-row"><span class="module-name">Valuation Techniques</span><span class="module-credits">6 credits</span><span class="module-desc">DCF, trading comps, precedent transactions.</span></div>
+                <div class="module-row"><span class="module-name">LBO Modelling</span><span class="module-credits">6 credits</span><span class="module-desc">Leveraged buyouts, debt tranches, returns.</span></div>
+                <div class="module-row"><span class="module-name">Deal Execution Project</span><span class="module-credits">4 credits</span><span class="module-desc">Simulated deal from pitch to closing.</span></div>
+            </div>
+        </div>
+
+        <div id="vcpe-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">Professional Diploma in Venture Capital & Private Equity</div>
+                <div class="detail-credits">30 Credits</div>
+            </div>
+            <p style="margin-bottom:1.5rem;">Master the mechanics of private capital: deal sourcing, term sheets, fund economics, and exits.</p>
+            <h3 style="color:var(--nolan-navy); margin-bottom:1rem;">Core Modules</h3>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Private Equity & LBO Modelling</span><span class="module-credits">8 credits</span><span class="module-desc">Full LBO models, waterfalls, IRR analysis.</span></div>
+                <div class="module-row"><span class="module-name">Venture Capital & Term Sheets</span><span class="module-credits">6 credits</span><span class="module-desc">Convertible notes, SAFEs, liquidation preferences.</span></div>
+                <div class="module-row"><span class="module-name">Fund Economics & Structuring</span><span class="module-credits">6 credits</span><span class="module-desc">Carry, waterfalls, fund governance.</span></div>
+                <div class="module-row"><span class="module-name">Deal Sourcing & Due Diligence</span><span class="module-credits">6 credits</span><span class="module-desc">Sourcing strategies, financial/commercial DD.</span></div>
+                <div class="module-row"><span class="module-name">Live Deal Project</span><span class="module-credits">4 credits</span><span class="module-desc">Real deal analysis from partner funds.</span></div>
+            </div>
+        </div>
+
+        <div id="startup-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">Professional Diploma in Startup Builder Program</div>
+                <div class="detail-credits">30 Credits</div>
+            </div>
+            <p style="margin-bottom:1.5rem;">Launch your venture. From idea to pitch in 6 months.</p>
+            <h3 style="color:var(--nolan-navy); margin-bottom:1rem;">Core Modules</h3>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Customer Discovery & Validation</span><span class="module-credits">6 credits</span><span class="module-desc">Interviews, problem-solution fit.</span></div>
+                <div class="module-row"><span class="module-name">MVP Development</span><span class="module-credits">6 credits</span><span class="module-desc">Prototyping, lean methodology.</span></div>
+                <div class="module-row"><span class="module-name">Startup Finance & Fundraising</span><span class="module-credits">6 credits</span><span class="module-desc">Cap tables, term sheets, pitching.</span></div>
+                <div class="module-row"><span class="module-name">Growth Marketing</span><span class="module-credits">6 credits</span><span class="module-desc">Acquisition channels, LTV/CAC.</span></div>
+                <div class="module-row"><span class="module-name">Venture Launch Capstone</span><span class="module-credits">6 credits</span><span class="module-desc">Pitch to investors, Demo Day.</span></div>
+            </div>
+        </div>
+
+        <div id="fintech-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">Professional Diploma in FinTech & Digital Finance</div>
+                <div class="detail-credits">30 Credits</div>
+            </div>
+            <p style="margin-bottom:1.5rem;">Build the future of finance with blockchain, AI, and digital payments.</p>
+            <h3 style="color:var(--nolan-navy); margin-bottom:1rem;">Core Modules</h3>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Python for Finance</span><span class="module-credits">6 credits</span><span class="module-desc">Pandas, data analysis, APIs.</span></div>
+                <div class="module-row"><span class="module-name">Blockchain & Digital Assets</span><span class="module-credits">6 credits</span><span class="module-desc">Cryptography, DeFi, smart contracts.</span></div>
+                <div class="module-row"><span class="module-name">Digital Payments & Banking</span><span class="module-credits">6 credits</span><span class="module-desc">Payment rails, open banking, CBDCs.</span></div>
+                <div class="module-row"><span class="module-name">AI in Finance</span><span class="module-credits">6 credits</span><span class="module-desc">Machine learning for trading, risk.</span></div>
+                <div class="module-row"><span class="module-name">FinTech Capstone</span><span class="module-credits">6 credits</span><span class="module-desc">Build a working prototype.</span></div>
+            </div>
+        </div>
+
+        <div id="ai-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">Professional Diploma in AI for Business</div>
+                <div class="detail-credits">30 Credits</div>
+            </div>
+            <p style="margin-bottom:1.5rem;">Leverage AI for strategic advantage. No prior coding required.</p>
+            <h3 style="color:var(--nolan-navy); margin-bottom:1rem;">Core Modules</h3>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">AI Fundamentals</span><span class="module-credits">6 credits</span><span class="module-desc">Machine learning, neural networks basics.</span></div>
+                <div class="module-row"><span class="module-name">AI Strategy & Implementation</span><span class="module-credits">6 credits</span><span class="module-desc">Roadmaps, use cases, ROI.</span></div>
+                <div class="module-row"><span class="module-name">Natural Language Processing</span><span class="module-credits">6 credits</span><span class="module-desc">Chatbots, sentiment, text analytics.</span></div>
+                <div class="module-row"><span class="module-name">AI Ethics & Governance</span><span class="module-credits">6 credits</span><span class="module-desc">Bias, fairness, regulation.</span></div>
+                <div class="module-row"><span class="module-name">AI Business Project</span><span class="module-credits">6 credits</span><span class="module-desc">Real-world AI implementation plan.</span></div>
+            </div>
+        </div>
+
+        <div id="pgd-finance-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">Postgraduate Diploma in Finance</div>
+                <div class="detail-credits">120 Credits</div>
+            </div>
+            <p style="margin-bottom:1.5rem;">Advanced finance qualification equivalent to the first two terms of our MSc. Progress to MSc with advanced standing.</p>
+            <h3 style="color:var(--nolan-navy); margin-bottom:1rem;">Core Modules (8 modules)</h3>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Advanced Corporate Finance</span><span class="module-credits">15</span><span class="module-desc">Valuation, capital structure.</span></div>
+                <div class="module-row"><span class="module-name">Investment Analysis</span><span class="module-credits">15</span><span class="module-desc">Equity, portfolio theory.</span></div>
+                <div class="module-row"><span class="module-name">Financial Econometrics</span><span class="module-credits">15</span><span class="module-desc">Time series, volatility.</span></div>
+                <div class="module-row"><span class="module-name">Derivatives & Risk</span><span class="module-credits">15</span><span class="module-desc">Options, futures, hedging.</span></div>
+                <div class="module-row"><span class="module-name">Mergers & Acquisitions</span><span class="module-credits">15</span><span class="module-desc">Deal structuring, valuation.</span></div>
+                <div class="module-row"><span class="module-name">Fixed Income</span><span class="module-credits">15</span><span class="module-desc">Bonds, credit, structured products.</span></div>
+                <div class="module-row"><span class="module-name">Alternative Investments</span><span class="module-credits">15</span><span class="module-desc">PE, hedge funds, real assets.</span></div>
+                <div class="module-row"><span class="module-name">Financial Statement Analysis</span><span class="module-credits">15</span><span class="module-desc">Valuation, credit analysis.</span></div>
+            </div>
+        </div>
+
+        <div id="pgd-entre-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">Postgraduate Diploma in Entrepreneurship</div>
+                <div class="detail-credits">120 Credits</div>
+            </div>
+            <p style="margin-bottom:1.5rem;">Comprehensive entrepreneurship education. Pathway to MBA.</p>
+            <h3 style="color:var(--nolan-navy); margin-bottom:1rem;">Core Modules (8 modules)</h3>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Entrepreneurial Mindset</span><span class="module-credits">15</span><span class="module-desc">Opportunity recognition.</span></div>
+                <div class="module-row"><span class="module-name">New Venture Finance</span><span class="module-credits">15</span><span class="module-desc">Term sheets, valuation.</span></div>
+                <div class="module-row"><span class="module-name">Design Thinking</span><span class="module-credits">15</span><span class="module-desc">Prototyping, user testing.</span></div>
+                <div class="module-row"><span class="module-name">Growth Marketing</span><span class="module-credits">15</span><span class="module-desc">Acquisition, analytics.</span></div>
+                <div class="module-row"><span class="module-name">Venture Capital</span><span class="module-credits">15</span><span class="module-desc">Fundraising, term sheets.</span></div>
+                <div class="module-row"><span class="module-name">Scaling Ventures</span><span class="module-credits">15</span><span class="module-desc">Operations, hiring.</span></div>
+                <div class="module-row"><span class="module-name">Innovation Strategy</span><span class="module-credits">15</span><span class="module-desc">Disruption, IP.</span></div>
+                <div class="module-row"><span class="module-name">Venture Creation Lab</span><span class="module-credits">15</span><span class="module-desc">Launch project.</span></div>
+            </div>
+        </div>
+
+        <div id="pgd-analytics-detail" class="programme-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">Postgraduate Diploma in Business Analytics</div>
+                <div class="detail-credits">120 Credits</div>
+            </div>
+            <p style="margin-bottom:1.5rem;">Data science and AI for business leaders. Pathway to MSc.</p>
+            <h3 style="color:var(--nolan-navy); margin-bottom:1rem;">Core Modules (8 modules)</h3>
+            <div class="modules-list">
+                <div class="module-row"><span class="module-name">Python for Data Science</span><span class="module-credits">15</span><span class="module-desc">Pandas, NumPy.</span></div>
+                <div class="module-row"><span class="module-name">Machine Learning</span><span class="module-credits">15</span><span class="module-desc">Regression, classification.</span></div>
+                <div class="module-row"><span class="module-name">Big Data Technologies</span><span class="module-credits">15</span><span class="module-desc">Hadoop, Spark.</span></div>
+                <div class="module-row"><span class="module-name">Data Visualisation</span><span class="module-credits">15</span><span class="module-desc">Tableau, storytelling.</span></div>
+                <div class="module-row"><span class="module-name">Deep Learning</span><span class="module-credits">15</span><span class="module-desc">Neural networks.</span></div>
+                <div class="module-row"><span class="module-name">NLP for Business</span><span class="module-credits">15</span><span class="module-desc">Text analytics.</span></div>
+                <div class="module-row"><span class="module-name">AI Strategy</span><span class="module-credits">15</span><span class="module-desc">Implementation, ethics.</span></div>
+                <div class="module-row"><span class="module-name">Analytics Capstone</span><span class="module-credits">15</span><span class="module-desc">Industry project.</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simple JavaScript -->
+    <script>
+        function filterDiplomas(category) {
+            var cards = document.getElementsByClassName('diploma-card');
+            var tabs = document.getElementsByClassName('filter-tab');
+            
+            // Update active tab
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            event.target.classList.add('active');
+            
+            // Filter cards
+            for (var i = 0; i < cards.length; i++) {
+                if (category === 'all' || cards[i].dataset.category === category) {
+                    cards[i].style.display = 'flex';
+                } else {
+                    cards[i].style.display = 'none';
+                }
+            }
+        }
+
+        function showDetail(programmeId) {
+            // Hide all cards
+            document.getElementById('diplomasGrid').style.display = 'none';
+            document.querySelector('.filter-tabs').style.display = 'none';
+            
+            // Show detail view
+            var detailView = document.getElementById('detail-view');
+            detailView.style.display = 'block';
+            
+            // Hide all detail contents
+            var details = document.getElementsByClassName('programme-detail-content');
+            for (var i = 0; i < details.length; i++) {
+                details[i].style.display = 'none';
+            }
+            
+            // Show selected detail
+            document.getElementById(programmeId + '-detail').style.display = 'block';
+        }
+
+        function hideDetail() {
+            document.getElementById('detail-view').style.display = 'none';
+            document.getElementById('diplomasGrid').style.display = 'grid';
+            document.querySelector('.filter-tabs').style.display = 'flex';
+        }
+    </script>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · 100% Online Diplomas · Triple accredited: AMBA, EQUIS, AACSB<br>
+        © 2025 Nolan University · Professional & Postgraduate Diplomas · Flexible entry throughout the year</p>
+    </div>
+</div>
+</body>
+</html>
