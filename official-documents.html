@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nolan University · Official Funding Documents · Mwaba Lewis</title>
+    <title>Nolan University · Official Funding Documents with Letterhead · Mwaba Lewis</title>
     <style>
         * {
             margin: 0;
@@ -27,7 +27,7 @@
         /* Individual document cards - each starts on new page for printing */
         .document-card {
             background: white;
-            padding: 2.5rem 3rem;
+            padding: 2rem 2.5rem;
             margin-bottom: 3rem;
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
             border: 1px solid #d4af37;
@@ -40,6 +40,97 @@
             page-break-after: auto;
         }
 
+        /* Full letterhead at top of each document */
+        .letterhead {
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #F4C542;
+            padding-bottom: 1.5rem;
+        }
+
+        .letterhead-top {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .uni-name-address {
+            flex: 1;
+        }
+
+        .uni-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0B2A3B;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            font-family: 'Times New Roman', serif;
+            text-transform: uppercase;
+        }
+
+        .uni-motto {
+            font-size: 1.1rem;
+            color: #F4C542;
+            font-style: italic;
+            margin-top: 0.2rem;
+            font-weight: 500;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+
+        .uni-address {
+            font-size: 0.95rem;
+            color: #555;
+            margin-top: 0.5rem;
+            line-height: 1.4;
+            border-left: 3px solid #F4C542;
+            padding-left: 1rem;
+        }
+
+        .letterhead-contact {
+            display: flex;
+            justify-content: space-between;
+            background: #f5f5f5;
+            padding: 0.8rem 1.5rem;
+            border-radius: 40px;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            color: #0B2A3B;
+            border: 1px solid #F4C542;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Reference and date */
+        .doc-reference {
+            display: flex;
+            justify-content: space-between;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 0.95rem;
+            color: #555;
+            border-bottom: 1px dashed #F4C542;
+            padding-bottom: 0.5rem;
+        }
+
+        .ref-code {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+        }
+
         /* Watermark for authenticity */
         .watermark {
             position: absolute;
@@ -47,79 +138,15 @@
             left: 10%;
             right: 10%;
             text-align: center;
-            opacity: 0.07;
-            font-size: 4rem;
+            opacity: 0.03;
+            font-size: 5rem;
             font-weight: 800;
             color: #0B2A3B;
             transform: rotate(-15deg);
             pointer-events: none;
             z-index: 0;
             letter-spacing: 10px;
-        }
-
-        /* University header with gold accents */
-        .university-header {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            border-bottom: 3px solid #F4C542;
-            padding-bottom: 1.5rem;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo {
-            flex-shrink: 0;
-            border-right: 2px solid #F4C542;
-            padding-right: 2rem;
-        }
-
-        .logo img {
-            height: 80px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .header-text {
-            flex: 1;
-        }
-
-        .uni-name {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: #0B2A3B;
-            letter-spacing: 1.5px;
-            line-height: 1.2;
-            font-family: 'Times New Roman', serif;
-            text-transform: uppercase;
-        }
-
-        .uni-sub {
-            font-size: 1.1rem;
-            color: #5a5a5a;
-            margin-top: 0.3rem;
-            font-style: italic;
-            border-bottom: 1px dotted #F4C542;
-            padding-bottom: 0.5rem;
-        }
-
-        .document-ref {
-            text-align: right;
-            font-size: 0.95rem;
-            color: #555;
-            margin-bottom: 1.5rem;
-            font-family: 'Courier New', monospace;
-            border-left: 3px solid #F4C542;
-            padding-left: 1rem;
-        }
-
-        .date-line {
-            text-align: right;
-            margin: 1rem 0 2rem 0;
-            font-size: 1.1rem;
-            font-weight: 500;
+            white-space: nowrap;
         }
 
         .recipient-address {
@@ -285,7 +312,7 @@
                 margin-bottom: 0.5in;
             }
             .watermark {
-                opacity: 0.05;
+                opacity: 0.03;
             }
             th {
                 background: #0B2A3B;
@@ -293,7 +320,7 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
-            .badge, .seal, .funding-highlight {
+            .badge, .seal, .funding-highlight, .letterhead-contact {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
@@ -304,23 +331,38 @@
 <div class="document-wrapper">
 
     <!-- ================================================== -->
-    <!-- DOCUMENT 1: BSc OFFER OF ADMISSION (FUNDING-FOCUSED) -->
+    <!-- DOCUMENT 1: BSc OFFER OF ADMISSION WITH LETTERHEAD -->
     <!-- ================================================== -->
     <div class="document-card">
-        <div class="watermark">NOLAN UNIVERSITY</div>
+        <div class="watermark">NOLAN UNIVERSITY · SINCE 1987</div>
         
-        <div class="university-header">
-            <div class="logo">
-                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:80px;">
+        <!-- FULL LETTERHEAD -->
+        <div class="letterhead">
+            <div class="letterhead-top">
+                <div class="logo">
+                    <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:90px;">
+                </div>
+                <div class="uni-name-address">
+                    <div class="uni-name">NOLAN UNIVERSITY</div>
+                    <div class="uni-motto">Learn to Lead. Lead to Excel.</div>
+                    <div class="uni-address">
+                        Nolan House, 42 Bedford Square, London, WC1B 3DN, United Kingdom<br>
+                        Established 1987 · Triple Accredited: AMBA, EQUIS, AACSB
+                    </div>
+                </div>
             </div>
-            <div class="header-text">
-                <div class="uni-name">NOLAN UNIVERSITY</div>
-                <div class="uni-sub">Graduate School of Banking & Finance · Established 1987</div>
+            <div class="letterhead-contact">
+                <span class="contact-item">✉️ admissions@nolan.ac.uk</span>
+                <span class="contact-item">📞 +44 20 7946 0123</span>
+                <span class="contact-item">🌐 www.nolan.ac.uk</span>
+                <span class="contact-item">📋 UCAS: N38</span>
             </div>
         </div>
 
-        <div class="document-ref">REF: BSc-FI/ADM/2026/0082</div>
-        <div class="date-line">15 March 2026</div>
+        <div class="doc-reference">
+            <span class="ref-code">REF: BSc-FI/ADM/2026/0082</span>
+            <span>15 March 2026</span>
+        </div>
 
         <div class="recipient-address">
             <strong>Mr. Mwaba Lewis</strong><br>
@@ -329,7 +371,7 @@
             [City, Postcode, Country]
         </div>
 
-        <div class="document-title">OFFICIAL OFFER OF ADMISSION</div>
+        <div class="document-title">OFFICIAL OFFER OF ADMISSION · BSc FINANCE & INVESTMENT</div>
         <div style="text-align:center; margin-bottom:1.5rem;">
             <span class="badge">UNDERGRADUATE</span>
             <span class="badge">FULL-TIME</span>
@@ -394,23 +436,38 @@
     </div>
 
     <!-- ================================================== -->
-    <!-- DOCUMENT 2: MBA OFFER OF ADMISSION (FUNDING-FOCUSED) -->
+    <!-- DOCUMENT 2: MBA OFFER OF ADMISSION WITH LETTERHEAD -->
     <!-- ================================================== -->
     <div class="document-card">
-        <div class="watermark">NOLAN UNIVERSITY</div>
+        <div class="watermark">NOLAN UNIVERSITY · SINCE 1987</div>
         
-        <div class="university-header">
-            <div class="logo">
-                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:80px;">
+        <!-- FULL LETTERHEAD -->
+        <div class="letterhead">
+            <div class="letterhead-top">
+                <div class="logo">
+                    <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:90px;">
+                </div>
+                <div class="uni-name-address">
+                    <div class="uni-name">NOLAN UNIVERSITY</div>
+                    <div class="uni-motto">Learn to Lead. Lead to Excel.</div>
+                    <div class="uni-address">
+                        Nolan House, 42 Bedford Square, London, WC1B 3DN, United Kingdom<br>
+                        Established 1987 · Triple Accredited: AMBA, EQUIS, AACSB
+                    </div>
+                </div>
             </div>
-            <div class="header-text">
-                <div class="uni-name">NOLAN UNIVERSITY</div>
-                <div class="uni-sub">School of Entrepreneurship & Venture Creation</div>
+            <div class="letterhead-contact">
+                <span class="contact-item">✉️ admissions@nolan.ac.uk</span>
+                <span class="contact-item">📞 +44 20 7946 0123</span>
+                <span class="contact-item">🌐 www.nolan.ac.uk</span>
+                <span class="contact-item">📋 UCAS: N38</span>
             </div>
         </div>
 
-        <div class="document-ref">REF: MBA-ENT/ADM/2026/0034</div>
-        <div class="date-line">15 March 2026</div>
+        <div class="doc-reference">
+            <span class="ref-code">REF: MBA-ENT/ADM/2026/0034</span>
+            <span>15 March 2026</span>
+        </div>
 
         <div class="recipient-address">
             <strong>Mr. Mwaba Lewis</strong><br>
@@ -419,7 +476,7 @@
             [City, Postcode, Country]
         </div>
 
-        <div class="document-title">OFFICIAL OFFER OF ADMISSION</div>
+        <div class="document-title">OFFICIAL OFFER OF ADMISSION · MBA ENTREPRENEURSHIP & INNOVATION</div>
         <div style="text-align:center; margin-bottom:1.5rem;">
             <span class="badge">POSTGRADUATE</span>
             <span class="badge">MBA · 12 MONTHS</span>
@@ -484,25 +541,40 @@
     </div>
 
     <!-- ================================================== -->
-    <!-- DOCUMENT 3: BSc PROGRAMME DETAILS & COST BREAKDOWN (FOR FUNDERS) -->
+    <!-- DOCUMENT 3: BSc COST BREAKDOWN WITH LETTERHEAD -->
     <!-- ================================================== -->
     <div class="document-card">
-        <div class="watermark">NOLAN UNIVERSITY</div>
+        <div class="watermark">NOLAN UNIVERSITY · SINCE 1987</div>
         
-        <div class="university-header">
-            <div class="logo">
-                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:80px;">
+        <!-- FULL LETTERHEAD -->
+        <div class="letterhead">
+            <div class="letterhead-top">
+                <div class="logo">
+                    <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:90px;">
+                </div>
+                <div class="uni-name-address">
+                    <div class="uni-name">NOLAN UNIVERSITY</div>
+                    <div class="uni-motto">Learn to Lead. Lead to Excel.</div>
+                    <div class="uni-address">
+                        Nolan House, 42 Bedford Square, London, WC1B 3DN, United Kingdom<br>
+                        Established 1987 · Triple Accredited: AMBA, EQUIS, AACSB
+                    </div>
+                </div>
             </div>
-            <div class="header-text">
-                <div class="uni-name">NOLAN UNIVERSITY</div>
-                <div class="uni-sub">Finance Office · Official Cost Schedule</div>
+            <div class="letterhead-contact">
+                <span class="contact-item">✉️ finance@nolan.ac.uk</span>
+                <span class="contact-item">📞 +44 20 7946 0456</span>
+                <span class="contact-item">🌐 www.nolan.ac.uk/finance</span>
+                <span class="contact-item">📋 VAT: GB123456789</span>
             </div>
         </div>
 
-        <div class="document-ref">REF: FIN/BSc/2026/0082</div>
-        <div class="date-line">15 March 2026</div>
+        <div class="doc-reference">
+            <span class="ref-code">REF: FIN/BSc/2026/0082</span>
+            <span>15 March 2026</span>
+        </div>
 
-        <div class="document-title">BSC FINANCE & INVESTMENT · COST BREAKDOWN & FUNDING SCHEDULE</div>
+        <div class="document-title">BSC FINANCE & INVESTMENT · OFFICIAL COST BREAKDOWN & PAYMENT SCHEDULE</div>
         <p style="text-align:center; font-size:1.1rem; margin-bottom:2rem;"><strong>Student:</strong> Mwaba Lewis · <strong>Student ID:</strong> To be assigned upon enrolment</p>
 
         <table>
@@ -551,25 +623,40 @@
     </div>
 
     <!-- ================================================== -->
-    <!-- DOCUMENT 4: MBA PROGRAMME DETAILS & COST BREAKDOWN (FOR FUNDERS) -->
+    <!-- DOCUMENT 4: MBA COST BREAKDOWN WITH LETTERHEAD -->
     <!-- ================================================== -->
     <div class="document-card">
-        <div class="watermark">NOLAN UNIVERSITY</div>
+        <div class="watermark">NOLAN UNIVERSITY · SINCE 1987</div>
         
-        <div class="university-header">
-            <div class="logo">
-                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:80px;">
+        <!-- FULL LETTERHEAD -->
+        <div class="letterhead">
+            <div class="letterhead-top">
+                <div class="logo">
+                    <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:90px;">
+                </div>
+                <div class="uni-name-address">
+                    <div class="uni-name">NOLAN UNIVERSITY</div>
+                    <div class="uni-motto">Learn to Lead. Lead to Excel.</div>
+                    <div class="uni-address">
+                        Nolan House, 42 Bedford Square, London, WC1B 3DN, United Kingdom<br>
+                        Established 1987 · Triple Accredited: AMBA, EQUIS, AACSB
+                    </div>
+                </div>
             </div>
-            <div class="header-text">
-                <div class="uni-name">NOLAN UNIVERSITY</div>
-                <div class="uni-sub">Finance Office · Official Cost Schedule</div>
+            <div class="letterhead-contact">
+                <span class="contact-item">✉️ finance@nolan.ac.uk</span>
+                <span class="contact-item">📞 +44 20 7946 0456</span>
+                <span class="contact-item">🌐 www.nolan.ac.uk/finance</span>
+                <span class="contact-item">📋 VAT: GB123456789</span>
             </div>
         </div>
 
-        <div class="document-ref">REF: FIN/MBA/2026/0034</div>
-        <div class="date-line">15 March 2026</div>
+        <div class="doc-reference">
+            <span class="ref-code">REF: FIN/MBA/2026/0034</span>
+            <span>15 March 2026</span>
+        </div>
 
-        <div class="document-title">MBA ENTREPRENEURSHIP & INNOVATION · COST BREAKDOWN & FUNDING SCHEDULE</div>
+        <div class="document-title">MBA ENTREPRENEURSHIP & INNOVATION · OFFICIAL COST BREAKDOWN & PAYMENT SCHEDULE</div>
         <p style="text-align:center; font-size:1.1rem; margin-bottom:2rem;"><strong>Student:</strong> Mwaba Lewis · <strong>Student ID:</strong> To be assigned upon enrolment</p>
 
         <table>
@@ -620,26 +707,41 @@
     </div>
 
     <!-- ================================================== -->
-    <!-- DOCUMENT 5: COMBINED ENROLMENT VERIFICATION (FOR FUNDERS) -->
+    <!-- DOCUMENT 5: COMBINED ENROLMENT VERIFICATION WITH LETTERHEAD -->
     <!-- ================================================== -->
     <div class="document-card">
-        <div class="watermark">NOLAN UNIVERSITY</div>
+        <div class="watermark">NOLAN UNIVERSITY · SINCE 1987</div>
         
-        <div class="university-header">
-            <div class="logo">
-                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:80px;">
+        <!-- FULL LETTERHEAD -->
+        <div class="letterhead">
+            <div class="letterhead-top">
+                <div class="logo">
+                    <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:90px;">
+                </div>
+                <div class="uni-name-address">
+                    <div class="uni-name">NOLAN UNIVERSITY</div>
+                    <div class="uni-motto">Learn to Lead. Lead to Excel.</div>
+                    <div class="uni-address">
+                        Nolan House, 42 Bedford Square, London, WC1B 3DN, United Kingdom<br>
+                        Established 1987 · Triple Accredited: AMBA, EQUIS, AACSB
+                    </div>
+                </div>
             </div>
-            <div class="header-text">
-                <div class="uni-name">NOLAN UNIVERSITY</div>
-                <div class="uni-sub">Academic Registry · Official Verification</div>
+            <div class="letterhead-contact">
+                <span class="contact-item">✉️ registry@nolan.ac.uk</span>
+                <span class="contact-item">📞 +44 20 7946 0789</span>
+                <span class="contact-item">🌐 www.nolan.ac.uk/registry</span>
+                <span class="contact-item">📋 HESA: 1234</span>
             </div>
         </div>
 
-        <div class="document-ref">REF: REG/COMB/2026/001</div>
-        <div class="date-line">15 March 2026</div>
+        <div class="doc-reference">
+            <span class="ref-code">REF: REG/COMB/2026/001</span>
+            <span>15 March 2026</span>
+        </div>
 
-        <div class="document-title">CONFIRMATION OF DUAL ADMISSION</div>
-        <p style="text-align:center; font-size:1.2rem; margin-bottom:2rem;"><strong>For External Funding Bodies · Scholarship Committees · Sponsors</strong></p>
+        <div class="document-title">CONFIRMATION OF DUAL ADMISSION · FOR EXTERNAL FUNDING BODIES</div>
+        <p style="text-align:center; font-size:1.2rem; margin-bottom:2rem;">Scholarship Committees · Sponsors · Funding Organisations</p>
 
         <div class="recipient-address">
             <p>To Whom It May Concern:</p>
@@ -691,25 +793,40 @@
     </div>
 
     <!-- ================================================== -->
-    <!-- DOCUMENT 6: SCHOLARSHIP & FUNDING INFORMATION PACKET -->
+    <!-- DOCUMENT 6: SCHOLARSHIP & FUNDING INFO WITH LETTERHEAD -->
     <!-- ================================================== -->
     <div class="document-card">
-        <div class="watermark">NOLAN UNIVERSITY</div>
+        <div class="watermark">NOLAN UNIVERSITY · SINCE 1987</div>
         
-        <div class="university-header">
-            <div class="logo">
-                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:80px;">
+        <!-- FULL LETTERHEAD -->
+        <div class="letterhead">
+            <div class="letterhead-top">
+                <div class="logo">
+                    <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:90px;">
+                </div>
+                <div class="uni-name-address">
+                    <div class="uni-name">NOLAN UNIVERSITY</div>
+                    <div class="uni-motto">Learn to Lead. Lead to Excel.</div>
+                    <div class="uni-address">
+                        Nolan House, 42 Bedford Square, London, WC1B 3DN, United Kingdom<br>
+                        Established 1987 · Triple Accredited: AMBA, EQUIS, AACSB
+                    </div>
+                </div>
             </div>
-            <div class="header-text">
-                <div class="uni-name">NOLAN UNIVERSITY</div>
-                <div class="uni-sub">Financial Aid & Scholarships Office</div>
+            <div class="letterhead-contact">
+                <span class="contact-item">✉️ finaid@nolan.ac.uk</span>
+                <span class="contact-item">📞 +44 20 7946 0321</span>
+                <span class="contact-item">🌐 www.nolan.ac.uk/scholarships</span>
+                <span class="contact-item">📋 UKPRN: 10012345</span>
             </div>
         </div>
 
-        <div class="document-ref">REF: FIN-AID/2026/INFO</div>
-        <div class="date-line">15 March 2026</div>
+        <div class="doc-reference">
+            <span class="ref-code">REF: FIN-AID/2026/INFO</span>
+            <span>15 March 2026</span>
+        </div>
 
-        <div class="document-title">SCHOLARSHIP & EXTERNAL FUNDING INFORMATION</div>
+        <div class="document-title">SCHOLARSHIP & EXTERNAL FUNDING INFORMATION PACKET</div>
         <p style="text-align:center; font-size:1.1rem; margin-bottom:2rem;"><strong>Prepared for:</strong> Mwaba Lewis · Prospective Student</p>
 
         <div class="content-box">
@@ -760,9 +877,9 @@
     <!-- Printing Instructions -->
     <div style="text-align:center; margin-top:2rem; padding:2rem; background:#0B2A3B; color:#F4C542; border-radius:10px;">
         <p style="font-size:1.5rem; font-weight:700;">📋 READY FOR FUNDING APPLICATIONS</p>
-        <p style="font-size:1.1rem;">Press <strong>Ctrl+P</strong> (Windows) or <strong>Cmd+P</strong> (Mac) to print all 6 documents.<br>
+        <p style="font-size:1.1rem;">Press <strong>Ctrl+P</strong> (Windows) or <strong>Cmd+P</strong> (Mac) to print all 6 documents with full letterhead.<br>
         Ensure "Background graphics" is checked to preserve gold accents and seals.</p>
-        <p style="margin-top:1rem;">Each document is designed to meet the requirements of external funding bodies, scholarship committees, and sponsors.</p>
+        <p style="margin-top:1rem;">Each document features the complete Nolan University letterhead and is designed for external funding bodies.</p>
     </div>
 
 </div>
