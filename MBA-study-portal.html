@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan MBA · Complete Study Materials · Theory, Practical, Assignments</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0B2A3B;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
+            padding-bottom: 1.25rem;
+        }
+
+        .uni-logo {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--nolan-navy);
+        }
+
+        .uni-name span {
+            color: var(--nolan-navy);
+            font-weight: 600;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--nolan-navy);
+            margin: 2rem 0 0.5rem 0;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #2d4f62;
+            margin-bottom: 2rem;
+        }
+
+        /* study navigation */
+        .study-nav {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .nav-btn {
+            background: white;
+            border: 2px solid var(--nolan-navy);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .nav-btn.active {
+            background: var(--nolan-gold);
+            border-color: var(--nolan-navy);
+        }
+        .nav-btn:hover {
+            background: var(--nolan-navy);
+            color: white;
+        }
+
+        /* module selector */
+        .module-selector {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+        .module-btn {
+            background: var(--nanol-gray-soft);
+            border: 1px solid var(--nolan-navy);
+            color: var(--nolan-navy);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .module-btn.active {
+            background: var(--nolan-gold);
+            border-color: var(--nolan-navy);
+            font-weight: 600;
+        }
+
+        /* study content area */
+        .study-content {
+            background: var(--nolan-white);
+            border-radius: 32px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 2px solid var(--nolan-gold);
+            min-height: 500px;
+        }
+
+        .theory-section, .practical-section, .assignments-section {
+            display: none;
+        }
+        .theory-section.active, .practical-section.active, .assignments-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 1.5rem;
+            border-left: 6px solid var(--nolan-gold);
+            padding-left: 1rem;
+        }
+
+        .note-card {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--nolan-gold);
+        }
+        .note-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.5rem;
+        }
+        .note-meta {
+            color: #3b687d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .note-content {
+            color: #235a72;
+        }
+        .note-content ul, .note-content ol {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .note-content li {
+            margin-bottom: 0.3rem;
+        }
+
+        .practical-card {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--nolan-gold);
+        }
+
+        .assignment-card {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 2px dashed var(--nolan-gold);
+        }
+        .assignment-due {
+            background: var(--nolan-navy);
+            color: white;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+            margin-top: 1rem;
+        }
+        .btn-gold:hover {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3b687d;
+            border-top: 2px solid var(--nolan-gold);
+            padding-top: 2rem;
+        }
+
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+
+        @media (max-width: 800px) {
+            .module-selector {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="university-header">
+        <div class="uni-logo">NU</div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
+    </div>
+
+    <!-- global tagline -->
+    <div class="global-tagline">
+        <strong>MBA in Entrepreneurship & Innovation</strong> · Complete Study Materials · Theory + Practical + Assignments
+    </div>
+
+    <!-- page heading -->
+    <h1 class="page-title">📖 Your Online MBA Study Portal</h1>
+    <p class="page-subtitle">All the theory notes, practical exercises, and assignments you need for your 12-month journey. Click through each module to access comprehensive materials.</p>
+
+    <!-- main navigation -->
+    <div class="study-nav">
+        <button class="nav-btn active" onclick="showSection('theory')">Theory Notes</button>
+        <button class="nav-btn" onclick="showSection('practical')">Practical Exercises</button>
+        <button class="nav-btn" onclick="showSection('assignments')">Assignments</button>
+    </div>
+
+    <!-- module selector (based on actual MBA modules) -->
+    <div class="module-selector">
+        <button class="module-btn active" onclick="showModule('nvf')">New Venture Finance</button>
+        <button class="module-btn" onclick="showModule('mindset')">Entrepreneurial Mindset</button>
+        <button class="module-btn" onclick="showModule('data')">Data Analytics</button>
+        <button class="module-btn" onclick="showModule('marketing')">Marketing for Startups</button>
+        <button class="module-btn" onclick="showModule('vcpe')">VC & Private Equity</button>
+        <button class="module-btn" onclick="showModule('design')">Design Thinking</button>
+        <button class="module-btn" onclick="showModule('tech')">Tech Strategy</button>
+        <button class="module-btn" onclick="showModule('ops')">Entrepreneurial Ops</button>
+        <button class="module-btn" onclick="showModule('lab')">Venture Lab</button>
+    </div>
+
+    <!-- main study content area -->
+    <div class="study-content" id="study-content">
+        <!-- THEORY SECTION -->
+        <div id="theory-section" class="theory-section active">
+            <!-- New Venture Finance Theory -->
+            <div id="theory-nvf" class="module-content active">
+                <div class="section-title">📘 New Venture Finance · Theory Notes</div>
+                <div class="note-card">
+                    <div class="note-title">1. Valuation Fundamentals</div>
+                    <div class="note-meta">Week 1 · 45 min read</div>
+                    <div class="note-content">
+                        <p><strong>Key Concepts:</strong></p>
+                        <ul>
+                            <li><strong>Pre-money vs Post-money valuation:</strong> Pre-money is value before investment. Post-money = Pre-money + Investment. Example: £5M pre + £2M investment = £7M post. Investor owns 2/7 = 28.6%.</li>
+                            <li><strong>Discounted Cash Flow (DCF):</strong> Project future cash flows, discount at appropriate rate. For startups, high discount rates (30-50%) reflect risk.</li>
+                            <li><strong>Venture Capital Method:</strong> Terminal value ÷ expected ROI. If exit at £50M, target 10x return, post-money = £5M.</li>
+                            <li><strong>Scorecard Method:</strong> Compare to similar startups, adjust for team, market, product.</li>
+                        </ul>
+                        <p><strong>Reading:</strong> Venture Deals Ch 1-3, "Valuing Early Stage Companies" (HBS note)</p>
+                    </div>
+                </div>
+                <div class="note-card">
+                    <div class="note-title">2. Term Sheets: Economic Terms</div>
+                    <div class="note-meta">Week 2 · 60 min read</div>
+                    <div class="note-content">
+                        <p><strong>Key Clauses:</strong></p>
+                        <ul>
+                            <li><strong>Liquidation Preference:</strong> 1x non-participating is standard. 1x participating is founder-unfriendly. Example: £10M exit, £5M invested: participating gets £5M + share of remaining.</li>
+                            <li><strong>Conversion Rights:</strong> Preferred converts to common at IPO or acquisition.</li>
+                            <li><strong>Anti-dilution:</strong> Weighted average (broad/narrow) vs full ratchet. Protects investors in down rounds.</li>
+                            <li><strong>Dividends:</strong> Usually cumulative, but rarely paid – accrues.</li>
+                        </ul>
+                        <p><strong>Reading:</strong> Venture Deals Ch 4-5, Sample term sheet (NVCA)</p>
+                    </div>
+                </div>
+                <div class="note-card">
+                    <div class="note-title">3. Term Sheets: Control Terms</div>
+                    <div class="note-meta">Week 3 · 50 min read</div>
+                    <div class="note-content">
+                        <ul>
+                            <li><strong>Board Composition:</strong> Typical: 2 founders, 2 VCs, 1 independent.</li>
+                            <li><strong>Protective Provisions:</strong> VC veto rights on major decisions (sale, new equity, debt).</li>
+                            <li><strong>Drag-Along:</strong> Forces minority shareholders to join a sale.</li>
+                            <li><strong>Right of First Refusal (ROFR):</strong> Investors can match any share sale.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Entrepreneurial Mindset Theory -->
+            <div id="theory-mindset" class="module-content">
+                <div class="section-title">🧠 Entrepreneurial Mindset · Theory Notes</div>
+                <div class="note-card">
+                    <div class="note-title">Effectuation Principles</div>
+                    <div class="note-content">
+                        <p><strong>Saras Sarasvathy's 5 principles:</strong></p>
+                        <ul>
+                            <li><strong>Bird-in-hand:</strong> Start with who you are, what you know, whom you know.</li>
+                            <li><strong>Affordable loss:</strong> Invest what you can afford to lose, not expected return.</li>
+                            <li><strong>Lemonade principle:</strong> Leverage surprises and contingencies.</li>
+                            <li><strong>Crazy quilt:</strong> Build partnerships and pre-commitments.</li>
+                            <li><strong>Pilot-in-the-plane:</strong> Focus on activities you can control.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Analytics Theory -->
+            <div id="theory-data" class="module-content">
+                <div class="section-title">📊 Data Analytics · Theory Notes</div>
+                <div class="note-card">
+                    <div class="note-title">Cohort Analysis</div>
+                    <div class="note-content">
+                        <p>Cohorts group users by acquisition date. Track retention, revenue, engagement over time. Key metrics: retention curve, LTV, CAC, payback period.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketing Theory -->
+            <div id="theory-marketing" class="module-content">
+                <div class="section-title">📈 Marketing for Startups · Theory Notes</div>
+                <div class="note-card">
+                    <div class="note-title">Bullseye Framework</div>
+                    <div class="note-content">
+                        <p>Identify 3 channels, test, focus on one that works. Channels: viral, paid, SEO, content, sales, etc.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VC/PE Theory -->
+            <div id="theory-vcpe" class="module-content">
+                <div class="section-title">💰 Venture Capital & Private Equity · Theory Notes</div>
+                <div class="note-card">
+                    <div class="note-title">LBO Modelling Basics</div>
+                    <div class="note-content">
+                        <p>LBO uses debt to acquire company. Returns driven by: EBITDA growth, multiple expansion, debt paydown. IRR typically 20-30%.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design Thinking Theory -->
+            <div id="theory-design" class="module-content">
+                <div class="section-title">🎨 Design Thinking · Theory Notes</div>
+                <div class="note-card">
+                    <div class="note-title">5 Stages of Design Thinking</div>
+                    <div class="note-content">
+                        <ol>
+                            <li>Empathize – understand users</li>
+                            <li>Define – articulate problem</li>
+                            <li>Ideate – brainstorm solutions</li>
+                            <li>Prototype – build quick models</li>
+                            <li>Test – get feedback, iterate</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Strategy Theory -->
+            <div id="theory-tech" class="module-content">
+                <div class="section-title">🤖 Technology Strategy · Theory Notes</div>
+                <div class="note-card">
+                    <div class="note-title">Disruptive Innovation</div>
+                    <div class="note-content">
+                        <p>Christensen: Disruptive technologies start in low-end or new markets, then move upmarket. Incumbents ignore them.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ops Theory -->
+            <div id="theory-ops" class="module-content">
+                <div class="section-title">⚙️ Entrepreneurial Operations · Theory Notes</div>
+                <div class="note-card">
+                    <div class="note-title">Scaling Framework</div>
+                    <div class="note-content">
+                        <p>Four stages: startup, growth, scale, maturity. Each requires different processes, culture, leadership.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Venture Lab Theory -->
+            <div id="theory-lab" class="module-content">
+                <div class="section-title">🚀 Venture Creation Lab · Theory Notes</div>
+                <div class="note-card">
+                    <div class="note-title">Lean Startup Methodology</div>
+                    <div class="note-content">
+                        <p>Build → Measure → Learn. MVP, validated learning, pivot/persevere.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRACTICAL SECTION -->
+        <div id="practical-section" class="practical-section">
+            <!-- New Venture Finance Practical -->
+            <div id="practical-nvf" class="module-content active">
+                <div class="section-title">📊 New Venture Finance · Practical Exercises</div>
+                <div class="practical-card">
+                    <div class="note-title">Exercise 1: Build a Cap Table</div>
+                    <div class="note-meta">Excel template provided</div>
+                    <div class="note-content">
+                        <p>Scenario: Seed round £500k at £2M pre-money. Series A £3M at £8M pre. Include option pool 15%. Calculate founder dilution.</p>
+                        <p><strong>Steps:</strong></p>
+                        <ol>
+                            <li>Set up pre-money, investment, post-money</li>
+                            <li>Calculate investor ownership</li>
+                            <li>Add option pool</li>
+                            <li>Show fully diluted shares</li>
+                            <li>Run down round scenario: Series B £2M at £6M pre with anti-dilution</li>
+                        </ol>
+                        <button class="btn-gold" onclick="alert('Cap table template would download here')">Download Starter Excel</button>
+                    </div>
+                </div>
+                <div class="practical-card">
+                    <div class="note-title">Exercise 2: Term Sheet Comparison</div>
+                    <div class="note-content">
+                        <p>Compare two term sheets for the same company. Which is more founder-friendly? Calculate outcomes at £30M, £50M, £100M exits.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Entrepreneurial Mindset Practical -->
+            <div id="practical-mindset" class="module-content">
+                <div class="section-title">🧠 Entrepreneurial Mindset · Practical Exercises</div>
+                <div class="practical-card">
+                    <div class="note-title">Customer Discovery Interviews</div>
+                    <div class="note-content">
+                        <p>Conduct 5 customer interviews for a startup idea. Use the following script template. Summarise pain points and insights.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Analytics Practical -->
+            <div id="practical-data" class="module-content">
+                <div class="section-title">📊 Data Analytics · Practical Exercises</div>
+                <div class="practical-card">
+                    <div class="note-title">Python Cohort Analysis</div>
+                    <div class="note-content">
+                        <p>Using provided dataset (e-commerce transactions), build a cohort retention table in Python. Calculate LTV for each cohort.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketing Practical -->
+            <div id="practical-marketing" class="module-content">
+                <div class="section-title">📈 Marketing · Practical Exercises</div>
+                <div class="practical-card">
+                    <div class="note-title">Channel Experiment Design</div>
+                    <div class="note-content">
+                        <p>Design a 2-week experiment for 3 acquisition channels. Define metrics, budget, success criteria.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VC/PE Practical -->
+            <div id="practical-vcpe" class="module-content">
+                <div class="section-title">💰 VC/PE · Practical Exercises</div>
+                <div class="practical-card">
+                    <div class="note-title">LBO Model Build</div>
+                    <div class="note-content">
+                        <p>Build a simple LBO model: acquisition price £100M, debt £60M, exit in 5 years at £150M. Calculate IRR and cash-on-cash return.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ASSIGNMENTS SECTION -->
+        <div id="assignments-section" class="assignments-section">
+            <!-- New Venture Finance Assignments -->
+            <div id="assignments-nvf" class="module-content active">
+                <div class="section-title">📝 New Venture Finance · Assignments</div>
+                <div class="assignment-card">
+                    <div class="assignment-due">Due: Week 6 · 40% of grade</div>
+                    <div class="note-title">Investment Memo</div>
+                    <div class="note-content">
+                        <p>Choose a real early-stage startup. Write a 3-page investment memo including:</p>
+                        <ul>
+                            <li>Company overview and problem</li>
+                            <li>Market analysis</li>
+                            <li>Financial projections and valuation</li>
+                            <li>Terms and structure recommendation</li>
+                            <li>Risk factors and mitigants</li>
+                        </ul>
+                        <p><strong>Format:</strong> PDF, max 3 pages + exhibits</p>
+                        <button class="btn-gold">Upload Assignment</button>
+                    </div>
+                </div>
+                <div class="assignment-card">
+                    <div class="assignment-due">Due: Week 4 · 30% of grade</div>
+                    <div class="note-title">Term Sheet Negotiation Simulation</div>
+                    <div class="note-content">
+                        <p>Recorded negotiation with classmate. Submit final term sheet and 1-page reflection.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Entrepreneurial Mindset Assignments -->
+            <div id="assignments-mindset" class="module-content">
+                <div class="section-title">📝 Entrepreneurial Mindset · Assignments</div>
+                <div class="assignment-card">
+                    <div class="assignment-due">Due: Week 6 · 50% of grade</div>
+                    <div class="note-title">Opportunity Brief</div>
+                    <div class="note-content">
+                        <p>Identify a business opportunity. Submit a 2-page brief covering: problem, solution, customer, market size, and next steps.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Analytics Assignments -->
+            <div id="assignments-data" class="module-content">
+                <div class="section-title">📝 Data Analytics · Assignments</div>
+                <div class="assignment-card">
+                    <div class="assignment-due">Due: Week 6 · 50% of grade</div>
+                    <div class="note-title">Cohort Analysis Report</div>
+                    <div class="note-content">
+                        <p>Submit a Jupyter notebook with cohort analysis and a 1-page executive summary of insights and recommendations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketing Assignments -->
+            <div id="assignments-marketing" class="module-content">
+                <div class="section-title">📝 Marketing · Assignments</div>
+                <div class="assignment-card">
+                    <div class="assignment-due">Due: Week 6 · 60% of grade</div>
+                    <div class="note-title">Growth Marketing Plan</div>
+                    <div class="note-content">
+                        <p>3-page marketing plan for a startup, including channel strategy, budget, metrics, and experiments.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VC/PE Assignments -->
+            <div id="assignments-vcpe" class="module-content">
+                <div class="section-title">📝 VC & Private Equity · Assignments</div>
+                <div class="assignment-card">
+                    <div class="assignment-due">Due: Week 6 · 50% of grade</div>
+                    <div class="note-title">LBO Model & Investment Memo</div>
+                    <div class="note-content">
+                        <p>Submit an Excel LBO model and 2-page investment memo for a leveraged buyout opportunity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Venture Lab Assignments -->
+            <div id="assignments-lab" class="module-content">
+                <div class="section-title">📝 Venture Creation Lab · Assignments</div>
+                <div class="assignment-card">
+                    <div class="assignment-due">Due: Week 9 · 100% of grade</div>
+                    <div class="note-title">Venture Launch Package</div>
+                    <div class="note-content">
+                        <p>Submit: (1) Problem validation report, (2) MVP/prototype, (3) 3-year financial projections, (4) Investor pitch deck, (5) 5-minute video pitch.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- study tips -->
+    <div style="background: var(--nanol-gray-soft); border-radius: 28px; padding: 1.5rem; margin-top: 2rem; border: 2px dashed var(--nolan-gold);">
+        <h3 style="color: var(--nolan-navy);">📌 Study Tips for Online MBA Success</h3>
+        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+            <li>Schedule 15-20 hours per week per module</li>
+            <li>Watch lecture videos first, then read theory notes</li>
+            <li>Attempt practical exercises before checking solutions</li>
+            <li>Form study groups with peers (Slack/Discord)</li>
+            <li>Start assignments early – they take longer than you think</li>
+            <li>Use office hours – professors are there to help</li>
+        </ul>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · 100% Online MBA · Complete Study Materials<br>
+        © 2025 Nolan University · All materials updated for 2026 cohort</p>
+    </div>
+</div>
+
+<!-- JavaScript for interactivity -->
+<script>
+    // Show theory/practical/assignments section
+    function showSection(section) {
+        // Update nav buttons
+        var navBtns = document.getElementsByClassName('nav-btn');
+        for (var i = 0; i < navBtns.length; i++) {
+            navBtns[i].classList.remove('active');
+        }
+        event.target.classList.add('active');
+        
+        // Show selected section
+        document.getElementById('theory-section').classList.remove('active');
+        document.getElementById('practical-section').classList.remove('active');
+        document.getElementById('assignments-section').classList.remove('active');
+        document.getElementById(section + '-section').classList.add('active');
+        
+        // Reset module display based on active module button
+        var activeModule = document.querySelector('.module-btn.active').innerText.toLowerCase().replace(' ', '').replace('&', '').replace(' ', '');
+        var moduleMap = {
+            'newventurefinance': 'nvf',
+            'entrepreneurialmindset': 'mindset',
+            'dataanalytics': 'data',
+            'marketingforstartups': 'marketing',
+            'vcprivateequity': 'vcpe',
+            'designthinking': 'design',
+            'techstrategy': 'tech',
+            'entrepreneurialops': 'ops',
+            'venturelab': 'lab'
+        };
+        showModule(moduleMap[activeModule] || 'nvf');
+    }
+
+    // Show module content within current section
+    function showModule(moduleId) {
+        // Update module buttons
+        var moduleBtns = document.getElementsByClassName('module-btn');
+        for (var i = 0; i < moduleBtns.length; i++) {
+            moduleBtns[i].classList.remove('active');
+        }
+        event.target.classList.add('active');
+        
+        // Get current active section
+        var activeSection = document.querySelector('.nav-btn.active').innerText.toLowerCase();
+        
+        // Hide all module contents in that section
+        var section = document.getElementById(activeSection + '-section');
+        var moduleContents = section.getElementsByClassName('module-content');
+        for (var i = 0; i < moduleContents.length; i++) {
+            moduleContents[i].classList.remove('active');
+        }
+        
+        // Show selected module
+        document.getElementById(activeSection + '-' + moduleId).classList.add('active');
+    }
+</script>
+</body>
+</html>
