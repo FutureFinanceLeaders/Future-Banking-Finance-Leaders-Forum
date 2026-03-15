@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan University · Special Case: Accelerated Concurrent BSc + MBA</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0B2A3B;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
+            padding-bottom: 1.25rem;
+        }
+
+        .uni-logo {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--nolan-navy);
+        }
+
+        .uni-name span {
+            color: var(--nolan-navy);
+            font-weight: 600;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
+        }
+
+        .special-badge {
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 0.3rem 1.5rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--nolan-navy);
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #2d4f62;
+            margin-bottom: 2rem;
+        }
+
+        /* timeline visual */
+        .timeline {
+            display: flex;
+            margin: 3rem 0;
+            position: relative;
+            background: var(--nolan-white);
+            border-radius: 60px;
+            padding: 2rem;
+            border: 2px solid var(--nolan-gold);
+        }
+        .timeline-year {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        .timeline-year:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--nolan-gold);
+        }
+        .year-label {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.5rem;
+        }
+        .year-content {
+            background: #eef3f6;
+            border-radius: 30px;
+            padding: 1rem;
+        }
+        .mba-badge {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin: 0.2rem;
+        }
+        .bsc-badge {
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin: 0.2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin: 2.5rem 0 1.5rem 0;
+            border-left: 6px solid var(--nolan-gold);
+            padding-left: 1rem;
+        }
+
+        .card {
+            background: var(--nolan-white);
+            border-radius: 28px;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #dde7ed;
+            box-shadow: 0 10px 20px -10px rgba(11,42,59,0.15);
+        }
+
+        .term-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .term-card {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--nolan-gold);
+        }
+        .term-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.5rem;
+        }
+        .term-dates {
+            color: #3b687d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .module-list {
+            list-style: none;
+        }
+        .module-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.2rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .module-list li::before {
+            content: "•";
+            color: var(--nolan-gold);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+        .credits {
+            color: #5f7d8f;
+            font-size: 0.8rem;
+            margin-left: 0.3rem;
+        }
+
+        .synergy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .synergy-item {
+            background: #eef3f6;
+            border-radius: 18px;
+            padding: 1rem;
+            border: 1px solid var(--nolan-gold);
+        }
+        .synergy-bsc {
+            font-weight: 700;
+            color: var(--nolan-navy);
+        }
+        .synergy-mba {
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-top: 0.3rem;
+        }
+        .synergy-arrow {
+            text-align: center;
+            color: var(--nolan-gold);
+            font-size: 1.2rem;
+        }
+
+        .milestone {
+            background: var(--nolan-navy);
+            color: white;
+            border-radius: 40px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+            margin-top: 1rem;
+        }
+        .btn-gold:hover {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3b687d;
+            border-top: 2px solid var(--nolan-gold);
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 800px) {
+            .term-grid, .synergy-grid {
+                grid-template-columns: 1fr;
+            }
+            .timeline {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .timeline-year:not(:last-child)::after {
+                content: "↓";
+                right: 50%;
+                top: auto;
+                bottom: -20px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="university-header">
+        <div class="uni-logo">NU</div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
+    </div>
+
+    <!-- global tagline -->
+    <div class="global-tagline">
+        <strong>Special Case: Accelerated Concurrent Pathway</strong> · BSc Finance & Investment + MBA Entrepreneurship & Innovation
+    </div>
+
+    <!-- special badge -->
+    <div class="special-badge">⚡ STUDENT-CUSTOMISED PATHWAY · OFFICIAL PROGRAMME PLAN</div>
+
+    <!-- page heading -->
+    <h1 class="page-title">Your 3-Year Accelerated Concurrent Degree Plan</h1>
+    <p class="page-subtitle">BSc completed in 2.5 years · MBA completed in 12 months · MBA Certificate awarded after Year 1</p>
+
+    <!-- timeline visual -->
+    <div class="timeline">
+        <div class="timeline-year">
+            <div class="year-label">YEAR 1</div>
+            <div class="year-content">
+                <span class="bsc-badge">BSc Term 1</span>
+                <span class="bsc-badge">BSc Term 2</span>
+                <span class="mba-badge">MBA Term 1</span>
+                <span class="mba-badge">MBA Term 2</span>
+                <span class="mba-badge">MBA Term 3</span>
+                <div style="margin-top:0.5rem; font-weight:700; color:var(--nolan-navy);">🎓 MBA COMPLETE</div>
+            </div>
+        </div>
+        <div class="timeline-year">
+            <div class="year-label">YEAR 2</div>
+            <div class="year-content">
+                <span class="bsc-badge">BSc Term 3</span>
+                <span class="bsc-badge">BSc Term 4</span>
+            </div>
+        </div>
+        <div class="timeline-year">
+            <div class="year-label">YEAR 3</div>
+            <div class="year-content">
+                <span class="bsc-badge">BSc Term 5</span>
+                <div style="margin-top:0.5rem; font-weight:700; color:var(--nolan-navy);">🎓 BSc COMPLETE</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- milestone: MBA after Year 1 -->
+    <div class="milestone">
+        <h2 style="color: var(--nolan-gold);">🎓 END OF YEAR 1 · YOU RECEIVE YOUR MBA CERTIFICATE</h2>
+        <p style="margin-top:0.5rem;">After 12 months of intensive concurrent study, you are awarded the MBA in Entrepreneurship & Innovation. You may begin working in MBA-level roles while completing your BSc.</p>
+    </div>
+
+    <!-- Year 1: The Intensive Year -->
+    <h2 class="section-title">📅 Year 1 · Concurrent Study (BSc + MBA)</h2>
+    <div class="term-grid">
+        <!-- Term 1 Fall -->
+        <div class="term-card">
+            <div class="term-title">Term 1 (Fall)</div>
+            <div class="term-dates">15 weeks · 55-60 hrs/week</div>
+            <div style="margin-bottom:0.8rem;"><strong>BSc Modules (80 credits)</strong></div>
+            <ul class="module-list">
+                <li>Principles of Finance <span class="credits">20</span></li>
+                <li>Financial Accounting <span class="credits">20</span></li>
+                <li>Quantitative Methods 1 <span class="credits">20</span></li>
+                <li>Macroeconomics <span class="credits">20</span></li>
+            </ul>
+            <div style="margin:0.8rem 0;"><strong>MBA Modules (35 credits)</strong></div>
+            <ul class="module-list">
+                <li>New Venture Finance <span class="credits">15</span></li>
+                <li>Entrepreneurial Mindset <span class="credits">10</span></li>
+                <li>Data Analytics for Startups <span class="credits">10</span></li>
+            </ul>
+        </div>
+        <!-- Term 2 Spring -->
+        <div class="term-card">
+            <div class="term-title">Term 2 (Spring)</div>
+            <div class="term-dates">15 weeks · 55-60 hrs/week</div>
+            <div style="margin-bottom:0.8rem;"><strong>BSc Modules (80 credits)</strong></div>
+            <ul class="module-list">
+                <li>Corporate Finance <span class="credits">20</span></li>
+                <li>Financial Modelling (Excel) <span class="credits">20</span></li>
+                <li>Introduction to Investment Banking <span class="credits">20</span></li>
+                <li>Professional Skills <span class="credits">20</span></li>
+            </ul>
+            <div style="margin:0.8rem 0;"><strong>MBA Modules (35 credits)</strong></div>
+            <ul class="module-list">
+                <li>Venture Capital & Private Equity <span class="credits">15</span></li>
+                <li>Design Thinking <span class="credits">10</span></li>
+                <li>Technology Strategy <span class="credits">10</span></li>
+            </ul>
+        </div>
+        <!-- Term 3 Summer -->
+        <div class="term-card">
+            <div class="term-title">Term 3 (Summer)</div>
+            <div class="term-dates">12 weeks · 25-30 hrs/week</div>
+            <div style="margin-bottom:0.8rem;"><strong>BSc Status</strong></div>
+            <ul class="module-list">
+                <li>Light load or break</li>
+                <li>Optional: Begin capstone preparation</li>
+            </ul>
+            <div style="margin:0.8rem 0;"><strong>MBA Modules (30 credits)</strong></div>
+            <ul class="module-list">
+                <li>New Venture Creation Lab (Capstone) <span class="credits">15</span></li>
+                <li>Corporate Innovation <span class="credits">10</span></li>
+                <li>Global Immersion (optional) <span class="credits">5</span></li>
+            </ul>
+            <div style="margin-top:1rem; background:var(--nolan-gold); padding:0.3rem; border-radius:30px; text-align:center; font-weight:700;">✅ MBA COMPLETE</div>
+        </div>
+    </div>
+
+    <!-- Year 2-3: BSc Only -->
+    <h2 class="section-title">📅 Years 2-3 · BSc Completion (Accelerated)</h2>
+    <div class="term-grid">
+        <!-- Term 4 Fall Year 2 -->
+        <div class="term-card">
+            <div class="term-title">Term 4 (Fall, Year 2)</div>
+            <div class="term-dates">15 weeks · 35-40 hrs/week</div>
+            <div style="margin-bottom:0.8rem;"><strong>BSc Modules (60 credits)</strong></div>
+            <ul class="module-list">
+                <li>Equity & Fixed Income Analysis <span class="credits">20</span></li>
+                <li>Derivatives & Risk Management <span class="credits">20</span></li>
+                <li>Financial Econometrics <span class="credits">20</span></li>
+            </ul>
+        </div>
+        <!-- Term 5 Spring Year 2 -->
+        <div class="term-card">
+            <div class="term-title">Term 5 (Spring, Year 2)</div>
+            <div class="term-dates">15 weeks · 35-40 hrs/week</div>
+            <div style="margin-bottom:0.8rem;"><strong>BSc Modules (60 credits)</strong></div>
+            <ul class="module-list">
+                <li>Mergers & Acquisitions <span class="credits">20</span></li>
+                <li>Advanced Portfolio Management <span class="credits">20</span></li>
+                <li>Behavioural Finance <span class="credits">20</span></li>
+            </ul>
+        </div>
+        <!-- Term 6 Fall Year 3 -->
+        <div class="term-card">
+            <div class="term-title">Term 6 (Fall, Year 3)</div>
+            <div class="term-dates">15 weeks · 35-40 hrs/week</div>
+            <div style="margin-bottom:0.8rem;"><strong>BSc Modules (60 credits)</strong></div>
+            <ul class="module-list">
+                <li>Alternative Investments <span class="credits">20</span></li>
+                <li>Applied Investment Project (Capstone) <span class="credits">40</span></li>
+            </ul>
+            <div style="margin-top:1rem; background:var(--nolan-gold); padding:0.3rem; border-radius:30px; text-align:center; font-weight:700;">✅ BSc COMPLETE</div>
+        </div>
+    </div>
+
+    <!-- Synergy Map -->
+    <h2 class="section-title">🔄 Module Synergies · How They Reinforce Each Other</h2>
+    <div class="synergy-grid">
+        <div class="synergy-item">
+            <div class="synergy-bsc">BSc: Principles of Finance</div>
+            <div class="synergy-arrow">⬇️</div>
+            <div class="synergy-mba">MBA: New Venture Finance</div>
+            <div style="font-size:0.9rem; margin-top:0.5rem;">Valuation theory → startup application</div>
+        </div>
+        <div class="synergy-item">
+            <div class="synergy-bsc">BSc: Quantitative Methods</div>
+            <div class="synergy-arrow">⬇️</div>
+            <div class="synergy-mba">MBA: Data Analytics for Startups</div>
+            <div style="font-size:0.9rem; margin-top:0.5rem;">Stats foundation → Python analytics</div>
+        </div>
+        <div class="synergy-item">
+            <div class="synergy-bsc">BSc: Corporate Finance</div>
+            <div class="synergy-arrow">⬇️</div>
+            <div class="synergy-mba">MBA: Venture Capital & PE</div>
+            <div style="font-size:0.9rem; margin-top:0.5rem;">Corporate valuation → LBO modelling</div>
+        </div>
+        <div class="synergy-item">
+            <div class="synergy-bsc">BSc: Financial Modelling</div>
+            <div class="synergy-arrow">⬇️</div>
+            <div class="synergy-mba">MBA: New Venture Finance</div>
+            <div style="font-size:0.9rem; margin-top:0.5rem;">Excel skills → startup financials</div>
+        </div>
+        <div class="synergy-item">
+            <div class="synergy-bsc">BSc: Behavioural Finance</div>
+            <div class="synergy-arrow">⬇️</div>
+            <div class="synergy-mba">MBA: Entrepreneurial Mindset</div>
+            <div style="font-size:0.9rem; margin-top:0.5rem;">Investor psychology → founder psychology</div>
+        </div>
+        <div class="synergy-item">
+            <div class="synergy-bsc">BSc: Alternative Investments</div>
+            <div class="synergy-arrow">⬇️</div>
+            <div class="synergy-mba">MBA: Venture Capital & PE</div>
+            <div style="font-size:0.9rem; margin-top:0.5rem;">PE/VC theory → deal execution</div>
+        </div>
+        <div class="synergy-item" style="grid-column: span 2;">
+            <div class="synergy-bsc">BSc: Applied Investment Project</div>
+            <div class="synergy-arrow">⬇️</div>
+            <div class="synergy-mba">MBA: New Venture Creation Lab</div>
+            <div style="font-size:0.9rem; margin-top:0.5rem;">Both capstones can be THE SAME VENTURE! Build financial model in BSc, launch in MBA.</div>
+        </div>
+    </div>
+
+    <!-- Weekly Schedule Sample -->
+    <h2 class="section-title">⏰ Sample Week · Year 1 Term 1</h2>
+    <div class="card">
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0.5rem; text-align:center;">
+            <div><strong>Mon</strong></div><div><strong>Tue</strong></div><div><strong>Wed</strong></div><div><strong>Thu</strong></div><div><strong>Fri</strong></div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0.5rem; margin-top:0.5rem; font-size:0.9rem;">
+            <div>08-10 BSc: Finance<br>10-12 MBA: Venture<br>14-16 BSc: Quant<br>19-21 MBA readings</div>
+            <div>08-10 BSc: Accounting<br>10-12 MBA: Mindset<br>14-16 BSc: Macro<br>19-21 MBA assignment</div>
+            <div>08-10 BSc: Tutorial<br>10-12 MBA: Data Lab<br>14-16 BSc: Group<br>19-21 MBA discussion</div>
+            <div>08-10 BSc: Quant live<br>10-12 MBA: Case study<br>14-16 BSc: Tutorial<br>19-21 BSc assignments</div>
+            <div>09-12 BSc review<br>13-17 MBA group project</div>
+        </div>
+        <div style="margin-top:1rem; background:#eef3f6; padding:0.8rem; border-radius:20px;">
+            <strong>Weekend:</strong> Saturday: MBA assignments (4 hrs) · BSc catch-up (4 hrs) · Sunday: Rest/planning
+        </div>
+        <div style="margin-top:1rem; font-weight:700;">Total weekly hours: ~55-60</div>
+    </div>
+
+    <!-- Career Impact -->
+    <h2 class="section-title">💼 After Year 1: You Have an MBA</h2>
+    <div class="card">
+        <p>With your MBA certificate awarded after Year 1, you can pursue MBA-level roles while completing your BSc:</p>
+        <ul style="margin:1rem 0 0 1.5rem;">
+            <li><strong>Venture Capital:</strong> Analyst/Associate roles</li>
+            <li><strong>Private Equity:</strong> Associate positions</li>
+            <li><strong>Investment Banking:</strong> MBA associate programmes</li>
+            <li><strong>Startup:</strong> Founder or early employee with MBA credibility</li>
+            <li><strong>Corporate Finance:</strong> Finance Manager, Analyst</li>
+            <li><strong>Consulting:</strong> Associate Consultant</li>
+        </ul>
+        <p style="margin-top:1rem;">You may work part-time or full-time while completing your BSc, or focus on studies and start your career immediately after BSc completion.</p>
+    </div>
+
+    <!-- Formal approval section -->
+    <div style="background: #eef3f6; border-radius: 36px; padding: 2rem; margin: 2rem 0; border: 2px solid var(--nolan-gold);">
+        <h2 style="color: var(--nolan-navy);">📋 Official Approval Required</h2>
+        <p>This special case pathway requires approval from:</p>
+        <ul style="margin:1rem 0 1rem 2rem;">
+            <li>BSc Finance & Investment Programme Director</li>
+            <li>MBA Entrepreneurship & Innovation Programme Director</li>
+            <li>Academic Registry – for dual registration and credit tracking</li>
+        </ul>
+        <div style="display:flex; gap:2rem; margin-top:2rem; flex-wrap:wrap;">
+            <div style="flex:1; background:white; padding:1rem; border-radius:20px;">
+                <strong>Student Name:</strong> _________________________
+            </div>
+            <div style="flex:1; background:white; padding:1rem; border-radius:20px;">
+                <strong>Student ID:</strong> _________________________
+            </div>
+        </div>
+        <div style="display:flex; gap:2rem; margin-top:1rem; flex-wrap:wrap;">
+            <div style="flex:1; background:white; padding:1rem; border-radius:20px;">
+                <strong>BSc Director Signature:</strong> _________________________
+            </div>
+            <div style="flex:1; background:white; padding:1rem; border-radius:20px;">
+                <strong>MBA Director Signature:</strong> _________________________
+            </div>
+        </div>
+        <div style="margin-top:2rem; text-align:center;">
+            <span class="btn-gold">📄 Download Formal Proposal</span>
+        </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="milestone" style="background: var(--nolan-gold); color: var(--nolan-navy);">
+        <h2 style="color: var(--nolan-navy);">✅ Pathway Summary</h2>
+        <p style="font-size:1.2rem; margin-top:0.5rem;">BSc Finance & Investment (2.5 years) + MBA Entrepreneurship & Innovation (12 months) = <strong>BOTH DEGREES IN 3 YEARS</strong></p>
+        <p style="margin-top:0.5rem;">MBA Certificate awarded after Year 1 · BSc Certificate awarded after Year 3</p>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · This is an official programme plan for a student-customised accelerated concurrent pathway.<br>
+        © 2025 Nolan University · Approved for the special case of BSc + MBA concurrent study.</p>
+    </div>
+</div>
+</body>
+</html>
