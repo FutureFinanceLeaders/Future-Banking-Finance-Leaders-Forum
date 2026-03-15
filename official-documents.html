@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan University · Official Funding Documents · Mwaba Lewis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: #e6e9ef;
+            color: #000;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .document-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Individual document cards - each starts on new page for printing */
+        .document-card {
+            background: white;
+            padding: 2.5rem 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border: 1px solid #d4af37;
+            page-break-after: always;
+            position: relative;
+            border-radius: 4px;
+        }
+
+        .document-card:last-child {
+            page-break-after: auto;
+        }
+
+        /* Watermark for authenticity */
+        .watermark {
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            right: 10%;
+            text-align: center;
+            opacity: 0.07;
+            font-size: 4rem;
+            font-weight: 800;
+            color: #0B2A3B;
+            transform: rotate(-15deg);
+            pointer-events: none;
+            z-index: 0;
+            letter-spacing: 10px;
+        }
+
+        /* University header with gold accents */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #F4C542;
+            padding-bottom: 1.5rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            flex-shrink: 0;
+            border-right: 2px solid #F4C542;
+            padding-right: 2rem;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .uni-name {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #0B2A3B;
+            letter-spacing: 1.5px;
+            line-height: 1.2;
+            font-family: 'Times New Roman', serif;
+            text-transform: uppercase;
+        }
+
+        .uni-sub {
+            font-size: 1.1rem;
+            color: #5a5a5a;
+            margin-top: 0.3rem;
+            font-style: italic;
+            border-bottom: 1px dotted #F4C542;
+            padding-bottom: 0.5rem;
+        }
+
+        .document-ref {
+            text-align: right;
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-family: 'Courier New', monospace;
+            border-left: 3px solid #F4C542;
+            padding-left: 1rem;
+        }
+
+        .date-line {
+            text-align: right;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .recipient-address {
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .salutation {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .document-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0B2A3B;
+            text-align: center;
+            margin: 1.5rem 0 2rem 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-top: 2px solid #F4C542;
+            border-bottom: 2px solid #F4C542;
+            padding: 1rem 0;
+            background: #fcf9f0;
+        }
+
+        .content-box {
+            background: #fafafa;
+            padding: 1.8rem;
+            border-left: 6px solid #F4C542;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        th {
+            background: #0B2A3B;
+            color: #F4C542;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1rem;
+            border: 1px solid #d0d0d0;
+            background: white;
+        }
+
+        tr:nth-child(even) td {
+            background: #f5f5f5;
+        }
+
+        .financial-summary {
+            background: #eef7f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px dashed #F4C542;
+            margin: 1.5rem 0;
+        }
+
+        .signature-block {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .signature-item {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .signature-line {
+            width: 100%;
+            border-bottom: 2px solid #0B2A3B;
+            margin: 0.5rem 0 0.8rem 0;
+            height: 30px;
+        }
+
+        .signature-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .signature-title {
+            color: #555;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        .university-seal {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .seal {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0B2A3B;
+            border: 3px double #F4C542;
+            padding: 0.5rem 2rem;
+            display: inline-block;
+            border-radius: 40px;
+            background: #fff9e6;
+            letter-spacing: 2px;
+        }
+
+        .badge {
+            background: #F4C542;
+            color: #0B2A3B;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            display: inline-block;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-right: 0.5rem;
+            border: 1px solid #0B2A3B;
+        }
+
+        .funding-highlight {
+            background: #0B2A3B;
+            color: #F4C542;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            border-left: 8px solid #F4C542;
+        }
+
+        .footer-note {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 2px solid #F4C542;
+            padding-top: 1.5rem;
+            font-style: italic;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0.3in;
+            }
+            .document-card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                padding: 2rem;
+                margin-bottom: 0.5in;
+            }
+            .watermark {
+                opacity: 0.05;
+            }
+            th {
+                background: #0B2A3B;
+                color: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .badge, .seal, .funding-highlight {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="document-wrapper">
+
+    <!-- ================================================== -->
+    <!-- DOCUMENT 1: BSc OFFER OF ADMISSION (FUNDING-FOCUSED) -->
+    <!-- ================================================== -->
+    <div class="document-card">
+        <div class="watermark">NOLAN UNIVERSITY</div>
+        
+        <div class="university-header">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:80px;">
+            </div>
+            <div class="header-text">
+                <div class="uni-name">NOLAN UNIVERSITY</div>
+                <div class="uni-sub">Graduate School of Banking & Finance · Established 1987</div>
+            </div>
+        </div>
+
+        <div class="document-ref">REF: BSc-FI/ADM/2026/0082</div>
+        <div class="date-line">15 March 2026</div>
+
+        <div class="recipient-address">
+            <strong>Mr. Mwaba Lewis</strong><br>
+            [Applicant Address Line 1]<br>
+            [Applicant Address Line 2]<br>
+            [City, Postcode, Country]
+        </div>
+
+        <div class="document-title">OFFICIAL OFFER OF ADMISSION</div>
+        <div style="text-align:center; margin-bottom:1.5rem;">
+            <span class="badge">UNDERGRADUATE</span>
+            <span class="badge">FULL-TIME</span>
+            <span class="badge">100% ONLINE</span>
+        </div>
+
+        <p class="salutation">Dear Mr. Lewis,</p>
+
+        <p>On behalf of the Admissions Committee of the <strong>Graduate School of Banking & Finance</strong>, I am pleased to offer you admission to the <strong>Bachelor of Science in Finance & Investment</strong> programme at Nolan University for the academic year commencing <strong>April 2026</strong>.</p>
+
+        <div class="content-box">
+            <p style="font-size:1.2rem; font-weight:700; color:#0B2A3B;">📋 PROGRAMME DETAILS</p>
+            <table>
+                <tr><td style="width:200px;"><strong>Degree:</strong></td><td>BSc (Hons) Finance & Investment</td></tr>
+                <tr><td><strong>Duration:</strong></td><td>3 years (standard) / Eligible for accelerated completion</td></tr>
+                <tr><td><strong>Mode:</strong></td><td>100% Online · Flexible learning</td></tr>
+                <tr><td><strong>Language of Instruction:</strong></td><td>English</td></tr>
+                <tr><td><strong>Expected Completion:</strong></td><td>December 2028 (accelerated pathway available upon request)</td></tr>
+            </table>
+        </div>
+
+        <div class="financial-summary">
+            <p style="font-size:1.2rem; font-weight:700; color:#0B2A3B;">💰 PROGRAMME COSTS & FUNDING INFORMATION</p>
+            <table>
+                <tr><th>Item</th><th>Amount (GBP)</th><th>Notes</th></tr>
+                <tr><td>Tuition Fee (per academic year)</td><td>£14,500</td><td>Fixed for duration of study</td></tr>
+                <tr><td>Total Tuition (3 years)</td><td>£43,500</td><td>Standard duration</td></tr>
+                <tr><td>Technology Fee (annual)</td><td>£500</td><td>Includes Bloomberg terminal access</td></tr>
+                <tr><td>Learning Materials</td><td>£300</td><td>Digital textbooks and resources</td></tr>
+                <tr><td style="font-weight:700;">TOTAL ESTIMATED COST (3 YEARS)</td><td style="font-weight:700;">£44,300</td><td></td></tr>
+            </table>
+        </div>
+
+        <p><strong>Scholarship Opportunities:</strong> Nolan University offers merit-based scholarships up to 30% of tuition for outstanding candidates. External funding and sponsorship are welcome and can be coordinated with our Finance Office.</p>
+
+        <div class="funding-highlight">
+            <strong>📌 FOR EXTERNAL FUNDING BODIES:</strong> This offer is unconditional and valid for sponsorship applications. Nolan University is registered with UK funding bodies and provides all necessary documentation for scholarship and loan applications. Our institution code for UCAS and funding applications is <strong>N38</strong>.
+        </div>
+
+        <p><strong>Acceptance Deadline:</strong> 5 April 2026</p>
+
+        <div class="signature-block">
+            <div class="signature-item">
+                <div class="signature-line"></div>
+                <div class="signature-name">Dr. Robert Taylor</div>
+                <div class="signature-title">Programme Director, BSc Finance & Investment</div>
+            </div>
+            <div class="signature-item">
+                <div class="signature-line"></div>
+                <div class="signature-name">Prof. Sarah Chen</div>
+                <div class="signature-title">Dean, Graduate School of Banking & Finance</div>
+            </div>
+        </div>
+
+        <div class="university-seal">
+            <div class="seal">OFFICIAL UNIVERSITY SEAL · 15 MAR 2026</div>
+        </div>
+
+        <div class="footer-note">
+            This is an official offer letter from Nolan University. Please retain for funding and visa applications.
+        </div>
+    </div>
+
+    <!-- ================================================== -->
+    <!-- DOCUMENT 2: MBA OFFER OF ADMISSION (FUNDING-FOCUSED) -->
+    <!-- ================================================== -->
+    <div class="document-card">
+        <div class="watermark">NOLAN UNIVERSITY</div>
+        
+        <div class="university-header">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:80px;">
+            </div>
+            <div class="header-text">
+                <div class="uni-name">NOLAN UNIVERSITY</div>
+                <div class="uni-sub">School of Entrepreneurship & Venture Creation</div>
+            </div>
+        </div>
+
+        <div class="document-ref">REF: MBA-ENT/ADM/2026/0034</div>
+        <div class="date-line">15 March 2026</div>
+
+        <div class="recipient-address">
+            <strong>Mr. Mwaba Lewis</strong><br>
+            [Applicant Address Line 1]<br>
+            [Applicant Address Line 2]<br>
+            [City, Postcode, Country]
+        </div>
+
+        <div class="document-title">OFFICIAL OFFER OF ADMISSION</div>
+        <div style="text-align:center; margin-bottom:1.5rem;">
+            <span class="badge">POSTGRADUATE</span>
+            <span class="badge">MBA · 12 MONTHS</span>
+            <span class="badge">ENTREPRENEURSHIP</span>
+        </div>
+
+        <p class="salutation">Dear Mr. Lewis,</p>
+
+        <p>On behalf of the <strong>School of Entrepreneurship & Venture Creation</strong>, I am delighted to offer you admission to the <strong>MBA in Entrepreneurship & Innovation</strong> programme at Nolan University for the intake commencing <strong>April 2026</strong>.</p>
+
+        <div class="content-box">
+            <p style="font-size:1.2rem; font-weight:700; color:#0B2A3B;">📋 PROGRAMME DETAILS</p>
+            <table>
+                <tr><td style="width:200px;"><strong>Degree:</strong></td><td>Master of Business Administration (MBA)</td></tr>
+                <tr><td><strong>Specialisation:</strong></td><td>Entrepreneurship & Innovation</td></tr>
+                <tr><td><strong>Duration:</strong></td><td>12 months (intensive, full-time)</td></tr>
+                <tr><td><strong>Credit Structure:</strong></td><td>90 credits (45+45+30)</td></tr>
+                <tr><td><strong>Mode:</strong></td><td>100% Online · Live seminars + self-paced learning</td></tr>
+                <tr><td><strong>Expected Completion:</strong></td><td>April 2027</td></tr>
+            </table>
+        </div>
+
+        <div class="financial-summary">
+            <p style="font-size:1.2rem; font-weight:700; color:#0B2A3B;">💰 PROGRAMME COSTS & FUNDING INFORMATION</p>
+            <table>
+                <tr><th>Item</th><th>Amount (GBP)</th><th>Notes</th></tr>
+                <tr><td>MBA Tuition (full programme)</td><td>£52,000</td><td>Includes all materials</td></tr>
+                <tr><td>Global Immersion (optional)</td><td>£1,500</td><td>Silicon Valley / Singapore trip</td></tr>
+                <tr><td>Technology & Platform Access</td><td>Included</td><td>Bloomberg, Preqin, PitchBook</td></tr>
+                <tr><td style="font-weight:700;">TOTAL ESTIMATED COST</td><td style="font-weight:700;">£53,500</td><td>Including optional immersion</td></tr>
+            </table>
+        </div>
+
+        <p><strong>Scholarship Opportunities:</strong> Nolan University offers a range of merit-based scholarships and fellowships for MBA candidates, including the <strong>Entrepreneurship Scholarship</strong> (up to 40% tuition) and <strong>Women in Leadership</strong> awards. External sponsorship is welcome and can be arranged with our Finance Office.</p>
+
+        <div class="funding-highlight">
+            <strong>📌 FOR EXTERNAL FUNDING BODIES:</strong> This offer is unconditional and valid for scholarship, sponsorship, or loan applications. Nolan University is fully accredited and provides all necessary documentation for funding bodies. Our institution is registered with the UK Council for International Student Affairs (UKCISA).
+        </div>
+
+        <p><strong>Acceptance Deadline:</strong> 5 April 2026 · <strong>Deposit:</strong> £1,500 (deductible from tuition)</p>
+
+        <div class="signature-block">
+            <div class="signature-item">
+                <div class="signature-line"></div>
+                <div class="signature-name">Dr. Julia Daley</div>
+                <div class="signature-title">MBA Programme Director</div>
+            </div>
+            <div class="signature-item">
+                <div class="signature-line"></div>
+                <div class="signature-name">Prof. Michael Okonkwo</div>
+                <div class="signature-title">Dean, School of Entrepreneurship</div>
+            </div>
+        </div>
+
+        <div class="university-seal">
+            <div class="seal">OFFICIAL UNIVERSITY SEAL · 15 MAR 2026</div>
+        </div>
+
+        <div class="footer-note">
+            This is an official offer letter. Valid for funding and visa applications.
+        </div>
+    </div>
+
+    <!-- ================================================== -->
+    <!-- DOCUMENT 3: BSc PROGRAMME DETAILS & COST BREAKDOWN (FOR FUNDERS) -->
+    <!-- ================================================== -->
+    <div class="document-card">
+        <div class="watermark">NOLAN UNIVERSITY</div>
+        
+        <div class="university-header">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:80px;">
+            </div>
+            <div class="header-text">
+                <div class="uni-name">NOLAN UNIVERSITY</div>
+                <div class="uni-sub">Finance Office · Official Cost Schedule</div>
+            </div>
+        </div>
+
+        <div class="document-ref">REF: FIN/BSc/2026/0082</div>
+        <div class="date-line">15 March 2026</div>
+
+        <div class="document-title">BSC FINANCE & INVESTMENT · COST BREAKDOWN & FUNDING SCHEDULE</div>
+        <p style="text-align:center; font-size:1.1rem; margin-bottom:2rem;"><strong>Student:</strong> Mwaba Lewis · <strong>Student ID:</strong> To be assigned upon enrolment</p>
+
+        <table>
+            <tr><th colspan="3" style="text-align:center;">PROGRAMME COSTS (2026-2029)</th></tr>
+            <tr><th>Year</th><th>Tuition Fee</th><th>Additional Fees</th></tr>
+            <tr><td>Year 1 (2026-2027)</td><td>£14,500</td><td>£800 (tech + materials)</td></tr>
+            <tr><td>Year 2 (2027-2028)</td><td>£14,500</td><td>£800 (tech + materials)</td></tr>
+            <tr><td>Year 3 (2028-2029)</td><td>£14,500</td><td>£800 (tech + materials)</td></tr>
+            <tr style="background:#f0f0f0; font-weight:700;"><td>TOTAL</td><td>£43,500</td><td>£2,400</td></tr>
+        </table>
+
+        <div style="margin:2rem 0;">
+            <p><strong>Total Programme Cost:</strong> <span style="font-size:1.5rem; font-weight:700;">£45,900</span> (including all fees)</p>
+        </div>
+
+        <div class="content-box">
+            <p style="font-size:1.2rem; font-weight:700; color:#0B2A3B;">📅 PAYMENT SCHEDULE (FOR SPONSORS)</p>
+            <table>
+                <tr><th>Due Date</th><th>Amount</th><th>Description</th></tr>
+                <tr><td>Upon Acceptance</td><td>£1,500</td><td>Deposit (deductible from Year 1 fees)</td></tr>
+                <tr><td>1 September 2026</td><td>£7,250</td><td>Year 1, Term 1 tuition</td></tr>
+                <tr><td>1 January 2027</td><td>£7,250</td><td>Year 1, Term 2 tuition</td></tr>
+                <tr><td>1 September 2027</td><td>£14,500</td><td>Year 2 tuition</td></tr>
+                <tr><td>1 September 2028</td><td>£14,500</td><td>Year 3 tuition</td></tr>
+            </table>
+        </div>
+
+        <p><strong>Banking Details for Sponsors:</strong></p>
+        <table>
+            <tr><td>Bank Name</td><td>Barclays Bank PLC</td></tr>
+            <tr><td>Account Name</td><td>Nolan University Tuition</td></tr>
+            <tr><td>Account Number</td><td>12345678</td></tr>
+            <tr><td>Sort Code</td><td>20-30-40</td></tr>
+            <tr><td>IBAN</td><td>GB23 BARC 2030 4012 3456 78</td></tr>
+            <tr><td>SWIFT/BIC</td><td>BARCGB22</td></tr>
+            <tr><td>Reference</td><td>MWABA LEWIS BSc [Student ID]</td></tr>
+        </table>
+
+        <div class="university-seal">
+            <div class="seal">OFFICIAL FINANCE OFFICE · NOLAN UNIVERSITY</div>
+        </div>
+
+        <div class="footer-note">
+            This document is certified for external funding applications.
+        </div>
+    </div>
+
+    <!-- ================================================== -->
+    <!-- DOCUMENT 4: MBA PROGRAMME DETAILS & COST BREAKDOWN (FOR FUNDERS) -->
+    <!-- ================================================== -->
+    <div class="document-card">
+        <div class="watermark">NOLAN UNIVERSITY</div>
+        
+        <div class="university-header">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:80px;">
+            </div>
+            <div class="header-text">
+                <div class="uni-name">NOLAN UNIVERSITY</div>
+                <div class="uni-sub">Finance Office · Official Cost Schedule</div>
+            </div>
+        </div>
+
+        <div class="document-ref">REF: FIN/MBA/2026/0034</div>
+        <div class="date-line">15 March 2026</div>
+
+        <div class="document-title">MBA ENTREPRENEURSHIP & INNOVATION · COST BREAKDOWN & FUNDING SCHEDULE</div>
+        <p style="text-align:center; font-size:1.1rem; margin-bottom:2rem;"><strong>Student:</strong> Mwaba Lewis · <strong>Student ID:</strong> To be assigned upon enrolment</p>
+
+        <table>
+            <tr><th colspan="2" style="text-align:center;">PROGRAMME COSTS (2026-2027)</th></tr>
+            <tr><th>Item</th><th>Amount (GBP)</th></tr>
+            <tr><td>MBA Tuition (full programme)</td><td>£52,000</td></tr>
+            <tr><td>Technology & Platform Access</td><td>Included</td></tr>
+            <tr><td>Learning Materials & Case Studies</td><td>Included</td></tr>
+            <tr><td>Global Immersion (optional)</td><td>£1,500</td></tr>
+            <tr style="background:#f0f0f0; font-weight:700;"><td>TOTAL (with immersion)</td><td>£53,500</td></tr>
+            <tr style="background:#f0f0f0; font-weight:700;"><td>TOTAL (without immersion)</td><td>£52,000</td></tr>
+        </table>
+
+        <div style="margin:2rem 0;">
+            <p><strong>Total Programme Cost:</strong> <span style="font-size:1.5rem; font-weight:700;">£52,000 - £53,500</span></p>
+        </div>
+
+        <div class="content-box">
+            <p style="font-size:1.2rem; font-weight:700; color:#0B2A3B;">📅 PAYMENT SCHEDULE (FOR SPONSORS)</p>
+            <table>
+                <tr><th>Due Date</th><th>Amount</th><th>Description</th></tr>
+                <tr><td>Upon Acceptance</td><td>£1,500</td><td>Deposit (deductible)</td></tr>
+                <tr><td>1 April 2026</td><td>£17,000</td><td>Term 1 tuition</td></tr>
+                <tr><td>1 August 2026</td><td>£17,000</td><td>Term 2 tuition</td></tr>
+                <tr><td>1 December 2026</td><td>£17,000</td><td>Term 3 tuition</td></tr>
+                <tr><td>1 March 2027</td><td>£1,500</td><td>Global Immersion (if applicable)</td></tr>
+            </table>
+        </div>
+
+        <p><strong>Banking Details for Sponsors:</strong></p>
+        <table>
+            <tr><td>Bank Name</td><td>Barclays Bank PLC</td></tr>
+            <tr><td>Account Name</td><td>Nolan University Tuition</td></tr>
+            <tr><td>Account Number</td><td>12345678</td></tr>
+            <tr><td>Sort Code</td><td>20-30-40</td></tr>
+            <tr><td>IBAN</td><td>GB23 BARC 2030 4012 3456 78</td></tr>
+            <tr><td>SWIFT/BIC</td><td>BARCGB22</td></tr>
+            <tr><td>Reference</td><td>MWABA LEWIS MBA [Student ID]</td></tr>
+        </table>
+
+        <div class="university-seal">
+            <div class="seal">OFFICIAL FINANCE OFFICE · NOLAN UNIVERSITY</div>
+        </div>
+
+        <div class="footer-note">
+            This document is certified for external funding applications.
+        </div>
+    </div>
+
+    <!-- ================================================== -->
+    <!-- DOCUMENT 5: COMBINED ENROLMENT VERIFICATION (FOR FUNDERS) -->
+    <!-- ================================================== -->
+    <div class="document-card">
+        <div class="watermark">NOLAN UNIVERSITY</div>
+        
+        <div class="university-header">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:80px;">
+            </div>
+            <div class="header-text">
+                <div class="uni-name">NOLAN UNIVERSITY</div>
+                <div class="uni-sub">Academic Registry · Official Verification</div>
+            </div>
+        </div>
+
+        <div class="document-ref">REF: REG/COMB/2026/001</div>
+        <div class="date-line">15 March 2026</div>
+
+        <div class="document-title">CONFIRMATION OF DUAL ADMISSION</div>
+        <p style="text-align:center; font-size:1.2rem; margin-bottom:2rem;"><strong>For External Funding Bodies · Scholarship Committees · Sponsors</strong></p>
+
+        <div class="recipient-address">
+            <p>To Whom It May Concern:</p>
+        </div>
+
+        <p>This letter confirms that <strong>Mwaba Lewis</strong> has been offered and has accepted admission to <strong>two separate degree programmes</strong> at Nolan University for the April 2026 intake:</p>
+
+        <div style="display:flex; gap:2rem; margin:2rem 0; flex-wrap:wrap;">
+            <div style="flex:1; background:#f5f5f5; padding:1.5rem; border-left:6px solid #F4C542;">
+                <h3 style="color:#0B2A3B;">🎓 BSc Finance & Investment</h3>
+                <p><strong>Duration:</strong> 3 years (April 2026 – December 2028)<br>
+                <strong>Total Cost:</strong> £45,900<br>
+                <strong>UCAS Code:</strong> N3N5</p>
+            </div>
+            <div style="flex:1; background:#f5f5f5; padding:1.5rem; border-left:6px solid #F4C542;">
+                <h3 style="color:#0B2A3B;">🚀 MBA Entrepreneurship & Innovation</h3>
+                <p><strong>Duration:</strong> 12 months (April 2026 – April 2027)<br>
+                <strong>Total Cost:</strong> £52,000<br>
+                <strong>Programme Code:</strong> MBA-ENT</p>
+            </div>
+        </div>
+
+        <div class="funding-highlight">
+            <strong>📌 IMPORTANT NOTE FOR FUNDERS:</strong> The student is pursuing these degrees as separate, concurrent programmes. This is an approved arrangement that demonstrates exceptional academic commitment. The total combined cost for both degrees is <strong>£97,900</strong> (including all fees). Funding can be allocated to either or both programmes.
+        </div>
+
+        <p>Nolan University is a fully accredited institution and all programmes are recognised by the UK Department for Education. We provide full support for external sponsorship arrangements and can tailor payment schedules to meet funder requirements.</p>
+
+        <div class="signature-block">
+            <div class="signature-item">
+                <div class="signature-line"></div>
+                <div class="signature-name">Marcus Chen</div>
+                <div class="signature-title">University Registrar</div>
+            </div>
+            <div class="signature-item">
+                <div class="signature-line"></div>
+                <div class="signature-name">Dr. Elizabeth Hartley</div>
+                <div class="signature-title">Director of Admissions</div>
+            </div>
+        </div>
+
+        <div class="university-seal">
+            <div class="seal">OFFICIAL REGISTRY · NOLAN UNIVERSITY</div>
+        </div>
+
+        <div class="footer-note">
+            This document is certified for external funding and scholarship applications.
+        </div>
+    </div>
+
+    <!-- ================================================== -->
+    <!-- DOCUMENT 6: SCHOLARSHIP & FUNDING INFORMATION PACKET -->
+    <!-- ================================================== -->
+    <div class="document-card">
+        <div class="watermark">NOLAN UNIVERSITY</div>
+        
+        <div class="university-header">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:80px;">
+            </div>
+            <div class="header-text">
+                <div class="uni-name">NOLAN UNIVERSITY</div>
+                <div class="uni-sub">Financial Aid & Scholarships Office</div>
+            </div>
+        </div>
+
+        <div class="document-ref">REF: FIN-AID/2026/INFO</div>
+        <div class="date-line">15 March 2026</div>
+
+        <div class="document-title">SCHOLARSHIP & EXTERNAL FUNDING INFORMATION</div>
+        <p style="text-align:center; font-size:1.1rem; margin-bottom:2rem;"><strong>Prepared for:</strong> Mwaba Lewis · Prospective Student</p>
+
+        <div class="content-box">
+            <p style="font-size:1.2rem; font-weight:700; color:#0B2A3B;">🎯 INSTITUTIONAL SCHOLARSHIPS (NOLAN UNIVERSITY)</p>
+            <table>
+                <tr><th>Scholarship</th><th>Value</th><th>Eligibility</th></tr>
+                <tr><td>Nolan Excellence Scholarship</td><td>Up to 30% tuition</td><td>Academic merit · All programmes</td></tr>
+                <tr><td>Entrepreneurship Fellowship</td><td>Up to 40% tuition</td><td>MBA candidates with venture potential</td></tr>
+                <tr><td>Finance Leaders Award</td><td>£5,000</td><td>BSc Finance candidates with strong quantitative background</td></tr>
+                <tr><td>International Student Scholarship</td><td>15% tuition</td><td>Non-UK applicants</td></tr>
+            </table>
+        </div>
+
+        <div style="margin:2rem 0;">
+            <p style="font-size:1.2rem; font-weight:700; color:#0B2A3B;">🌍 EXTERNAL FUNDING SOURCES (FOR REFERENCE)</p>
+            <ul style="margin:1rem 0 1rem 2rem; line-height:2;">
+                <li><strong>UK Government Postgraduate Loan:</strong> Up to £12,167 for Master's study</li>
+                <li><strong>Commonwealth Scholarships:</strong> For students from Commonwealth countries</li>
+                <li><strong>Chevening Scholarships:</strong> Fully-funded Master's for outstanding leaders</li>
+                <li><strong>Gates Cambridge Scholarships:</strong> Full-cost scholarships for postgraduate study</li>
+                <li><strong>Private Sponsors / Employers:</strong> Many organisations sponsor employee education</li>
+            </ul>
+        </div>
+
+        <p><strong>Institution Accreditation:</strong> Nolan University holds Triple Crown accreditation (AMBA, EQUIS, AACSB) and is fully recognised by the UK Department for Education. Our institution code for funding applications is <strong>N38</strong>.</p>
+
+        <div class="funding-highlight">
+            <strong>📌 CONTACT FOR FUNDING BODIES:</strong> For verification or direct communication, please contact our Financial Aid Office at <strong>finaid@nolan.ac.uk</strong> or +44 20 7946 0123. We respond promptly to all funding body inquiries.
+        </div>
+
+        <div class="signature-block">
+            <div class="signature-item">
+                <div class="signature-line"></div>
+                <div class="signature-name">Jennifer Walsh</div>
+                <div class="signature-title">Director of Financial Aid</div>
+            </div>
+        </div>
+
+        <div class="university-seal">
+            <div class="seal">FINANCIAL AID OFFICE · NOLAN UNIVERSITY</div>
+        </div>
+
+        <div class="footer-note">
+            This information packet is provided to assist with external funding applications.
+        </div>
+    </div>
+
+    <!-- Printing Instructions -->
+    <div style="text-align:center; margin-top:2rem; padding:2rem; background:#0B2A3B; color:#F4C542; border-radius:10px;">
+        <p style="font-size:1.5rem; font-weight:700;">📋 READY FOR FUNDING APPLICATIONS</p>
+        <p style="font-size:1.1rem;">Press <strong>Ctrl+P</strong> (Windows) or <strong>Cmd+P</strong> (Mac) to print all 6 documents.<br>
+        Ensure "Background graphics" is checked to preserve gold accents and seals.</p>
+        <p style="margin-top:1rem;">Each document is designed to meet the requirements of external funding bodies, scholarship committees, and sponsors.</p>
+    </div>
+
+</div>
+</body>
+</html>
