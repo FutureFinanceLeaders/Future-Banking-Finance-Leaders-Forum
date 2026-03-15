@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan MBA · Entrepreneurship & Innovation · Full 3-Term Curriculum</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0B2A3B;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
+            padding-bottom: 1.25rem;
+        }
+
+        .uni-logo {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--nolan-navy);
+        }
+
+        .uni-name span {
+            color: var(--nolan-navy);
+            font-weight: 600;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--nolan-navy);
+            margin: 2rem 0 0.5rem 0;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #2d4f62;
+            margin-bottom: 2rem;
+        }
+
+        .term-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .term-card {
+            background: var(--nolan-white);
+            border-radius: 32px;
+            padding: 2rem;
+            border: 2px solid var(--nolan-gold);
+            box-shadow: 0 15px 30px -15px rgba(11,42,59,0.2);
+        }
+
+        .term-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .term-badge {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            border: 2px solid var(--nolan-gold);
+        }
+        .term-credits {
+            background: var(--nanol-gray-soft);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: var(--nolan-navy);
+        }
+        .term-theme {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-left: auto;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+        .module-item {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.4rem;
+            border-left: 6px solid var(--nolan-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            transition: 0.2s;
+        }
+        .module-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(11,42,59,0.2);
+        }
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .module-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+        }
+        .module-credits {
+            background: var(--nolan-navy);
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+        }
+        .module-desc {
+            color: #235a72;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+        .pillar-tags {
+            margin-top: 0.5rem;
+        }
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+        .investor-tag {
+            background: var(--nolan-navy);
+            color: white;
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-gold);
+        }
+
+        .workload-note {
+            background: #eef3f6;
+            border-radius: 30px;
+            padding: 1rem 1.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            border-left: 4px solid var(--nolan-gold);
+        }
+
+        .scaffolding-visual {
+            display: flex;
+            justify-content: space-between;
+            margin: 3rem 0;
+            padding: 1rem;
+            background: var(--nolan-navy);
+            border-radius: 60px;
+            color: white;
+        }
+        .scaffold-step {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem;
+            border-right: 2px solid var(--nolan-gold);
+        }
+        .scaffold-step:last-child {
+            border-right: none;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+        }
+        .btn-gold:hover {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3b687d;
+            border-top: 2px solid var(--nolan-gold);
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 800px) {
+            .term-header {
+                flex-direction: column;
+                align-items: start;
+            }
+            .term-theme {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="university-header">
+        <div class="uni-logo">NU</div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
+    </div>
+
+    <!-- global tagline -->
+    <div class="global-tagline">
+        <strong>MBA Entrepreneurship & Innovation</strong> · Full 3-Term Curriculum · 90 Credits
+    </div>
+
+    <!-- page heading -->
+    <h1 class="page-title">📚 The Nolan MBA · Programme Structure</h1>
+    <p class="page-subtitle">A carefully scaffolded journey from foundational tools to venture launch. Each term builds on the last, balancing depth, breadth, and real-world application.</p>
+
+    <!-- Scaffolding visual -->
+    <div class="scaffolding-visual">
+        <div class="scaffold-step">🔨 TERM 1 · TOOLKIT</div>
+        <div class="scaffold-step">⚙️ TERM 2 · DEEP DIVES</div>
+        <div class="scaffold-step">🚀 TERM 3 · LAUNCH</div>
+    </div>
+
+    <!-- ===== TERM 1 ===== -->
+    <div class="term-card">
+        <div class="term-header">
+            <span class="term-badge">TERM 1</span>
+            <span class="term-credits">45 CREDITS · 4 MODULES</span>
+            <span class="term-theme">🔨 THE BUILDER'S TOOLKIT</span>
+        </div>
+        <p style="color:#235a72; margin-bottom:1.5rem;">Foundational tools every entrepreneur, investor, and innovator must master. You'll build the core skills in finance, data, marketing, and mindset.</p>
+        
+        <div class="modules-grid">
+            <!-- Module 1.1 -->
+            <div class="module-item">
+                <div class="module-header">
+                    <span class="module-name">New Venture Finance</span>
+                    <span class="module-credits">15 credits</span>
+                </div>
+                <div class="module-desc">Master cap tables, term sheets, valuation, convertible notes, and fundraising mechanics. Build dynamic financial models.</div>
+                <div class="pillar-tags">
+                    <span class="investor-tag">INVESTOR</span>
+                    <span class="pillar-tag">BUILDER</span>
+                </div>
+            </div>
+            <!-- Module 1.2 -->
+            <div class="module-item">
+                <div class="module-header">
+                    <span class="module-name">Entrepreneurial Mindset & Creativity</span>
+                    <span class="module-credits">10 credits</span>
+                </div>
+                <div class="module-desc">Opportunity recognition, effectuation, customer discovery, and creative problem-solving. Conduct 20+ customer interviews.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">BUILDER</span>
+                    <span class="pillar-tag">INNOVATOR</span>
+                </div>
+            </div>
+            <!-- Module 1.3 -->
+            <div class="module-item">
+                <div class="module-header">
+                    <span class="module-name">Data Analytics for Startups</span>
+                    <span class="module-credits">10 credits</span>
+                </div>
+                <div class="module-desc">Python, pandas, cohort analysis, LTV/CAC, and data-driven decision making. Work with real startup datasets.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">INNOVATOR</span>
+                    <span class="investor-tag">INVESTOR</span>
+                </div>
+            </div>
+            <!-- Module 1.4 -->
+            <div class="module-item">
+                <div class="module-header">
+                    <span class="module-name">Marketing for Startups</span>
+                    <span class="module-credits">10 credits</span>
+                </div>
+                <div class="module-desc">Growth marketing, acquisition channels, conversion optimisation, and brand building on a bootstrap budget.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">BUILDER</span>
+                </div>
+            </div>
+        </div>
+        <div class="workload-note">
+            <strong>📊 Typical weekly workload:</strong> 10-12 hours (New Venture Finance) + 8-10 hours each for other modules = ~40 hours total. Balanced for deep learning.
+        </div>
+    </div>
+
+    <!-- ===== TERM 2 ===== -->
+    <div class="term-card">
+        <div class="term-header">
+            <span class="term-badge">TERM 2</span>
+            <span class="term-credits">45 CREDITS · 4 MODULES</span>
+            <span class="term-theme">⚙️ THE INVESTOR'S DEEP DIVES</span>
+        </div>
+        <p style="color:#235a72; margin-bottom:1.5rem;">Specialised knowledge to evaluate, fund, and scale ventures. You'll move from toolkit to deep expertise in VC, product, and strategy.</p>
+        
+        <div class="modules-grid">
+            <!-- Module 2.1 -->
+            <div class="module-item">
+                <div class="module-header">
+                    <span class="module-name">Venture Capital & Private Equity</span>
+                    <span class="module-credits">15 credits</span>
+                </div>
+                <div class="module-desc">LBO modelling, fund economics, carry waterfalls, deal sourcing, and due diligence. Build a full fund model.</div>
+                <div class="pillar-tags">
+                    <span class="investor-tag">INVESTOR</span>
+                    <span class="pillar-tag">BUILDER</span>
+                </div>
+            </div>
+            <!-- Module 2.2 -->
+            <div class="module-item">
+                <div class="module-header">
+                    <span class="module-name">Design Thinking & Product Development</span>
+                    <span class="module-credits">10 credits</span>
+                </div>
+                <div class="module-desc">Prototyping (Figma), user testing, MVP definition, and iterative development. Build and test a product concept.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">INNOVATOR</span>
+                    <span class="pillar-tag">BUILDER</span>
+                </div>
+            </div>
+            <!-- Module 2.3 -->
+            <div class="module-item">
+                <div class="module-header">
+                    <span class="module-name">Technology & Innovation Strategy</span>
+                    <span class="module-credits">10 credits</span>
+                </div>
+                <div class="module-desc">Disruptive technology, IP strategy, platform ecosystems, and tech scouting. Prepare a tech scouting report.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">INNOVATOR</span>
+                    <span class="investor-tag">INVESTOR</span>
+                </div>
+            </div>
+            <!-- Module 2.4 -->
+            <div class="module-item">
+                <div class="module-header">
+                    <span class="module-name">Entrepreneurial Operations</span>
+                    <span class="module-credits">10 credits</span>
+                </div>
+                <div class="module-desc">Scaling operations, supply chain, hiring, culture, and operational excellence for high-growth ventures.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">BUILDER</span>
+                </div>
+            </div>
+        </div>
+        <div class="workload-note">
+            <strong>📊 Typical weekly workload:</strong> 12-14 hours (VC/PE) + 8 hours each for other modules = ~40 hours. Deep dives require intense focus.
+        </div>
+    </div>
+
+    <!-- ===== TERM 3 ===== -->
+    <div class="term-card">
+        <div class="term-header">
+            <span class="term-badge">TERM 3</span>
+            <span class="term-credits">30 CREDITS · 3 MODULES</span>
+            <span class="term-theme">🚀 THE INNOVATOR'S LAUNCHPAD</span>
+        </div>
+        <p style="color:#235a72; margin-bottom:1.5rem;">Apply everything you've learned. Launch a real venture, lead corporate innovation, and engage with global ecosystems.</p>
+        
+        <div class="modules-grid">
+            <!-- Module 3.1 (Capstone) -->
+            <div class="module-item">
+                <div class="module-header">
+                    <span class="module-name">New Venture Creation Lab (Capstone)</span>
+                    <span class="module-credits">15 credits</span>
+                </div>
+                <div class="module-desc">Launch a real venture or join a startup. Full 3-statement projections, unit economics, investor pitch deck, and Demo Day presentation.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">BUILDER</span>
+                    <span class="investor-tag">INVESTOR</span>
+                    <span class="pillar-tag">INNOVATOR</span>
+                </div>
+            </div>
+            <!-- Module 3.2 -->
+            <div class="module-item">
+                <div class="module-header">
+                    <span class="module-name">Corporate Innovation & Intrapreneurship</span>
+                    <span class="module-credits">10 credits</span>
+                </div>
+                <div class="module-desc">Innovation accounting, internal venture structures, and pitching to the C-suite. Simulate a corporate innovation pitch.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">INNOVATOR</span>
+                    <span class="pillar-tag">BUILDER</span>
+                </div>
+            </div>
+            <!-- Module 3.3 (Elective / Immersion) -->
+            <div class="module-item">
+                <div class="module-header">
+                    <span class="module-name">Global Immersion (Elective)</span>
+                    <span class="module-credits">5 credits</span>
+                </div>
+                <div class="module-desc">One-week immersion in Silicon Valley or Singapore. Meet founders, VCs, and innovation leaders. Ecosystem mapping.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">INNOVATOR</span>
+                    <span class="investor-tag">INVESTOR</span>
+                </div>
+            </div>
+        </div>
+        <div class="workload-note">
+            <strong>📊 Typical weekly workload:</strong> Venture Lab dominates (15-20 hours), plus 8-10 hours for other modules. Capstone intensity prepares you for real-world launch.
+        </div>
+    </div>
+
+    <!-- Credit summary -->
+    <div style="background: #eef3f6; border-radius: 36px; padding: 2rem; margin: 2rem 0; text-align: center;">
+        <h2 style="color: var(--nolan-navy);">📊 Total Programme: 90 Credits</h2>
+        <p style="font-size:1.2rem; margin-top:0.5rem;">Term 1: 45 credits · Term 2: 45 credits · Term 3: 30 credits</p>
+        <p style="color:#235a72; margin-top:0.5rem;">(Term 3 reduced to allow focused capstone work and electives)</p>
+    </div>
+
+    <!-- Scaffolding explanation -->
+    <div style="background: var(--nolan-white); border-radius: 28px; padding: 2rem; border: 2px dashed var(--nolan-gold); margin: 2rem 0;">
+        <h2 style="color: var(--nolan-navy);">🧱 Why This Structure Works</h2>
+        <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top:1.5rem;">
+            <div>
+                <h3 style="color: var(--nolan-gold);">Term 1 · Toolkit</h3>
+                <p>You learn the language and tools of entrepreneurship. Every module builds a core competency you'll use in every subsequent course.</p>
+            </div>
+            <div>
+                <h3 style="color: var(--nolan-gold);">Term 2 · Deep Dives</h3>
+                <p>You apply your toolkit to specialised domains. You learn to think like an investor, a product leader, and a strategist.</p>
+            </div>
+            <div>
+                <h3 style="color: var(--nolan-gold);">Term 3 · Launch</h3>
+                <p>You synthesise everything. The Venture Lab is where you prove you can build, fund, and scale.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to action -->
+    <div style="text-align: center; margin: 3rem 0;">
+        <a href="#" class="btn-gold" style="font-size:1.2rem; padding:1rem 3rem;">📄 Download Full Programme Specification</a>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · 100% Online MBA · Triple accredited: AMBA, EQUIS, AACSB<br>
+        © 2025 Nolan University · MBA Entrepreneurship & Innovation · 90 credits · 12 months</p>
+    </div>
+</div>
+</body>
+</html>
