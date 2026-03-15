@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan MBA · Complete Module Content · Term 1–3</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0B2A3B;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
+            padding-bottom: 1.25rem;
+        }
+
+        .uni-logo {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--nolan-navy);
+        }
+
+        .uni-name span {
+            color: var(--nolan-navy);
+            font-weight: 600;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--nolan-navy);
+            margin: 2rem 0 0.5rem 0;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #2d4f62;
+            margin-bottom: 2rem;
+        }
+
+        /* term selector tabs */
+        .term-tabs {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+        .term-tab {
+            background: white;
+            border: 2px solid var(--nolan-navy);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1.1rem;
+        }
+        .term-tab.active {
+            background: var(--nolan-gold);
+            border-color: var(--nolan-navy);
+        }
+        .term-tab:hover {
+            background: var(--nolan-navy);
+            color: white;
+        }
+
+        /* term content */
+        .term-content {
+            display: none;
+        }
+        .term-content.active {
+            display: block;
+        }
+
+        /* module cards */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .module-card {
+            background: var(--nolan-white);
+            border-radius: 28px;
+            padding: 1.8rem;
+            border: 1px solid #dde7ed;
+            box-shadow: 0 10px 20px -10px rgba(11,42,59,0.15);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .module-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--nolan-gold);
+            box-shadow: 0 20px 30px -10px rgba(11,42,59,0.25);
+        }
+        .module-card.selected {
+            border: 3px solid var(--nolan-gold);
+        }
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .module-code {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .module-credits {
+            color: #3b687d;
+            font-weight: 600;
+        }
+        .module-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.5rem;
+        }
+        .module-prof {
+            color: #3b687d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        .module-desc {
+            color: #235a72;
+            margin-bottom: 1rem;
+        }
+        .pillar-tags {
+            margin-top: 1rem;
+        }
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+        .investor-tag {
+            background: var(--nolan-navy);
+            color: white;
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-gold);
+        }
+
+        /* module detail view */
+        .module-detail {
+            background: var(--nolan-white);
+            border-radius: 32px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 2px solid var(--nolan-gold);
+            display: none;
+        }
+        .module-detail.active {
+            display: block;
+        }
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .detail-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+        }
+        .detail-meta {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            padding: 0.5rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .week-card {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.2rem;
+            border-left: 4px solid var(--nolan-gold);
+        }
+        .week-number {
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-bottom: 0.5rem;
+        }
+        .week-topic {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .week-readings {
+            font-size: 0.9rem;
+            color: #2e637a;
+            list-style: none;
+        }
+        .week-readings li {
+            margin-bottom: 0.3rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        .week-readings li::before {
+            content: "•";
+            color: var(--nolan-gold);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+
+        .back-btn {
+            background: var(--nanol-gray-soft);
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            border: 1px solid var(--nolan-navy);
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3b687d;
+            border-top: 2px solid var(--nolan-gold);
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 800px) {
+            .module-grid, .week-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="university-header">
+        <div class="uni-logo">NU</div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
+    </div>
+
+    <!-- global tagline -->
+    <div class="global-tagline">
+        <strong>MBA in Entrepreneurship & Innovation</strong> · Complete Module Content · Term 1–3
+    </div>
+
+    <!-- page heading -->
+    <h1 class="page-title">📚 Your MBA Curriculum · What You'll Actually Study</h1>
+    <p class="page-subtitle">Click any module to see its full weekly breakdown, readings, case studies, and practical exercises.</p>
+
+    <!-- term tabs -->
+    <div class="term-tabs">
+        <span class="term-tab active" onclick="showTerm('term1')">Term 1 · Builder's Toolkit</span>
+        <span class="term-tab" onclick="showTerm('term2')">Term 2 · Investor's Deep Dives</span>
+        <span class="term-tab" onclick="showTerm('term3')">Term 3 · Innovator's Launchpad</span>
+    </div>
+
+    <!-- ===== TERM 1 ===== -->
+    <div id="term1" class="term-content active">
+        <div class="module-grid">
+            <!-- Module 1.1 -->
+            <div class="module-card" onclick="showModule('nvf')">
+                <div class="module-header">
+                    <span class="module-code">ENT501</span>
+                    <span class="module-credits">15 credits</span>
+                </div>
+                <div class="module-title">New Venture Finance</div>
+                <div class="module-prof">Prof. Julia Daley · Former Partner at Balderton Capital</div>
+                <div class="module-desc">Master cap tables, term sheets, valuation, convertible notes, and fundraising mechanics. Build dynamic financial models.</div>
+                <div class="pillar-tags">
+                    <span class="investor-tag">INVESTOR</span>
+                    <span class="pillar-tag">BUILDER</span>
+                </div>
+            </div>
+
+            <!-- Module 1.2 -->
+            <div class="module-card" onclick="showModule('mindset')">
+                <div class="module-header">
+                    <span class="module-code">ENT502</span>
+                    <span class="module-credits">10 credits</span>
+                </div>
+                <div class="module-title">Entrepreneurial Mindset & Creativity</div>
+                <div class="module-prof">Prof. Sarah Chen · Founder, 2x exited entrepreneur</div>
+                <div class="module-desc">Opportunity recognition, effectuation, customer discovery, and creative problem-solving. Conduct 20+ customer interviews.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">BUILDER</span>
+                    <span class="pillar-tag">INNOVATOR</span>
+                </div>
+            </div>
+
+            <!-- Module 1.3 -->
+            <div class="module-card" onclick="showModule('data')">
+                <div class="module-header">
+                    <span class="module-code">ENT503</span>
+                    <span class="module-credits">10 credits</span>
+                </div>
+                <div class="module-title">Data Analytics for Startups</div>
+                <div class="module-prof">Prof. Michael Osei · ex-Google Data Scientist</div>
+                <div class="module-desc">Python, pandas, cohort analysis, LTV/CAC, and data-driven decision making. Work with real startup datasets.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">INNOVATOR</span>
+                    <span class="investor-tag">INVESTOR</span>
+                </div>
+            </div>
+
+            <!-- Module 1.4 -->
+            <div class="module-card" onclick="showModule('marketing')">
+                <div class="module-header">
+                    <span class="module-code">ENT504</span>
+                    <span class="module-credits">10 credits</span>
+                </div>
+                <div class="module-title">Marketing for Startups</div>
+                <div class="module-prof">Prof. Lisa Wong · CMO, 3x startup</div>
+                <div class="module-desc">Growth marketing, acquisition channels, conversion optimisation, and brand building on a bootstrap budget.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">BUILDER</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TERM 2 ===== -->
+    <div id="term2" class="term-content">
+        <div class="module-grid">
+            <!-- Module 2.1 -->
+            <div class="module-card" onclick="showModule('vcpe')">
+                <div class="module-header">
+                    <span class="module-code">ENT601</span>
+                    <span class="module-credits">15 credits</span>
+                </div>
+                <div class="module-title">Venture Capital & Private Equity</div>
+                <div class="module-prof">Prof. David Miller · ex-Permira, Partner at Index Ventures</div>
+                <div class="module-desc">LBO modelling, fund economics, carry waterfalls, deal sourcing, and due diligence. Build a full fund model.</div>
+                <div class="pillar-tags">
+                    <span class="investor-tag">INVESTOR</span>
+                    <span class="pillar-tag">BUILDER</span>
+                </div>
+            </div>
+
+            <!-- Module 2.2 -->
+            <div class="module-card" onclick="showModule('design')">
+                <div class="module-header">
+                    <span class="module-code">ENT602</span>
+                    <span class="module-credits">10 credits</span>
+                </div>
+                <div class="module-title">Design Thinking & Product Development</div>
+                <div class="module-prof">Prof. Elena Rodriguez · IDEO alum, product designer</div>
+                <div class="module-desc">Prototyping (Figma), user testing, MVP definition, and iterative development. Build and test a product concept.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">INNOVATOR</span>
+                    <span class="pillar-tag">BUILDER</span>
+                </div>
+            </div>
+
+            <!-- Module 2.3 -->
+            <div class="module-card" onclick="showModule('tech')">
+                <div class="module-header">
+                    <span class="module-code">ENT603</span>
+                    <span class="module-credits">10 credits</span>
+                </div>
+                <div class="module-title">Technology & Innovation Strategy</div>
+                <div class="module-prof">Prof. James Kwok · MIT Sloan, tech strategist</div>
+                <div class="module-desc">Disruptive technology, IP strategy, platform ecosystems, and tech scouting. Prepare a tech scouting report.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">INNOVATOR</span>
+                    <span class="investor-tag">INVESTOR</span>
+                </div>
+            </div>
+
+            <!-- Module 2.4 -->
+            <div class="module-card" onclick="showModule('ops')">
+                <div class="module-header">
+                    <span class="module-code">ENT604</span>
+                    <span class="module-credits">10 credits</span>
+                </div>
+                <div class="module-title">Entrepreneurial Operations</div>
+                <div class="module-prof">Prof. Robert Taylor · COO, 3 scaling startups</div>
+                <div class="module-desc">Scaling operations, supply chain, hiring, culture, and operational excellence for high-growth ventures.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">BUILDER</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TERM 3 ===== -->
+    <div id="term3" class="term-content">
+        <div class="module-grid">
+            <!-- Module 3.1 (Capstone) -->
+            <div class="module-card" onclick="showModule('lab')">
+                <div class="module-header">
+                    <span class="module-code">ENT701</span>
+                    <span class="module-credits">15 credits</span>
+                </div>
+                <div class="module-title">New Venture Creation Lab</div>
+                <div class="module-prof">Prof. Julia Daley + Mentor Panel</div>
+                <div class="module-desc">Launch a real venture or join a startup. Full 3-statement projections, unit economics, investor pitch deck, and Demo Day.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">BUILDER</span>
+                    <span class="investor-tag">INVESTOR</span>
+                    <span class="pillar-tag">INNOVATOR</span>
+                </div>
+            </div>
+
+            <!-- Module 3.2 -->
+            <div class="module-card" onclick="showModule('corp')">
+                <div class="module-header">
+                    <span class="module-code">ENT702</span>
+                    <span class="module-credits">10 credits</span>
+                </div>
+                <div class="module-title">Corporate Innovation & Intrapreneurship</div>
+                <div class="module-prof">Prof. Sarah Chen</div>
+                <div class="module-desc">Innovation accounting, internal venture structures, and pitching to the C-suite. Simulate a corporate innovation pitch.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">INNOVATOR</span>
+                    <span class="pillar-tag">BUILDER</span>
+                </div>
+            </div>
+
+            <!-- Module 3.3 (Elective) -->
+            <div class="module-card" onclick="showModule('immersion')">
+                <div class="module-header">
+                    <span class="module-code">ENT703</span>
+                    <span class="module-credits">5 credits</span>
+                </div>
+                <div class="module-title">Global Immersion (Elective)</div>
+                <div class="module-prof">Various Faculty</div>
+                <div class="module-desc">One-week immersion in Silicon Valley or Singapore. Meet founders, VCs, and innovation leaders. Ecosystem mapping.</div>
+                <div class="pillar-tags">
+                    <span class="pillar-tag">INNOVATOR</span>
+                    <span class="investor-tag">INVESTOR</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODULE DETAIL VIEWS ===== -->
+    <div id="module-detail" class="module-detail">
+        <button class="back-btn" onclick="hideModule()">← Back to modules</button>
+
+        <!-- New Venture Finance Detail -->
+        <div id="nvf-detail" class="module-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">ENT501 · New Venture Finance</div>
+                <div class="detail-meta">15 credits · Prof. Julia Daley</div>
+            </div>
+            <p><strong>Module Description:</strong> This module provides a rigorous foundation in the financial mechanics of early-stage ventures. You'll master valuation, term sheets, cap tables, and fundraising strategies – essential tools for both founders and investors.</p>
+            <h3 style="margin:1.5rem 0 1rem 0;">Weekly Breakdown</h3>
+            <div class="week-grid">
+                <div class="week-card">
+                    <div class="week-number">Week 1</div>
+                    <div class="week-topic">Valuation Fundamentals</div>
+                    <ul class="week-readings">
+                        <li>Venture Deals Ch 1-3</li>
+                        <li>Case: "Uber's Seed Round"</li>
+                        <li>Excel: Pre/post-money calculator</li>
+                    </ul>
+                </div>
+                <div class="week-card">
+                    <div class="week-number">Week 2</div>
+                    <div class="week-topic">Term Sheets: Economic Clauses</div>
+                    <ul class="week-readings">
+                        <li>Venture Deals Ch 4-5</li>
+                        <li>Case: "The Theranos Term Sheet"</li>
+                        <li>Template: Term sheet comparison matrix</li>
+                    </ul>
+                </div>
+                <div class="week-card">
+                    <div class="week-number">Week 3</div>
+                    <div class="week-topic">Term Sheets: Control Clauses</div>
+                    <ul class="week-readings">
+                        <li>Venture Deals Ch 6-7</li>
+                        <li>Case: "Facebook's Early Rounds"</li>
+                        <li>Simulation: Negotiation role-play</li>
+                    </ul>
+                </div>
+                <div class="week-card">
+                    <div class="week-number">Week 4</div>
+                    <div class="week-topic">Cap Tables & Dilution</div>
+                    <ul class="week-readings">
+                        <li>Case: "Seed to Series B"</li>
+                        <li>Excel: Multi-round cap table</li>
+                        <li>Exercise: Down round modelling</li>
+                    </ul>
+                </div>
+                <div class="week-card">
+                    <div class="week-number">Week 5</div>
+                    <div class="week-topic">Convertible Notes & SAFEs</div>
+                    <ul class="week-readings">
+                        <li>YC SAFE documentation</li>
+                        <li>Case: "Note vs. Priced Round"</li>
+                        <li>Modelling: Valuation caps & discounts</li>
+                    </ul>
+                </div>
+                <div class="week-card">
+                    <div class="week-number">Week 6</div>
+                    <div class="week-topic">Fundraising Process</div>
+                    <ul class="week-readings">
+                        <li>Pitch deck examples</li>
+                        <li>Guest: VC partner</li>
+                        <li>Assignment: Investment memo</li>
+                    </ul>
+                </div>
+            </div>
+            <p><strong>Assessment:</strong> Individual investment memo (40%) + term sheet negotiation simulation (30%) + cap table modelling exercise (30%)</p>
+        </div>
+
+        <!-- Entrepreneurial Mindset Detail -->
+        <div id="mindset-detail" class="module-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">ENT502 · Entrepreneurial Mindset & Creativity</div>
+                <div class="detail-meta">10 credits · Prof. Sarah Chen</div>
+            </div>
+            <p><strong>Module Description:</strong> Develop the cognitive and behavioural skills of successful entrepreneurs. Learn to identify opportunities, manage uncertainty, and think creatively.</p>
+            <div class="week-grid">
+                <div class="week-card"><div class="week-number">Week 1</div><div class="week-topic">Effectuation vs Causation</div><ul><li>Sarasvathy's principles</li><li>Bird-in-hand principle</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 2</div><div class="week-topic">Opportunity Recognition</div><ul><li>Pain points & trends</li><li>Jobs-to-be-done framework</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 3</div><div class="week-topic">Customer Discovery</div><ul><li>Interview techniques</li><li>Problem-solution canvas</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 4</div><div class="week-topic">Creative Problem Solving</div><ul><li>Design thinking intro</li><li>Brainstorming techniques</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 5</div><div class="week-topic">Resilience & Grit</div><ul><li>Founder psychology</li><li>Managing failure</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 6</div><div class="week-topic">Synthesis & Presentation</div><ul><li>Opportunity brief</li><li>Peer feedback</li></ul></div>
+            </div>
+            <p><strong>Assessment:</strong> Customer interview synthesis (40%) + opportunity brief (40%) + participation (20%)</p>
+        </div>
+
+        <!-- Data Analytics Detail -->
+        <div id="data-detail" class="module-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">ENT503 · Data Analytics for Startups</div>
+                <div class="detail-meta">10 credits · Prof. Michael Osei</div>
+            </div>
+            <p><strong>Module Description:</strong> Learn to use data to drive startup decisions. Hands-on Python programming, cohort analysis, and metrics that matter to investors.</p>
+            <div class="week-grid">
+                <div class="week-card"><div class="week-number">Week 1</div><div class="week-topic">Python Basics</div><ul><li>Variables, loops, functions</li><li>Jupyter notebooks</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 2</div><div class="week-topic">Pandas for Data Analysis</div><ul><li>DataFrames, filtering</li><li>Real startup dataset</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 3</div><div class="week-topic">Cohort Analysis</div><ul><li>Retention curves</li><li>LTV/CAC calculation</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 4</div><div class="week-topic">Data Visualisation</div><ul><li>Matplotlib, Seaborn</li><li>Dashboard design</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 5</div><div class="week-topic">Metrics That Matter</div><ul><li>Unit economics</li><li>Investor KPIs</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 6</div><div class="week-topic">Analytics Project</div><ul><li>Cohort dashboard</li><li>Presentation</li></ul></div>
+            </div>
+            <p><strong>Assessment:</strong> Python notebook (50%) + cohort analysis report (50%)</p>
+        </div>
+
+        <!-- Marketing for Startups Detail -->
+        <div id="marketing-detail" class="module-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">ENT504 · Marketing for Startups</div>
+                <div class="detail-meta">10 credits · Prof. Lisa Wong</div>
+            </div>
+            <p><strong>Module Description:</strong> Growth marketing for resource-constrained startups. Learn to acquire, retain, and monetise customers.</p>
+            <div class="week-grid">
+                <div class="week-card"><div class="week-number">Week 1</div><div class="week-topic">Growth Marketing Framework</div><ul><li>Acquisition channels</li><li>Bullseye framework</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 2</div><div class="week-topic">Digital Acquisition</div><ul><li>SEO/SEM, social</li><li>Performance metrics</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 3</div><div class="week-topic">Conversion Optimisation</div><ul><li>A/B testing</li><li>Landing page design</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 4</div><div class="week-topic">Retention & Referral</div><ul><li>Cohort retention</li><li>Viral loops</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 5</div><div class="week-topic">Brand Building</div><ul><li>Storytelling</li><li>Positioning</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 6</div><div class="week-topic">Marketing Plan</div><ul><li>Channel strategy</li><li>Budget allocation</li></ul></div>
+            </div>
+            <p><strong>Assessment:</strong> Marketing plan (60%) + channel experiments (40%)</p>
+        </div>
+
+        <!-- Venture Capital & PE Detail -->
+        <div id="vcpe-detail" class="module-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">ENT601 · Venture Capital & Private Equity</div>
+                <div class="detail-meta">15 credits · Prof. David Miller</div>
+            </div>
+            <p><strong>Module Description:</strong> Deep dive into institutional private capital. Master LBO modelling, fund economics, and deal execution.</p>
+            <div class="week-grid">
+                <div class="week-card"><div class="week-number">Week 1</div><div class="week-topic">VC/PE Landscape</div><ul><li>Fund structures</li><li>LP/GP dynamics</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 2-3</div><div class="week-topic">LBO Modelling</div><ul><li>Debt tranches</li><li>Returns waterfalls</li><li>Excel modelling</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 4</div><div class="week-topic">Deal Sourcing</div><ul><li>Origination strategies</li><li>Pipeline management</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 5</div><div class="week-topic">Due Diligence</div><ul><li>Financial/commercial DD</li><li>Red flags</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 6</div><div class="week-topic">Fund Economics</div><ul><li>Carry, waterfalls</li><li>Fund performance</li></ul></div>
+            </div>
+        </div>
+
+        <!-- Design Thinking Detail -->
+        <div id="design-detail" class="module-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">ENT602 · Design Thinking & Product Development</div>
+                <div class="detail-meta">10 credits · Prof. Elena Rodriguez</div>
+            </div>
+            <p><strong>Module Description:</strong> Human-centred design for startups. From empathy to prototype.</p>
+            <div class="week-grid">
+                <div class="week-card"><div class="week-number">Week 1</div><div class="week-topic">Empathy & User Research</div><ul><li>Interviews</li><li>Personas</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 2</div><div class="week-topic">Problem Definition</div><ul><li>Point of view</li><li>Ideation</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 3-4</div><div class="week-topic">Prototyping (Figma)</div><ul><li>Low/high fidelity</li><li>User testing</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 5-6</div><div class="week-topic">MVP Definition</div><ul><li>Story maps</li><li>Iteration</li></ul></div>
+            </div>
+        </div>
+
+        <!-- Technology Strategy Detail -->
+        <div id="tech-detail" class="module-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">ENT603 · Technology & Innovation Strategy</div>
+                <div class="detail-meta">10 credits · Prof. James Kwok</div>
+            </div>
+            <p><strong>Module Description:</strong> Strategic management of technology and innovation.</p>
+            <div class="week-grid">
+                <div class="week-card"><div class="week-number">Week 1</div><div class="week-topic">Disruptive Technology</div><ul><li>Christensen's framework</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 2</div><div class="week-topic">IP Strategy</div><ul><li>Patents, trade secrets</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 3</div><div class="week-topic">Platform Ecosystems</div><ul><li>Network effects</li></ul></div>
+                <div class="week-card"><div class="week-number">Week 4</div><div class="week-topic">Tech Scouting</div><ul><li>Emerging tech analysis</li></ul></div>
+            </div>
+        </div>
+
+        <!-- Entrepreneurial Operations Detail -->
+        <div id="ops-detail" class="module-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">ENT604 · Entrepreneurial Operations</div>
+                <div class="detail-meta">10 credits · Prof. Robert Taylor</div>
+            </div>
+            <p><strong>Module Description:</strong> Building scalable operations for high-growth ventures.</p>
+            <div class="week-grid">
+                <div class="week-card"><div class="week-number">Week 1</div><div class="week-topic">Operational Excellence</div></div>
+                <div class="week-card"><div class="week-number">Week 2</div><div class="week-topic">Hiring & Culture</div></div>
+                <div class="week-card"><div class="week-number">Week 3</div><div class="week-topic">Supply Chain</div></div>
+                <div class="week-card"><div class="week-number">Week 4</div><div class="week-topic">Scaling Internationally</div></div>
+            </div>
+        </div>
+
+        <!-- Venture Lab Detail -->
+        <div id="lab-detail" class="module-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">ENT701 · New Venture Creation Lab</div>
+                <div class="detail-meta">15 credits · Prof. Julia Daley + Mentors</div>
+            </div>
+            <p><strong>Module Description:</strong> The capstone experience. Launch a real venture or work with an early-stage startup.</p>
+            <div class="week-grid">
+                <div class="week-card"><div class="week-number">Weeks 1-2</div><div class="week-topic">Problem Validation</div></div>
+                <div class="week-card"><div class="week-number">Weeks 3-4</div><div class="week-topic">MVP Development</div></div>
+                <div class="week-card"><div class="week-number">Weeks 5-6</div><div class="week-topic">Financial Projections</div></div>
+                <div class="week-card"><div class="week-number">Weeks 7-8</div><div class="week-topic">Pitch Deck & Rehearsal</div></div>
+                <div class="week-card"><div class="week-number">Week 9</div><div class="week-topic">Demo Day</div></div>
+            </div>
+        </div>
+
+        <!-- Corporate Innovation Detail -->
+        <div id="corp-detail" class="module-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">ENT702 · Corporate Innovation & Intrapreneurship</div>
+                <div class="detail-meta">10 credits · Prof. Sarah Chen</div>
+            </div>
+            <p><strong>Module Description:</strong> Driving innovation inside established organisations.</p>
+            <div class="week-grid">
+                <div class="week-card"><div class="week-number">Week 1</div><div class="week-topic">Innovation Accounting</div></div>
+                <div class="week-card"><div class="week-number">Week 2</div><div class="week-topic">Internal Ventures</div></div>
+                <div class="week-card"><div class="week-number">Week 3</div><div class="week-topic">Pitching to C-suite</div></div>
+            </div>
+        </div>
+
+        <!-- Global Immersion Detail -->
+        <div id="immersion-detail" class="module-detail-content" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-title">ENT703 · Global Immersion</div>
+                <div class="detail-meta">5 credits · Various</div>
+            </div>
+            <p><strong>Module Description:</strong> One-week immersion in a global startup hub.</p>
+            <div class="week-grid">
+                <div class="week-card"><div class="week-number">Week</div><div class="week-topic">Silicon Valley or Singapore</div><ul><li>VC meetings</li><li>Startup visits</li><li>Ecosystem mapping</li></ul></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function showTerm(termId) {
+            var terms = document.getElementsByClassName('term-content');
+            for (var i = 0; i < terms.length; i++) {
+                terms[i].classList.remove('active');
+            }
+            document.getElementById(termId).classList.add('active');
+            
+            var tabs = document.getElementsByClassName('term-tab');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            event.target.classList.add('active');
+            
+            // Hide any open module detail
+            document.getElementById('module-detail').classList.remove('active');
+        }
+
+        function showModule(moduleId) {
+            document.getElementById('module-detail').classList.add('active');
+            var details = document.getElementsByClassName('module-detail-content');
+            for (var i = 0; i < details.length; i++) {
+                details[i].style.display = 'none';
+            }
+            document.getElementById(moduleId + '-detail').style.display = 'block';
+        }
+
+        function hideModule() {
+            document.getElementById('module-detail').classList.remove('active');
+        }
+    </script>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · 100% Online MBA · Triple accredited: AMBA, EQUIS, AACSB<br>
+        © 2025 Nolan University · Complete module content · 12 months · 90 credits</p>
+    </div>
+</div>
+</body>
+</html>
