@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan University · All Bachelor's Degrees · Full Programmes</title>
+    <!-- Font & base styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0B2A3B;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --nolan-navy: #0B2A3B;
+            --nolan-gold: #F4C542;
+            --nolan-light-bg: #f5f8fa;
+            --nolan-white: #ffffff;
+            --nanol-gray-soft: #eef3f6;
+        }
+
+        /* header */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--nolan-gold);
+            padding-bottom: 1.25rem;
+        }
+
+        .uni-logo {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-weight: 800;
+            font-size: 2rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 0 #051a24;
+            border: 2px solid var(--nolan-gold);
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--nolan-navy);
+        }
+
+        .uni-name span {
+            color: var(--nolan-navy);
+            font-weight: 600;
+            background: var(--nolan-gold);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            vertical-align: middle;
+            border: 2px solid var(--nolan-navy);
+        }
+
+        .global-tagline {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            border-left: 8px solid var(--nolan-gold);
+            border-right: 8px solid var(--nolan-gold);
+        }
+
+        .global-tagline strong {
+            color: var(--nolan-gold);
+            font-weight: 700;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--nolan-navy);
+            margin: 2rem 0 0.5rem 0;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #2d4f62;
+            margin-bottom: 2rem;
+        }
+
+        /* programme selector tabs */
+        .programme-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+        .tab-btn {
+            background: white;
+            border: 2px solid var(--nolan-navy);
+            color: var(--nolan-navy);
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+        .tab-btn.active {
+            background: var(--nolan-gold);
+            border-color: var(--nolan-navy);
+        }
+        .tab-btn:hover {
+            background: var(--nolan-navy);
+            color: white;
+        }
+
+        /* programme cards (hidden by default, shown via JS) */
+        .programme-content {
+            display: none;
+            margin-top: 2rem;
+        }
+        .programme-content.active {
+            display: block;
+        }
+
+        .year-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .year-card {
+            background: var(--nolan-white);
+            border-radius: 32px;
+            padding: 2rem;
+            border: 2px solid var(--nolan-gold);
+            box-shadow: 0 15px 30px -15px rgba(11,42,59,0.2);
+        }
+
+        .year-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .year-badge {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            border: 2px solid var(--nolan-gold);
+        }
+        .year-credits {
+            background: var(--nanol-gray-soft);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: var(--nolan-navy);
+        }
+        .year-theme {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+            margin-left: auto;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+        .module-item {
+            background: #fafdff;
+            border-radius: 20px;
+            padding: 1.4rem;
+            border-left: 6px solid var(--nolan-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            transition: 0.2s;
+        }
+        .module-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(11,42,59,0.2);
+        }
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .module-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--nolan-navy);
+        }
+        .module-credits {
+            background: var(--nolan-navy);
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+        }
+        .module-desc {
+            color: #235a72;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+        .pillar-tags {
+            margin-top: 0.5rem;
+        }
+        .pillar-tag {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-navy);
+        }
+        .investor-tag {
+            background: var(--nolan-navy);
+            color: white;
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            text-transform: uppercase;
+            border: 1px solid var(--nolan-gold);
+        }
+
+        .programme-header {
+            background: var(--nolan-navy);
+            color: white;
+            padding: 2rem;
+            border-radius: 36px;
+            margin-bottom: 2rem;
+            border: 2px solid var(--nolan-gold);
+        }
+        .programme-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--nolan-gold);
+        }
+        .programme-school {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+        .programme-ucas {
+            margin-top: 0.5rem;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            display: inline-block;
+            padding: 0.3rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: var(--nolan-gold);
+            color: var(--nolan-navy);
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--nolan-navy);
+            transition: 0.2s;
+        }
+        .btn-gold:hover {
+            background: var(--nolan-navy);
+            color: var(--nolan-gold);
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3b687d;
+            border-top: 2px solid var(--nolan-gold);
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 800px) {
+            .year-header {
+                flex-direction: column;
+                align-items: start;
+            }
+            .year-theme {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="university-header">
+        <div class="uni-logo">NU</div>
+        <div class="uni-name">NOLAN <span>UNIVERSITY</span></div>
+    </div>
+
+    <!-- global tagline -->
+    <div class="global-tagline">
+        <strong>100% Online Bachelor's Degrees</strong> · FINANCE · TECHNOLOGY · ENTREPRENEURSHIP · Full Programmes
+    </div>
+
+    <!-- page heading -->
+    <h1 class="page-title">🎓 All Bachelor's Programmes · Full Curriculum</h1>
+    <p class="page-subtitle">Select a programme to explore its complete 3-year structure, module details, and credit breakdown. All BSc degrees are 360 credits total.</p>
+
+    <!-- programme tabs -->
+    <div class="programme-tabs">
+        <button class="tab-btn active" onclick="showProgramme('bsc-finance')">BSc Finance & Investment</button>
+        <button class="tab-btn" onclick="showProgramme('bsc-fintech')">BSc Financial Technology</button>
+        <button class="tab-btn" onclick="showProgramme('bsc-entrepreneurship')">BSc Entrepreneurship</button>
+        <button class="tab-btn" onclick="showProgramme('bsc-analytics')">BSc Business Analytics & AI</button>
+        <button class="tab-btn" onclick="showProgramme('bsc-accounting')">BSc Accounting & Finance</button>
+        <button class="tab-btn" onclick="showProgramme('bsc-international')">BSc International Business</button>
+    </div>
+
+    <!-- ===== BSc Finance & Investment ===== -->
+    <div id="bsc-finance" class="programme-content active">
+        <div class="programme-header">
+            <div class="programme-title">BSc Finance & Investment</div>
+            <div class="programme-school">Graduate School of Banking & Finance</div>
+            <div class="programme-ucas">UCAS: N3N5 · 3 years · 360 credits</div>
+            <p style="margin-top:1rem;">Master financial modelling, portfolio management, and investment analysis. CFA-affiliated, Bloomberg-certified.</p>
+        </div>
+        <div class="year-container">
+            <!-- Year 1 -->
+            <div class="year-card">
+                <div class="year-header">
+                    <span class="year-badge">YEAR 1</span>
+                    <span class="year-credits">120 CREDITS · 6 MODULES</span>
+                    <span class="year-theme">📊 FOUNDATIONS</span>
+                </div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Principles of Finance</span><span class="module-credits">20</span></div><div class="module-desc">Time value, NPV/IRR, CAPM, market efficiency, Bloomberg intro.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Financial Accounting</span><span class="module-credits">20</span></div><div class="module-desc">Double-entry, 3-statement modelling, ratio analysis.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Quantitative Methods 1</span><span class="module-credits">20</span></div><div class="module-desc">Probability, distributions, regression, hypothesis testing.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Macroeconomics for Investors</span><span class="module-credits">20</span></div><div class="module-desc">GDP, inflation, monetary policy, business cycles.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Introduction to Investment Banking</span><span class="module-credits">20</span></div><div class="module-desc">Industry overview, roles, deal lifecycle.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Professional Skills & Ethics</span><span class="module-credits">20</span></div><div class="module-desc">Communication, teamwork, ethical frameworks.</div><span class="pillar-tag">INNOVATOR</span></div>
+                </div>
+            </div>
+            <!-- Year 2 -->
+            <div class="year-card">
+                <div class="year-header">
+                    <span class="year-badge">YEAR 2</span>
+                    <span class="year-credits">120 CREDITS · 6 MODULES</span>
+                    <span class="year-theme">📈 CORE FINANCE</span>
+                </div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Corporate Finance</span><span class="module-credits">20</span></div><div class="module-desc">WACC, DCF valuation, capital structure, dividend policy.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Equity & Fixed Income Analysis</span><span class="module-credits">20</span></div><div class="module-desc">DCF, comps, bond pricing, duration, credit analysis.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Financial Modelling (Excel & Python)</span><span class="module-credits">20</span></div><div class="module-desc">3-statement models, DCF, scenario analysis.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Derivatives & Risk Management</span><span class="module-credits">20</span></div><div class="module-desc">Options, futures, swaps, Greeks, hedging.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Financial Econometrics</span><span class="module-credits">20</span></div><div class="module-desc">Time series, volatility, factor models.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Mergers & Acquisitions</span><span class="module-credits">20</span></div><div class="module-desc">Deal structuring, synergy analysis.</div><span class="investor-tag">INVESTOR</span></div>
+                </div>
+            </div>
+            <!-- Year 3 -->
+            <div class="year-card">
+                <div class="year-header">
+                    <span class="year-badge">YEAR 3</span>
+                    <span class="year-credits">120 CREDITS · 5 MODULES</span>
+                    <span class="year-theme">🎯 ADVANCED APPLICATIONS</span>
+                </div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Advanced Portfolio Management</span><span class="module-credits">20</span></div><div class="module-desc">Optimisation, factor investing, attribution.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Alternative Investments</span><span class="module-credits">20</span></div><div class="module-desc">PE, hedge funds, real assets, LBO modelling.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Behavioural Finance & ESG</span><span class="module-credits">20</span></div><div class="module-desc">Cognitive biases, sustainable investing.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">International Finance</span><span class="module-credits">20</span></div><div class="module-desc">FX, global capital markets, cross-border deals.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Applied Investment Project</span><span class="module-credits">40</span></div><div class="module-desc">Capstone: manage virtual portfolio, pitch to industry panel.</div><span class="pillar-tag">BUILDER</span><span class="investor-tag">INVESTOR</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== BSc Financial Technology ===== -->
+    <div id="bsc-fintech" class="programme-content">
+        <div class="programme-header">
+            <div class="programme-title">BSc Financial Technology</div>
+            <div class="programme-school">School of Technology & AI</div>
+            <div class="programme-ucas">UCAS: GN34 · 3 years · 360 credits</div>
+            <p style="margin-top:1rem;">Blockchain, Python, AI in finance, digital payments, and DeFi. Industry co-designed.</p>
+        </div>
+        <div class="year-container">
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 1</span><span class="year-credits">120</span><span class="year-theme">🤖 TECH FOUNDATIONS</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Principles of Finance</span><span class="module-credits">20</span></div><div class="module-desc">Finance fundamentals for technologists.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Programming for Finance (Python)</span><span class="module-credits">20</span></div><div class="module-desc">Data structures, pandas, financial APIs.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Financial Accounting</span><span class="module-credits">20</span></div><div class="module-desc">Basics for tech professionals.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Quantitative Methods</span><span class="module-credits">20</span></div><div class="module-desc">Statistics for data science.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Intro to FinTech & Digital Payments</span><span class="module-credits">20</span></div><div class="module-desc">Industry landscape, payment systems.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Professional Skills</span><span class="module-credits">20</span></div><div class="module-desc">Communication, ethics.</div><span class="pillar-tag">BUILDER</span></div>
+                </div>
+            </div>
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 2</span><span class="year-credits">120</span><span class="year-theme">⚙️ CORE TECH & FINANCE</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Blockchain & Distributed Ledgers</span><span class="module-credits">20</span></div><div class="module-desc">Cryptography, consensus, smart contracts.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Machine Learning for Finance</span><span class="module-credits">20</span></div><div class="module-desc">Regression, classification, forecasting.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Corporate Finance</span><span class="module-credits">20</span></div><div class="module-desc">Valuation, capital structure.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Database Systems (SQL)</span><span class="module-credits">20</span></div><div class="module-desc">Querying, joins, database design.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Financial Econometrics</span><span class="module-credits">20</span></div><div class="module-desc">Time series, volatility.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Digital Banking & APIs</span><span class="module-credits">20</span></div><div class="module-desc">Open banking, REST APIs.</div><span class="pillar-tag">BUILDER</span></div>
+                </div>
+            </div>
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 3</span><span class="year-credits">120</span><span class="year-theme">🚀 ADVANCED APPLICATIONS</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">AI in Investment Management</span><span class="module-credits">20</span></div><div class="module-desc">NLP, robo-advisors, portfolio optimisation.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Smart Contracts & DeFi</span><span class="module-credits">20</span></div><div class="module-desc">Solidity, dApps, DeFi protocols.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">FinTech Risk & Regulation</span><span class="module-credits">20</span></div><div class="module-desc">RegTech, compliance, AML.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Alternative Data Analytics</span><span class="module-credits">20</span></div><div class="module-desc">Web scraping, sentiment analysis.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">FinTech Capstone Project</span><span class="module-credits">40</span></div><div class="module-desc">Build working fintech prototype.</div><span class="pillar-tag">BUILDER</span><span class="pillar-tag">INNOVATOR</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== BSc Entrepreneurship & Venture Creation ===== -->
+    <div id="bsc-entrepreneurship" class="programme-content">
+        <div class="programme-header">
+            <div class="programme-title">BSc Entrepreneurship & Venture Creation</div>
+            <div class="programme-school">School of Entrepreneurship & Venture Creation</div>
+            <div class="programme-ucas">UCAS: N2N1 · 3 years · 360 credits</div>
+            <p style="margin-top:1rem;">Learn by building: from idea to launch. Master lean startup, venture finance, growth marketing.</p>
+        </div>
+        <div class="year-container">
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 1</span><span class="year-credits">120</span><span class="year-theme">💡 FOUNDER MINDSET</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Entrepreneurial Mindset & Creativity</span><span class="module-credits">20</span></div><div class="module-desc">Opportunity recognition, effectuation.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Introduction to Venture Creation</span><span class="module-credits">20</span></div><div class="module-desc">Business models, lean startup.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Marketing for Startups</span><span class="module-credits">20</span></div><div class="module-desc">Growth channels, customer acquisition.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Financial Accounting Basics</span><span class="module-credits">20</span></div><div class="module-desc">For non-finance founders.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Design Thinking</span><span class="module-credits">20</span></div><div class="module-desc">Human-centred design, prototyping.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Professional Skills</span><span class="module-credits">20</span></div><div class="module-desc">Pitching, networking.</div><span class="pillar-tag">BUILDER</span></div>
+                </div>
+            </div>
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 2</span><span class="year-credits">120</span><span class="year-theme">💰 BUILDING & FUNDING</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">New Venture Finance</span><span class="module-credits">20</span></div><div class="module-desc">Valuation, term sheets, cap tables.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Lean Startup & Customer Discovery</span><span class="module-credits">20</span></div><div class="module-desc">MVP, interviews, pivoting.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Growth Marketing & Analytics</span><span class="module-credits">20</span></div><div class="module-desc">Cohort analysis, LTV/CAC.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Entrepreneurial Operations</span><span class="module-credits">20</span></div><div class="module-desc">Hiring, culture, scaling.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Legal & IP for Startups</span><span class="module-credits">20</span></div><div class="module-desc">Contracts, patents, structures.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Social Entrepreneurship Elective</span><span class="module-credits">20</span></div><div class="module-desc">Impact ventures.</div><span class="pillar-tag">INNOVATOR</span></div>
+                </div>
+            </div>
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 3</span><span class="year-credits">120</span><span class="year-theme">🚀 LAUNCH & SCALE</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Venture Capital & Fundraising</span><span class="module-credits">20</span></div><div class="module-desc">VC landscape, pitch decks.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Scaling Ventures</span><span class="module-credits">20</span></div><div class="module-desc">International expansion, operations.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Family Business & Succession</span><span class="module-credits">20</span></div><div class="module-desc">Special topic.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Tech Ventures Elective</span><span class="module-credits">20</span></div><div class="module-desc">Digital startups.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Venture Creation Lab (Capstone)</span><span class="module-credits">40</span></div><div class="module-desc">Launch real venture, Demo Day.</div><span class="pillar-tag">BUILDER</span><span class="investor-tag">INVESTOR</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== BSc Business Analytics & AI ===== -->
+    <div id="bsc-analytics" class="programme-content">
+        <div class="programme-header">
+            <div class="programme-title">BSc Business Analytics & AI</div>
+            <div class="programme-school">School of Technology & AI</div>
+            <div class="programme-ucas">UCAS: GN54 · 3 years · 360 credits</div>
+            <p style="margin-top:1rem;">Python, machine learning, predictive analytics, and AI strategy. Turn data into business insights.</p>
+        </div>
+        <div class="year-container">
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 1</span><span class="year-credits">120</span><span class="year-theme">📊 FOUNDATIONS</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Programming for Analytics (Python)</span><span class="module-credits">20</span></div><div class="module-desc">Pandas, NumPy, data visualisation.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Business Statistics</span><span class="module-credits">20</span></div><div class="module-desc">Probability, distributions, inference.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Database & SQL</span><span class="module-credits">20</span></div><div class="module-desc">Querying, joins, database design.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Principles of Management</span><span class="module-credits">20</span></div><div class="module-desc">Business fundamentals.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Data Visualisation</span><span class="module-credits">20</span></div><div class="module-desc">Tableau, storytelling.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Mathematics for Data Science</span><span class="module-credits">20</span></div><div class="module-desc">Linear algebra, calculus.</div><span class="pillar-tag">INNOVATOR</span></div>
+                </div>
+            </div>
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 2</span><span class="year-credits">120</span><span class="year-theme">🤖 CORE ANALYTICS</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Machine Learning Fundamentals</span><span class="module-credits">20</span></div><div class="module-desc">Regression, classification, clustering.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Predictive Analytics</span><span class="module-credits">20</span></div><div class="module-desc">Time series, forecasting, ensemble methods.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Big Data Technologies</span><span class="module-credits">20</span></div><div class="module-desc">Hadoop, Spark, cloud.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Marketing Analytics</span><span class="module-credits">20</span></div><div class="module-desc">Segmentation, churn, A/B testing.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Financial Analytics</span><span class="module-credits">20</span></div><div class="module-desc">Risk modelling, credit scoring.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Ethics & AI Governance</span><span class="module-credits">20</span></div><div class="module-desc">Bias, fairness, regulation.</div><span class="pillar-tag">INNOVATOR</span></div>
+                </div>
+            </div>
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 3</span><span class="year-credits">120</span><span class="year-theme">🎯 ADVANCED AI</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Deep Learning & Neural Networks</span><span class="module-credits">20</span></div><div class="module-desc">CNNs, RNNs, TensorFlow.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Natural Language Processing</span><span class="module-credits">20</span></div><div class="module-desc">Text mining, sentiment, chatbots.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Business Intelligence & Dashboards</span><span class="module-credits">20</span></div><div class="module-desc">Power BI, executive reporting.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Reinforcement Learning for Business</span><span class="module-credits">20</span></div><div class="module-desc">Optimisation, dynamic pricing.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Analytics Capstone Project</span><span class="module-credits">40</span></div><div class="module-desc">Real-world industry project.</div><span class="pillar-tag">BUILDER</span><span class="pillar-tag">INNOVATOR</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== BSc Accounting & Finance ===== -->
+    <div id="bsc-accounting" class="programme-content">
+        <div class="programme-header">
+            <div class="programme-title">BSc Accounting & Finance</div>
+            <div class="programme-school">Graduate School of Banking & Finance</div>
+            <div class="programme-ucas">UCAS: NN34 · 3 years · 360 credits</div>
+            <p style="margin-top:1rem;">Professional accounting, financial reporting, audit, and taxation. ACCA/CIMA accredited.</p>
+        </div>
+        <div class="year-container">
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 1</span><span class="year-credits">120</span><span class="year-theme">📋 FOUNDATIONS</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Financial Accounting 1</span><span class="module-credits">20</span></div><div class="module-desc">Double-entry, statements.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Management Accounting 1</span><span class="module-credits">20</span></div><div class="module-desc">Costing, budgeting.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Principles of Finance</span><span class="module-credits">20</span></div><div class="module-desc">Time value, NPV.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Quantitative Methods</span><span class="module-credits">20</span></div><div class="module-desc">Statistics for business.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Economics for Business</span><span class="module-credits">20</span></div><div class="module-desc">Micro/macro.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Professional Skills</span><span class="module-credits">20</span></div><div class="module-desc">Ethics, communication.</div><span class="pillar-tag">BUILDER</span></div>
+                </div>
+            </div>
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 2</span><span class="year-credits">120</span><span class="year-theme">📊 CORE ACCOUNTING</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Financial Accounting 2</span><span class="module-credits">20</span></div><div class="module-desc">Group accounts, standards.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Management Accounting 2</span><span class="module-credits">20</span></div><div class="module-desc">Decision making, variance.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Corporate Finance</span><span class="module-credits">20</span></div><div class="module-desc">Capital structure, valuation.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Taxation</span><span class="module-credits">20</span></div><div class="module-desc">UK tax principles.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Audit & Assurance</span><span class="module-credits">20</span></div><div class="module-desc">Audit process, ethics.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Financial Econometrics</span><span class="module-credits">20</span></div><div class="module-desc">Time series, regression.</div><span class="investor-tag">INVESTOR</span></div>
+                </div>
+            </div>
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 3</span><span class="year-credits">120</span><span class="year-theme">🎯 PROFESSIONAL PRACTICE</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Advanced Financial Reporting</span><span class="module-credits">20</span></div><div class="module-desc">IFRS, complex groups.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Advanced Management Accounting</span><span class="module-credits">20</span></div><div class="module-desc">Strategic performance.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Corporate Governance & Ethics</span><span class="module-credits">20</span></div><div class="module-desc">Board structures, ESG.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Financial Statement Analysis</span><span class="module-credits">20</span></div><div class="module-desc">Valuation, credit analysis.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Accounting Capstone Project</span><span class="module-credits">40</span></div><div class="module-desc">Real-world case study.</div><span class="pillar-tag">BUILDER</span><span class="pillar-tag">INNOVATOR</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== BSc International Business ===== -->
+    <div id="bsc-international" class="programme-content">
+        <div class="programme-header">
+            <div class="programme-title">BSc International Business</div>
+            <div class="programme-school">School of Global Business & Leadership</div>
+            <div class="programme-ucas">UCAS: N120 · 3 years · 360 credits</div>
+            <p style="margin-top:1rem;">Global strategy, cross-cultural management, international marketing, and trade.</p>
+        </div>
+        <div class="year-container">
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 1</span><span class="year-credits">120</span><span class="year-theme">🌍 GLOBAL FOUNDATIONS</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Principles of Management</span><span class="module-credits">20</span></div><div class="module-desc">Organisational behaviour.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Introduction to International Business</span><span class="module-credits">20</span></div><div class="module-desc">Globalisation, trade theories.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Economics for Global Managers</span><span class="module-credits">20</span></div><div class="module-desc">Macro, trade policy.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Marketing Principles</span><span class="module-credits">20</span></div><div class="module-desc">4Ps, consumer behaviour.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Financial Accounting Basics</span><span class="module-credits">20</span></div><div class="module-desc">For managers.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Cross-Cultural Communication</span><span class="module-credits">20</span></div><div class="module-desc">Cultural frameworks.</div><span class="pillar-tag">INNOVATOR</span></div>
+                </div>
+            </div>
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 2</span><span class="year-credits">120</span><span class="year-theme">🌐 GLOBAL STRATEGY</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">International Marketing</span><span class="module-credits">20</span></div><div class="module-desc">Entry modes, adaptation.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Cross-Cultural Management</span><span class="module-credits">20</span></div><div class="module-desc">Leading diverse teams.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">International Trade & Finance</span><span class="module-credits">20</span></div><div class="module-desc">FX, trade finance.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Global Supply Chain Management</span><span class="module-credits">20</span></div><div class="module-desc">Logistics, sourcing.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Emerging Markets</span><span class="module-credits">20</span></div><div class="module-desc">Opportunities, risks.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Business Research Methods</span><span class="module-credits">20</span></div><div class="module-desc">Qualitative/quantitative.</div><span class="pillar-tag">INNOVATOR</span></div>
+                </div>
+            </div>
+            <div class="year-card">
+                <div class="year-header"><span class="year-badge">YEAR 3</span><span class="year-credits">120</span><span class="year-theme">🎯 GLOBAL LEADERSHIP</span></div>
+                <div class="modules-grid">
+                    <div class="module-item"><div class="module-header"><span class="module-name">Global Strategy</span><span class="module-credits">20</span></div><div class="module-desc">MNE strategy, alliances.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">International HRM</span><span class="module-credits">20</span></div><div class="module-desc">Expatriates, talent.</div><span class="pillar-tag">BUILDER</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Global Corporate Governance</span><span class="module-credits">20</span></div><div class="module-desc">Board structures, ethics.</div><span class="investor-tag">INVESTOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">Regional Elective (Asia/EU/Americas)</span><span class="module-credits">20</span></div><div class="module-desc">Deep dive.</div><span class="pillar-tag">INNOVATOR</span></div>
+                    <div class="module-item"><div class="module-header"><span class="module-name">International Business Capstone</span><span class="module-credits">40</span></div><div class="module-desc">Global strategy project.</div><span class="pillar-tag">BUILDER</span><span class="pillar-tag">INNOVATOR</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simple JavaScript for tabs -->
+    <script>
+        function showProgramme(programmeId) {
+            // Hide all programme contents
+            var contents = document.getElementsByClassName('programme-content');
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+            // Remove active class from all tabs
+            var tabs = document.getElementsByClassName('tab-btn');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            // Show selected programme
+            document.getElementById(programmeId).classList.add('active');
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
+
+    <!-- footer -->
+    <div class="footer-note">
+        <p><strong>NOLAN UNIVERSITY</strong> · Learn to Lead. Lead to Excel. · 100% Online Bachelor's Degrees · Triple accredited: AMBA, EQUIS, AACSB<br>
+        © 2025 Nolan University · All programmes 3 years · 360 credits · UCAS codes as shown</p>
+    </div>
+</div>
+</body>
+</html>
