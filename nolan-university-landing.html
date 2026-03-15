@@ -166,20 +166,20 @@ transform:translateY(-2px);
   </div>
 
   <!-- Hamburger Menu Icon -->
-  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-  <ul class="nav-links" id="navLinks">
+<ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
 
     <!-- Schools Dropdown -->
     <li class="dropdown">
-      <a href="#">Schools ▼</a>
-      <ul class="dropdown-menu">
-        <li><a href="technology-ai.html">School of Technology & AI</a></li>
-        <li><a href="gsbf.html">Graduate School of Banking & Finance</a></li>
-        <li><a href="entrepreneurship.html">School of Entrepreneurship & Venture Creation</a></li>
-        <li><a href="global-business.html">School of Global Business & Leadership</a></li>
-      </ul>
+        <a href="#" class="toggle">Schools ▼</a>
+        <ul class="dropdown-menu">
+            <li><a href="technology-ai.html">School of Technology & AI</a></li>
+            <li><a href="gsbf.html">Graduate School of Banking & Finance</a></li>
+            <li><a href="entrepreneurship.html">School of Entrepreneurship & Venture Creation</a></li>
+            <li><a href="global-business.html">School of Global Business & Leadership</a></li>
+        </ul>
     </li>
 
     <li><a href="admissions.html">Admissions</a></li>
@@ -188,123 +188,261 @@ transform:translateY(-2px);
 
     <!-- Programmes Dropdown -->
     <li class="dropdown">
-      <a href="#" class="toggle">Programmes ▼</a>
-      <ul class="dropdown-menu">
+        <a href="#" class="toggle">Programmes ▼</a>
+        <ul class="dropdown-menu">
+            <!-- BSc -->
+            <li class="dropdown">
+                <a href="#" class="toggle">🎓 3-Year Bachelor's Degrees</a>
+                <ul class="dropdown-menu nested">
+                    <li><a href="#">BSc Finance & Investment</a></li>
+                    <li><a href="#">BSc Financial Technology</a></li>
+                    <li><a href="#">BSc Entrepreneurship & Venture Creation</a></li>
+                    <li><a href="#">BSc Business Analytics & AI</a></li>
+                </ul>
+            </li>
 
-        <!-- BSc -->
-        <li>
-          <a href="#" class="toggle">🎓 3-Year Bachelor’s Degrees</a>
-          <ul class="dropdown-menu nested">
-            <li><a href="#">BSc Finance & Investment</a></li>
-            <li><a href="#">BSc Financial Technology</a></li>
-            <li><a href="#">BSc Entrepreneurship & Venture Creation</a></li>
-            <li><a href="#">BSc Business Analytics & AI</a></li>
-          </ul>
-        </li>
+            <!-- MSc -->
+            <li class="dropdown">
+                <a href="#" class="toggle">🎓 1-Year Master's Degrees</a>
+                <ul class="dropdown-menu nested">
+                    <li><a href="#">MSc Finance & Capital Markets</a></li>
+                    <li><a href="#">MSc Venture Capital & Private Equity</a></li>
+                    <li><a href="#">MBA Entrepreneurship & Innovation</a></li>
+                </ul>
+            </li>
 
-        <!-- MSc -->
-        <li>
-          <a href="#" class="toggle">🎓 1-Year Master’s Degrees</a>
-          <ul class="dropdown-menu nested">
-            <li><a href="#">MSc Finance & Capital Markets</a></li>
-            <li><a href="#">MSc Venture Capital & Private Equity</a></li>
-            <li><a href="#">MBA Entrepreneurship & Innovation</a></li>
-          </ul>
-        </li>
+            <!-- Professional Diplomas -->
+            <li class="dropdown">
+                <a href="#" class="toggle">Professional Diploma in</a>
+                <ul class="dropdown-menu nested">
+                    <li><a href="#">1️⃣ Investment Banking</a></li>
+                    <li><a href="#">2️⃣ Venture Capital & Private Equity</a></li>
+                    <li><a href="#">3️⃣ Startup Builder Program</a></li>
+                    <li><a href="#">4️⃣ FinTech & Digital Finance</a></li>
+                    <li><a href="#">5️⃣ AI for Business & Finance</a></li>
+                </ul>
+            </li>
 
-        <!-- Professional Diplomas -->
-        <li>
-          <a href="#" class="toggle">Professional Diploma in</a>
-          <ul class="dropdown-menu nested">
-            <li><a href="#">1️⃣ Investment Banking</a></li>
-            <li><a href="#">2️⃣ Venture Capital & Private Equity</a></li>
-            <li><a href="#">3️⃣ Startup Builder Program</a></li>
-            <li><a href="#">4️⃣ FinTech & Digital Finance</a></li>
-            <li><a href="#">5️⃣ AI for Business & Finance</a></li>
-          </ul>
-        </li>
+            <!-- Career Programs -->
+            <li class="dropdown">
+                <a href="#" class="toggle">Career Accelerator Programs, Executive Certificates, Postgraduate Certificates & Industry Certifications</a>
+                <ul class="dropdown-menu nested">
+                    <li><a href="#">1️⃣ Investment Banking & Financial Markets</a></li>
+                    <li><a href="#">2️⃣ Venture Capital & Private Equity</a></li>
+                    <li><a href="#">3️⃣ Financial Technology (FinTech)</a></li>
+                    <li><a href="#">4️⃣ Entrepreneurship & Startup Creation</a></li>
+                    <li><a href="#">5️⃣ Artificial Intelligence for Business</a></li>
+                    <li><a href="#">6️⃣ Business Analytics & Data Strategy</a></li>
+                    <li><a href="#">7️⃣ Wealth Management & Investment Advisory</a></li>
+                    <li><a href="#">8️⃣ Global Business & Strategic Leadership</a></li>
+                    <li><a href="#">9️⃣ Digital Finance & Blockchain</a></li>
+                    <li><a href="#">🔟 Innovation & Venture Building</a></li>
+                </ul>
+            </li>
 
-        <!-- Career Programs -->
-        <li>
-          <a href="#" class="toggle">Career Accelerator Programs, Executive Certificates, Postgraduate Certificates & Industry Certifications</a>
-          <ul class="dropdown-menu nested">
-            <li><a href="#">1️⃣ Investment Banking & Financial Markets</a></li>
-            <li><a href="#">2️⃣ Venture Capital & Private Equity</a></li>
-            <li><a href="#">3️⃣ Financial Technology (FinTech)</a></li>
-            <li><a href="#">4️⃣ Entrepreneurship & Startup Creation</a></li>
-            <li><a href="#">5️⃣ Artificial Intelligence for Business</a></li>
-            <li><a href="#">6️⃣ Business Analytics & Data Strategy</a></li>
-            <li><a href="#">7️⃣ Wealth Management & Investment Advisory</a></li>
-            <li><a href="#">8️⃣ Global Business & Strategic Leadership</a></li>
-            <li><a href="#">9️⃣ Digital Finance & Blockchain</a></li>
-            <li><a href="#">🔟 Innovation & Venture Building</a></li>
-          </ul>
-        </li>
-
-        <!-- Youth Programmes -->
-        <li>
-          <a href="#" class="toggle">Youth Programmes</a>
-          <ul class="dropdown-menu nested">
-            <li><a href="#">○ AI and Machine Learning Pioneers Summer School</a></li>
-            <li><a href="#">○ Future Entrepreneurs Summer School</a></li>
-            <li><a href="#">○ Future Climate Tech Innovators Summer School</a></li>
-          </ul>
-        </li>
-
-      </ul>
+            <!-- Youth Programmes -->
+            <li class="dropdown">
+                <a href="#" class="toggle">Youth Programmes</a>
+                <ul class="dropdown-menu nested">
+                    <li><a href="#">○ AI and Machine Learning Pioneers Summer School</a></li>
+                    <li><a href="#">○ Future Entrepreneurs Summer School</a></li>
+                    <li><a href="#">○ Future Climate Tech Innovators Summer School</a></li>
+                </ul>
+            </li>
+        </ul>
     </li>
 
     <li><a href="apply.html">Apply</a></li>
     <li><a href="student-login.html">Student Login</a></li>
-<li><a href="scholarships.html">Scholarships & Funding</a></li>
-  </ul>
-</nav>
+    <li><a href="scholarships.html">Scholarships & Funding</a></li>
+</ul>
 
 <!-- CSS -->
 <style>
-body {margin:0; font-family:Arial, Helvetica, sans-serif; background:#0b2a5b; color:white;}
-.navbar {display:flex; justify-content:space-between; align-items:center; background:#04122b; padding:15px 20px; position:relative;}
-.logo {color:#ffd24c; font-weight:bold; font-size:18px;}
-.menu-icon {font-size:24px; cursor:pointer; color:white; display:block;}
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #0b2a5b;
+        color: white;
+    }
+    
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #04122b;
+        padding: 15px 20px;
+        position: relative;
+    }
+    
+    .logo {
+        color: #ffd24c;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    
+    .menu-icon {
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+        display: block;
+    }
 
-/* Nav Links hidden by default */
-.nav-links {list-style:none; margin:0; padding:0; display:none; flex-direction:column; background:#123d82; position:absolute; top:100%; right:0; width:300px; border-radius:6px; z-index:1000;}
-.nav-links.show {display:flex;}
-.nav-links li {border-bottom:1px solid #102f64; position:relative;}
-.nav-links a {text-decoration:none; color:white; display:block; padding:12px 15px;}
-.nav-links a:hover {background:#102f64;}
+    /* Nav Links hidden by default */
+    .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: none;
+        flex-direction: column;
+        background: #123d82;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 300px;
+        border-radius: 6px;
+        z-index: 1000;
+    }
+    
+    .nav-links.show {
+        display: flex;
+    }
+    
+    .nav-links li {
+        border-bottom: 1px solid #102f64;
+        position: relative;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        display: block;
+        padding: 12px 15px;
+    }
+    
+    .nav-links a:hover {
+        background: #102f64;
+    }
 
-/* Dropdown menus */
-.dropdown-menu {display:none; flex-direction:column; background:#102f64; padding-left:0;}
-.nested {padding-left:20px;} /* indent nested items for clean look */
-.toggle::after {content:" ▼"; float:right;}
-.dropdown:hover > .dropdown-menu {display:flex;} /* desktop hover */
+    /* Dropdown menus - hidden by default */
+    .dropdown-menu {
+        display: none;
+        flex-direction: column;
+        background: #102f64;
+        padding-left: 0;
+    }
+    
+    .dropdown-menu.show {
+        display: flex;
+    }
+    
+    .nested {
+        padding-left: 20px; /* indent nested items */
+    }
+    
+    .toggle::after {
+        content: " ▼";
+        float: right;
+    }
 
-/* Responsive */
-@media screen and (min-width:768px){
-  .menu-icon {display:none;}
-  .nav-links {display:flex !important; flex-direction:row; position:static; width:auto; background:transparent;}
-  .nav-links li {border:none; margin:0 12px;}
-  .dropdown-menu {position:absolute; display:none; min-width:250px;}
-  .dropdown:hover > .dropdown-menu {display:block;}
-  .nested {padding-left:15px;} 
-}
+    /* Desktop styles */
+    @media screen and (min-width: 768px) {
+        .menu-icon {
+            display: none;
+        }
+        
+        .nav-links {
+            display: flex !important;
+            flex-direction: row;
+            position: static;
+            width: auto;
+            background: transparent;
+        }
+        
+        .nav-links li {
+            border: none;
+            margin: 0 12px;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            display: none;
+            min-width: 250px;
+            background: #123d82;
+        }
+        
+        .dropdown:hover > .dropdown-menu {
+            display: flex;
+        }
+        
+        .dropdown-menu .dropdown:hover > .dropdown-menu {
+            display: flex;
+            left: 100%;
+            top: 0;
+        }
+        
+        .nested {
+            padding-left: 0;
+        }
+        
+        .toggle::after {
+            display: none;
+        }
+    }
 </style>
 
-<!-- JS -->
+<!-- JavaScript - FIXED VERSION -->
 <script>
-function toggleMenu() {
-  document.getElementById('navLinks').classList.toggle('show');
-}
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('show');
+    }
 
-// Toggle submenus for mobile
-document.querySelectorAll('.toggle').forEach(item => {
-  item.addEventListener('click', function(e){
-    e.preventDefault();
-    const submenu = this.nextElementSibling;
-    if(submenu) submenu.classList.toggle('show');
-  });
-});
+    // Handle all dropdown toggles for mobile
+    document.querySelectorAll('.toggle').forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get the next submenu
+            const submenu = this.nextElementSibling;
+            
+            if (submenu && submenu.classList.contains('dropdown-menu')) {
+                // Close all other submenus at the same level
+                const parent = this.closest('li').parentElement;
+                parent.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                    if (menu !== submenu) {
+                        menu.classList.remove('show');
+                    }
+                });
+                
+                // Toggle current submenu
+                submenu.classList.toggle('show');
+            }
+        });
+    });
+
+    // Close menus when clicking outside
+    document.addEventListener('click', function(e) {
+        const navLinks = document.getElementById('navLinks');
+        const menuIcon = document.querySelector('.menu-icon');
+        
+        if (!navLinks.contains(e.target) && !menuIcon.contains(e.target)) {
+            navLinks.classList.remove('show');
+            
+            // Also close all submenus
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+            });
+        }
+    });
+
+    // Reset on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 768) {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+            });
+        }
+    });
 </script>
 
 <!-- HEADER -->
