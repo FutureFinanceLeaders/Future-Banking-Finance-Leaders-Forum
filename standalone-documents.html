@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan University · Official Documents · Mwaba Lewis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: #f0f0f0;
+            color: #000;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        /* Document container for printing */
+        .document-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .document-card {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid #ccc;
+            page-break-after: always;
+        }
+
+        .document-card:last-child {
+            page-break-after: auto;
+        }
+
+        /* University header with logo */
+        .university-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #0B2A3B;
+            padding-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .uni-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #0B2A3B;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .uni-sub {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+
+        .document-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0B2A3B;
+            text-align: center;
+            margin: 1.5rem 0 1rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .document-ref {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .date-line {
+            text-align: right;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.1rem;
+        }
+
+        .salutation {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .signature-block {
+            margin-top: 3rem;
+        }
+
+        .signature-line {
+            width: 250px;
+            border-bottom: 1px solid #000;
+            margin: 0.5rem 0 1rem 0;
+        }
+
+        .signature-name {
+            font-weight: 700;
+        }
+
+        .signature-title {
+            color: #555;
+            font-style: italic;
+        }
+
+        .stamp {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            color: #0B2A3B;
+            font-weight: 700;
+            border: 2px solid #0B2A3B;
+            padding: 0.3rem 1rem;
+            display: inline-block;
+            border-radius: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th {
+            background: #0B2A3B;
+            color: #F4C542;
+            padding: 0.8rem;
+            text-align: left;
+        }
+
+        td {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+        }
+
+        .badge {
+            background: #F4C542;
+            color: #0B2A3B;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1rem;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0.5in;
+            }
+            .document-card {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                margin-bottom: 1in;
+            }
+            .university-header {
+                border-bottom: 2px solid #0B2A3B;
+            }
+            th {
+                background: #0B2A3B;
+                color: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .badge, .stamp {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="document-wrapper">
+
+    <!-- DOCUMENT 1: OFFER OF ADMISSION / ACCEPTANCE LETTER -->
+    <div class="document-card">
+        <div class="university-header">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:60px;">
+            </div>
+            <div class="header-text">
+                <div class="uni-name">NOLAN UNIVERSITY</div>
+                <div class="uni-sub">Office of Admissions</div>
+            </div>
+        </div>
+
+        <div class="document-ref">Ref: ADM/2026/0214</div>
+        <div class="date-line">15 March 2026</div>
+
+        <div class="salutation">Mr. Mwaba Lewis</div>
+        <p>[Student Address Line 1]<br>[Student Address Line 2]<br>[City, Postcode]</p>
+
+        <div class="document-title">OFFER OF ADMISSION</div>
+
+        <p>Dear Mr. Lewis,</p>
+
+        <p>On behalf of Nolan University, I am pleased to offer you admission to the following programmes, approved under a <strong>special case accelerated concurrent pathway</strong> as requested and approved by the respective programme directors:</p>
+
+        <div style="margin:2rem 0; background:#f9f9f9; padding:1.5rem; border-left:6px solid #F4C542;">
+            <p style="font-size:1.2rem; font-weight:700;">✓ Bachelor of Science in Finance & Investment (Accelerated, 2.5 years)</p>
+            <p style="font-size:1.2rem; font-weight:700; margin-top:0.5rem;">✓ Master of Business Administration in Entrepreneurship & Innovation (12 months)</p>
+        </div>
+
+        <p><strong>Programme Details:</strong></p>
+        <ul style="margin:1rem 0 1rem 2rem;">
+            <li><strong>Start Date:</strong> April 2026</li>
+            <li><strong>MBA Completion:</strong> April 2027 (90 credits, 45+45+30 structure)</li>
+            <li><strong>BSc Completion:</strong> December 2028 (accelerated, 2.5 years)</li>
+            <li><strong>Mode of Study:</strong> 100% Online</li>
+            <li><strong>Campus:</strong> Nolan University, London (Digital Campus)</li>
+        </ul>
+
+        <p><strong>Special Conditions:</strong> This offer is contingent upon maintaining satisfactory academic progress in both programmes concurrently. The student acknowledges the intensive workload (55-60 hours per week in Year 1) and has confirmed their commitment to this pathway.</p>
+
+        <p>Please indicate your acceptance of this offer by signing and returning the attached acceptance form by <strong>5 April 2026</strong>.</p>
+
+        <p>We look forward to welcoming you to Nolan University and supporting you in this unique academic journey.</p>
+
+        <div class="signature-block">
+            <div class="signature-line"></div>
+            <div class="signature-name">Dr. Elizabeth Hartley</div>
+            <div class="signature-title">Director of Admissions, Nolan University</div>
+        </div>
+
+        <div style="margin-top:1rem;">
+            <span class="stamp">APPROVED · SPECIAL CASE PATHWAY</span>
+        </div>
+
+        <div class="footer-note">
+            This is an official offer letter from Nolan University. Please retain for your records.
+        </div>
+    </div>
+
+    <!-- DOCUMENT 2: ENROLMENT VERIFICATION LETTER -->
+    <div class="document-card">
+        <div class="university-header">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:60px;">
+            </div>
+            <div class="header-text">
+                <div class="uni-name">NOLAN UNIVERSITY</div>
+                <div class="uni-sub">Academic Registry</div>
+            </div>
+        </div>
+
+        <div class="document-ref">Ref: REG/2026/0872</div>
+        <div class="date-line">15 October 2026</div>
+
+        <div class="salutation">To Whom It May Concern:</div>
+
+        <div class="document-title">ENROLMENT VERIFICATION LETTER</div>
+
+        <p>This letter confirms that <strong>Mwaba Lewis</strong> (Student ID: _________________) is currently enrolled as a full-time student at Nolan University in the following programmes:</p>
+
+        <table>
+            <tr>
+                <th>Programme</th>
+                <th>Start Date</th>
+                <th>Expected Completion</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>BSc Finance & Investment (Accelerated)</td>
+                <td>April 2026</td>
+                <td>December 2028</td>
+                <td>In Progress</td>
+            </tr>
+            <tr>
+                <td>MBA Entrepreneurship & Innovation</td>
+                <td>April 2026</td>
+                <td>April 2027</td>
+                <td>In Progress</td>
+            </tr>
+        </table>
+
+        <p><strong>Current Academic Standing:</strong> The student is in good academic standing and has met all requirements for continued enrolment. The student is enrolled in a special case accelerated concurrent pathway approved by the university.</p>
+
+        <p><strong>MBA Progress:</strong> The student is currently completing Term 2 of the MBA programme and is on track to complete all requirements by April 2027.</p>
+
+        <p><strong>BSc Progress:</strong> The student has successfully completed Term 1 of the accelerated BSc programme and is enrolled in Term 2 modules.</p>
+
+        <p>This verification is issued at the request of the student for employment, visa, or other official purposes.</p>
+
+        <div class="signature-block">
+            <div class="signature-line"></div>
+            <div class="signature-name">Marcus Chen</div>
+            <div class="signature-title">Registrar, Nolan University</div>
+        </div>
+
+        <div style="margin-top:1rem;">
+            <span class="stamp">OFFICIAL ENROLMENT VERIFICATION</span>
+        </div>
+
+        <div class="footer-note">
+            This is an official document. Any alterations render this certificate invalid.
+        </div>
+    </div>
+
+    <!-- DOCUMENT 3: MBA CERTIFICATE (AWARDED APRIL 2027) -->
+    <div class="document-card" style="text-align:center;">
+        <div class="university-header" style="justify-content:center;">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:80px;">
+            </div>
+        </div>
+
+        <div style="margin:2rem 0;">
+            <div class="uni-name" style="font-size:2.5rem;">NOLAN UNIVERSITY</div>
+            <div style="font-size:1.2rem; margin-top:0.5rem;">London · Online Campus</div>
+        </div>
+
+        <div style="border-top:3px solid #F4C542; border-bottom:3px solid #F4C542; padding:2rem 0; margin:2rem 0;">
+            <div style="font-size:1.8rem; font-weight:700; color:#0B2A3B;">MASTER OF BUSINESS ADMINISTRATION</div>
+            <div style="font-size:1.5rem; margin:1.5rem 0;">in</div>
+            <div style="font-size:2rem; font-weight:800; color:#0B2A3B;">ENTREPRENEURSHIP & INNOVATION</div>
+        </div>
+
+        <div style="font-size:1.3rem; margin:2rem 0;">
+            This is to certify that
+        </div>
+
+        <div style="font-size:2.2rem; font-weight:800; margin:1rem 0; color:#0B2A3B;">
+            MWABA LEWIS
+        </div>
+
+        <div style="font-size:1.2rem; margin:1rem 0;">
+            having completed the prescribed course of study and satisfied all requirements<br>
+            is hereby awarded the degree of
+        </div>
+
+        <div style="font-size:1.5rem; font-weight:700; margin:2rem 0;">
+            Master of Business Administration in Entrepreneurship & Innovation
+        </div>
+
+        <div style="font-size:1.2rem; margin:2rem 0;">
+            with all the rights, privileges, and responsibilities thereto appertaining.
+        </div>
+
+        <div style="font-size:1.1rem; margin:2rem 0;">
+            <strong>Date of Award:</strong> 15 April 2027<br>
+            <strong>Credit Total:</strong> 90 Credits · Term Structure: 45+45+30
+        </div>
+
+        <div style="display:flex; justify-content:space-between; margin-top:3rem;">
+            <div style="text-align:left;">
+                <div class="signature-line" style="width:200px;"></div>
+                <div class="signature-name">Dr. Julia Daley</div>
+                <div class="signature-title">MBA Programme Director</div>
+            </div>
+            <div style="text-align:right;">
+                <div class="signature-line" style="width:200px;"></div>
+                <div class="signature-name">Prof. Michael Okonkwo</div>
+                <div class="signature-title">Dean, School of Entrepreneurship</div>
+            </div>
+        </div>
+
+        <div style="margin-top:2rem;">
+            <span class="stamp">UNIVERSITY SEAL · 15 APR 2027</span>
+        </div>
+
+        <div class="footer-note">
+            This is an official degree certificate. Award conferred 15 April 2027.
+        </div>
+    </div>
+
+    <!-- DOCUMENT 4: MBA TRANSCRIPT (APRIL 2027) -->
+    <div class="document-card">
+        <div class="university-header">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:60px;">
+            </div>
+            <div class="header-text">
+                <div class="uni-name">NOLAN UNIVERSITY</div>
+                <div class="uni-sub">Academic Registry · Official Transcript</div>
+            </div>
+        </div>
+
+        <div class="document-title">MBA ACADEMIC TRANSCRIPT</div>
+
+        <p style="margin:1rem 0;"><strong>Student:</strong> Mwaba Lewis<br>
+        <strong>Student ID:</strong> _________________<br>
+        <strong>Programme:</strong> MBA Entrepreneurship & Innovation<br>
+        <strong>Award Date:</strong> 15 April 2027<br>
+        <strong>Total Credits:</strong> 90</p>
+
+        <table>
+            <tr>
+                <th>Term</th>
+                <th>Module Code</th>
+                <th>Module Title</th>
+                <th>Credits</th>
+                <th>Grade</th>
+            </tr>
+            <tr><td>Term 1</td><td>ENT501</td><td>New Venture Finance</td><td>15</td><td>Distinction</td></tr>
+            <tr><td>Term 1</td><td>ENT502</td><td>Entrepreneurial Mindset & Creativity</td><td>10</td><td>Merit</td></tr>
+            <tr><td>Term 1</td><td>ENT503</td><td>Data Analytics for Startups</td><td>10</td><td>Distinction</td></tr>
+            <tr><td>Term 1</td><td>ENT504</td><td>Marketing for Startups</td><td>10</td><td>Merit</td></tr>
+            <tr><td>Term 2</td><td>ENT601</td><td>Venture Capital & Private Equity</td><td>15</td><td>Distinction</td></tr>
+            <tr><td>Term 2</td><td>ENT602</td><td>Design Thinking & Product Development</td><td>10</td><td>Merit</td></tr>
+            <tr><td>Term 2</td><td>ENT603</td><td>Technology & Innovation Strategy</td><td>10</td><td>Distinction</td></tr>
+            <tr><td>Term 2</td><td>ENT604</td><td>Entrepreneurial Operations</td><td>10</td><td>Merit</td></tr>
+            <tr><td>Term 3</td><td>ENT701</td><td>New Venture Creation Lab (Capstone)</td><td>15</td><td>Distinction</td></tr>
+            <tr><td>Term 3</td><td>ENT702</td><td>Corporate Innovation & Intrapreneurship</td><td>10</td><td>Merit</td></tr>
+            <tr><td>Term 3</td><td>ENT703</td><td>Global Immersion (Elective)</td><td>5</td><td>Pass</td></tr>
+        </table>
+
+        <p style="margin-top:1rem;"><strong>Overall GPA:</strong> 3.8 / 4.0 · <strong>Classification:</strong> Merit</p>
+
+        <div class="signature-block" style="margin-top:2rem;">
+            <div class="signature-line"></div>
+            <div class="signature-name">Marcus Chen</div>
+            <div class="signature-title">Registrar, Nolan University</div>
+        </div>
+
+        <div class="footer-note">
+            This is an official transcript. Issued 15 April 2027.
+        </div>
+    </div>
+
+    <!-- DOCUMENT 5: BSc CERTIFICATE (AWARDED DECEMBER 2028) -->
+    <div class="document-card" style="text-align:center;">
+        <div class="university-header" style="justify-content:center;">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:80px;">
+            </div>
+        </div>
+
+        <div style="margin:2rem 0;">
+            <div class="uni-name" style="font-size:2.5rem;">NOLAN UNIVERSITY</div>
+            <div style="font-size:1.2rem; margin-top:0.5rem;">London · Online Campus</div>
+        </div>
+
+        <div style="border-top:3px solid #F4C542; border-bottom:3px solid #F4C542; padding:2rem 0; margin:2rem 0;">
+            <div style="font-size:1.8rem; font-weight:700; color:#0B2A3B;">BACHELOR OF SCIENCE</div>
+            <div style="font-size:1.5rem; margin:1.5rem 0;">in</div>
+            <div style="font-size:2rem; font-weight:800; color:#0B2A3B;">FINANCE & INVESTMENT</div>
+        </div>
+
+        <div style="font-size:1.3rem; margin:2rem 0;">
+            This is to certify that
+        </div>
+
+        <div style="font-size:2.2rem; font-weight:800; margin:1rem 0; color:#0B2A3B;">
+            MWABA LEWIS
+        </div>
+
+        <div style="font-size:1.2rem; margin:1rem 0;">
+            having completed the prescribed course of study and satisfied all requirements<br>
+            is hereby awarded the degree of
+        </div>
+
+        <div style="font-size:1.5rem; font-weight:700; margin:2rem 0;">
+            Bachelor of Science in Finance & Investment
+        </div>
+
+        <div style="font-size:1.2rem; margin:2rem 0;">
+            with all the rights, privileges, and responsibilities thereto appertaining.
+        </div>
+
+        <div style="font-size:1.1rem; margin:2rem 0;">
+            <strong>Date of Award:</strong> 15 December 2028<br>
+            <strong>Programme Duration:</strong> Accelerated 2.5 years (April 2026 – December 2028)
+        </div>
+
+        <div style="display:flex; justify-content:space-between; margin-top:3rem;">
+            <div style="text-align:left;">
+                <div class="signature-line" style="width:200px;"></div>
+                <div class="signature-name">Prof. Robert Taylor</div>
+                <div class="signature-title">BSc Programme Director</div>
+            </div>
+            <div style="text-align:right;">
+                <div class="signature-line" style="width:200px;"></div>
+                <div class="signature-name">Prof. Sarah Chen</div>
+                <div class="signature-title">Dean, Graduate School of Banking & Finance</div>
+            </div>
+        </div>
+
+        <div style="margin-top:2rem;">
+            <span class="stamp">UNIVERSITY SEAL · 15 DEC 2028</span>
+        </div>
+
+        <div class="footer-note">
+            This is an official degree certificate. Award conferred 15 December 2028.
+        </div>
+    </div>
+
+    <!-- DOCUMENT 6: BSc TRANSCRIPT (DECEMBER 2028) -->
+    <div class="document-card">
+        <div class="university-header">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:60px;">
+            </div>
+            <div class="header-text">
+                <div class="uni-name">NOLAN UNIVERSITY</div>
+                <div class="uni-sub">Academic Registry · Official Transcript</div>
+            </div>
+        </div>
+
+        <div class="document-title">BSc ACADEMIC TRANSCRIPT</div>
+
+        <p style="margin:1rem 0;"><strong>Student:</strong> Mwaba Lewis<br>
+        <strong>Student ID:</strong> _________________<br>
+        <strong>Programme:</strong> BSc Finance & Investment (Accelerated)<br>
+        <strong>Award Date:</strong> 15 December 2028<br>
+        <strong>Total Credits:</strong> 360 (approx.)</p>
+
+        <table>
+            <tr>
+                <th>Year</th>
+                <th>Term</th>
+                <th>Module</th>
+                <th>Credits</th>
+                <th>Grade</th>
+            </tr>
+            <tr><td>Year 1</td><td>Term 1</td><td>Principles of Finance</td><td>20</td><td>Distinction</td></tr>
+            <tr><td>Year 1</td><td>Term 1</td><td>Financial Accounting</td><td>20</td><td>Distinction</td></tr>
+            <tr><td>Year 1</td><td>Term 1</td><td>Quantitative Methods 1</td><td>20</td><td>Merit</td></tr>
+            <tr><td>Year 1</td><td>Term 1</td><td>Macroeconomics</td><td>20</td><td>Merit</td></tr>
+            <tr><td>Year 1</td><td>Term 2</td><td>Corporate Finance</td><td>20</td><td>Distinction</td></tr>
+            <tr><td>Year 1</td><td>Term 2</td><td>Financial Modelling (Excel)</td><td>20</td><td>Distinction</td></tr>
+            <tr><td>Year 1</td><td>Term 2</td><td>Introduction to Investment Banking</td><td>20</td><td>Merit</td></tr>
+            <tr><td>Year 1</td><td>Term 2</td><td>Professional Skills</td><td>20</td><td>Pass</td></tr>
+            <tr><td>Year 2</td><td>Term 3</td><td>Equity & Fixed Income Analysis</td><td>20</td><td>Distinction</td></tr>
+            <tr><td>Year 2</td><td>Term 3</td><td>Derivatives & Risk Management</td><td>20</td><td>Merit</td></tr>
+            <tr><td>Year 2</td><td>Term 3</td><td>Financial Econometrics</td><td>20</td><td>Merit</td></tr>
+            <tr><td>Year 2</td><td>Term 4</td><td>Mergers & Acquisitions</td><td>20</td><td>Distinction</td></tr>
+            <tr><td>Year 2</td><td>Term 4</td><td>Advanced Portfolio Management</td><td>20</td><td>Distinction</td></tr>
+            <tr><td>Year 2</td><td>Term 4</td><td>Behavioural Finance</td><td>20</td><td>Merit</td></tr>
+            <tr><td>Year 3</td><td>Term 5</td><td>Alternative Investments</td><td>20</td><td>Distinction</td></tr>
+            <tr><td>Year 3</td><td>Term 5</td><td>Applied Investment Project (Capstone)</td><td>40</td><td>Distinction</td></tr>
+        </table>
+
+        <p style="margin-top:1rem;"><strong>Overall GPA:</strong> 3.7 / 4.0 · <strong>Classification:</strong> Upper Second-Class Honours (2:1)</p>
+
+        <div class="signature-block" style="margin-top:2rem;">
+            <div class="signature-line"></div>
+            <div class="signature-name">Marcus Chen</div>
+            <div class="signature-title">Registrar, Nolan University</div>
+        </div>
+
+        <div class="footer-note">
+            This is an official transcript. Issued 15 December 2028.
+        </div>
+    </div>
+
+    <!-- DOCUMENT 7: LETTER OF GOOD STANDING -->
+    <div class="document-card">
+        <div class="university-header">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:60px;">
+            </div>
+            <div class="header-text">
+                <div class="uni-name">NOLAN UNIVERSITY</div>
+                <div class="uni-sub">Office of Student Affairs</div>
+            </div>
+        </div>
+
+        <div class="document-ref">Ref: SA/2028/0341</div>
+        <div class="date-line">15 November 2028</div>
+
+        <div class="salutation">To Whom It May Concern:</div>
+
+        <div class="document-title">LETTER OF GOOD STANDING</div>
+
+        <p>This letter confirms that <strong>Mwaba Lewis</strong> (Student ID: _________________) has been enrolled at Nolan University from April 2026 to the present date and is a student in <strong>good academic and disciplinary standing</strong>.</p>
+
+        <p><strong>Current Status:</strong> The student is completing the final term of the BSc Finance & Investment (accelerated) programme, expected to graduate in December 2028. The student has already been awarded the MBA in Entrepreneurship & Innovation (April 2027).</p>
+
+        <p><strong>Conduct Record:</strong> There are no disciplinary actions, academic integrity violations, or outstanding issues on the student's record. The student has maintained satisfactory progress throughout both programmes.</p>
+
+        <p>This letter is issued at the student's request for professional certification, employment verification, or other official purposes.</p>
+
+        <div class="signature-block">
+            <div class="signature-line"></div>
+            <div class="signature-name">Dr. Patricia Okonkwo</div>
+            <div class="signature-title">Dean of Student Affairs, Nolan University</div>
+        </div>
+
+        <div style="margin-top:1rem;">
+            <span class="stamp">OFFICIAL · GOOD STANDING</span>
+        </div>
+
+        <div class="footer-note">
+            This is an official letter. Any alterations render this document invalid.
+        </div>
+    </div>
+
+    <!-- DOCUMENT 8: REFERENCE LETTER (PROGRAMME DIRECTOR) -->
+    <div class="document-card">
+        <div class="university-header">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:60px;">
+            </div>
+            <div class="header-text">
+                <div class="uni-name">NOLAN UNIVERSITY</div>
+                <div class="uni-sub">School of Entrepreneurship & Venture Creation</div>
+            </div>
+        </div>
+
+        <div class="document-ref">Ref: REF/2028/001</div>
+        <div class="date-line">1 December 2028</div>
+
+        <div class="salutation">To the Hiring Committee:</div>
+
+        <div class="document-title">LETTER OF RECOMMENDATION</div>
+
+        <p>I am pleased to write this letter of recommendation for <strong>Mwaba Lewis</strong>, who has been a student in my capacity as MBA Programme Director at Nolan University. Mwaba was admitted under a special case accelerated concurrent pathway, pursuing both the BSc in Finance & Investment and the MBA in Entrepreneurship & Innovation simultaneously – a demanding combination that requires exceptional discipline and intellectual agility.</p>
+
+        <p>Mwaba completed the MBA in April 2027 with a strong academic record, particularly excelling in Venture Capital & Private Equity, New Venture Finance, and the New Venture Creation Lab (capstone). Their final project demonstrated a sophisticated understanding of both financial modelling and entrepreneurial strategy – exactly the hybrid skill set we aim to develop at Nolan.</p>
+
+        <p>What sets Mwaba apart is their ability to integrate concepts across disciplines. In class discussions, they consistently brought a dual perspective: analysing opportunities from both investor and founder viewpoints. This is rare and highly valuable in today's venture ecosystem.</p>
+
+        <p>Mwaba is now completing the BSc with similarly strong results and will graduate in December 2028. I have no doubt they will excel in venture capital, private equity, or startup leadership roles. They have my highest recommendation.</p>
+
+        <p>Please feel free to contact me if you require further information.</p>
+
+        <div class="signature-block">
+            <div class="signature-line"></div>
+            <div class="signature-name">Dr. Julia Daley</div>
+            <div class="signature-title">MBA Programme Director, Nolan University</div>
+            <div style="margin-top:0.5rem;">j.daley@nolan.ac.uk · +44 20 7946 0123</div>
+        </div>
+
+        <div class="footer-note">
+            Confidential reference · Prepared for Mwaba Lewis
+        </div>
+    </div>
+
+    <!-- DOCUMENT 9: COMBINED ACADEMIC RECORD (BOTH DEGREES) -->
+    <div class="document-card">
+        <div class="university-header">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:60px;">
+            </div>
+            <div class="header-text">
+                <div class="uni-name">NOLAN UNIVERSITY</div>
+                <div class="uni-sub">Academic Registry · Combined Record</div>
+            </div>
+        </div>
+
+        <div class="document-title">COMBINED ACADEMIC RECORD</div>
+
+        <p style="margin:1rem 0;"><strong>Student:</strong> Mwaba Lewis<br>
+        <strong>Student ID:</strong> _________________<br>
+        <strong>Period of Study:</strong> April 2026 – December 2028<br>
+        <strong>Degrees Awarded:</strong></p>
+
+        <div style="background:#f9f9f9; padding:1rem; margin:1rem 0;">
+            <p><strong>✓ MBA in Entrepreneurship & Innovation</strong> – Awarded 15 April 2027 (90 credits)</p>
+            <p><strong>✓ BSc in Finance & Investment</strong> – Awarded 15 December 2028 (360 credits approx.)</p>
+        </div>
+
+        <p><strong>Total Combined Credits:</strong> 450 credits (approx.)</p>
+        <p><strong>Special Pathway:</strong> Accelerated Concurrent Degrees · Approved Special Case</p>
+
+        <p>This document serves as a consolidated record of both degrees awarded to the student through the approved accelerated concurrent pathway at Nolan University.</p>
+
+        <div class="signature-block" style="margin-top:2rem;">
+            <div class="signature-line"></div>
+            <div class="signature-name">Marcus Chen</div>
+            <div class="signature-title">Registrar, Nolan University</div>
+        </div>
+
+        <div class="footer-note">
+            Official combined record · Issued December 2028
+        </div>
+    </div>
+
+    <!-- DOCUMENT 10: PORTFOLIO COVER SHEET (Self-Created) -->
+    <div class="document-card">
+        <div class="university-header">
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo" style="height:60px;">
+            </div>
+            <div class="header-text">
+                <div class="uni-name">NOLAN UNIVERSITY</div>
+                <div class="uni-sub">Student Work Portfolio</div>
+            </div>
+        </div>
+
+        <div class="document-title">PROFESSIONAL PORTFOLIO</div>
+
+        <p style="margin:2rem 0; font-size:1.2rem;"><strong>Mwaba Lewis</strong><br>
+        BSc Finance & Investment (2028) · MBA Entrepreneurship & Innovation (2027)</p>
+
+        <p>This portfolio contains selected work samples demonstrating the integration of finance and entrepreneurship skills developed through the accelerated concurrent pathway at Nolan University.</p>
+
+        <table>
+            <tr>
+                <th>Document</th>
+                <th>Degree</th>
+                <th>Description</th>
+            </tr>
+            <tr><td>Investment Memo: FinTech Startup</td><td>BSc</td><td>Valuation analysis and term sheet recommendation</td></tr>
+            <tr><td>LBO Model: Mid-Market Acquisition</td><td>BSc/MBA</td><td>Full LBO model with debt schedules and waterfall</td></tr>
+            <tr><td>Business Plan: EdTech Venture</td><td>MBA</td><td>Complete business plan developed in New Venture Creation Lab</td></tr>
+            <tr><td>Investor Pitch Deck</td><td>MBA</td><td>10-slide deck presented at Demo Day, April 2027</td></tr>
+            <tr><td>Cap Table Model</td><td>BSc</td><td>Multi-round cap table with option pool and anti-dilution</td></tr>
+            <tr><td>Cohort Analysis (Python)</td><td>MBA</td><td>Jupyter notebook for startup retention analysis</td></tr>
+        </table>
+
+        <p style="margin-top:2rem;">These materials are available for review upon request and demonstrate the candidate's ability to:</p>
+        <ul style="margin:1rem 0 1rem 2rem;">
+            <li>Build sophisticated financial models</li>
+            <li>Analyse venture investment opportunities</li>
+            <li>Develop compelling investor presentations</li>
+            <li>Integrate finance and entrepreneurship perspectives</li>
+        </ul>
+
+        <div class="signature-block" style="margin-top:2rem;">
+            <div class="signature-line"></div>
+            <div class="signature-name">Mwaba Lewis</div>
+            <div class="signature-title">Candidate, Nolan University</div>
+        </div>
+
+        <div class="footer-note">
+            Student work portfolio · Not an official university transcript
+        </div>
+    </div>
+
+    <!-- Printing Instructions -->
+    <div style="text-align:center; margin-top:2rem; padding:1rem; background:#eef3f6; border-radius:10px;">
+        <p style="font-size:1.2rem; font-weight:700;">📋 READY TO PRINT</p>
+        <p>Press <strong>Ctrl+P</strong> (Windows) or <strong>Cmd+P</strong> (Mac) to print all 10 documents.<br>
+        Ensure "Background graphics" is checked to preserve colours and seals.</p>
+    </div>
+
+</div>
+</body>
+</html>
