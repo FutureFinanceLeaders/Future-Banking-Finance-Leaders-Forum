@@ -21,9 +21,20 @@ body{
     padding: 20px 0;
 }
 
-h1, h2, h3{
-    color: #f4a62a; /* African Gold for headings */
+h1,h2,h3{
     margin-bottom: 10px;
+}
+
+h1.hero-heading{
+    color: #1fa35b; /* Growth Green for hero text */
+}
+
+h2.section-heading{
+    color: #1fa35b; /* Growth Green for section headings */
+}
+
+h3.card-heading{
+    color: #1fa35b; /* Growth Green for card titles */
 }
 
 section{
@@ -56,7 +67,7 @@ section{
     padding: 0;
     display: none;
     flex-direction: column;
-    background: #0b3b66; /* Secondary cards background */
+    background: #0b3b66; /* secondary background */
     position: absolute;
     top: 100%;
     right: 0;
@@ -142,7 +153,7 @@ section{
 }
 
 .btn-outline{
-    border: 2px solid #f4a62a; /* African Gold */
+    border: 2px solid #f4a62a; /* African Gold accent */
     color: #f4a62a;
 }
 
@@ -155,10 +166,11 @@ section{
 }
 
 .value-card{
-    background: #0b3b66; /* Secondary card background */
+    background: #0b3b66; /* secondary card background */
     padding: 25px;
     border-radius: 8px;
     text-align: center;
+    color: white;
 }
 
 /* INVESTMENT FOCUS */
@@ -176,10 +188,22 @@ section{
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
+.card h3{
+    color: #1fa35b; /* Growth Green card title */
+}
+
 /* IMPACT */
 .highlight{
     background: #041a2e;
     text-align: center;
+}
+
+.highlight h2{
+    color: #1fa35b; /* Growth Green heading */
+}
+
+.highlight p{
+    color: white;
 }
 
 /* CTA */
@@ -190,8 +214,8 @@ section{
 }
 
 .cta button{
-    background: #f4a62a; /* African Gold */
-    color: #06213a; /* Deep Venture Blue */
+    background: #f4a62a; /* African Gold accent */
+    color: #06213a; /* Deep Venture Blue text */
     border: none;
     padding: 14px 30px;
     font-weight: bold;
@@ -295,7 +319,7 @@ footer a:hover{
 <!-- HERO TEXT -->
 <section>
     <div class="container">
-        <h1>Job Creation and Economic Transformation in Africa. We are Financing Africa’s Next Generation of Builders</h1>
+        <h1 class="hero-heading">Job Creation and Economic Transformation in Africa. We are Financing Africa’s Next Generation of Builders</h1>
         <p>
         AfriLeap Capital is a specialized impact investment firm and capital access platform dedicated to empowering students, graduates, and SMEs to build businesses and create jobs.
         </p>
@@ -305,7 +329,7 @@ footer a:hover{
 <!-- VALUE SECTION -->
 <section>
     <div class="container">
-        <h2>What We Do</h2>
+        <h2 class="section-heading">What We Do</h2>
         <div class="value-grid">
             <div class="value-card">🎓 Finance education through income-share agreements</div>
             <div class="value-card">🚀 Seed funding for graduate startups</div>
@@ -318,18 +342,18 @@ footer a:hover{
 <!-- INVESTMENT FOCUS -->
 <section>
     <div class="container">
-        <h2>Our Investment Focus</h2>
+        <h2 class="section-heading">Our Investment Focus</h2>
         <div class="program-grid">
             <div class="card">
-                <h3>Education Finance</h3>
+                <h3 class="card-heading">Education Finance</h3>
                 <p>Income-share agreements and tuition financing expanding access to higher education.</p>
             </div>
             <div class="card">
-                <h3>Graduate Ventures</h3>
+                <h3 class="card-heading">Graduate Ventures</h3>
                 <p>Seed capital enabling graduates to launch scalable startups.</p>
             </div>
             <div class="card">
-                <h3>SME Growth</h3>
+                <h3 class="card-heading">SME Growth</h3>
                 <p>Investments supporting SMEs to expand operations and create jobs.</p>
             </div>
         </div>
