@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Nolan University | Master's Portfolio – Venture Strategy & Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #ffffff;
+      color: #1e293b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0a2b4e 0%, #0b3d91 50%, #1a4a7a 100%);
+      color: white;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(39,174,96,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      left: -5%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(107,33,165,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      color: #27ae60;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #27ae60;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    /* Program Cards */
+    .programs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin: 80px 0;
+    }
+
+    @media (max-width: 900px) {
+      .programs-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    .program-card {
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #eef2f6;
+    }
+
+    .program-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 45px -15px rgba(11,61,145,0.2);
+    }
+
+    .program-header {
+      padding: 32px 32px 24px;
+      background: #f8fafc;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .program-degree {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .mba-badge {
+      background: #0b3d91;
+      color: white;
+    }
+
+    .msc-badge {
+      background: #27ae60;
+      color: white;
+    }
+
+    .program-header h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0b3d91;
+      margin-bottom: 12px;
+    }
+
+    .program-header .tagline {
+      color: #475569;
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+
+    .program-body {
+      padding: 32px;
+    }
+
+    .program-body h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0b3d91;
+      margin: 24px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .program-body h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .info-item {
+      background: #f8fafc;
+      padding: 12px 16px;
+      border-radius: 12px;
+    }
+
+    .info-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+    }
+
+    .info-value {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0b3d91;
+    }
+
+    .course-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .course-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eef2f6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .course-name {
+      font-weight: 500;
+    }
+
+    .course-credits {
+      font-size: 0.75rem;
+      background: #eef2f6;
+      padding: 2px 8px;
+      border-radius: 20px;
+      color: #1e293b;
+    }
+
+    .career-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .career-list li {
+      background: #eef2f6;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #0b3d91;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 24px;
+      text-align: center;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #27ae60;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(39,174,96,0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #0b3d91;
+      color: #0b3d91;
+    }
+
+    .btn-outline:hover {
+      background: #0b3d91;
+      color: white;
+      border-color: #0b3d91;
+    }
+
+    /* Section Styles */
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #0b3d91;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #475569;
+      max-width: 700px;
+      margin: 0 auto 48px;
+      font-size: 1.1rem;
+    }
+
+    .comparison-table {
+      background: #f8fafc;
+      border-radius: 24px;
+      padding: 32px;
+      margin: 60px 0;
+      overflow-x: auto;
+    }
+
+    .comparison-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .comparison-table th {
+      font-weight: 700;
+      color: #0b3d91;
+      background: #f1f5f9;
+    }
+
+    .pathway {
+      background: linear-gradient(135deg, #f8fafc, #ffffff);
+      border-radius: 32px;
+      padding: 48px;
+      text-align: center;
+      margin: 60px 0;
+      border: 1px solid #eef2f6;
+    }
+
+    .pathway h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0b3d91;
+      margin-bottom: 24px;
+    }
+
+    .pathway-steps {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .step {
+      background: white;
+      padding: 20px 24px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      min-width: 200px;
+      border: 1px solid #eef2f6;
+    }
+
+    .step .arrow {
+      font-size: 1.5rem;
+      color: #27ae60;
+    }
+
+    .footer {
+      background: #0a2b4e;
+      color: white;
+      padding: 60px 0 40px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo span {
+      color: #27ae60;
+    }
+
+    .tagline {
+      opacity: 0.8;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 16px;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .program-header h2 {
+        font-size: 1.4rem;
+      }
+      .pathway-steps {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">Nolan University • School of Venture & Finance</div>
+      <h1>Where <span>Company Builders, Investors,</span> and Innovators Are Educated</h1>
+      <p>The definitive portfolio for venture professionals. Choose your path: strategic leadership or technical mastery.</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-number">#1</div><div class="stat-label">in Africa for Venture Education</div></div>
+        <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Global Placement Rate</div></div>
+        <div class="stat"><div class="stat-number">$2.5B+</div><div class="stat-label">Capital Deployed by Alumni</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <!-- Program Grid -->
+  <div class="programs-grid">
+    
+    <!-- MBA Program -->
+    <div class="program-card">
+      <div class="program-header">
+        <div class="program-degree mba-badge">MBA • Flagship</div>
+        <h2>MBA in Venture Strategy & Finance</h2>
+        <p class="tagline">For Those Who Lead the Deal — Strategic Leadership & Financial Mastery</p>
+      </div>
+      <div class="program-body">
+        <div class="info-grid">
+          <div class="info-item"><div class="info-label">Duration</div><div class="info-value">12 months (Accelerated)</div></div>
+          <div class="info-item"><div class="info-label">Experience Level</div><div class="info-value">4+ years</div></div>
+          <div class="info-item"><div class="info-label">Format</div><div class="info-value">Full-time / Executive</div></div>
+          <div class="info-item"><div class="info-label">Credits</div><div class="info-value">60 ECTS</div></div>
+        </div>
+
+        <h3>📚 Core Curriculum</h3>
+        <ul class="course-list">
+          <li><span class="course-name">Venture Capital & Private Equity</span><span class="course-credits">6 credits</span></li>
+          <li><span class="course-name">Advanced Financial Modeling & Valuation</span><span class="course-credits">6 credits</span></li>
+          <li><span class="course-name">Deal Structuring & Term Sheets</span><span class="course-credits">6 credits</span></li>
+          <li><span class="course-name">LP-GP Dynamics & Fund Economics</span><span class="course-credits">6 credits</span></li>
+          <li><span class="course-name">Investment Strategy & Portfolio Construction</span><span class="course-credits">6 credits</span></li>
+          <li><span class="course-name">Negotiation & Leadership in Venture</span><span class="course-credits">6 credits</span></li>
+          <li><span class="course-name">Capstone: Live Deal Simulation</span><span class="course-credits">12 credits</span></li>
+        </ul>
+
+        <h3>💼 Career Outcomes</h3>
+        <ul class="career-list">
+          <li>Venture Capital Partner</li>
+          <li>Private Equity Director</li>
+          <li>Investment Fund Manager</li>
+          <li>Corporate Venture Lead</li>
+          <li>Family Office Principal</li>
+          <li>Chief Investment Officer</li>
+        </ul>
+
+        <h3>🎯 Ideal Candidate</h3>
+        <p>Experienced professionals (4+ years) with backgrounds in finance, consulting, entrepreneurship, or corporate strategy. Aspiring leaders who want to master both sides of the table — building and funding ventures.</p>
+
+        <a href="#" class="btn">Apply to MBA Program →</a>
+      </div>
+    </div>
+
+    <!-- MSc Program -->
+    <div class="program-card">
+      <div class="program-header">
+        <div class="program-degree msc-badge">MSc • Technical Excellence</div>
+        <h2>MSc in Venture Strategy</h2>
+        <p class="tagline">For Those Who Master the Analysis — Technical Rigor & Quantitative Depth</p>
+      </div>
+      <div class="program-body">
+        <div class="info-grid">
+          <div class="info-item"><div class="info-label">Duration</div><div class="info-value">12–18 months</div></div>
+          <div class="info-item"><div class="info-label">Experience Level</div><div class="info-value">0–4 years</div></div>
+          <div class="info-item"><div class="info-label">Format</div><div class="info-value">Full-time</div></div>
+          <div class="info-item"><div class="info-label">Credits</div><div class="info-value">90 ECTS</div></div>
+        </div>
+
+        <h3>📚 Core Curriculum</h3>
+        <ul class="course-list">
+          <li><span class="course-name">Venture Capital Fundamentals</span><span class="course-credits">6 credits</span></li>
+          <li><span class="course-name">Financial Modeling for Startups</span><span class="course-credits">6 credits</span></li>
+          <li><span class="course-name">Deal Sourcing & Due Diligence</span><span class="course-credits">6 credits</span></li>
+          <li><span class="course-name">Quantitative Methods & Data Analytics</span><span class="course-credits">6 credits</span></li>
+          <li><span class="course-name">Valuation of High-Growth Ventures</span><span class="course-credits">6 credits</span></li>
+          <li><span class="course-name">Portfolio Strategy & Risk Management</span><span class="course-credits">6 credits</span></li>
+          <li><span class="course-name">Capstone: Venture Research Project</span><span class="course-credits">12 credits</span></li>
+        </ul>
+
+        <h3>💼 Career Outcomes</h3>
+        <ul class="career-list">
+          <li>VC Analyst / Associate</li>
+          <li>Investment Research Analyst</li>
+          <li>Deal Sourcing Specialist</li>
+          <li>Portfolio Operations Analyst</li>
+          <li>Startup Financial Analyst</li>
+          <li>Venture Scout</li>
+        </ul>
+
+        <h3>🎯 Ideal Candidate</h3>
+        <p>Recent graduates and early-career professionals with strong quantitative aptitude. Ideal for those who want to build deep analytical skills before advancing to leadership roles.</p>
+
+        <a href="#" class="btn">Apply to MSc Program →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comparison Table -->
+  <div class="comparison-table">
+    <h3 style="color: #0b3d91; margin-bottom: 24px; font-size: 1.5rem;">📊 MBA vs. MSc: Choose Your Path</h3>
+    <table>
+      <thead>
+        <tr><th>Dimension</th><th>MBA in Venture Strategy & Finance</th><th>MSc in Venture Strategy</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Primary Focus</td><td>Strategic leadership, deal-making, fund management</td><td>Technical analysis, quantitative modeling, research</td></tr>
+        <tr><td>Experience Level</td><td>4+ years professional experience</td><td>0–4 years (recent graduates)</td></tr>
+        <tr><td>Duration</td><td>12 months (accelerated)</td><td>12–18 months</td></tr>
+        <tr><td>Capstone</td><td>Live Deal Simulation with real investors</td><td>Research Thesis / Venture Analytics Project</td></tr>
+        <tr><td>Career Track</td><td>Partner, Director, Fund Manager</td><td>Analyst, Associate, Research Specialist</td></tr>
+        <tr><td>Networks</td><td>Senior executives, GPs, LPs</td><td>Emerging professionals, alumni network</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pathway Section -->
+  <div class="pathway">
+    <h3>🚀 The Nolan Pathway</h3>
+    <p style="margin-bottom: 32px; max-width: 700px; margin-left: auto; margin-right: auto;">Start your journey as an analyst, return as a leader. Nolan supports you at every stage.</p>
+    <div class="pathway-steps">
+      <div class="step"><strong>🎓 MSc in Venture Strategy</strong><br>Technical Foundation</div>
+      <div class="step"><span class="arrow">→ 3–5 Years Experience →</span></div>
+      <div class="step"><strong>💼 MBA in Venture Strategy & Finance</strong><br>Strategic Leadership</div>
+      <div class="step"><span class="arrow">→</span></div>
+      <div class="step"><strong>🌟 Senior Investment Professional</strong><br>Partner, Director, Founder</div>
+    </div>
+  </div>
+
+  <!-- Admissions Section -->
+  <div style="background: #f8fafc; border-radius: 32px; padding: 48px; margin: 60px 0; text-align: center;">
+    <h2 style="color: #0b3d91; font-size: 1.8rem; margin-bottom: 16px;">📅 Join the Next Cohort</h2>
+    <p style="margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">Applications are open for both programs. Secure your place in the definitive venture education ecosystem.</p>
+    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+      <a href="#" class="btn" style="width: auto; background: #0b3d91;">MBA Application →</a>
+      <a href="#" class="btn" style="width: auto; background: #27ae60;">MSc Application →</a>
+      <a href="#" class="btn btn-outline" style="width: auto; background: transparent;">Request Information</a>
+    </div>
+    <p style="margin-top: 32px; font-size: 0.85rem; color: #64748b;">📅 MBA: January 2027 intake • Early deadline: October 15, 2026<br>📅 MSc: September 2026 intake • Early deadline: June 30, 2026</p>
+  </div>
+
+  <!-- Option B: Bold Statement -->
+  <div style="background: linear-gradient(135deg, #0b3d91, #1a4a7a); color: white; padding: 48px; border-radius: 32px; margin: 40px 0; text-align: center;">
+    <p style="font-size: 2rem; font-weight: 800; margin-bottom: 16px;">⚡ At Nolan University, we don't just teach venture — we build the investors and leaders who will shape Africa's economic future.</p>
+    <p style="font-size: 1.2rem; opacity: 0.9;">MBA in Venture Strategy & Finance | MSc in Venture Strategy</p>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">Nolan <span>University</span></div>
+      <div class="tagline">Where Company Builders, Investors, and Innovators Are Educated</div>
+      <p style="margin: 24px 0; font-size: 0.9rem;">© 2026 Nolan University. All rights reserved. | Lusaka, Zambia | Global Reach</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
