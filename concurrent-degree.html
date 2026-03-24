@@ -190,46 +190,61 @@
             padding-left: 1rem;
         }
 
-        .card {
-            background: var(--nolan-white);
-            border-radius: 28px;
-            padding: 1.8rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #dde7ed;
-            box-shadow: 0 10px 20px -10px rgba(11,42,59,0.15);
-        }
-
         .term-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin: 1.5rem 0;
         }
+        @media (max-width: 1000px) {
+            .term-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 700px) {
+            .term-grid {
+                grid-template-columns: 1fr;
+            }
+        }
         .term-card {
             background: #fafdff;
             border-radius: 20px;
             padding: 1.5rem;
             border-left: 4px solid var(--nolan-gold);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: transform 0.2s;
+        }
+        .term-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px -12px rgba(11,42,59,0.15);
         }
         .term-title {
             font-size: 1.3rem;
             font-weight: 700;
             color: var(--nolan-navy);
+            margin-bottom: 0.3rem;
+        }
+        .term-code {
+            font-size: 0.75rem;
+            color: #5f7d8f;
             margin-bottom: 0.5rem;
+            font-family: monospace;
         }
         .term-dates {
             color: #3b687d;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 1rem;
+            font-weight: 500;
         }
         .module-list {
             list-style: none;
+            margin: 0.8rem 0;
         }
         .module-list li {
             margin-bottom: 0.5rem;
             padding-left: 1.2rem;
             position: relative;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         .module-list li::before {
             content: "•";
@@ -238,10 +253,42 @@
             position: absolute;
             left: 0;
         }
+        .synergy-block {
+            background: #eef3f6;
+            border-radius: 12px;
+            padding: 0.8rem;
+            margin-top: 1rem;
+            border-left: 3px solid var(--nolan-navy);
+        }
+        .synergy-title {
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--nolan-navy);
+            margin-bottom: 0.3rem;
+        }
+        .synergy-text {
+            font-size: 0.85rem;
+            color: #2c5a6e;
+        }
+        .bsc-course {
+            font-weight: 700;
+            color: var(--nolan-navy);
+            background: rgba(244,197,66,0.2);
+            display: inline-block;
+            padding: 0.1rem 0.4rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
         .credits {
+            font-size: 0.7rem;
             color: #5f7d8f;
-            font-size: 0.8rem;
-            margin-left: 0.3rem;
+            background: #eef3f6;
+            padding: 0.15rem 0.5rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-left: 0.5rem;
         }
         .term-total {
             margin-top: 0.8rem;
@@ -249,6 +296,7 @@
             color: var(--nolan-navy);
             border-top: 1px dashed var(--nolan-gold);
             padding-top: 0.5rem;
+            font-size: 0.85rem;
         }
 
         .admissions-grid {
@@ -256,6 +304,11 @@
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
             margin: 1.5rem 0;
+        }
+        @media (max-width: 700px) {
+            .admissions-grid {
+                grid-template-columns: 1fr;
+            }
         }
         .admissions-card {
             background: var(--nolan-white);
@@ -293,6 +346,16 @@
             gap: 1.5rem;
             margin: 1.5rem 0;
         }
+        @media (max-width: 900px) {
+            .career-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .career-grid {
+                grid-template-columns: 1fr;
+            }
+        }
         .career-card {
             background: var(--nolan-white);
             border-radius: 20px;
@@ -324,33 +387,6 @@
             display: inline-block;
         }
 
-        .synergy-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-        .synergy-item {
-            background: #eef3f6;
-            border-radius: 18px;
-            padding: 1rem;
-            border: 1px solid var(--nolan-gold);
-        }
-        .synergy-bsc {
-            font-weight: 700;
-            color: var(--nolan-navy);
-        }
-        .synergy-mba {
-            font-weight: 700;
-            color: var(--nolan-navy);
-            margin-top: 0.3rem;
-        }
-        .synergy-arrow {
-            text-align: center;
-            color: var(--nolan-gold);
-            font-size: 1.2rem;
-        }
-
         .btn-gold {
             display: inline-block;
             background: var(--nolan-gold);
@@ -361,6 +397,7 @@
             text-decoration: none;
             border: 2px solid var(--nolan-navy);
             transition: 0.2s;
+            margin: 0.5rem;
         }
         .btn-gold:hover {
             background: var(--nolan-navy);
@@ -377,9 +414,6 @@
         }
 
         @media (max-width: 800px) {
-            .term-grid, .career-grid, .admissions-grid, .synergy-grid {
-                grid-template-columns: 1fr;
-            }
             .timeline {
                 flex-direction: column;
                 gap: 1.5rem;
@@ -407,12 +441,10 @@
         <strong>MBA Entrepreneurship & Finance</strong> · Full 3-Term Curriculum · 90 Credits · Where Company Builders Master Capital
     </div>
 
-    <!-- special badge -->
     <div class="special-badge">⚡ APRIL 2026 INTAKE · ACCELERATED MBA · 12 MONTHS · 90 CREDITS</div>
 
-    <!-- page heading -->
     <h1 class="page-title">MBA in Entrepreneurship & Finance · Programme Structure</h1>
-    <p class="page-subtitle">A carefully scaffolded journey from financial foundations to venture launch. Designed for professionals who want to master both building and funding ventures. <strong>Synergizes with BSc Finance & Investment</strong> — the perfect complement for dual-degree students.</p>
+    <p class="page-subtitle">A carefully scaffolded journey from financial foundations to venture launch. Designed for professionals who want to master both building and funding ventures. <strong>Perfectly synergizes with Nolan's BSc Finance & Investment</strong> — the ideal dual-degree combination.</p>
 
     <!-- timeline visual -->
     <div class="timeline">
@@ -448,7 +480,7 @@
         <p style="color: white; margin-top:0.5rem;">You graduate with the MBA in Entrepreneurship & Finance (90 credits total), ready to lead at the intersection of building and funding ventures.</p>
     </div>
 
-    <!-- MBA Credit Structure Summary -->
+    <!-- Credit summary -->
     <div style="background: var(--nanol-gray-soft); border-radius: 30px; padding: 1.5rem; margin-bottom: 2rem; text-align: center; border: 2px solid var(--nolan-gold);">
         <h2 style="color: var(--nolan-navy);">📊 MBA Programme Credit Structure</h2>
         <div style="display: flex; justify-content: center; gap: 3rem; margin-top: 1rem; flex-wrap: wrap;">
@@ -459,106 +491,77 @@
         </div>
     </div>
 
-    <!-- Synergy with BSc Finance & Investment -->
-    <h2 class="section-title">🔄 Synergy with BSc Finance & Investment</h2>
-    <div class="synergy-grid">
-        <div class="synergy-item">
-            <div class="synergy-bsc">BSc: Principles of Finance</div>
-            <div class="synergy-arrow">⬇️</div>
-            <div class="synergy-mba">MBA: Entrepreneurial Finance & Fundraising</div>
-            <div style="font-size:0.9rem; margin-top:0.5rem;">Valuation theory → startup application</div>
-        </div>
-        <div class="synergy-item">
-            <div class="synergy-bsc">BSc: Quantitative Methods</div>
-            <div class="synergy-arrow">⬇️</div>
-            <div class="synergy-mba">MBA: Financial Modeling for Startups</div>
-            <div style="font-size:0.9rem; margin-top:0.5rem;">Stats foundation → advanced Excel modeling</div>
-        </div>
-        <div class="synergy-item">
-            <div class="synergy-bsc">BSc: Corporate Finance</div>
-            <div class="synergy-arrow">⬇️</div>
-            <div class="synergy-mba">MBA: Venture Capital & Private Equity</div>
-            <div style="font-size:0.9rem; margin-top:0.5rem;">Corporate valuation → LBO modelling</div>
-        </div>
-        <div class="synergy-item">
-            <div class="synergy-bsc">BSc: Financial Modelling</div>
-            <div class="synergy-arrow">⬇️</div>
-            <div class="synergy-mba">MBA: Deal Structuring & Negotiation</div>
-            <div style="font-size:0.9rem; margin-top:0.5rem;">Excel skills → term sheet valuation</div>
-        </div>
-        <div class="synergy-item">
-            <div class="synergy-bsc">BSc: Behavioural Finance</div>
-            <div class="synergy-arrow">⬇️</div>
-            <div class="synergy-mba">MBA: Entrepreneurial Mindset & Opportunity</div>
-            <div style="font-size:0.9rem; margin-top:0.5rem;">Investor psychology → founder psychology</div>
-        </div>
-        <div class="synergy-item">
-            <div class="synergy-bsc">BSc: Alternative Investments</div>
-            <div class="synergy-arrow">⬇️</div>
-            <div class="synergy-mba">MBA: Venture Capital & Private Equity</div>
-            <div style="font-size:0.9rem; margin-top:0.5rem;">PE/VC theory → deal execution</div>
-        </div>
-        <div class="synergy-item" style="grid-column: span 2;">
-            <div class="synergy-bsc">BSc: Applied Investment Project (Capstone)</div>
-            <div class="synergy-arrow">⬇️</div>
-            <div class="synergy-mba">MBA: Venture Practicum (Capstone)</div>
-            <div style="font-size:0.9rem; margin-top:0.5rem;">Both capstones can be integrated! Build the financial model in BSc, launch the venture in MBA.</div>
-        </div>
-    </div>
-
-    <!-- Dual Degree Note -->
-    <div style="background: #eef3f6; border-radius: 30px; padding: 1.5rem; margin-bottom: 2rem; border-left: 6px solid var(--nolan-gold);">
-        <h3 style="color: var(--nolan-navy); margin-bottom: 0.5rem;">🎓 For BSc Finance & Investment Students</h3>
-        <p>The MBA in Entrepreneurship & Finance is the ideal complement to your BSc. Together, they form a powerful dual-degree pathway: <strong>BSc Finance & Investment + MBA Entrepreneurship & Finance</strong>. You'll graduate with deep expertise in both financial analysis and venture strategy — prepared to build, fund, and scale the next generation of African ventures.</p>
-        <p style="margin-top: 0.8rem;"><strong>Special Case:</strong> Concurrent BSc + MBA available. <a href="#" style="color: var(--nolan-navy); font-weight: 700;">View accelerated pathway →</a></p>
-    </div>
-
     <!-- TERM 1: Financial Toolkit -->
     <h2 class="section-title">📅 TERM 1 · FINANCIAL TOOLKIT · April – July 2026</h2>
     <div class="term-grid">
+        <!-- Module 1.1 -->
         <div class="term-card">
             <div class="term-title">Entrepreneurial Finance & Fundraising</div>
-            <div class="term-dates">8 credits · 12 weeks</div>
-            <div class="module-list">
-                <li>Master cap tables, term sheets, valuation, convertible notes</li>
-                <li>Build investor-ready financial models</li>
-                <li>Fundraising mechanics and investor negotiations</li>
+            <div class="term-code">MBA 610 · 8 credits</div>
+            <div class="term-dates">12 weeks · 35 contact hours</div>
+            <ul class="module-list">
+                <li>Master cap tables, term sheets, valuation, convertible notes, and SAFEs</li>
+                <li>Build investor-ready financial models and pitch decks</li>
+                <li>Fundraising mechanics: angel, seed, Series A, venture debt</li>
+                <li>Negotiation simulations with real term sheets</li>
+            </ul>
+            <div class="synergy-block">
+                <div class="synergy-title">🔗 SYNERGY WITH BSc FINANCE & INVESTMENT</div>
+                <div class="synergy-text"><strong>BSc Module: Corporate Finance (FIN 201)</strong> — Students apply corporate valuation frameworks directly to startup financing. <strong>BSc Module: Financial Modelling (FIN 210)</strong> — Excel modelling skills from BSc become the foundation for startup projections.</div>
             </div>
-            <div class="term-total">Synergizes with: BSc Corporate Finance</div>
+            <div class="term-total">Assessment: Term Sheet Analysis (30%), Financial Model (40%), Pitch Presentation (30%)</div>
         </div>
+        <!-- Module 1.2 -->
         <div class="term-card">
             <div class="term-title">Entrepreneurial Mindset & Opportunity</div>
-            <div class="term-dates">8 credits · 12 weeks</div>
-            <div class="module-list">
-                <li>Opportunity recognition and customer discovery</li>
-                <li>Effectuation and creative problem-solving</li>
-                <li>Conduct 20+ customer interviews</li>
+            <div class="term-code">MBA 620 · 8 credits</div>
+            <div class="term-dates">12 weeks · 35 contact hours</div>
+            <ul class="module-list">
+                <li>Opportunity recognition and customer discovery (50+ interviews)</li>
+                <li>Effectuation theory and creative problem-solving</li>
+                <li>Business model canvas and lean startup methodology</li>
+                <li>Identifying unmet needs in African markets</li>
+            </ul>
+            <div class="synergy-block">
+                <div class="synergy-title">🔗 SYNERGY WITH BSc FINANCE & INVESTMENT</div>
+                <div class="synergy-text"><strong>BSc Module: Behavioural Finance (FIN 410)</strong> — Understanding investor psychology complements founder psychology. <strong>BSc Module: Strategic Management (MGMT 301)</strong> — Strategic frameworks from BSc inform market opportunity analysis.</div>
             </div>
-            <div class="term-total">Synergizes with: BSc Behavioural Finance</div>
+            <div class="term-total">Assessment: Customer Discovery Report (40%), Opportunity Analysis (60%)</div>
         </div>
+        <!-- Module 1.3 -->
         <div class="term-card">
             <div class="term-title">Financial Accounting for Entrepreneurs</div>
-            <div class="term-dates">7 credits · 12 weeks</div>
-            <div class="module-list">
-                <li>Understand financial statements and accounting principles</li>
-                <li>Make data-driven financial decisions</li>
-                <li>Build financial literacy for early-stage ventures</li>
+            <div class="term-code">MBA 630 · 7 credits</div>
+            <div class="term-dates">12 weeks · 30 contact hours</div>
+            <ul class="module-list">
+                <li>Understanding financial statements: P&L, balance sheet, cash flow</li>
+                <li>Accounting principles for early-stage ventures</li>
+                <li>Cash flow management and burn rate analysis</li>
+                <li>Financial controls and internal controls for startups</li>
+            </ul>
+            <div class="synergy-block">
+                <div class="synergy-title">🔗 SYNERGY WITH BSc FINANCE & INVESTMENT</div>
+                <div class="synergy-text"><strong>BSc Module: Financial Accounting (ACC 101)</strong> — Students deepen their understanding of accounting by applying it to startup contexts. <strong>BSc Module: Managerial Accounting (ACC 102)</strong> — Cost analysis skills directly transfer to startup unit economics.</div>
             </div>
-            <div class="term-total">Synergizes with: BSc Financial Accounting</div>
+            <div class="term-total">Assessment: Financial Statement Analysis (40%), Case Study (60%)</div>
         </div>
+        <!-- Module 1.4 -->
         <div class="term-card">
             <div class="term-title">Corporate Finance Fundamentals</div>
-            <div class="term-dates">7 credits · 12 weeks</div>
-            <div class="module-list">
-                <li>Capital budgeting and cost of capital</li>
-                <li>Valuation basics and financing decisions</li>
-                <li>Tailored for high-growth companies</li>
+            <div class="term-code">MBA 640 · 7 credits</div>
+            <div class="term-dates">12 weeks · 30 contact hours</div>
+            <ul class="module-list">
+                <li>Capital budgeting and cost of capital for high-growth firms</li>
+                <li>Valuation basics: DCF, comparable analysis, multiples</li>
+                <li>Financing decisions: debt vs. equity for growth</li>
+                <li>Capital structure theories applied to startups</li>
+            </ul>
+            <div class="synergy-block">
+                <div class="synergy-title">🔗 SYNERGY WITH BSc FINANCE & INVESTMENT</div>
+                <div class="synergy-text"><strong>BSc Module: Corporate Finance (FIN 201)</strong> — This MBA module builds directly on BSc corporate finance theories, applying them to entrepreneurial contexts. <strong>BSc Module: Investment Analysis (FIN 202)</strong> — Valuation techniques are reinforced and expanded.</div>
             </div>
-            <div class="term-total">Synergizes with: BSc Corporate Finance</div>
+            <div class="term-total">Assessment: Valuation Project (50%), Final Exam (50%)</div>
         </div>
-    </div>
-    <div style="background: #eef3f6; border-radius: 30px; padding: 1rem; margin-bottom: 2rem;">
-        <strong>📊 Term 1 Total: 30 credits</strong> · Typical weekly workload: 35-40 hours
     </div>
 
     <!-- TERM 2: The Investor's Deep Dives -->
@@ -566,47 +569,68 @@
     <div class="term-grid">
         <div class="term-card">
             <div class="term-title">Venture Capital & Private Equity</div>
-            <div class="term-dates">8 credits · 12 weeks</div>
-            <div class="module-list">
-                <li>LBO modelling and fund economics</li>
-                <li>Carry waterfalls, deal sourcing, due diligence</li>
-                <li>LP-GP dynamics — build a full fund model</li>
+            <div class="term-code">MBA 710 · 8 credits</div>
+            <div class="term-dates">12 weeks · 35 contact hours</div>
+            <ul class="module-list">
+                <li>LBO modelling and fund economics (waterfalls, carry, management fees)</li>
+                <li>Deal sourcing, due diligence, and investment committee memos</li>
+                <li>LP-GP dynamics and fund structuring</li>
+                <li>Build a full fund model from scratch</li>
+            </ul>
+            <div class="synergy-block">
+                <div class="synergy-title">🔗 SYNERGY WITH BSc FINANCE & INVESTMENT</div>
+                <div class="synergy-text"><strong>BSc Module: Alternative Investments (FIN 420)</strong> — PE/VC theory from BSc is applied through practical modelling. <strong>BSc Module: Mergers & Acquisitions (FIN 430)</strong> — Deal structures and valuations are directly applicable to VC/PE transactions.</div>
             </div>
-            <div class="term-total">Synergizes with: BSc Alternative Investments</div>
+            <div class="term-total">Assessment: Fund Model (40%), Deal Memo (30%), Final Exam (30%)</div>
         </div>
         <div class="term-card">
             <div class="term-title">Growth Strategy & Scaling Ventures</div>
-            <div class="term-dates">8 credits · 12 weeks</div>
-            <div class="module-list">
-                <li>Product-market fit and growth metrics</li>
-                <li>Scaling strategies and unit economics</li>
-                <li>Go-to-market execution for high-growth companies</li>
+            <div class="term-code">MBA 720 · 8 credits</div>
+            <div class="term-dates">12 weeks · 35 contact hours</div>
+            <ul class="module-list">
+                <li>Product-market fit: metrics, pivot vs. persevere decisions</li>
+                <li>Scaling strategies: unit economics, LTV:CAC, cohorts</li>
+                <li>Go-to-market execution and channel strategies</li>
+                <li>Growth frameworks (RICE, ICE, A/B testing)</li>
+            </ul>
+            <div class="synergy-block">
+                <div class="synergy-title">🔗 SYNERGY WITH BSc FINANCE & INVESTMENT</div>
+                <div class="synergy-text"><strong>BSc Module: Strategic Management (MGMT 301)</strong> — Strategic frameworks from BSc inform scaling decisions. <strong>BSc Module: Marketing Analytics (MKT 310)</strong> — Data-driven marketing skills enhance growth strategy execution.</div>
             </div>
-            <div class="term-total">Synergizes with: BSc Strategic Management</div>
+            <div class="term-total">Assessment: Growth Strategy Report (50%), Case Analysis (50%)</div>
         </div>
         <div class="term-card">
             <div class="term-title">Financial Modeling for Startups</div>
-            <div class="term-dates">7 credits · 12 weeks</div>
-            <div class="module-list">
-                <li>Three-statement models and scenario analysis</li>
-                <li>Sensitivity tables and investor-ready projections</li>
-                <li>Advanced Excel for venture finance</li>
+            <div class="term-code">MBA 730 · 7 credits</div>
+            <div class="term-dates">12 weeks · 30 contact hours</div>
+            <ul class="module-list">
+                <li>Three-statement models for high-growth ventures</li>
+                <li>Scenario analysis, sensitivity tables, and Monte Carlo simulations</li>
+                <li>Investor-ready projections and data room preparation</li>
+                <li>Advanced Excel for venture finance (VBA, power query)</li>
+            </ul>
+            <div class="synergy-block">
+                <div class="synergy-title">🔗 SYNERGY WITH BSc FINANCE & INVESTMENT</div>
+                <div class="synergy-text"><strong>BSc Module: Financial Modelling (FIN 210)</strong> — Excel modelling skills from BSc are elevated to advanced startup applications. <strong>BSc Module: Quantitative Methods (MTH 205)</strong> — Statistical foundations support scenario analysis.</div>
             </div>
-            <div class="term-total">Synergizes with: BSc Financial Modelling</div>
+            <div class="term-total">Assessment: Model Project (60%), Model Documentation (40%)</div>
         </div>
         <div class="term-card">
             <div class="term-title">Deal Structuring & Negotiation</div>
-            <div class="term-dates">7 credits · 12 weeks</div>
-            <div class="module-list">
-                <li>Term sheet anatomy and valuation methodologies</li>
+            <div class="term-code">MBA 740 · 7 credits</div>
+            <div class="term-dates">12 weeks · 30 contact hours</div>
+            <ul class="module-list">
+                <li>Term sheet anatomy: valuation, liquidation preferences, anti-dilution</li>
+                <li>Valuation methodologies for early-stage companies</li>
                 <li>Negotiation tactics for founders and investors</li>
-                <li>Simulated deal negotiations</li>
+                <li>Simulated deal negotiations with live feedback</li>
+            </ul>
+            <div class="synergy-block">
+                <div class="synergy-title">🔗 SYNERGY WITH BSc FINANCE & INVESTMENT</div>
+                <div class="synergy-text"><strong>BSc Module: Investment Banking (FIN 401)</strong> — Deal structuring principles from BSc are applied directly. <strong>BSc Module: Corporate Finance II (FIN 202)</strong> — Valuation methods inform term sheet negotiations.</div>
             </div>
-            <div class="term-total">Synergizes with: BSc Investment Banking</div>
+            <div class="term-total">Assessment: Negotiation Simulation (50%), Term Sheet Analysis (50%)</div>
         </div>
-    </div>
-    <div style="background: #eef3f6; border-radius: 30px; padding: 1rem; margin-bottom: 2rem;">
-        <strong>📊 Term 2 Total: 30 credits</strong> · Typical weekly workload: 35-40 hours
     </div>
 
     <!-- TERM 3: Capstone & Scale -->
@@ -614,37 +638,52 @@
     <div class="term-grid">
         <div class="term-card">
             <div class="term-title">Venture Practicum (Capstone)</div>
-            <div class="term-dates">15 credits · 12 weeks</div>
-            <div class="module-list">
-                <li>Launch a real venture or complete an investment thesis</li>
-                <li>Full financial projections and unit economics</li>
-                <li>Pitch deck and Demo Day presentation to investors</li>
+            <div class="term-code">MBA 810 · 15 credits</div>
+            <div class="term-dates">12 weeks · 60 contact hours</div>
+            <ul class="module-list">
+                <li>Launch a real venture or complete a comprehensive investment thesis</li>
+                <li>Full financial projections, unit economics, and fundraising strategy</li>
+                <li>Pitch deck development and Demo Day presentation to investors</li>
+                <li>Mentorship from successful founders and VCs</li>
+            </ul>
+            <div class="synergy-block">
+                <div class="synergy-title">🔗 SYNERGY WITH BSc FINANCE & INVESTMENT</div>
+                <div class="synergy-text"><strong>BSc Module: Applied Investment Project (FIN 490)</strong> — Students can integrate capstones: build the financial model in BSc, launch the venture in MBA. <strong>BSc Module: Portfolio Management (FIN 310)</strong> — Investment principles inform venture strategy.</div>
             </div>
-            <div class="term-total">Synergizes with: BSc Applied Investment Project</div>
+            <div class="term-total">Assessment: Final Venture (60%), Pitch Presentation (40%)</div>
         </div>
         <div class="term-card">
             <div class="term-title">Advanced Valuation & Exit Strategies</div>
-            <div class="term-dates">10 credits · 12 weeks</div>
-            <div class="module-list">
-                <li>DCF, comparable analysis, and LBO models</li>
-                <li>M&A strategies, IPOs, and exit planning</li>
-                <li>Maximize value for founders and investors</li>
+            <div class="term-code">MBA 820 · 10 credits</div>
+            <div class="term-dates">12 weeks · 45 contact hours</div>
+            <ul class="module-list">
+                <li>DCF, comparable analysis, and LBO models for exits</li>
+                <li>M&A strategies: acquirer identification, process management</li>
+                <li>IPOs, direct listings, and SPACs</li>
+                <li>Exit planning for founders and investors</li>
+            </ul>
+            <div class="synergy-block">
+                <div class="synergy-title">🔗 SYNERGY WITH BSc FINANCE & INVESTMENT</div>
+                <div class="synergy-text"><strong>BSc Module: Mergers & Acquisitions (FIN 430)</strong> — M&A frameworks from BSc are applied to exit scenarios. <strong>BSc Module: Advanced Corporate Finance (FIN 301)</strong> — Advanced valuation methods are reinforced.</div>
             </div>
-            <div class="term-total">Synergizes with: BSc Mergers & Acquisitions</div>
+            <div class="term-total">Assessment: Exit Strategy Report (50%), Valuation Model (50%)</div>
         </div>
         <div class="term-card">
             <div class="term-title">Global Immersion (Elective)</div>
-            <div class="term-dates">5 credits · 1 week</div>
-            <div class="module-list">
+            <div class="term-code">MBA 830 · 5 credits</div>
+            <div class="term-dates">1 week intensive · 30 contact hours</div>
+            <ul class="module-list">
                 <li>One-week immersion in Silicon Valley, London, or Nairobi</li>
-                <li>Meet founders, VCs, and innovation leaders</li>
-                <li>Ecosystem mapping and networking</li>
+                <li>Company visits: startups, VC firms, innovation hubs</li>
+                <li>Networking with founders, investors, and ecosystem leaders</li>
+                <li>Ecosystem mapping and comparative analysis</li>
+            </ul>
+            <div class="synergy-block">
+                <div class="synergy-title">🔗 SYNERGY WITH BSc FINANCE & INVESTMENT</div>
+                <div class="synergy-text"><strong>BSc Module: International Finance (FIN 320)</strong> — Global market perspectives complement immersion experiences. <strong>BSc Module: Global Financial Markets (FIN 330)</strong> — Understanding international capital flows enhances ecosystem analysis.</div>
             </div>
-            <div class="term-total">Synergizes with: BSc Global Finance</div>
+            <div class="term-total">Assessment: Immersion Report (100%)</div>
         </div>
-    </div>
-    <div style="background: #eef3f6; border-radius: 30px; padding: 1rem; margin-bottom: 2rem;">
-        <strong>📊 Term 3 Total: 30 credits</strong> · Capstone intensity: 15-20 hours/week + valuation module
     </div>
 
     <!-- Admissions Section -->
@@ -674,88 +713,29 @@
         </div>
     </div>
 
-    <!-- Key Dates -->
-    <div style="background: #eef3f6; border-radius: 30px; padding: 1.5rem; margin: 2rem 0; text-align: center;">
-        <h3 style="color: var(--nolan-navy); margin-bottom: 1rem;">📅 Key Dates & Deadlines</h3>
-        <div style="display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;">
-            <div><strong>Early Application</strong><br>October 15, 2026</div>
-            <div><strong>Final Deadline</strong><br>December 15, 2026</div>
-            <div><strong>Program Start</strong><br>January 2027</div>
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">📅 <strong>BSc + MBA Concurrent Pathway:</strong> April 2026 start available. Contact admissions for details.</p>
-    </div>
-
     <!-- Career Outcomes Section -->
     <h2 class="section-title">💼 Career Outcomes</h2>
     <div class="career-grid">
-        <div class="career-card">
-            <div class="career-icon">🚀</div>
-            <h4>Founder / CEO</h4>
-            <p>Launch and scale your own venture with deep financial and strategic expertise.</p>
-            <div class="salary-range">$100K - $500K+ (equity)</div>
-        </div>
-        <div class="career-card">
-            <div class="career-icon">💼</div>
-            <h4>Venture Capital Associate</h4>
-            <p>Source, evaluate, and invest in the next generation of high-growth startups.</p>
-            <div class="salary-range">$80K - $150K + carry</div>
-        </div>
-        <div class="career-card">
-            <div class="career-icon">🏦</div>
-            <h4>Startup CFO / Head of Finance</h4>
-            <p>Lead financial strategy, fundraising, and capital management for high-growth companies.</p>
-            <div class="salary-range">$90K - $180K + equity</div>
-        </div>
-        <div class="career-card">
-            <div class="career-icon">📈</div>
-            <h4>Growth Equity Analyst</h4>
-            <p>Invest in scaling companies with proven business models and growth trajectories.</p>
-            <div class="salary-range">$85K - $140K</div>
-        </div>
-        <div class="career-card">
-            <div class="career-icon">🏛️</div>
-            <h4>Corporate Innovation Lead</h4>
-            <p>Drive innovation and new venture development within established organizations.</p>
-            <div class="salary-range">$100K - $160K</div>
-        </div>
-        <div class="career-card">
-            <div class="career-icon">🤝</div>
-            <h4>Angel Investor / Venture Partner</h4>
-            <p>Invest in and mentor early-stage founders while building your own investment portfolio.</p>
-            <div class="salary-range">Portfolio dependent</div>
-        </div>
+        <div class="career-card"><div class="career-icon">🚀</div><h4>Founder / CEO</h4><p>Launch and scale your own venture with deep financial and strategic expertise.</p><div class="salary-range">$100K - $500K+ (equity)</div></div>
+        <div class="career-card"><div class="career-icon">💼</div><h4>Venture Capital Associate</h4><p>Source, evaluate, and invest in the next generation of high-growth startups.</p><div class="salary-range">$80K - $150K + carry</div></div>
+        <div class="career-card"><div class="career-icon">🏦</div><h4>Startup CFO / Head of Finance</h4><p>Lead financial strategy, fundraising, and capital management for high-growth companies.</p><div class="salary-range">$90K - $180K + equity</div></div>
+        <div class="career-card"><div class="career-icon">📈</div><h4>Growth Equity Analyst</h4><p>Invest in scaling companies with proven business models and growth trajectories.</p><div class="salary-range">$85K - $140K</div></div>
+        <div class="career-card"><div class="career-icon">🏛️</div><h4>Corporate Innovation Lead</h4><p>Drive innovation and new venture development within established organizations.</p><div class="salary-range">$100K - $160K</div></div>
+        <div class="career-card"><div class="career-icon">🤝</div><h4>Angel Investor / Venture Partner</h4><p>Invest in and mentor early-stage founders while building your own investment portfolio.</p><div class="salary-range">Portfolio dependent</div></div>
     </div>
 
-    <!-- Why This Structure Works -->
-    <div style="background: var(--nolan-white); border-radius: 28px; padding: 2rem; border: 2px dashed var(--nolan-gold); margin: 2rem 0;">
-        <h2 style="color: var(--nolan-navy);">🧱 Why This Structure Works</h2>
-        <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top:1.5rem;">
-            <div>
-                <h3 style="color: var(--nolan-gold);">Term 1 · Financial Toolkit</h3>
-                <p>You learn the language of capital and the tools of venture creation. Every module builds a core competency you'll use in every subsequent course.</p>
-            </div>
-            <div>
-                <h3 style="color: var(--nolan-gold);">Term 2 · Deep Dives</h3>
-                <p>You apply your toolkit to specialised domains. You learn to think like an investor, a growth strategist, and a dealmaker.</p>
-            </div>
-            <div>
-                <h3 style="color: var(--nolan-gold);">Term 3 · Launch & Scale</h3>
-                <p>You synthesise everything. The Venture Practicum is where you prove you can build, fund, and scale.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bold Statement (Option B) -->
+    <!-- Bold Statement -->
     <div style="background: var(--nolan-navy); border-radius: 40px; padding: 3rem; margin: 2rem 0; text-align: center; border: 2px solid var(--nolan-gold);">
         <p style="font-size: 1.8rem; font-weight: 800; color: white; line-height: 1.3;">⚡ At Nolan University, we don't just teach entrepreneurship — we build founders who master capital.</p>
         <p style="font-size: 1.2rem; color: var(--nolan-gold); margin-top: 1rem;">MBA in Entrepreneurship & Finance: Where company builders become capital strategists.</p>
-        <p style="font-size: 1rem; color: white; margin-top: 1rem;">Complement with BSc Finance & Investment for the complete dual-degree advantage.</p>
+        <p style="font-size: 1rem; color: white; margin-top: 1rem;">Complement with BSc Finance & Investment for the complete dual-degree advantage. Together, you'll master both financial analysis and venture strategy.</p>
     </div>
 
     <!-- Call to action -->
-    <div style="text-align: center; margin: 3rem 0;">
-        <a href="#" class="btn-gold" style="font-size:1.2rem; padding:1rem 3rem;">📄 Download Full Programme Specification</a>
-        <a href="#" class="btn-gold" style="font-size:1.2rem; padding:1rem 3rem; margin-left: 1rem;">🎓 Explore BSc + MBA Concurrent Pathway</a>
+    <div style="text-align: center; margin: 2rem 0;">
+        <a href="#" class="btn-gold">📄 Download Full Programme Specification</a>
+        <a href="#" class="btn-gold">🎓 Explore BSc + MBA Concurrent Pathway</a>
+        <a href="#" class="btn-gold">📞 Schedule a Call with Admissions</a>
     </div>
 
     <!-- footer -->
