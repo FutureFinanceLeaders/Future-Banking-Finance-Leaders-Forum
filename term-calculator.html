@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Term-Based Funding Calculator - Nolan University</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .calculator {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    .calculator input {
+      width: 100px;
+      padding: 0.3rem;
+      margin-right: 0.5rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 0.5rem;
+      text-align: center;
+    }
+    th {
+      background-color: #003366;
+      color: #fff;
+    }
+    .total-row {
+      font-weight: bold;
+      background-color: #f0f8ff;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Term-Based Funding Calculator</h1>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="funding.html">Funding Options</a>
+  <a href="apply.html">How to Apply</a>
+  <a href="contact.html">Contact / FAQ</a>
+</nav>
+
+<section class="calculator">
+  <h2>Enter Your Funding Details per Term</h2>
+  <p>All amounts in USD</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Term</th>
+        <th>Tuition</th>
+        <th>M. Lewis Scholarship</th>
+        <th>AfriLeap Grant</th>
+        <th>M. Lewis Loan</th>
+        <th>AfriLeap Loan</th>
+        <th>Remaining Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Term 1</td>
+        <td><input type="number" id="tuition1" value="10000"></td>
+        <td><input type="number" id="mls1" value="7000"></td>
+        <td><input type="number" id="afg1" value="2000"></td>
+        <td><input type="number" id="mll1" value="3000"></td>
+        <td><input type="number" id="afl1" value="0"></td>
+        <td id="balance1">0</td>
+      </tr>
+      <tr>
+        <td>Term 2</td>
+        <td><input type="number" id="tuition2" value="10000"></td>
+        <td><input type="number" id="mls2" value="7000"></td>
+        <td><input type="number" id="afg2" value="1500"></td>
+        <td><input type="number" id="mll2" value="3000"></td>
+        <td><input type="number" id="afl2" value="0"></td>
+        <td id="balance2">0</td>
+      </tr>
+      <tr>
+        <td>Term 3</td>
+        <td><input type="number" id="tuition3" value="10000"></td>
+        <td><input type="number" id="mls3" value="7000"></td>
+        <td><input type="number" id="afg3" value="1500"></td>
+        <td><input type="number" id="mll3" value="3000"></td>
+        <td><input type="number" id="afl3" value="0"></td>
+        <td id="balance3">0</td>
+      </tr>
+      <tr class="total-row">
+        <td>Total</td>
+        <td id="tuitionTotal">0</td>
+        <td id="mlsTotal">0</td>
+        <td id="afgTotal">0</td>
+        <td id="mllTotal">0</td>
+        <td id="aflTotal">0</td>
+        <td id="balanceTotal">0</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button onclick="calculateFunding()" class="button">Calculate Funding</button>
+</section>
+
+<script>
+function calculateFunding() {
+  let tuitionTotal = 0, mlsTotal = 0, afgTotal = 0, mllTotal = 0, aflTotal = 0, balanceTotal = 0;
+
+  for (let i = 1; i <= 3; i++) {
+    let tuition = parseFloat(document.getElementById('tuition'+i).value) || 0;
+    let mls = parseFloat(document.getElementById('mls'+i).value) || 0;
+    let afg = parseFloat(document.getElementById('afg'+i).value) || 0;
+    let mll = parseFloat(document.getElementById('mll'+i).value) || 0;
+    let afl = parseFloat(document.getElementById('afl'+i).value) || 0;
+
+    let balance = tuition - (mls + afg + mll + afl);
+    balance = balance < 0 ? 0 : balance;
+
+    document.getElementById('balance'+i).innerText = balance.toFixed(2);
+
+    tuitionTotal += tuition;
+    mlsTotal += mls;
+    afgTotal += afg;
+    mllTotal += mll;
+    aflTotal += afl;
+    balanceTotal += balance;
+  }
+
+  document.getElementById('tuitionTotal').innerText = tuitionTotal.toFixed(2);
+  document.getElementById('mlsTotal').innerText = mlsTotal.toFixed(2);
+  document.getElementById('afgTotal').innerText = afgTotal.toFixed(2);
+  document.getElementById('mllTotal').innerText = mllTotal.toFixed(2);
+  document.getElementById('aflTotal').innerText = aflTotal.toFixed(2);
+  document.getElementById('balanceTotal').innerText = balanceTotal.toFixed(2);
+}
+</script>
+
+</body>
+</html>
