@@ -14,7 +14,7 @@
         }
 
         body {
-            background: #e0d6c0;
+            background: #e8e0d0;
             font-family: 'Times New Roman', 'Georgia', serif;
             padding: 40px 24px;
             display: flex;
@@ -34,11 +34,11 @@
 
         .section-header {
             font-family: 'Times New Roman', serif;
-            color: #3b2a1f;
+            color: #8b6b3d;
             margin-bottom: 20px;
             font-size: 28px;
             font-weight: bold;
-            border-left: 6px solid #b8860b;
+            border-left: 6px solid #c9a03d;
             padding-left: 20px;
             width: 100%;
         }
@@ -61,10 +61,10 @@
         .diploma {
             width: 100%;
             max-width: 800px;
-            background: #fffef5;
-            border: 12px double #b8860b;
+            background: #fffef7;
+            border: 12px double #c9a03d;
             padding: 40px 32px 36px 32px;
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
             position: relative;
             page-break-after: avoid;
             break-inside: avoid;
@@ -77,7 +77,7 @@
             transform: translate(-50%, -50%) rotate(-25deg);
             font-size: 72px;
             font-weight: bold;
-            color: rgba(200, 180, 120, 0.2);
+            color: rgba(201, 160, 61, 0.12);
             pointer-events: none;
             white-space: nowrap;
             font-family: 'Arial', sans-serif;
@@ -85,16 +85,57 @@
             z-index: 10;
         }
 
+        /* Logo Header */
+        .logo-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .university-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .university-name-main {
+            font-size: 42px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: #8b6b3d;
+            font-family: 'Times New Roman', serif;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+        
+        .tagline {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #b8860b;
+            font-style: italic;
+            margin-top: 6px;
+            font-family: 'Georgia', serif;
+        }
+        
+        .divider {
+            border-bottom: 2px solid #c9a03d;
+            margin: 15px 0 10px 0;
+            width: 80px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .university-name {
             text-align: center;
             font-size: 28px;
             font-weight: bold;
             letter-spacing: 2px;
-            border-bottom: 2px solid #b8860b;
+            border-bottom: 2px solid #c9a03d;
             padding-bottom: 12px;
             margin-bottom: 28px;
             font-family: 'Times New Roman', serif;
             text-transform: uppercase;
+            color: #8b6b3d;
         }
 
         .content {
@@ -115,7 +156,7 @@
             margin: 20px 0;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #1e3c2c;
+            color: #6b4c2c;
             border-top: 1px dashed #d4af37;
             border-bottom: 1px dashed #d4af37;
             display: inline-block;
@@ -126,20 +167,21 @@
             font-size: 26px;
             font-weight: bold;
             margin: 20px 0 6px;
+            color: #2c2c2c;
         }
 
         .concentration {
             font-size: 18px;
             font-style: italic;
             margin-bottom: 24px;
-            color: #4a4a4a;
+            color: #6b5a4a;
         }
 
         .honors-clause {
             font-size: 15px;
             font-style: italic;
             margin: 20px 0;
-            color: #3a3a3a;
+            color: #5a4a3a;
         }
 
         .witness {
@@ -168,22 +210,15 @@
             text-align: center;
         }
 
-        .signature-line .line {
-            border-bottom: 1px solid #000;
-            width: 100%;
-            margin-bottom: 6px;
-            min-height: 30px;
-        }
-
         .digital-signature-field {
-            border-bottom: 1px dashed #2c5e3a;
-            background: #faf7e8;
+            border-bottom: 1px dashed #c9a03d;
+            background: #fef9ef;
             min-height: 40px;
             width: 100%;
             text-align: center;
             font-family: 'Courier New', monospace;
             font-size: 11px;
-            color: #2c5e3a;
+            color: #8b6b3d;
             cursor: pointer;
             transition: background 0.2s;
             display: flex;
@@ -192,12 +227,12 @@
         }
 
         .digital-signature-field:hover {
-            background: #f0ebd8;
+            background: #fef5e8;
         }
 
         .digital-signature-field.signed {
-            background: #e8f0e5;
-            border-bottom: 2px solid #2c5e3a;
+            background: #f8f0e0;
+            border-bottom: 2px solid #c9a03d;
             font-family: 'Times New Roman', serif;
             font-size: 13px;
             font-weight: 500;
@@ -205,7 +240,7 @@
 
         .signature-label {
             font-size: 10px;
-            color: #666;
+            color: #8b7355;
             margin-top: 4px;
         }
 
@@ -215,19 +250,20 @@
             margin-top: 25px;
             font-family: monospace;
             letter-spacing: 0.5px;
-            background: #faf7e4;
+            background: #fef9ef;
             display: inline-block;
             width: auto;
             padding: 6px 12px;
             border-radius: 30px;
+            color: #6b4c2c;
         }
 
         .accreditation {
             text-align: center;
             font-size: 10px;
             margin-top: 20px;
-            color: #5a4a2a;
-            border-top: 1px solid #e0cf9a;
+            color: #8b7355;
+            border-top: 1px solid #e8dcc0;
             padding-top: 14px;
             font-style: normal;
         }
@@ -236,9 +272,9 @@
             text-align: center;
             margin-top: 16px;
             font-size: 9px;
-            color: #2a5f3a;
+            color: #c9a03d;
             word-break: break-all;
-            background: #f9f3e0;
+            background: #fef9ef;
             padding: 5px 8px;
             border-radius: 20px;
             display: inline-block;
@@ -246,8 +282,8 @@
         }
 
         .transcript {
-            background: #fffef5;
-            border: 1px solid #b8860b;
+            background: #fffef7;
+            border: 1px solid #c9a03d;
             padding: 40px 35px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             width: 100%;
@@ -258,14 +294,19 @@
         .transcript-header {
             text-align: center;
             margin-bottom: 30px;
-            border-bottom: 2px solid #b8860b;
+            border-bottom: 2px solid #c9a03d;
             padding-bottom: 15px;
         }
 
+        .transcript-logo {
+            margin-bottom: 10px;
+        }
+        
         .transcript-title {
             font-size: 24px;
             font-weight: bold;
             text-transform: uppercase;
+            color: #8b6b3d;
         }
 
         .student-info {
@@ -274,7 +315,7 @@
             flex-wrap: wrap;
             margin: 20px 0;
             padding: 15px;
-            background: #faf7e8;
+            background: #fef9ef;
         }
 
         .info-group {
@@ -285,6 +326,7 @@
             font-weight: bold;
             min-width: 120px;
             display: inline-block;
+            color: #6b4c2c;
         }
 
         .course-table {
@@ -294,14 +336,15 @@
         }
 
         .course-table th, .course-table td {
-            border: 1px solid #ddd;
+            border: 1px solid #e8dcc0;
             padding: 10px;
             text-align: left;
         }
 
         .course-table th {
-            background: #f0e6d2;
+            background: #fef5e8;
             font-weight: bold;
+            color: #6b4c2c;
         }
 
         .classification {
@@ -313,13 +356,13 @@
         }
 
         .classification.credit {
-            background: #e8f0e5;
-            color: #2c5e3a;
+            background: #f0ece0;
+            color: #6b8c5c;
         }
 
         .classification.merit {
-            background: #fff0e0;
-            color: #b87c2e;
+            background: #fef0e0;
+            color: #c9a03d;
         }
 
         .button-group {
@@ -331,7 +374,7 @@
         }
 
         .btn {
-            background: #2c5e3a;
+            background: #8b6b3d;
             border: none;
             color: white;
             font-family: 'Segoe UI', sans-serif;
@@ -345,42 +388,42 @@
         }
 
         .btn:hover {
-            background: #1e4628;
+            background: #6b4c2c;
             transform: translateY(-2px);
         }
 
         .btn-pdf {
-            background: #9b2f2f;
+            background: #9b6b3a;
         }
 
         .btn-pdf:hover {
-            background: #7a2424;
+            background: #7a522a;
         }
 
         .sign-btn {
-            background: #d4af37;
-            color: #2c2c2c;
+            background: #c9a03d;
+            color: #fffef7;
             font-size: 13px;
             padding: 6px 16px;
         }
 
         .sign-btn:hover {
-            background: #c4a02e;
+            background: #b88a2a;
         }
 
         footer {
             text-align: center;
             margin-top: 40px;
             font-size: 13px;
-            color: #4a3a28;
-            border-top: 1px solid #ccb87c;
+            color: #8b7355;
+            border-top: 1px solid #e8dcc0;
             padding-top: 24px;
             width: 100%;
         }
 
         .gpa-highlight {
             font-weight: bold;
-            color: #2c5e3a;
+            color: #c9a03d;
         }
 
         @media (max-width: 860px) {
@@ -395,6 +438,9 @@
             }
             .watermark {
                 font-size: 48px;
+            }
+            .university-name-main {
+                font-size: 32px;
             }
         }
 
@@ -419,8 +465,11 @@
 <body>
 
 <div style="width: 100%; text-align: center; margin-bottom: 20px;">
-    <h1 style="font-family: 'Times New Roman', serif; color: #2c3e2b;">🎓 Nolan University</h1>
-    <p style="color: #5a4a2e;">Official Academic Credentials — Digital Signatures Enabled | Corrected GPA Logic</p>
+    <div class="university-logo">
+        <div class="university-name-main">NOLAN</div>
+        <div class="university-name-main" style="font-size: 28px; margin-top: -8px;">UNIVERSITY</div>
+        <div class="tagline">Learn to Lead. Lead to Excel</div>
+    </div>
 </div>
 
 <div class="documents-container">
@@ -432,7 +481,14 @@
             <div class="diploma-wrapper">
                 <div class="watermark">OFFICIAL COPY</div>
                 <div class="diploma" id="bscDiploma">
-                    <div class="university-name">NOLAN UNIVERSITY</div>
+                    <div class="logo-header">
+                        <div class="university-logo">
+                            <div class="university-name-main" style="font-size: 32px;">NOLAN</div>
+                            <div class="university-name-main" style="font-size: 24px; margin-top: -6px;">UNIVERSITY</div>
+                            <div class="tagline" style="font-size: 10px;">Learn to Lead. Lead to Excel</div>
+                        </div>
+                        <div class="divider"></div>
+                    </div>
                     <div class="content">
                         <div class="greeting">
                             THE PRESIDENT AND TRUSTEES OF NOLAN UNIVERSITY,<br>
@@ -489,7 +545,14 @@
             <div class="diploma-wrapper">
                 <div class="watermark">OFFICIAL COPY</div>
                 <div class="diploma" id="mbaDiploma">
-                    <div class="university-name">NOLAN UNIVERSITY</div>
+                    <div class="logo-header">
+                        <div class="university-logo">
+                            <div class="university-name-main" style="font-size: 32px;">NOLAN</div>
+                            <div class="university-name-main" style="font-size: 24px; margin-top: -6px;">UNIVERSITY</div>
+                            <div class="tagline" style="font-size: 10px;">Learn to Lead. Lead to Excel</div>
+                        </div>
+                        <div class="divider"></div>
+                    </div>
                     <div class="content">
                         <div class="greeting">
                             THE PRESIDENT AND TRUSTEES OF NOLAN UNIVERSITY,<br>
@@ -543,14 +606,17 @@
         </div>
     </div>
 
-    <!-- Transcript Summary Section with Corrected GPA Logic -->
+    <!-- Transcript Summary Section -->
     <div>
         <div class="section-header">📊 Official Academic Transcript Summary</div>
         <div class="transcript" id="transcript">
             <div class="transcript-header">
-                <div class="transcript-title">NOLAN UNIVERSITY</div>
-                <div style="font-size: 14px;">Office of the Registrar</div>
-                <div style="font-size: 12px;">Official Academic Transcript</div>
+                <div class="transcript-logo">
+                    <div class="university-name-main" style="font-size: 28px;">NOLAN</div>
+                    <div class="university-name-main" style="font-size: 20px; margin-top: -4px;">UNIVERSITY</div>
+                    <div class="tagline" style="font-size: 10px;">Learn to Lead. Lead to Excel</div>
+                </div>
+                <div class="transcript-title">OFFICIAL ACADEMIC TRANSCRIPT</div>
             </div>
             
             <div class="student-info">
@@ -560,13 +626,13 @@
             </div>
 
             <!-- Undergraduate Section - CREDIT (GPA: 3.20) -->
-            <h3 style="margin: 20px 0 10px 0; color: #2c5e3a;">Undergraduate Record</h3>
+            <h3 style="margin: 20px 0 10px 0; color: #8b6b3d;">Undergraduate Record</h3>
             <div class="student-info" style="background: #fff;">
                 <div><strong>Program:</strong> Bachelor of Science in Finance & Investment</div>
                 <div><strong>School:</strong> Graduate School of Banking & Finance</div>
                 <div><strong>Enrollment:</strong> September 2021</div>
                 <div><strong>Conferral:</strong> 18 September 2024</div>
-                <div><strong>Classification:</strong> <span style="color: #2c5e3a; font-weight: bold;">CREDIT</span></div>
+                <div><strong>Classification:</strong> <span style="color: #6b8c5c; font-weight: bold;">CREDIT</span></div>
                 <div><strong>GPA:</strong> <span class="gpa-highlight">3.20</span> (Range: 3.00 – 3.29)</div>
             </div>
             
@@ -589,16 +655,15 @@
             </table>
             <div style="text-align: right;"><strong>Total Credits: 120</strong> | <strong>GPA: 3.20</strong></div>
             <div class="classification credit">🏆 Degree Classification: CREDIT (GPA: 3.20)</div>
-            <div style="font-size: 12px; text-align: center; margin-top: 10px; color: #666;">Credit Classification Range: 3.00 – 3.29</div>
 
             <!-- Postgraduate Section - MERIT (GPA: 3.45) -->
-            <h3 style="margin: 30px 0 10px 0; color: #b87c2e;">Postgraduate Record</h3>
+            <h3 style="margin: 30px 0 10px 0; color: #c9a03d;">Postgraduate Record</h3>
             <div class="student-info" style="background: #fff;">
                 <div><strong>Program:</strong> MBA in Entrepreneurship & Finance</div>
                 <div><strong>Schools:</strong> School of Entrepreneurship & Venture Creation & Graduate School of Banking & Finance</div>
                 <div><strong>Enrollment:</strong> March 2025</div>
                 <div><strong>Conferral:</strong> 26 March 2026</div>
-                <div><strong>Classification:</strong> <span style="color: #b87c2e; font-weight: bold;">MERIT</span></div>
+                <div><strong>Classification:</strong> <span style="color: #c9a03d; font-weight: bold;">MERIT</span></div>
                 <div><strong>GPA:</strong> <span class="gpa-highlight">3.45</span> (Range: 3.30 – 3.59)</div>
             </div>
             
@@ -618,11 +683,10 @@
             </table>
             <div style="text-align: right;"><strong>Total Credits: 30</strong> | <strong>GPA: 3.45</strong></div>
             <div class="classification merit">🏅 Degree Classification: MERIT (GPA: 3.45)</div>
-            <div style="font-size: 12px; text-align: center; margin-top: 10px; color: #666;">Merit Classification Range: 3.30 – 3.59</div>
             
             <!-- Classification Legend -->
-            <div style="margin-top: 30px; padding: 15px; background: #f9f3e0; border-radius: 8px;">
-                <h4 style="margin-bottom: 10px;">📚 Classification System</h4>
+            <div style="margin-top: 30px; padding: 15px; background: #fef9ef; border-radius: 8px;">
+                <h4 style="margin-bottom: 10px; color: #8b6b3d;">📚 Classification System</h4>
                 <table style="width: 100%; font-size: 12px;">
                     <tr><td><strong>Distinction:</strong></td><td>GPA 3.60 – 4.00</td><td>Exceptional academic performance</td></tr>
                     <tr><td><strong>Merit:</strong></td><td>GPA 3.30 – 3.59</td><td>Strong academic performance</td></tr>
@@ -631,7 +695,7 @@
                 </table>
             </div>
             
-            <div style="margin-top: 30px; padding-top: 15px; border-top: 1px solid #ddd; font-size: 11px; text-align: center;">
+            <div style="margin-top: 30px; padding-top: 15px; border-top: 1px solid #e8dcc0; font-size: 11px; text-align: center;">
                 <div>This transcript is official and verifiable upon request.</div>
                 <div style="margin-top: 10px;">
                     <div class="digital-signature-field" data-signature="registrar_transcript" onclick="signField(this, 'Michael T. Harrison')" style="width: auto; display: inline-block; padding: 5px 20px;">Click to sign</div>
@@ -650,11 +714,10 @@
 <footer>
     <p>© Nolan University — Official digital credentials with digital signature support.</p>
     <p style="font-size: 11px;">Verification available via QR link or Certificate ID at nolan.edu/verify | A4 format | Watermarked "Official Copy"</p>
-    <p style="font-size: 11px; color: #2c5e3a;">✓ Corrected GPA Logic: BSc Credit (3.20) | MBA Merit (3.45) — Logical progression</p>
+    <p style="font-size: 11px; color: #c9a03d;">✓ Corrected GPA Logic: BSc Credit (3.20) | MBA Merit (3.45) — Logical progression</p>
 </footer>
 
 <script>
-    // Digital signature functionality
     function signField(element, signerName) {
         if (!element) return;
         if (element.classList.contains('signed')) {
@@ -701,7 +764,6 @@
         alert('All signature fields have been signed!');
     }
     
-    // PDF generation with A4 format
     const pdfOptions = {
         margin: [0.4, 0.4, 0.4, 0.4],
         image: { type: 'jpeg', quality: 0.98 },
@@ -718,7 +780,7 @@
         cloneElement.style.margin = '0';
         
         const wrapper = document.createElement('div');
-        wrapper.style.backgroundColor = '#fffef5';
+        wrapper.style.backgroundColor = '#fffef7';
         wrapper.style.display = 'flex';
         wrapper.style.justifyContent = 'center';
         wrapper.style.padding = '20px';
@@ -728,7 +790,6 @@
         html2pdf().set(opt).from(wrapper).save();
     }
     
-    // Attach event listeners
     document.getElementById('downloadBscPdf')?.addEventListener('click', () => {
         generatePDF('bscDiploma', 'Nolan_University_BSc_Finance_Investment_Mwaba_Lewis.pdf');
     });
