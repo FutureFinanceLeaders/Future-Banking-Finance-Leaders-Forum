@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Nolan University - Official Diplomas & Transcripts</title>
+    <!-- html2pdf library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e0d6c0;
+            font-family: 'Times New Roman', 'Georgia', serif;
+            padding: 40px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .documents-container {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            font-family: 'Times New Roman', serif;
+            color: #3b2a1f;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            border-left: 6px solid #b8860b;
+            padding-left: 20px;
+            width: 100%;
+        }
+
+        .diploma-card {
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .diploma-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .diploma {
+            width: 100%;
+            max-width: 800px;
+            background: #fffef5;
+            border: 12px double #b8860b;
+            padding: 40px 32px 36px 32px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+            position: relative;
+            page-break-after: avoid;
+            break-inside: avoid;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-25deg);
+            font-size: 72px;
+            font-weight: bold;
+            color: rgba(200, 180, 120, 0.2);
+            pointer-events: none;
+            white-space: nowrap;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 8px;
+            z-index: 10;
+        }
+
+        .university-name {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #b8860b;
+            padding-bottom: 12px;
+            margin-bottom: 28px;
+            font-family: 'Times New Roman', serif;
+            text-transform: uppercase;
+        }
+
+        .content {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .greeting {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            color: #2c2c2c;
+        }
+
+        .student-name {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 20px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #1e3c2c;
+            border-top: 1px dashed #d4af37;
+            border-bottom: 1px dashed #d4af37;
+            display: inline-block;
+            padding: 8px 20px;
+        }
+
+        .degree-title {
+            font-size: 26px;
+            font-weight: bold;
+            margin: 20px 0 6px;
+        }
+
+        .concentration {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 24px;
+            color: #4a4a4a;
+        }
+
+        .honors-clause {
+            font-size: 15px;
+            font-style: italic;
+            margin: 20px 0;
+            color: #3a3a3a;
+        }
+
+        .witness {
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 24px 0 16px;
+        }
+
+        .date {
+            font-size: 15px;
+            margin: 16px 0;
+            font-weight: 500;
+        }
+
+        .signatures {
+            margin: 35px 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .signature-line {
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .signature-line .line {
+            border-bottom: 1px solid #000;
+            width: 100%;
+            margin-bottom: 6px;
+            min-height: 30px;
+        }
+
+        .digital-signature-field {
+            border-bottom: 1px dashed #2c5e3a;
+            background: #faf7e8;
+            min-height: 40px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: #2c5e3a;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .digital-signature-field:hover {
+            background: #f0ebd8;
+        }
+
+        .digital-signature-field.signed {
+            background: #e8f0e5;
+            border-bottom: 2px solid #2c5e3a;
+            font-family: 'Times New Roman', serif;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .signature-label {
+            font-size: 10px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .cert-id {
+            text-align: center;
+            font-size: 11px;
+            margin-top: 25px;
+            font-family: monospace;
+            letter-spacing: 0.5px;
+            background: #faf7e4;
+            display: inline-block;
+            width: auto;
+            padding: 6px 12px;
+            border-radius: 30px;
+        }
+
+        .accreditation {
+            text-align: center;
+            font-size: 10px;
+            margin-top: 20px;
+            color: #5a4a2a;
+            border-top: 1px solid #e0cf9a;
+            padding-top: 14px;
+            font-style: normal;
+        }
+
+        .qr-link {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 9px;
+            color: #2a5f3a;
+            word-break: break-all;
+            background: #f9f3e0;
+            padding: 5px 8px;
+            border-radius: 20px;
+            display: inline-block;
+            width: auto;
+        }
+
+        .transcript {
+            background: #fffef5;
+            border: 1px solid #b8860b;
+            padding: 40px 35px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .transcript-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #b8860b;
+            padding-bottom: 15px;
+        }
+
+        .transcript-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .student-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            padding: 15px;
+            background: #faf7e8;
+        }
+
+        .info-group {
+            margin: 5px 0;
+        }
+
+        .info-label {
+            font-weight: bold;
+            min-width: 120px;
+            display: inline-block;
+        }
+
+        .course-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .course-table th, .course-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .course-table th {
+            background: #f0e6d2;
+            font-weight: bold;
+        }
+
+        .classification {
+            margin-top: 20px;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .classification.credit {
+            background: #e8f0e5;
+            color: #2c5e3a;
+        }
+
+        .classification.merit {
+            background: #fff0e0;
+            color: #b87c2e;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 28px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: #2c5e3a;
+            border: none;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background: #1e4628;
+            transform: translateY(-2px);
+        }
+
+        .btn-pdf {
+            background: #9b2f2f;
+        }
+
+        .btn-pdf:hover {
+            background: #7a2424;
+        }
+
+        .sign-btn {
+            background: #d4af37;
+            color: #2c2c2c;
+            font-size: 13px;
+            padding: 6px 16px;
+        }
+
+        .sign-btn:hover {
+            background: #c4a02e;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 13px;
+            color: #4a3a28;
+            border-top: 1px solid #ccb87c;
+            padding-top: 24px;
+            width: 100%;
+        }
+
+        .gpa-highlight {
+            font-weight: bold;
+            color: #2c5e3a;
+        }
+
+        @media (max-width: 860px) {
+            body {
+                padding: 20px 16px;
+            }
+            .diploma {
+                padding: 28px 20px;
+            }
+            .student-name {
+                font-size: 26px;
+            }
+            .watermark {
+                font-size: 48px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            .btn, .button-group, footer, .sign-btn {
+                display: none;
+            }
+            .diploma, .transcript {
+                box-shadow: none;
+                margin: 0;
+                page-break-after: avoid;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div style="width: 100%; text-align: center; margin-bottom: 20px;">
+    <h1 style="font-family: 'Times New Roman', serif; color: #2c3e2b;">🎓 Nolan University</h1>
+    <p style="color: #5a4a2e;">Official Academic Credentials — Digital Signatures Enabled | Corrected GPA Logic</p>
+</div>
+
+<div class="documents-container">
+    
+    <!-- BSc Diploma Section -->
+    <div>
+        <div class="section-header">📜 Bachelor of Science in Finance & Investment | Credit (GPA: 3.20)</div>
+        <div class="diploma-card">
+            <div class="diploma-wrapper">
+                <div class="watermark">OFFICIAL COPY</div>
+                <div class="diploma" id="bscDiploma">
+                    <div class="university-name">NOLAN UNIVERSITY</div>
+                    <div class="content">
+                        <div class="greeting">
+                            THE PRESIDENT AND TRUSTEES OF NOLAN UNIVERSITY,<br>
+                            upon recommendation of the <strong>Graduate School of Banking & Finance</strong>, and<br>
+                            by the authority of the Board of Trustees, hereby confer upon
+                        </div>
+                        <div class="student-name">MWABA LEWIS</div>
+                        <div class="degree-title">Bachelor of Science</div>
+                        <div class="concentration">in Finance & Investment</div>
+                        <div class="honors-clause">
+                            with all the rights, privileges, and honors thereto appertaining.
+                        </div>
+                        <div class="witness">
+                            In witness whereof, we have hereunder set our hands and affixed the seal of Nolan University
+                        </div>
+                        <div class="date">
+                            this <strong>eighteenth day of September, two thousand and twenty-four</strong>.
+                        </div>
+                    </div>
+                    <div class="signatures">
+                        <div class="signature-line">
+                            <div class="digital-signature-field" data-signature="president_bsc" onclick="signField(this, 'James R. Callwell')">Click to sign</div>
+                            <div class="signature-label">President</div>
+                        </div>
+                        <div class="signature-line">
+                            <div class="digital-signature-field" data-signature="dean_bsc" onclick="signField(this, 'Dr. Sarah M. Bennett')">Click to sign</div>
+                            <div class="signature-label">Dean, Graduate School of Banking & Finance</div>
+                        </div>
+                        <div class="signature-line">
+                            <div class="digital-signature-field" data-signature="registrar_bsc" onclick="signField(this, 'Michael T. Harrison')">Click to sign</div>
+                            <div class="signature-label">Registrar</div>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="cert-id"><strong>Certificate ID:</strong> NU-GSBF-BSC-2024-0842</div>
+                        <div class="qr-link">🔍 Verify: https://nolan.edu/verify/NU-GSBF-BSC-2024-0842</div>
+                    </div>
+                    <div class="accreditation">
+                        Nolan University is accredited by EQUIS, AACSB, and the International Assembly for Collegiate Business Education (IACBE).
+                    </div>
+                </div>
+            </div>
+            <div class="button-group">
+                <button class="btn sign-btn" onclick="signAllFields('bscDiploma')">✍️ Sign All Fields (BSc)</button>
+                <button class="btn btn-pdf" id="downloadBscPdf">📄 Download BSc Diploma (PDF)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MBA Diploma Section -->
+    <div>
+        <div class="section-header">🎓 Master of Business Administration in Entrepreneurship & Finance | Merit (GPA: 3.45)</div>
+        <div class="diploma-card">
+            <div class="diploma-wrapper">
+                <div class="watermark">OFFICIAL COPY</div>
+                <div class="diploma" id="mbaDiploma">
+                    <div class="university-name">NOLAN UNIVERSITY</div>
+                    <div class="content">
+                        <div class="greeting">
+                            THE PRESIDENT AND TRUSTEES OF NOLAN UNIVERSITY,<br>
+                            upon recommendation of the <strong>School of Entrepreneurship & Venture Creation</strong> and the <strong>Graduate School of Banking & Finance</strong>, and<br>
+                            by the authority of the Board of Trustees, hereby confer upon
+                        </div>
+                        <div class="student-name">MWABA LEWIS</div>
+                        <div class="degree-title">Master of Business Administration</div>
+                        <div class="concentration">in Entrepreneurship & Finance</div>
+                        <div class="honors-clause">
+                            with all the rights, privileges, and honors thereto appertaining.
+                        </div>
+                        <div class="witness">
+                            In witness whereof, we have hereunder set our hands and affixed the seal of Nolan University
+                        </div>
+                        <div class="date">
+                            this <strong>twenty-sixth day of March, two thousand and twenty-six</strong>.
+                        </div>
+                    </div>
+                    <div class="signatures">
+                        <div class="signature-line">
+                            <div class="digital-signature-field" data-signature="president_mba" onclick="signField(this, 'James R. Callwell')">Click to sign</div>
+                            <div class="signature-label">President</div>
+                        </div>
+                        <div class="signature-line">
+                            <div class="digital-signature-field" data-signature="dean_gsbf_mba" onclick="signField(this, 'Dr. Sarah M. Bennett')">Click to sign</div>
+                            <div class="signature-label">Dean, Graduate School of Banking & Finance</div>
+                        </div>
+                        <div class="signature-line">
+                            <div class="digital-signature-field" data-signature="dean_sevc_mba" onclick="signField(this, 'Dr. Angela K. Foster')">Click to sign</div>
+                            <div class="signature-label">Dean, School of Entrepreneurship & Venture Creation</div>
+                        </div>
+                        <div class="signature-line">
+                            <div class="digital-signature-field" data-signature="registrar_mba" onclick="signField(this, 'Michael T. Harrison')">Click to sign</div>
+                            <div class="signature-label">Registrar</div>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="cert-id"><strong>Certificate ID:</strong> NU-GSBF-MBA-2026-0843</div>
+                        <div class="qr-link">🔍 Verify: https://nolan.edu/verify/NU-GSBF-MBA-2026-0843</div>
+                    </div>
+                    <div class="accreditation">
+                        Nolan University is accredited by EQUIS, AACSB, and the International Assembly for Collegiate Business Education (IACBE).
+                    </div>
+                </div>
+            </div>
+            <div class="button-group">
+                <button class="btn sign-btn" onclick="signAllFields('mbaDiploma')">✍️ Sign All Fields (MBA)</button>
+                <button class="btn btn-pdf" id="downloadMbaPdf">📜 Download MBA Diploma (PDF)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transcript Summary Section with Corrected GPA Logic -->
+    <div>
+        <div class="section-header">📊 Official Academic Transcript Summary</div>
+        <div class="transcript" id="transcript">
+            <div class="transcript-header">
+                <div class="transcript-title">NOLAN UNIVERSITY</div>
+                <div style="font-size: 14px;">Office of the Registrar</div>
+                <div style="font-size: 12px;">Official Academic Transcript</div>
+            </div>
+            
+            <div class="student-info">
+                <div class="info-group"><span class="info-label">Student Name:</span> Mwaba Lewis</div>
+                <div class="info-group"><span class="info-label">Student ID:</span> NU-2021-0842 / NU-2025-0843</div>
+                <div class="info-group"><span class="info-label">Date of Birth:</span> [On file]</div>
+            </div>
+
+            <!-- Undergraduate Section - CREDIT (GPA: 3.20) -->
+            <h3 style="margin: 20px 0 10px 0; color: #2c5e3a;">Undergraduate Record</h3>
+            <div class="student-info" style="background: #fff;">
+                <div><strong>Program:</strong> Bachelor of Science in Finance & Investment</div>
+                <div><strong>School:</strong> Graduate School of Banking & Finance</div>
+                <div><strong>Enrollment:</strong> September 2021</div>
+                <div><strong>Conferral:</strong> 18 September 2024</div>
+                <div><strong>Classification:</strong> <span style="color: #2c5e3a; font-weight: bold;">CREDIT</span></div>
+                <div><strong>GPA:</strong> <span class="gpa-highlight">3.20</span> (Range: 3.00 – 3.29)</div>
+            </div>
+            
+            <table class="course-table">
+                <thead>
+                    <tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Grade Points</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>FIN101</td><td>Principles of Finance</td><td>3</td><td>B+</td><td>3.3</td></tr>
+                    <tr><td>FIN201</td><td>Corporate Finance</td><td>3</td><td>B+</td><td>3.3</td></tr>
+                    <tr><td>FIN210</td><td>Investment Analysis</td><td>3</td><td>A-</td><td>3.7</td></tr>
+                    <tr><td>FIN305</td><td>Portfolio Management</td><td>3</td><td>B+</td><td>3.3</td></tr>
+                    <tr><td>FIN320</td><td>Financial Markets & Institutions</td><td>3</td><td>A-</td><td>3.7</td></tr>
+                    <tr><td>ACC101</td><td>Financial Accounting</td><td>3</td><td>B</td><td>3.0</td></tr>
+                    <tr><td>ECO101</td><td>Microeconomics</td><td>3</td><td>B+</td><td>3.3</td></tr>
+                    <tr><td>ECO102</td><td>Macroeconomics</td><td>3</td><td>B+</td><td>3.3</td></tr>
+                    <tr><td>BUS201</td><td>Business Statistics</td><td>3</td><td>B+</td><td>3.3</td></tr>
+                    <tr><td>BUS301</td><td>Business Ethics</td><td>3</td><td>A-</td><td>3.7</td></tr>
+                </tbody>
+            </table>
+            <div style="text-align: right;"><strong>Total Credits: 120</strong> | <strong>GPA: 3.20</strong></div>
+            <div class="classification credit">🏆 Degree Classification: CREDIT (GPA: 3.20)</div>
+            <div style="font-size: 12px; text-align: center; margin-top: 10px; color: #666;">Credit Classification Range: 3.00 – 3.29</div>
+
+            <!-- Postgraduate Section - MERIT (GPA: 3.45) -->
+            <h3 style="margin: 30px 0 10px 0; color: #b87c2e;">Postgraduate Record</h3>
+            <div class="student-info" style="background: #fff;">
+                <div><strong>Program:</strong> MBA in Entrepreneurship & Finance</div>
+                <div><strong>Schools:</strong> School of Entrepreneurship & Venture Creation & Graduate School of Banking & Finance</div>
+                <div><strong>Enrollment:</strong> March 2025</div>
+                <div><strong>Conferral:</strong> 26 March 2026</div>
+                <div><strong>Classification:</strong> <span style="color: #b87c2e; font-weight: bold;">MERIT</span></div>
+                <div><strong>GPA:</strong> <span class="gpa-highlight">3.45</span> (Range: 3.30 – 3.59)</div>
+            </div>
+            
+            <table class="course-table">
+                <thead>
+                    <tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Grade Points</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>ENT501</td><td>Venture Capital & Private Equity</td><td>4</td><td>A-</td><td>3.7</td></tr>
+                    <tr><td>ENT510</td><td>Entrepreneurial Finance</td><td>4</td><td>A</td><td>4.0</td></tr>
+                    <tr><td>FIN601</td><td>Advanced Corporate Finance</td><td>4</td><td>A-</td><td>3.7</td></tr>
+                    <tr><td>FIN620</td><td>Investment Strategies</td><td>4</td><td>A</td><td>4.0</td></tr>
+                    <tr><td>LDR501</td><td>Leadership & Organizational Behavior</td><td>4</td><td>B+</td><td>3.3</td></tr>
+                    <tr><td>GBL601</td><td>Global Business Strategy</td><td>4</td><td>A-</td><td>3.7</td></tr>
+                    <tr><td>CAP799</td><td>Capstone: Entrepreneurship & Finance Project</td><td>6</td><td>A</td><td>4.0</td></tr>
+                </tbody>
+            </table>
+            <div style="text-align: right;"><strong>Total Credits: 30</strong> | <strong>GPA: 3.45</strong></div>
+            <div class="classification merit">🏅 Degree Classification: MERIT (GPA: 3.45)</div>
+            <div style="font-size: 12px; text-align: center; margin-top: 10px; color: #666;">Merit Classification Range: 3.30 – 3.59</div>
+            
+            <!-- Classification Legend -->
+            <div style="margin-top: 30px; padding: 15px; background: #f9f3e0; border-radius: 8px;">
+                <h4 style="margin-bottom: 10px;">📚 Classification System</h4>
+                <table style="width: 100%; font-size: 12px;">
+                    <tr><td><strong>Distinction:</strong></td><td>GPA 3.60 – 4.00</td><td>Exceptional academic performance</td></tr>
+                    <tr><td><strong>Merit:</strong></td><td>GPA 3.30 – 3.59</td><td>Strong academic performance</td></tr>
+                    <tr><td><strong>Credit:</strong></td><td>GPA 3.00 – 3.29</td><td>Satisfactory academic performance</td></tr>
+                    <tr><td><strong>Pass:</strong></td><td>GPA 2.00 – 2.99</td><td>Minimum passing standard</td></tr>
+                </table>
+            </div>
+            
+            <div style="margin-top: 30px; padding-top: 15px; border-top: 1px solid #ddd; font-size: 11px; text-align: center;">
+                <div>This transcript is official and verifiable upon request.</div>
+                <div style="margin-top: 10px;">
+                    <div class="digital-signature-field" data-signature="registrar_transcript" onclick="signField(this, 'Michael T. Harrison')" style="width: auto; display: inline-block; padding: 5px 20px;">Click to sign</div>
+                    <div class="signature-label">Registrar</div>
+                </div>
+                <div style="margin-top: 10px;">Issued: 15 April 2026</div>
+            </div>
+        </div>
+        <div class="button-group">
+            <button class="btn sign-btn" onclick="signField(document.querySelector('#transcript .digital-signature-field'), 'Michael T. Harrison')">✍️ Sign Transcript</button>
+            <button class="btn btn-pdf" id="downloadTranscriptPdf">📑 Download Transcript (PDF)</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© Nolan University — Official digital credentials with digital signature support.</p>
+    <p style="font-size: 11px;">Verification available via QR link or Certificate ID at nolan.edu/verify | A4 format | Watermarked "Official Copy"</p>
+    <p style="font-size: 11px; color: #2c5e3a;">✓ Corrected GPA Logic: BSc Credit (3.20) | MBA Merit (3.45) — Logical progression</p>
+</footer>
+
+<script>
+    // Digital signature functionality
+    function signField(element, signerName) {
+        if (!element) return;
+        if (element.classList.contains('signed')) {
+            if (confirm('This field is already signed. Do you want to re-sign?')) {
+                element.innerHTML = signerName;
+                element.classList.add('signed');
+                element.style.fontStyle = 'italic';
+                element.style.fontWeight = '500';
+            }
+        } else {
+            element.innerHTML = signerName;
+            element.classList.add('signed');
+            element.style.fontStyle = 'italic';
+            element.style.fontWeight = '500';
+        }
+    }
+    
+    function signAllFields(diplomaId) {
+        const diploma = document.getElementById(diplomaId);
+        const signatureFields = diploma.querySelectorAll('.digital-signature-field');
+        const signers = {
+            president_bsc: 'James R. Callwell',
+            dean_bsc: 'Dr. Sarah M. Bennett',
+            registrar_bsc: 'Michael T. Harrison',
+            president_mba: 'James R. Callwell',
+            dean_gsbf_mba: 'Dr. Sarah M. Bennett',
+            dean_sevc_mba: 'Dr. Angela K. Foster',
+            registrar_mba: 'Michael T. Harrison'
+        };
+        
+        signatureFields.forEach(field => {
+            const signatureKey = field.getAttribute('data-signature');
+            if (signers[signatureKey]) {
+                field.innerHTML = signers[signatureKey];
+                field.classList.add('signed');
+                field.style.fontStyle = 'italic';
+                field.style.fontWeight = '500';
+            } else {
+                field.innerHTML = 'Signed';
+                field.classList.add('signed');
+            }
+        });
+        
+        alert('All signature fields have been signed!');
+    }
+    
+    // PDF generation with A4 format
+    const pdfOptions = {
+        margin: [0.4, 0.4, 0.4, 0.4],
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 3, letterRendering: true },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+    
+    function generatePDF(elementId, fileName) {
+        const element = document.getElementById(elementId);
+        if (!element) return;
+        
+        const cloneElement = element.cloneNode(true);
+        cloneElement.style.transform = 'none';
+        cloneElement.style.margin = '0';
+        
+        const wrapper = document.createElement('div');
+        wrapper.style.backgroundColor = '#fffef5';
+        wrapper.style.display = 'flex';
+        wrapper.style.justifyContent = 'center';
+        wrapper.style.padding = '20px';
+        wrapper.appendChild(cloneElement);
+        
+        const opt = { ...pdfOptions, filename: fileName };
+        html2pdf().set(opt).from(wrapper).save();
+    }
+    
+    // Attach event listeners
+    document.getElementById('downloadBscPdf')?.addEventListener('click', () => {
+        generatePDF('bscDiploma', 'Nolan_University_BSc_Finance_Investment_Mwaba_Lewis.pdf');
+    });
+    
+    document.getElementById('downloadMbaPdf')?.addEventListener('click', () => {
+        generatePDF('mbaDiploma', 'Nolan_University_MBA_Entrepreneurship_Finance_Mwaba_Lewis.pdf');
+    });
+    
+    document.getElementById('downloadTranscriptPdf')?.addEventListener('click', () => {
+        generatePDF('transcript', 'Nolan_University_Transcript_Mwaba_Lewis.pdf');
+    });
+</script>
+</body>
+</html>
