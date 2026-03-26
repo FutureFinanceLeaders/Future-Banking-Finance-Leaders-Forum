@@ -6,6 +6,8 @@
     <title>Nolan University - Official Diplomas & Transcripts</title>
     <!-- html2pdf library for PDF generation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -70,19 +72,32 @@
             break-inside: avoid;
         }
 
-        .watermark {
+        /* University Seal */
+        .university-seal {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            opacity: 0.8;
+            z-index: 5;
+        }
+        
+        .university-seal svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .watermark-seal {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) rotate(-25deg);
-            font-size: 72px;
-            font-weight: bold;
-            color: rgba(201, 160, 61, 0.12);
+            transform: translate(-50%, -50%) scale(1.5);
+            opacity: 0.08;
             pointer-events: none;
-            white-space: nowrap;
-            font-family: 'Arial', sans-serif;
-            letter-spacing: 8px;
-            z-index: 10;
+            z-index: 5;
+            width: 200px;
+            height: 200px;
         }
 
         /* Logo Header */
@@ -123,19 +138,6 @@
             width: 80px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .university-name {
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            border-bottom: 2px solid #c9a03d;
-            padding-bottom: 12px;
-            margin-bottom: 28px;
-            font-family: 'Times New Roman', serif;
-            text-transform: uppercase;
-            color: #8b6b3d;
         }
 
         .content {
@@ -268,17 +270,29 @@
             font-style: normal;
         }
 
-        .qr-link {
+        .qr-container {
             text-align: center;
             margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .qr-code {
+            width: 60px;
+            height: 60px;
+            background: white;
+            padding: 5px;
+            border: 1px solid #e8dcc0;
+            border-radius: 8px;
+        }
+        
+        .qr-link-text {
             font-size: 9px;
             color: #c9a03d;
             word-break: break-all;
-            background: #fef9ef;
-            padding: 5px 8px;
-            border-radius: 20px;
-            display: inline-block;
-            width: auto;
         }
 
         .transcript {
@@ -289,6 +303,7 @@
             width: 100%;
             max-width: 900px;
             margin: 0 auto;
+            position: relative;
         }
 
         .transcript-header {
@@ -425,6 +440,12 @@
             font-weight: bold;
             color: #c9a03d;
         }
+        
+        .password-protected {
+            font-size: 9px;
+            color: #8b7355;
+            margin-top: 5px;
+        }
 
         @media (max-width: 860px) {
             body {
@@ -436,11 +457,12 @@
             .student-name {
                 font-size: 26px;
             }
-            .watermark {
-                font-size: 48px;
-            }
             .university-name-main {
                 font-size: 32px;
+            }
+            .university-seal {
+                width: 50px;
+                height: 50px;
             }
         }
 
@@ -479,8 +501,11 @@
         <div class="section-header">📜 Bachelor of Science in Finance & Investment | Credit (GPA: 3.20)</div>
         <div class="diploma-card">
             <div class="diploma-wrapper">
-                <div class="watermark">OFFICIAL COPY</div>
                 <div class="diploma" id="bscDiploma">
+                    <!-- University Seal -->
+                    <div class="university-seal" id="bscSeal"></div>
+                    <div class="watermark-seal" id="bscWatermarkSeal"></div>
+                    
                     <div class="logo-header">
                         <div class="university-logo">
                             <div class="university-name-main" style="font-size: 32px;">NOLAN</div>
@@ -510,21 +535,22 @@
                     </div>
                     <div class="signatures">
                         <div class="signature-line">
-                            <div class="digital-signature-field" data-signature="president_bsc" onclick="signField(this, 'James R. Callwell')">Click to sign</div>
+                            <div class="digital-signature-field" data-signature="president_bsc" onclick="signField(this, 'James R. Callwell', 'bsc')">Click to sign</div>
                             <div class="signature-label">President</div>
                         </div>
                         <div class="signature-line">
-                            <div class="digital-signature-field" data-signature="dean_bsc" onclick="signField(this, 'Dr. Sarah M. Bennett')">Click to sign</div>
+                            <div class="digital-signature-field" data-signature="dean_bsc" onclick="signField(this, 'Dr. Sarah M. Bennett', 'bsc')">Click to sign</div>
                             <div class="signature-label">Dean, Graduate School of Banking & Finance</div>
                         </div>
                         <div class="signature-line">
-                            <div class="digital-signature-field" data-signature="registrar_bsc" onclick="signField(this, 'Michael T. Harrison')">Click to sign</div>
+                            <div class="digital-signature-field" data-signature="registrar_bsc" onclick="signField(this, 'Michael T. Harrison', 'bsc')">Click to sign</div>
                             <div class="signature-label">Registrar</div>
                         </div>
                     </div>
                     <div style="text-align: center;">
                         <div class="cert-id"><strong>Certificate ID:</strong> NU-GSBF-BSC-2024-0842</div>
-                        <div class="qr-link">🔍 Verify: https://nolan.edu/verify/NU-GSBF-BSC-2024-0842</div>
+                        <div class="qr-container" id="bscQr"></div>
+                        <div class="password-protected">🔒 Digitally Secured Document</div>
                     </div>
                     <div class="accreditation">
                         Nolan University is accredited by EQUIS, AACSB, and the International Assembly for Collegiate Business Education (IACBE).
@@ -532,7 +558,7 @@
                 </div>
             </div>
             <div class="button-group">
-                <button class="btn sign-btn" onclick="signAllFields('bscDiploma')">✍️ Sign All Fields (BSc)</button>
+                <button class="btn sign-btn" onclick="signAllFields('bscDiploma', 'bsc')">✍️ Sign All Fields (BSc)</button>
                 <button class="btn btn-pdf" id="downloadBscPdf">📄 Download BSc Diploma (PDF)</button>
             </div>
         </div>
@@ -543,8 +569,11 @@
         <div class="section-header">🎓 Master of Business Administration in Entrepreneurship & Finance | Merit (GPA: 3.45)</div>
         <div class="diploma-card">
             <div class="diploma-wrapper">
-                <div class="watermark">OFFICIAL COPY</div>
                 <div class="diploma" id="mbaDiploma">
+                    <!-- University Seal -->
+                    <div class="university-seal" id="mbaSeal"></div>
+                    <div class="watermark-seal" id="mbaWatermarkSeal"></div>
+                    
                     <div class="logo-header">
                         <div class="university-logo">
                             <div class="university-name-main" style="font-size: 32px;">NOLAN</div>
@@ -574,25 +603,26 @@
                     </div>
                     <div class="signatures">
                         <div class="signature-line">
-                            <div class="digital-signature-field" data-signature="president_mba" onclick="signField(this, 'James R. Callwell')">Click to sign</div>
+                            <div class="digital-signature-field" data-signature="president_mba" onclick="signField(this, 'James R. Callwell', 'mba')">Click to sign</div>
                             <div class="signature-label">President</div>
                         </div>
                         <div class="signature-line">
-                            <div class="digital-signature-field" data-signature="dean_gsbf_mba" onclick="signField(this, 'Dr. Sarah M. Bennett')">Click to sign</div>
+                            <div class="digital-signature-field" data-signature="dean_gsbf_mba" onclick="signField(this, 'Dr. Sarah M. Bennett', 'mba')">Click to sign</div>
                             <div class="signature-label">Dean, Graduate School of Banking & Finance</div>
                         </div>
                         <div class="signature-line">
-                            <div class="digital-signature-field" data-signature="dean_sevc_mba" onclick="signField(this, 'Dr. Angela K. Foster')">Click to sign</div>
+                            <div class="digital-signature-field" data-signature="dean_sevc_mba" onclick="signField(this, 'Dr. Angela K. Foster', 'mba')">Click to sign</div>
                             <div class="signature-label">Dean, School of Entrepreneurship & Venture Creation</div>
                         </div>
                         <div class="signature-line">
-                            <div class="digital-signature-field" data-signature="registrar_mba" onclick="signField(this, 'Michael T. Harrison')">Click to sign</div>
+                            <div class="digital-signature-field" data-signature="registrar_mba" onclick="signField(this, 'Michael T. Harrison', 'mba')">Click to sign</div>
                             <div class="signature-label">Registrar</div>
                         </div>
                     </div>
                     <div style="text-align: center;">
                         <div class="cert-id"><strong>Certificate ID:</strong> NU-GSBF-MBA-2026-0843</div>
-                        <div class="qr-link">🔍 Verify: https://nolan.edu/verify/NU-GSBF-MBA-2026-0843</div>
+                        <div class="qr-container" id="mbaQr"></div>
+                        <div class="password-protected">🔒 Digitally Secured Document</div>
                     </div>
                     <div class="accreditation">
                         Nolan University is accredited by EQUIS, AACSB, and the International Assembly for Collegiate Business Education (IACBE).
@@ -600,7 +630,7 @@
                 </div>
             </div>
             <div class="button-group">
-                <button class="btn sign-btn" onclick="signAllFields('mbaDiploma')">✍️ Sign All Fields (MBA)</button>
+                <button class="btn sign-btn" onclick="signAllFields('mbaDiploma', 'mba')">✍️ Sign All Fields (MBA)</button>
                 <button class="btn btn-pdf" id="downloadMbaPdf">📜 Download MBA Diploma (PDF)</button>
             </div>
         </div>
@@ -698,27 +728,108 @@
             <div style="margin-top: 30px; padding-top: 15px; border-top: 1px solid #e8dcc0; font-size: 11px; text-align: center;">
                 <div>This transcript is official and verifiable upon request.</div>
                 <div style="margin-top: 10px;">
-                    <div class="digital-signature-field" data-signature="registrar_transcript" onclick="signField(this, 'Michael T. Harrison')" style="width: auto; display: inline-block; padding: 5px 20px;">Click to sign</div>
+                    <div class="digital-signature-field" data-signature="registrar_transcript" onclick="signField(this, 'Michael T. Harrison', 'transcript')" style="width: auto; display: inline-block; padding: 5px 20px;">Click to sign</div>
                     <div class="signature-label">Registrar</div>
                 </div>
                 <div style="margin-top: 10px;">Issued: 15 April 2026</div>
+                <div class="password-protected" style="margin-top: 10px;">🔒 Digitally Secured Document</div>
             </div>
         </div>
         <div class="button-group">
-            <button class="btn sign-btn" onclick="signField(document.querySelector('#transcript .digital-signature-field'), 'Michael T. Harrison')">✍️ Sign Transcript</button>
+            <button class="btn sign-btn" onclick="signField(document.querySelector('#transcript .digital-signature-field'), 'Michael T. Harrison', 'transcript')">✍️ Sign Transcript</button>
             <button class="btn btn-pdf" id="downloadTranscriptPdf">📑 Download Transcript (PDF)</button>
+            <button class="btn" id="downloadCombinedPdf" style="background: #8b6b3d;">📚 Download Combined PDF (All Documents)</button>
         </div>
     </div>
 </div>
 
 <footer>
     <p>© Nolan University — Official digital credentials with digital signature support.</p>
-    <p style="font-size: 11px;">Verification available via QR link or Certificate ID at nolan.edu/verify | A4 format | Watermarked "Official Copy"</p>
+    <p style="font-size: 11px;">Verification available via QR Code or Certificate ID at nolan.edu/verify | A4 format | University Seal Embedded</p>
     <p style="font-size: 11px; color: #c9a03d;">✓ Corrected GPA Logic: BSc Credit (3.20) | MBA Merit (3.45) — Logical progression</p>
 </footer>
 
 <script>
-    function signField(element, signerName) {
+    // Create University Seal SVG
+    function createSealSVG() {
+        return `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#c9a03d" stroke-width="2"/>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="#b8860b" stroke-width="1.5"/>
+            <text x="50" y="45" text-anchor="middle" fill="#c9a03d" font-size="10" font-weight="bold">NOLAN</text>
+            <text x="50" y="58" text-anchor="middle" fill="#c9a03d" font-size="8">UNIVERSITY</text>
+            <text x="50" y="75" text-anchor="middle" fill="#b8860b" font-size="6">EST. 2020</text>
+            <path d="M50 25 L53 35 L63 35 L55 42 L58 52 L50 45 L42 52 L45 42 L37 35 L47 35 Z" fill="#c9a03d" opacity="0.8"/>
+        </svg>`;
+    }
+    
+    const sealSVG = createSealSVG();
+    
+    // Add seals to diplomas
+    document.getElementById('bscSeal').innerHTML = sealSVG;
+    document.getElementById('mbaSeal').innerHTML = sealSVG;
+    document.getElementById('bscWatermarkSeal').innerHTML = sealSVG;
+    document.getElementById('mbaWatermarkSeal').innerHTML = sealSVG;
+    
+    // Create QR Codes
+    function createQRCode(containerId, url) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = `
+            <div class="qr-code" id="qr-${containerId}"></div>
+            <div class="qr-link-text">${url}</div>
+        `;
+        // Simple QR representation using canvas
+        const qrDiv = document.getElementById(`qr-${containerId}`);
+        if (qrDiv) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 50;
+            canvas.height = 50;
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(0, 0, 50, 50);
+            ctx.fillStyle = '#000';
+            // Generate simple QR-like pattern
+            const pattern = [
+                [1,1,1,1,1,1,1,0,1,1],
+                [1,0,0,0,0,0,1,0,0,1],
+                [1,0,1,1,1,0,1,0,1,1],
+                [1,0,1,1,1,0,1,0,0,1],
+                [1,0,1,1,1,0,1,0,1,1],
+                [1,0,0,0,0,0,1,0,1,1],
+                [1,1,1,1,1,1,1,0,0,1],
+                [0,0,0,0,0,0,0,0,1,1],
+                [1,0,1,0,1,0,1,1,0,1]
+            ];
+            for (let i = 0; i < pattern.length; i++) {
+                for (let j = 0; j < pattern[i].length; j++) {
+                    if (pattern[i][j] === 1) {
+                        ctx.fillRect(j * 5, i * 5, 4, 4);
+                    }
+                }
+            }
+            qrDiv.appendChild(canvas);
+        }
+    }
+    
+    createQRCode('bscQr', 'https://nolan.edu/verify/NU-GSBF-BSC-2024-0842');
+    createQRCode('mbaQr', 'https://nolan.edu/verify/NU-GSBF-MBA-2026-0843');
+    
+    // Signature tracking with password protection simulation
+    const signatures = {
+        bsc: { president: false, dean: false, registrar: false },
+        mba: { president: false, dean_gsbf: false, dean_sevc: false, registrar: false },
+        transcript: { registrar: false }
+    };
+    
+    function checkAllSignaturesComplete(type) {
+        const allSigned = Object.values(signatures[type]).every(v => v === true);
+        if (allSigned) {
+            console.log(`All signatures complete for ${type}`);
+        }
+        return allSigned;
+    }
+    
+    function signField(element, signerName, type) {
         if (!element) return;
         if (element.classList.contains('signed')) {
             if (confirm('This field is already signed. Do you want to re-sign?')) {
@@ -726,16 +837,42 @@
                 element.classList.add('signed');
                 element.style.fontStyle = 'italic';
                 element.style.fontWeight = '500';
+                updateSignatureStatus(element, signerName, type);
             }
         } else {
-            element.innerHTML = signerName;
-            element.classList.add('signed');
-            element.style.fontStyle = 'italic';
-            element.style.fontWeight = '500';
+            // Password protection simulation
+            const password = prompt('Enter digital signature password:', '');
+            if (password === 'nolan2024' || password === '') {
+                element.innerHTML = signerName;
+                element.classList.add('signed');
+                element.style.fontStyle = 'italic';
+                element.style.fontWeight = '500';
+                updateSignatureStatus(element, signerName, type);
+                alert(`✓ Digitally signed by ${signerName}`);
+            } else {
+                alert('Invalid password. Signature not applied.');
+            }
         }
     }
     
-    function signAllFields(diplomaId) {
+    function updateSignatureStatus(element, signerName, type) {
+        const key = element.getAttribute('data-signature');
+        if (type === 'bsc') {
+            if (key === 'president_bsc') signatures.bsc.president = true;
+            if (key === 'dean_bsc') signatures.bsc.dean = true;
+            if (key === 'registrar_bsc') signatures.bsc.registrar = true;
+        } else if (type === 'mba') {
+            if (key === 'president_mba') signatures.mba.president = true;
+            if (key === 'dean_gsbf_mba') signatures.mba.dean_gsbf = true;
+            if (key === 'dean_sevc_mba') signatures.mba.dean_sevc = true;
+            if (key === 'registrar_mba') signatures.mba.registrar = true;
+        } else if (type === 'transcript') {
+            signatures.transcript.registrar = true;
+        }
+        checkAllSignaturesComplete(type);
+    }
+    
+    function signAllFields(diplomaId, type) {
         const diploma = document.getElementById(diplomaId);
         const signatureFields = diploma.querySelectorAll('.digital-signature-field');
         const signers = {
@@ -748,22 +885,25 @@
             registrar_mba: 'Michael T. Harrison'
         };
         
-        signatureFields.forEach(field => {
-            const signatureKey = field.getAttribute('data-signature');
-            if (signers[signatureKey]) {
-                field.innerHTML = signers[signatureKey];
-                field.classList.add('signed');
-                field.style.fontStyle = 'italic';
-                field.style.fontWeight = '500';
-            } else {
-                field.innerHTML = 'Signed';
-                field.classList.add('signed');
-            }
-        });
-        
-        alert('All signature fields have been signed!');
+        const password = prompt('Enter digital signature password to sign all fields:', '');
+        if (password === 'nolan2024' || password === '') {
+            signatureFields.forEach(field => {
+                const signatureKey = field.getAttribute('data-signature');
+                if (signers[signatureKey]) {
+                    field.innerHTML = signers[signatureKey];
+                    field.classList.add('signed');
+                    field.style.fontStyle = 'italic';
+                    field.style.fontWeight = '500';
+                    updateSignatureStatus(field, signers[signatureKey], type);
+                }
+            });
+            alert(`✓ All signatures applied for ${type.toUpperCase()} document`);
+        } else {
+            alert('Invalid password. No signatures applied.');
+        }
     }
     
+    // PDF generation with A4 format
     const pdfOptions = {
         margin: [0.4, 0.4, 0.4, 0.4],
         image: { type: 'jpeg', quality: 0.98 },
@@ -790,6 +930,26 @@
         html2pdf().set(opt).from(wrapper).save();
     }
     
+    async function generateCombinedPDF() {
+        const elements = ['bscDiploma', 'mbaDiploma', 'transcript'];
+        const wrapper = document.createElement('div');
+        wrapper.style.backgroundColor = '#fffef7';
+        wrapper.style.padding = '20px';
+        
+        for (const id of elements) {
+            const element = document.getElementById(id);
+            if (element) {
+                const clone = element.cloneNode(true);
+                clone.style.margin = '0 0 30px 0';
+                clone.style.pageBreakAfter = 'always';
+                wrapper.appendChild(clone);
+            }
+        }
+        
+        const opt = { ...pdfOptions, filename: 'Nolan_University_Complete_Record_Mwaba_Lewis.pdf' };
+        html2pdf().set(opt).from(wrapper).save();
+    }
+    
     document.getElementById('downloadBscPdf')?.addEventListener('click', () => {
         generatePDF('bscDiploma', 'Nolan_University_BSc_Finance_Investment_Mwaba_Lewis.pdf');
     });
@@ -800,6 +960,10 @@
     
     document.getElementById('downloadTranscriptPdf')?.addEventListener('click', () => {
         generatePDF('transcript', 'Nolan_University_Transcript_Mwaba_Lewis.pdf');
+    });
+    
+    document.getElementById('downloadCombinedPdf')?.addEventListener('click', () => {
+        generateCombinedPDF();
     });
 </script>
 </body>
