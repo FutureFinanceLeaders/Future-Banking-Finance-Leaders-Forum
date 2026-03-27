@@ -51,6 +51,50 @@
             position: relative;
             z-index: 1;
         }
+        
+        /* Hologram Effect */
+        .hologram {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 2;
+            background: linear-gradient(
+                135deg,
+                rgba(232, 180, 44, 0.03) 0%,
+                rgba(10, 47, 68, 0.02) 25%,
+                rgba(232, 180, 44, 0.04) 50%,
+                rgba(10, 47, 68, 0.02) 75%,
+                rgba(232, 180, 44, 0.03) 100%
+            );
+            border-radius: 4px;
+        }
+        
+        .hologram::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(232, 180, 44, 0.15) 50%,
+                transparent 100%
+            );
+            transform: rotate(45deg);
+            animation: hologramShine 8s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes hologramShine {
+            0% { transform: rotate(45deg) translateX(-100%) translateY(-100%); }
+            100% { transform: rotate(45deg) translateX(100%) translateY(100%); }
+        }
+        
         .header {
             background: #0a2f44;
             color: #e8b42c;
@@ -75,7 +119,7 @@
             color: #e8b42c;
             background: rgba(232,180,44,0.1);
             font-weight: bold;
-            line-height: 1.2;
+            z-index: 5;
         }
         .university-name { font-size: 2rem; font-weight: 700; letter-spacing: 2px; }
         .transcript-title { font-size: 1rem; text-transform: uppercase; letter-spacing: 3px; color: #f0e6d0; margin-top: 0.3rem; }
@@ -148,7 +192,7 @@
         .gpa-value { font-size: 1.2rem; font-weight: 700; color: #0a2f44; }
         .classification-badge { background: #e8b42c20; color: #9b7b2c; padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; display: inline-block; }
         
-        /* Signatures Section - Matching Diploma Style */
+        /* Signatures Section */
         .signatures-section {
             background: #fefaf0;
             padding: 1.5rem 2rem;
@@ -193,14 +237,8 @@
         }
         .framework-note { font-style: italic; margin-top: 0.5rem; color: #5a6e7c; background: #fefaf0; padding: 0.5rem; border-radius: 4px; }
         .print-btn { background: #0a2f44; color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 25px; cursor: pointer; margin-top: 1rem; }
-        .stamp {
-            text-align: center;
-            margin-top: 1rem;
-            padding-top: 0.5rem;
-            border-top: 1px dashed #e8b42c;
-            font-size: 0.65rem;
-            color: #8b7a62;
-        }
+        .stamp { text-align: center; margin-top: 1rem; padding-top: 0.5rem; border-top: 1px dashed #e8b42c; font-size: 0.65rem; color: #8b7a62; font-family: monospace; }
+        .microprint { font-size: 0.5rem; letter-spacing: 0.5px; color: #d4cbb6; text-align: center; margin-top: 0.25rem; }
         
         @media print {
             body { background: white; padding: 0; }
@@ -208,6 +246,7 @@
             .watermark { opacity: 0.05; }
             .seal { border-color: #0a2f44; color: #0a2f44; }
             .signature-line { border-bottom: 1px solid #000; }
+            .hologram { display: none; }
         }
         @media (max-width: 768px) {
             body { padding: 1rem; }
@@ -224,6 +263,9 @@
     </div>
 
     <div class="transcript">
+        <!-- Hologram Effect Overlay -->
+        <div class="hologram"></div>
+        
         <div class="header">
             <div class="seal">OFFICIAL<br>SEAL<br>NOLAN</div>
             <div class="university-name">NOLAN UNIVERSITY</div>
@@ -254,12 +296,12 @@
             <!-- Spring 2025 Term -->
             <div class="term-title">Spring 2025 Term</div>
             <table class="course-table">
-                <thead> <tr><th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th></tr> </thead>
+                <thead> <th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
                 <tbody>
-                    <tr><td>MBA 501</td><td>Strategic Leadership & Ethics</td><td class="module-desc">Examines leadership theories, ethical decision-making frameworks, corporate governance structures, stakeholder management, and strategic decision-making under uncertainty.</td><td>10</td><td>Distinction</td><td>78%</td></tr>
-                    <tr><td>MBA 502</td><td>Advanced Corporate Finance</td><td class="module-desc">Advanced analysis of capital structure optimization, dividend policy, corporate restructuring, valuation techniques, real options, and financing decisions.</td><td>10</td><td>Distinction</td><td>82%</td></tr>
-                    <tr><td>MBA 503</td><td>Entrepreneurial Mindset & Innovation</td><td class="module-desc">Explores design thinking, opportunity recognition, innovation management, business model generation, and lean startup methodology.</td><td>10</td><td>Merit</td><td>68%</td></tr>
-                    <tr><td>MBA 504</td><td>Financial Markets & Global Economics</td><td class="module-desc">Analysis of global financial systems, monetary policy frameworks, international capital flows, economic forecasting, geopolitical risk assessment.</td><td>10</td><td>Distinction</td><td>76%</td></tr>
+                     oxe<th>MBA 501</th><td class="module-desc">Strategic Leadership & Ethics<td class="module-desc">Examines leadership theories, ethical decision-making frameworks, corporate governance structures, stakeholder management, and strategic decision-making under uncertainty. Includes case studies on ethical dilemmas and responsible leadership.</td><td>10</td><td>Distinction</td><td>78%</td> </tr>
+                     <tr><td>MBA 502</td><td>Advanced Corporate Finance</td><td class="module-desc">Advanced analysis of capital structure optimization, dividend policy, corporate restructuring, valuation techniques, real options, and financing decisions. Emphasises practical applications through real-world corporate case studies.</td><td>10</td><td>Distinction</td><td>82%</td> </tr>
+                     <tr><td>MBA 503</td><td>Entrepreneurial Mindset & Innovation</td><td class="module-desc">Explores design thinking, opportunity recognition, innovation management, business model generation, and lean startup methodology. Develops skills for identifying and evaluating entrepreneurial opportunities.</td><td>10</td><td>Merit</td><td>68%</td> </tr>
+                     <tr><td>MBA 504</td><td>Financial Markets & Global Economics</td><td class="module-desc">Analysis of global financial systems, monetary policy frameworks, international capital flows, economic forecasting, geopolitical risk assessment, and the interconnectedness of global markets.</td><td>10</td><td>Distinction</td><td>76%</td> </tr>
                 </tbody>
             </table>
             <div class="term-gpa">Term Average: 76.0% | Credits: 40 | Classification: Distinction</div>
@@ -267,12 +309,12 @@
             <!-- Summer 2025 Term -->
             <div class="term-title">Summer 2025 Term</div>
             <table class="course-table">
-                <thead> <tr><th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th></tr> </thead>
+                <thead> <th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
                 <tbody>
-                    <tr><td>MBA 505</td><td>Venture Capital & Private Equity</td><td class="module-desc">Comprehensive study of private equity fund structures, deal sourcing, due diligence processes, term sheet negotiation, value creation strategies, exit mechanisms.</td><td>10</td><td>Distinction</td><td>85%</td></tr>
-                    <tr><td>MBA 506</td><td>Mergers & Acquisitions</td><td class="module-desc">Examination of the M&A lifecycle from strategic rationale to post-merger integration. Covers valuation methodologies, deal structuring, regulatory considerations.</td><td>10</td><td>Distinction</td><td>79%</td></tr>
-                    <tr><td>MBA 507</td><td>Data Analytics for Business</td><td class="module-desc">Application of predictive analytics, machine learning techniques, data visualisation, business intelligence tools, and AI applications in finance.</td><td>10</td><td>Merit</td><td>69%</td></tr>
-                    <tr><td>MBA 508</td><td>Negotiation & Deal Structuring</td><td class="module-desc">Advanced negotiation strategies, term sheet structuring, valuation dispute resolution, conflict management techniques, and cross-cultural negotiation skills.</td><td>10</td><td>Distinction</td><td>81%</td></tr>
+                     <tr><td>MBA 505</td><td>Venture Capital & Private Equity</td><td class="module-desc">Comprehensive study of private equity fund structures, deal sourcing, due diligence processes, term sheet negotiation, value creation strategies, exit mechanisms, and LP-GP relationships. Includes real deal analysis.</td><td>10</td><td>Distinction</td><td>85%</td> </tr>
+                     <tr><td>MBA 506</td><td>Mergers & Acquisitions</td><td class="module-desc">Examination of the M&A lifecycle from strategic rationale to post-merger integration. Covers valuation methodologies, deal structuring, regulatory considerations, and integration planning with case studies.</td><td>10</td><td>Distinction</td><td>79%</td> </tr>
+                     <tr><td>MBA 507</td><td>Data Analytics for Business</td><td class="module-desc">Application of predictive analytics, machine learning techniques, data visualisation, business intelligence tools, and AI applications in finance. Practical focus on data-driven decision-making.</td><td>10</td><td>Merit</td><td>69%</td> </tr>
+                     <tr><td>MBA 508</td><td>Negotiation & Deal Structuring</td><td class="module-desc">Advanced negotiation strategies, term sheet structuring, valuation dispute resolution, conflict management techniques, and cross-cultural negotiation skills. Simulation-based learning approach.</td><td>10</td><td>Distinction</td><td>81%</td> </tr>
                 </tbody>
             </table>
             <div class="term-gpa">Term Average: 78.5% | Credits: 40 | Classification: Distinction</div>
@@ -280,12 +322,12 @@
             <!-- Fall 2025 Term -->
             <div class="term-title">Fall 2025 Term</div>
             <table class="course-table">
-                <thead> <tr><th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th></tr> </thead>
+                <thead> <th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
                 <tbody>
-                    <tr><td>MBA 601</td><td>Entrepreneurial Finance</td><td class="module-desc">Focuses on startup valuation methodologies, fundraising strategies, convertible notes, SAFE agreements, financial modelling for ventures, crowdfunding platforms.</td><td>10</td><td>Distinction</td><td>84%</td></tr>
-                    <tr><td>MBA 602</td><td>Business Model Innovation</td><td class="module-desc">Explores disruptive innovation theories, platform business models, revenue model design, scaling strategies, digital transformation.</td><td>10</td><td>Distinction</td><td>80%</td></tr>
-                    <tr><td>MBA 603</td><td>Global Strategy & Competitiveness</td><td class="module-desc">Analysis of international expansion strategies, market entry modes, competitive positioning frameworks, cross-border management.</td><td>10</td><td>Distinction</td><td>77%</td></tr>
-                    <tr><td>MBA 604</td><td>Leadership in Complex Organizations</td><td class="module-desc">Examination of organisational dynamics, change management theories, culture transformation, crisis leadership, and team effectiveness.</td><td>10</td><td>Merit</td><td>70%</td></tr>
+                     <tr><td>MBA 601</td><td>Entrepreneurial Finance</td><td class="module-desc">Focuses on startup valuation methodologies, fundraising strategies, convertible notes, SAFE agreements, financial modelling for ventures, crowdfunding platforms, and investor relations.</td><td>10</td><td>Distinction</td><td>84%</td> </tr>
+                     <tr><td>MBA 602</td><td>Business Model Innovation</td><td class="module-desc">Explores disruptive innovation theories, platform business models, revenue model design, scaling strategies, digital transformation, and sustainable business model development.</td><td>10</td><td>Distinction</td><td>80%</td> </tr>
+                     <tr><td>MBA 603</td><td>Global Strategy & Competitiveness</td><td class="module-desc">Analysis of international expansion strategies, market entry modes, competitive positioning frameworks, cross-border management, and strategic adaptation to diverse institutional environments.</td><td>10</td><td>Distinction</td><td>77%</td> </tr>
+                     <tr><td>MBA 604</td><td>Leadership in Complex Organizations</td><td class="module-desc">Examination of organisational dynamics, change management theories, culture transformation, crisis leadership, and team effectiveness in complex organisational settings.</td><td>10</td><td>Merit</td><td>70%</td> </tr>
                 </tbody>
             </table>
             <div class="term-gpa">Term Average: 77.8% | Credits: 40 | Classification: Distinction</div>
@@ -295,10 +337,10 @@
             <!-- Spring 2026 Term - Capstone -->
             <div class="term-title">Spring 2026 Term · Capstone</div>
             <table class="course-table">
-                <thead> <tr><th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th></tr> </thead>
+                <thead> <th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
                 <tbody>
-                    <tr><td>MBA 605</td><td>Capstone: Entrepreneurship & Venture Creation</td><td class="module-desc">Integrated venture creation project requiring students to develop a comprehensive business plan, conduct market validation, create financial projections, and deliver an investor pitch.</td><td>30</td><td>Distinction</td><td>82%</td></tr>
-                    <tr><td>MBA 606</td><td>Investment Strategy & Portfolio Management</td><td class="module-desc">Advanced study of asset allocation strategies, risk-adjusted return measurement, alternative investments, impact investing, wealth management strategies.</td><td>30</td><td>Distinction</td><td>85%</td></tr>
+                     <tr><td>MBA 605</td><td>Capstone: Entrepreneurship & Venture Creation</td><td class="module-desc">Integrated venture creation project requiring students to develop a comprehensive business plan, conduct market validation, create financial projections, and deliver an investor pitch. Emphasises practical application of entrepreneurial finance and innovation concepts.</td><td>30</td><td>Distinction</td><td>82%</td> </tr>
+                     <tr><td>MBA 606</td><td>Investment Strategy & Portfolio Management</td><td class="module-desc">Advanced study of asset allocation strategies, risk-adjusted return measurement, alternative investments, impact investing, wealth management strategies, and institutional portfolio construction. Includes portfolio simulation exercise.</td><td>30</td><td>Distinction</td><td>85%</td> </tr>
                 </tbody>
             </table>
             <div class="term-gpa">Capstone Average: 83.5% | Credits: 60 | Classification: Distinction</div>
@@ -314,9 +356,9 @@
             <div style="background: #f0eadf; padding: 1rem; margin-top: 1rem; border-radius: 8px;">
                 <strong>🎓 UK Postgraduate Degree Classification (RQF Level 7)</strong><br><br>
                 <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem;">
-                    <tr style="border-bottom: 1px solid #d4cbb6;"><td style="padding: 0.3rem 0;"><strong>Distinction</strong><td>70% and above<td style="text-align: right;"><span style="color:#0a2f44; font-weight:700;">✓ ACHIEVED (78.5%)</span></tr>
-                    <tr style="border-bottom: 1px solid #d4cbb6;"><td style="padding: 0.3rem 0;"><strong>Merit</strong><td>60% – 69%<td style="text-align: right;">Achieved in 3 modules</tr>
-                    <tr><td style="padding: 0.3rem 0;"><strong>Pass</strong><td>50% – 59%<td style="text-align: right;">—</tr>
+                    <tr style="border-bottom: 1px solid #d4cbb6;"><td style="padding: 0.3rem 0;"><strong>Distinction</strong><td style="padding: 0.3rem 0;">70% and above<td style="text-align: right;"><span style="color:#0a2f44; font-weight:700;">✓ ACHIEVED (78.5%)</span></tr>
+                    <tr style="border-bottom: 1px solid #d4cbb6;"><td style="padding: 0.3rem 0;"><strong>Merit</strong><td style="padding: 0.3rem 0;">60% – 69%<td style="text-align: right;">Achieved in 3 modules</tr>
+                    <tr><td style="padding: 0.3rem 0;"><strong>Pass</strong><td style="padding: 0.3rem 0;">50% – 59%<td style="text-align: right;">—</tr>
                 </table>
                 <div style="margin-top: 0.8rem; font-size: 0.75rem; background: #fffef7; padding: 0.5rem; border-radius: 4px;">
                     <strong>Notes:</strong> Capstone modules (MBA 605 and MBA 606) carry double weighting at 30 credits each.
@@ -324,7 +366,7 @@
             </div>
         </div>
 
-        <!-- Signatures Section - Matching Diploma Style -->
+        <!-- SIGNATURES SECTION - MATCHING MBA DIPLOMA -->
         <div class="signatures-section">
             <div class="signature-block">
                 <div class="signature-line"></div>
@@ -335,6 +377,11 @@
                 <div class="signature-line"></div>
                 <div class="signature-name">John L. Hollaway</div>
                 <div class="signature-title">DEAN, GRADUATE SCHOOL OF BANKING & FINANCE</div>
+            </div>
+            <div class="signature-block">
+                <div class="signature-line"></div>
+                <div class="signature-name">Dr. Angela K. Foster</div>
+                <div class="signature-title">DEAN, SCHOOL OF ENTREPRENEURSHIP & VENTURE CREATION</div>
             </div>
             <div class="signature-block">
                 <div class="signature-line"></div>
@@ -354,6 +401,10 @@
             
             <div class="stamp">
                 ⚜️ OFFICIAL TRANSCRIPT — ISSUED BY THE REGISTRAR'S OFFICE — NOLAN UNIVERSITY ⚜️
+            </div>
+            
+            <div class="microprint">
+                • SECURE DOCUMENT • VERIFY ONLINE • NOLAN UNIVERSITY • REGISTRAR'S SEAL • 
             </div>
             
             <div style="margin-top: 0.5rem;">Issued: 27 March 2026</div>
