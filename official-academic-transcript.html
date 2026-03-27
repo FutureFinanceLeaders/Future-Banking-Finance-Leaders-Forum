@@ -115,35 +115,35 @@
             color: #1e3a4d;
         }
 
-        /* Degree Section Styles with Separation */
+        /* Degree Section Styles with Strong Separation */
         .degree-section {
-            padding: 2rem 2rem 1.5rem 2rem;
+            padding: 2rem 2rem;
         }
 
-        .degree-divider {
+        /* Strong separator for print */
+        .degree-separator {
+            background: linear-gradient(135deg, #0a2f44 0%, #1a4a6e 100%);
+            padding: 1.2rem;
             text-align: center;
             margin: 1rem 0;
-            position: relative;
+            border-top: 3px solid #e8b42c;
+            border-bottom: 3px solid #e8b42c;
+            page-break-before: avoid;
+            page-break-after: avoid;
         }
 
-        .degree-divider:before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(to right, transparent, #e8b42c, #e8b42c, transparent);
+        .degree-separator-text {
+            color: #e8b42c;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
-        .degree-divider span {
-            background: #fffef7;
-            padding: 0 1.5rem;
-            position: relative;
-            color: #8b7a62;
+        .degree-separator-sub {
+            color: #f0e6d0;
             font-size: 0.8rem;
-            letter-spacing: 2px;
-            font-weight: 600;
+            margin-top: 0.3rem;
         }
 
         .degree-header {
@@ -189,6 +189,7 @@
             padding: 0.6rem 0.5rem;
             border-bottom: 1px solid #e2d9cc;
             color: #2c3e4e;
+            vertical-align: top;
         }
 
         .term-row td {
@@ -210,7 +211,6 @@
         .module-description {
             font-size: 0.75rem;
             color: #6b5e4a;
-            margin-top: 0.2rem;
             line-height: 1.3;
         }
 
@@ -254,13 +254,6 @@
             font-size: 0.75rem;
             font-weight: 600;
             margin-left: 0.5rem;
-        }
-
-        /* MBA Section Special Styling */
-        .mba-section {
-            background: linear-gradient(to bottom, #fffef7, #fefbf5);
-            border-top: 3px solid #e8b42c;
-            margin-top: 1rem;
         }
 
         .transcript-footer {
@@ -332,6 +325,88 @@
             color: #0a2f44;
         }
 
+        /* PRINT STYLES - Optimized for strong separation */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .print-btn {
+                display: none;
+            }
+            
+            .transcript {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                max-width: 100%;
+                margin: 0;
+            }
+            
+            .seal {
+                border: 2px solid #0a2f44;
+                color: #0a2f44;
+                background: white;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            /* Force strong separator to print with colors */
+            .degree-separator {
+                background: #0a2f44 !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+                page-break-after: avoid;
+                page-break-before: avoid;
+            }
+            
+            .degree-separator-text {
+                color: #e8b42c !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            /* Ensure degree headers print with color */
+            .degree-header {
+                background: #0a2f44 !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            /* Page break control - start MBA on new page */
+            .mba-section-start {
+                page-break-before: always;
+                margin-top: 2rem;
+            }
+            
+            /* Keep related content together */
+            .degree-section {
+                page-break-inside: avoid;
+            }
+            
+            .degree-header {
+                page-break-after: avoid;
+            }
+            
+            .course-table {
+                page-break-inside: auto;
+            }
+            
+            tr {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+            
+            .module-description {
+                font-size: 0.7rem;
+            }
+            
+            .gpa-summary {
+                page-break-inside: avoid;
+            }
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 1rem;
@@ -349,7 +424,7 @@
                 font-size: 0.7rem;
             }
             .module-description {
-                display: none;
+                font-size: 0.65rem;
             }
             .gpa-summary {
                 flex-direction: column;
@@ -367,28 +442,6 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-            }
-        }
-
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            .print-btn {
-                display: none;
-            }
-            .transcript {
-                box-shadow: none;
-                border: 1px solid #ccc;
-            }
-            .seal {
-                border: 2px solid #0a2f44;
-                color: #0a2f44;
-                background: white;
-            }
-            .module-description {
-                display: table-cell;
             }
         }
     </style>
@@ -444,11 +497,11 @@
             <table class="course-table">
                 <thead>
                     <tr>
-                        <th style="width: 20%">Course Code</th>
-                        <th style="width: 35%">Course Title</th>
-                        <th style="width: 35%">Module Description</th>
-                        <th style="width: 5%">Credits</th>
-                        <th style="width: 5%">Grade</th>
+                        <th style="width: 18%">Course Code</th>
+                        <th style="width: 27%">Course Title</th>
+                        <th style="width: 40%">Module Description</th>
+                        <th style="width: 7%">Credits</th>
+                        <th style="width: 8%">Grade</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -515,11 +568,14 @@
             </div>
         </div>
 
-        <!-- VISUAL SEPARATOR BETWEEN DEGREES -->
-        <div class="degree-divider"><span>✦ ✦ ✦   MASTER'S DEGREE   ✦ ✦ ✦</span></div>
+        <!-- STRONG VISUAL SEPARATOR - MASTER'S DEGREE -->
+        <div class="degree-separator">
+            <div class="degree-separator-text">✦ ✦ ✦   MASTER OF BUSINESS ADMINISTRATION   ✦ ✦ ✦</div>
+            <div class="degree-separator-sub">Graduate School of Banking & Finance · School of Entrepreneurship & Venture Creation</div>
+        </div>
 
-        <!-- MASTER OF BUSINESS ADMINISTRATION SECTION -->
-        <div class="degree-section mba-section">
+        <!-- MASTER OF BUSINESS ADMINISTRATION SECTION - with page break for print -->
+        <div class="degree-section mba-section-start">
             <div class="degree-header">
                 <div class="degree-name">🎓 Master of Business Administration — Entrepreneurship & Finance</div>
                 <div class="degree-meta">Enrolled: February 2025 · Conferred: 26 March 2026</div>
@@ -528,11 +584,11 @@
             <table class="course-table">
                 <thead>
                     <tr>
-                        <th style="width: 20%">Course Code</th>
-                        <th style="width: 35%">Course Title</th>
-                        <th style="width: 35%">Module Description</th>
-                        <th style="width: 5%">Credits</th>
-                        <th style="width: 5%">Grade</th>
+                        <th style="width: 18%">Course Code</th>
+                        <th style="width: 27%">Course Title</th>
+                        <th style="width: 40%">Module Description</th>
+                        <th style="width: 7%">Credits</th>
+                        <th style="width: 8%">Grade</th>
                     </tr>
                 </thead>
                 <tbody>
