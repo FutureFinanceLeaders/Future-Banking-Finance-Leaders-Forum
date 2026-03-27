@@ -19,7 +19,6 @@
             color: #1e2a2f;
         }
 
-        /* Page container for printing separation */
         .page {
             max-width: 1100px;
             margin: 0 auto 40px auto;
@@ -37,7 +36,6 @@
             margin-bottom: 0;
         }
 
-        /* Print styles */
         @media print {
             body {
                 background-color: white;
@@ -59,7 +57,6 @@
             }
         }
 
-        /* Seal styling */
         .seal {
             position: absolute;
             top: 40px;
@@ -88,17 +85,6 @@
             margin-top: 5px;
         }
 
-        h1 {
-            font-size: 28px;
-            letter-spacing: 2px;
-            text-align: center;
-            color: #2c4b3e;
-            border-bottom: 2px solid #b59d6e;
-            display: inline-block;
-            padding-bottom: 8px;
-            margin-bottom: 12px;
-        }
-
         .uni-header {
             text-align: center;
             margin-bottom: 30px;
@@ -124,7 +110,7 @@
             background: #faf8f0;
             padding: 16px 20px;
             border-left: 5px solid #b59d6e;
-            margin: 25px 0;
+            margin: 20px 0;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -140,12 +126,69 @@
             color: #4a5b52;
         }
 
+        /* NEW: Classification Summary Box - Prominent and Easy to Read */
+        .classification-summary {
+            background: linear-gradient(135deg, #f4f0e6 0%, #e8e2d4 100%);
+            border: 2px solid #b59d6e;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin: 20px 0 25px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .summary-card {
+            text-align: center;
+            padding: 8px 16px;
+            min-width: 120px;
+        }
+        .summary-label {
+            font-size: 12px;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 1px;
+            color: #5e4b2e;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .summary-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c4b3e;
+            margin-top: 5px;
+        }
+        .summary-value-small {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c4b3e;
+        }
+        .classification-badge-large {
+            display: inline-block;
+            background: #2c4b3e;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .honors-badge-large {
+            display: inline-block;
+            background: #e9ddb0;
+            color: #5e4b2e;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
         .section-title {
             font-size: 22px;
             font-weight: bold;
             background-color: #eae5d6;
             padding: 8px 12px;
-            margin: 30px 0 15px 0;
+            margin: 25px 0 15px 0;
             border-left: 6px solid #2c4b3e;
             color: #2c4b3e;
         }
@@ -187,11 +230,6 @@
             background-color: #fefcf5;
         }
 
-        .term-total {
-            background-color: #f3efe4;
-            font-weight: bold;
-        }
-
         .summary-box {
             background: #faf8f0;
             padding: 16px 20px;
@@ -210,16 +248,16 @@
             margin-bottom: 8px;
         }
 
-        .classification-badge {
-            display: inline-block;
-            background: #d4e0d9;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
+        .distinction-cell {
+            background-color: #e0f0e8;
             font-weight: bold;
-            margin-right: 12px;
-            margin-bottom: 8px;
-            color: #2c4b3e;
+            color: #1e5a4a;
+        }
+
+        .merit-cell {
+            background-color: #fff0d0;
+            font-weight: bold;
+            color: #b45f1b;
         }
 
         .footer {
@@ -281,6 +319,10 @@
                 top: 20px;
                 right: 20px;
             }
+            .classification-summary {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -304,7 +346,7 @@
         <div class="accreditation">Accredited by EQUIS, AACSB, and the International Assembly for Collegiate Business Education (IACBE)</div>
     </div>
 
-    <!-- Student Info -->
+    <!-- Student Information -->
     <div class="student-info">
         <div class="info-item"><span class="info-label">Name:</span> Mwaba Lewis</div>
         <div class="info-item"><span class="info-label">Student ID:</span> NU-2022-0842</div>
@@ -312,21 +354,37 @@
         <div class="info-item"><span class="info-label">Citizenship:</span> [Country]</div>
     </div>
 
-    <!-- UNDERGRADUATE SECTION -->
+    <!-- CLASSIFICATION SUMMARY BOX - PROMINENT & EASY TO READ -->
+    <div class="classification-summary">
+        <div class="summary-card">
+            <div class="summary-label">CLASSIFICATION</div>
+            <div class="summary-value">Upper Second Class<br>Honors (2:1)</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-label">OVERALL PERFORMANCE</div>
+            <div class="classification-badge-large">DISTINCTION</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-label">GPA</div>
+            <div class="summary-value">3.5 / 4.0</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-label">LATIN HONORS</div>
+            <div class="summary-value-small">cum laude</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-label">MERIT AWARDS</div>
+            <div class="summary-value-small">Dean's Merit List<br>(3 Semesters)</div>
+        </div>
+    </div>
+
     <div class="section-title">UNDERGRADUATE RECORD</div>
     <div class="degree-header">
         <span>Bachelor of Science in Finance & Investment</span>
         <span>School: Graduate School of Banking & Finance</span>
     </div>
-    <div><strong>Enrollment:</strong> September 2022 &nbsp;|&nbsp; <strong>Conferral:</strong> 31 December 2024 &nbsp;|&nbsp; <strong>Cumulative GPA:</strong> 3.5</div>
-    <div style="margin: 10px 0;">
-        <span class="honors-badge">cum laude</span>
-        <span class="honors-badge">Upper Second Class Honors (2:1)</span>
-        <span class="honors-badge">Distinction (Overall)</span>
-        <span class="classification-badge">Dean's Merit List — 3 Semesters</span>
-    </div>
+    <div><strong>Enrollment:</strong> September 2022 &nbsp;|&nbsp; <strong>Conferral:</strong> 31 December 2024</div>
 
-    <!-- Term-by-term Undergraduate -->
     <h3 style="margin: 20px 0 10px 0;">Term-by-Term GPA Breakdown</h3>
     <table>
         <thead>
@@ -352,12 +410,6 @@
         </tbody>
     </table>
 
-    <div class="summary-box">
-        <strong>Undergraduate Term GPA Summary</strong><br>
-        Fall 2022: 3.70 | Spring 2023: 3.55 | Fall 2023: 3.43 | Spring 2024: 3.60 | Fall 2024: 3.50<br>
-        <strong>Cumulative GPA (final):</strong> 3.57 → 3.5 (official)
-    </div>
-
     <div class="footer">
         <div><strong>Transcript ID:</strong> NU-TR-2026-0843 (Undergraduate)</div>
         <div><strong>Issue Date:</strong> 27 March 2026</div>
@@ -371,7 +423,7 @@
     </div>
 </div>
 
-<!-- ==================== PAGE 2: GRADUATE ==================== -->
+<!-- ==================== PAGE 2: GRADUATE with CLASSIFICATION SUMMARY ==================== -->
 <div id="graduate-page" class="page">
     <div class="seal">
         <span>NOLAN</span>
@@ -383,7 +435,6 @@
         <div class="accreditation">Accredited by EQUIS, AACSB, and the International Assembly for Collegiate Business Education (IACBE)</div>
     </div>
 
-    <!-- Student Info -->
     <div class="student-info">
         <div class="info-item"><span class="info-label">Name:</span> Mwaba Lewis</div>
         <div class="info-item"><span class="info-label">Student ID:</span> NU-2022-0842</div>
@@ -391,66 +442,59 @@
         <div class="info-item"><span class="info-label">Citizenship:</span> [Country]</div>
     </div>
 
-    <!-- GRADUATE SECTION -->
+    <!-- CLASSIFICATION SUMMARY BOX - GRADUATE - PROMINENT & EASY TO READ -->
+    <div class="classification-summary">
+        <div class="summary-card">
+            <div class="summary-label">CLASSIFICATION</div>
+            <div class="classification-badge-large">DISTINCTION</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-label">GPA</div>
+            <div class="summary-value">3.7 / 4.0</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-label">LATIN HONORS</div>
+            <div class="summary-value-small">magna cum laude</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-label">COURSE PERFORMANCE</div>
+            <div class="summary-value-small">15 Credits Distinction<br>6 Credits Merit</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-label">MERIT AWARDS</div>
+            <div class="summary-value-small">Dean's Merit List<br>(Full Program)</div>
+        </div>
+    </div>
+
     <div class="section-title">GRADUATE RECORD</div>
     <div class="degree-header">
         <span>MBA in Entrepreneurship & Finance (Joint Degree)</span>
         <span>Schools: Entrepreneurship & Venture Creation + Banking & Finance</span>
     </div>
-    <div><strong>Enrollment:</strong> March 2025 &nbsp;|&nbsp; <strong>Conferral:</strong> 26 March 2026 &nbsp;|&nbsp; <strong>Cumulative GPA:</strong> 3.7</div>
-    <div style="margin: 10px 0;">
-        <span class="honors-badge">magna cum laude</span>
-        <span class="honors-badge">Distinction (Degree Classification)</span>
-        <span class="honors-badge">Dean's Merit List — Full Program</span>
-        <span class="classification-badge">Overall: DISTINCTION</span>
+    <div><strong>Enrollment:</strong> March 2025 &nbsp;|&nbsp; <strong>Conferral:</strong> 26 March 2026</div>
+
+    <div style="margin: 15px 0; padding: 8px 12px; background: #f9f6ef; border: 1px solid #ddd0b6; font-size: 12px; display: inline-block;">
+        <strong>Classification Key:</strong> 
+        <span style="background:#e0f0e8; padding:2px 8px;">Distinction (A, A-)</span> 
+        <span style="background:#fff0d0; padding:2px 8px;">Merit (B+, B)</span>
     </div>
 
-    <!-- Graduate Term-by-Term with Classification Column -->
-    <h3 style="margin: 20px 0 10px 0;">Term-by-Term GPA Breakdown with Classification</h3>
+    <h3 style="margin: 20px 0 10px 0;">Term-by-Term GPA with Classification</h3>
     <table>
         <thead>
             <tr><th>Term</th><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Points</th><th>Classification</th><th>Term GPA</th></tr>
         </thead>
         <tbody>
-            <tr class="term-row"><td rowspan="3">Spring 2025</td><td>ENT 501</td><td>Venture Creation & Entrepreneurial Mindset</td><td>3</td><td>A-</td><td>3.7</td><td style="background:#e0f0e8;">Distinction</td><td rowspan="3" style="background:#f3efe4; text-align:center;">3.63</td></tr>
-            <tr class="term-row"><td>FIN 505</td><td>Advanced Corporate Finance</td><td>3</td><td>A-</td><td>3.7</td><td style="background:#e0f0e8;">Distinction</td></tr>
-            <tr class="term-row"><td>MGT 501</td><td>Leadership & Organizational Behavior</td><td>3</td><td>A-</td><td>3.7</td><td style="background:#e0f0e8;">Distinction</td></tr>
-            <tr class="term-row"><td rowspan="3">Summer 2025</td><td>ENT 502</td><td>New Venture Financing</td><td>3</td><td>A</td><td>4.0</td><td style="background:#e0f0e8;">Distinction</td><td rowspan="3" style="background:#f3efe4; text-align:center;">3.70</td></tr>
-            <tr class="term-row"><td>FIN 506</td><td>Private Equity & Venture Capital</td><td>3</td><td>A</td><td>4.0</td><td style="background:#e0f0e8;">Distinction</td></tr>
-            <tr class="term-row"><td>MKT 501</td><td>Strategic Marketing for Entrepreneurs</td><td>3</td><td>B+</td><td>3.3</td><td style="background:#fff0d0;">Merit</td></tr>
-            <tr class="term-row"><td rowspan="2">Fall 2025</td><td>FIN 507</td><td>Entrepreneurial Finance</td><td>3</td><td>B+</td><td>3.3</td><td style="background:#fff0d0;">Merit</td><td rowspan="2" style="background:#f3efe4; text-align:center;">3.85</td></tr>
-            <tr class="term-row"><td>BUS 601</td><td>Capstone: Entrepreneurship & Finance Integration</td><td>3</td><td>A</td><td>4.0</td><td style="background:#e0f0e8;">Distinction</td></tr>
+            <tr class="term-row"><td rowspan="3">Spring 2025</td><td>ENT 501</td><td>Venture Creation & Entrepreneurial Mindset</td><td>3</td><td>A-</td><td>3.7</td><td class="distinction-cell">DISTINCTION</td><td rowspan="3" style="background:#f3efe4; text-align:center;">3.63</td></tr>
+            <tr class="term-row"><td>FIN 505</td><td>Advanced Corporate Finance</td><td>3</td><td>A-</td><td>3.7</td><td class="distinction-cell">DISTINCTION</td></tr>
+            <tr class="term-row"><td>MGT 501</td><td>Leadership & Organizational Behavior</td><td>3</td><td>A-</td><td>3.7</td><td class="distinction-cell">DISTINCTION</td></tr>
+            <tr class="term-row"><td rowspan="3">Summer 2025</td><td>ENT 502</td><td>New Venture Financing</td><td>3</td><td>A</td><td>4.0</td><td class="distinction-cell">DISTINCTION</td><td rowspan="3" style="background:#f3efe4; text-align:center;">3.70</td></tr>
+            <tr class="term-row"><td>FIN 506</td><td>Private Equity & Venture Capital</td><td>3</td><td>A</td><td>4.0</td><td class="distinction-cell">DISTINCTION</td></tr>
+            <tr class="term-row"><td>MKT 501</td><td>Strategic Marketing for Entrepreneurs</td><td>3</td><td>B+</td><td>3.3</td><td class="merit-cell">MERIT</td></tr>
+            <tr class="term-row"><td rowspan="2">Fall 2025</td><td>FIN 507</td><td>Entrepreneurial Finance</td><td>3</td><td>B+</td><td>3.3</td><td class="merit-cell">MERIT</td><td rowspan="2" style="background:#f3efe4; text-align:center;">3.85</td></tr>
+            <tr class="term-row"><td>BUS 601</td><td>Capstone: Entrepreneurship & Finance Integration</td><td>3</td><td>A</td><td>4.0</td><td class="distinction-cell">DISTINCTION</td></tr>
         </tbody>
     </table>
-
-    <div class="summary-box">
-        <strong>Graduate Term GPA Summary</strong><br>
-        Spring 2025: 3.63 | Summer 2025: 3.70 | Fall 2025: 3.85<br>
-        <strong>Cumulative GPA:</strong> 3.72 → 3.7 (official)
-    </div>
-
-    <!-- Classification Summary Table -->
-    <h3 style="margin: 20px 0 10px 0;">Graduate Classification Summary</h3>
-    <table style="width: 70%; min-width: 280px;">
-        <thead>
-            <tr><th>Classification</th><th>Courses</th><th>Credits Earned</th></tr>
-        </thead>
-        <tbody>
-            <tr style="background:#e0f0e8;"><td><strong>Distinction</strong> (A, A-)</td><td>5 courses</td><td>15 credits</td></tr>
-            <tr style="background:#fff0d0;"><td><strong>Merit</strong> (B+, B)</td><td>2 courses</td><td>6 credits</td></tr>
-            <tr><td><strong>Credit</strong> (B-, C+)</td><td>0 courses</td><td>0 credits</td></tr>
-            <tr><td><strong>Pass</strong> (C)</td><td>0 courses</td><td>0 credits</td></tr>
-            <tr style="background:#f3efe4; font-weight:bold;"><td>TOTAL</td><td>7 courses</td><td>24 credits</td></tr>
-        </tbody>
-    </table>
-
-    <div class="summary-box" style="margin-top: 20px;">
-        <strong>Graduate Academic Honors & Classifications:</strong><br>
-        🏅 <strong>Overall Degree Classification:</strong> DISTINCTION<br>
-        🎓 <strong>Latin Honors:</strong> magna cum laude (GPA 3.70–3.89)<br>
-        📜 <strong>Course-Level Breakdown:</strong> 15 credits at Distinction | 6 credits at Merit | 0 credits at Credit/Pass<br>
-        ⭐ <strong>Merit Award:</strong> Graduate Dean's Merit List — Full Program
-    </div>
 
     <div class="footer">
         <div><strong>Transcript ID:</strong> NU-TR-2026-0843 (Graduate)</div>
@@ -467,8 +511,6 @@
 
 <script>
     function printUndergraduate() {
-        const originalTitle = document.title;
-        document.title = "Nolan University - Undergraduate Transcript - Mwaba Lewis";
         const printContent = document.getElementById('undergraduate-page').innerHTML;
         const printWindow = window.open('', '_blank');
         printWindow.document.write(`
@@ -481,16 +523,18 @@
                     .seal { position: absolute; top: 40px; right: 45px; width: 100px; height: 100px; border: 2px solid #8b7a5c; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fef7e0; font-size: 10px; text-align: center; }
                     .uni-header { text-align: center; margin-bottom: 30px; }
                     .uni-name { font-size: 36px; font-weight: bold; color: #2c4b3e; }
-                    .student-info { background: #faf8f0; padding: 16px 20px; margin: 25px 0; display: flex; flex-wrap: wrap; }
-                    .info-item { width: 48%; margin: 6px 0; }
-                    .section-title { font-size: 22px; font-weight: bold; background: #eae5d6; padding: 8px 12px; margin: 30px 0 15px 0; border-left: 6px solid #2c4b3e; }
-                    table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 13px; }
-                    th, td { border: 1px solid #cfcbbd; padding: 8px 6px; }
+                    .student-info { background: #faf8f0; padding: 16px; margin: 20px 0; display: flex; flex-wrap: wrap; }
+                    .classification-summary { background: #f4f0e6; border: 2px solid #b59d6e; border-radius: 12px; padding: 20px; margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: space-around; }
+                    .summary-card { text-align: center; padding: 8px; }
+                    .summary-label { font-size: 12px; text-transform: uppercase; font-weight: bold; }
+                    .summary-value { font-size: 24px; font-weight: bold; color: #2c4b3e; }
+                    .classification-badge-large { background: #2c4b3e; color: white; padding: 6px 16px; border-radius: 40px; font-size: 18px; display: inline-block; }
+                    table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+                    th, td { border: 1px solid #cfcbbd; padding: 8px; }
                     th { background: #eae5d6; }
-                    .honors-badge { display: inline-block; background: #e9ddb0; padding: 4px 12px; border-radius: 20px; font-size: 12px; margin-right: 12px; }
                     .footer { margin-top: 40px; border-top: 1px solid #cfcbbd; padding-top: 25px; display: flex; justify-content: space-between; }
                     .signature { margin-top: 25px; border-top: 1px solid #2c4b3e; width: 250px; text-align: center; }
-                    .verification { background: #f0ede4; padding: 12px; font-family: monospace; margin-top: 20px; }
+                    .verification { background: #f0ede4; padding: 12px; margin-top: 20px; }
                 </style>
                 </head>
                 <body><div class="page">${printContent}</div></body>
@@ -498,12 +542,9 @@
         `);
         printWindow.document.close();
         printWindow.print();
-        document.title = originalTitle;
     }
 
     function printGraduate() {
-        const originalTitle = document.title;
-        document.title = "Nolan University - Graduate Transcript - Mwaba Lewis";
         const printContent = document.getElementById('graduate-page').innerHTML;
         const printWindow = window.open('', '_blank');
         printWindow.document.write(`
@@ -516,18 +557,20 @@
                     .seal { position: absolute; top: 40px; right: 45px; width: 100px; height: 100px; border: 2px solid #8b7a5c; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fef7e0; font-size: 10px; text-align: center; }
                     .uni-header { text-align: center; margin-bottom: 30px; }
                     .uni-name { font-size: 36px; font-weight: bold; color: #2c4b3e; }
-                    .student-info { background: #faf8f0; padding: 16px 20px; margin: 25px 0; display: flex; flex-wrap: wrap; }
-                    .info-item { width: 48%; margin: 6px 0; }
-                    .section-title { font-size: 22px; font-weight: bold; background: #eae5d6; padding: 8px 12px; margin: 30px 0 15px 0; border-left: 6px solid #2c4b3e; }
-                    table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 13px; }
-                    th, td { border: 1px solid #cfcbbd; padding: 8px 6px; }
+                    .student-info { background: #faf8f0; padding: 16px; margin: 20px 0; display: flex; flex-wrap: wrap; }
+                    .classification-summary { background: #f4f0e6; border: 2px solid #b59d6e; border-radius: 12px; padding: 20px; margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: space-around; }
+                    .summary-card { text-align: center; padding: 8px; }
+                    .summary-label { font-size: 12px; text-transform: uppercase; font-weight: bold; }
+                    .summary-value { font-size: 24px; font-weight: bold; color: #2c4b3e; }
+                    .classification-badge-large { background: #2c4b3e; color: white; padding: 6px 16px; border-radius: 40px; font-size: 18px; display: inline-block; }
+                    .distinction-cell { background: #e0f0e8; font-weight: bold; }
+                    .merit-cell { background: #fff0d0; font-weight: bold; }
+                    table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+                    th, td { border: 1px solid #cfcbbd; padding: 8px; }
                     th { background: #eae5d6; }
-                    .honors-badge, .classification-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; margin-right: 12px; }
-                    .honors-badge { background: #e9ddb0; }
-                    .classification-badge { background: #d4e0d9; }
                     .footer { margin-top: 40px; border-top: 1px solid #cfcbbd; padding-top: 25px; display: flex; justify-content: space-between; }
                     .signature { margin-top: 25px; border-top: 1px solid #2c4b3e; width: 250px; text-align: center; }
-                    .verification { background: #f0ede4; padding: 12px; font-family: monospace; margin-top: 20px; }
+                    .verification { background: #f0ede4; padding: 12px; margin-top: 20px; }
                 </style>
                 </head>
                 <body><div class="page">${printContent}</div></body>
@@ -535,7 +578,6 @@
         `);
         printWindow.document.close();
         printWindow.print();
-        document.title = originalTitle;
     }
 </script>
 </body>
