@@ -36,6 +36,22 @@
             margin-bottom: 0;
         }
 
+        /* Watermark for security */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.08;
+            font-size: 80px;
+            font-weight: bold;
+            color: var(--nolan-dark-green);
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+            font-family: 'Arial', sans-serif;
+        }
+
         @media print {
             body {
                 background-color: white;
@@ -48,12 +64,16 @@
                 margin: 0;
                 page-break-after: always;
                 break-inside: avoid;
+                position: relative;
             }
             .page:last-child {
                 page-break-after: auto;
             }
             .no-print {
                 display: none;
+            }
+            .watermark {
+                opacity: 0.1;
             }
         }
 
@@ -66,7 +86,6 @@
             --nolan-brown: #8b7355;
         }
 
-        /* Brand Header with Logo */
         .brand-header {
             text-align: center;
             margin-bottom: 25px;
@@ -120,11 +139,7 @@
             color: var(--nolan-dark-green);
             font-weight: bold;
             font-family: 'Arial', sans-serif;
-        }
-        .seal span:first-child {
-            font-size: 12px;
-            letter-spacing: 2px;
-            font-weight: bold;
+            z-index: 1;
         }
 
         .student-info {
@@ -147,7 +162,6 @@
             color: var(--nolan-dark-green);
         }
 
-        /* Classification Summary Box */
         .classification-summary {
             background: linear-gradient(135deg, var(--nolan-cream) 0%, #f0ebe0 100%);
             border: 2px solid var(--nolan-gold);
@@ -192,7 +206,6 @@
             border-radius: 40px;
             font-size: 20px;
             font-weight: bold;
-            letter-spacing: 1px;
         }
         .merit-badge-large {
             display: inline-block;
@@ -202,7 +215,6 @@
             border-radius: 40px;
             font-size: 20px;
             font-weight: bold;
-            letter-spacing: 1px;
         }
 
         .section-title {
@@ -249,10 +261,6 @@
             vertical-align: top;
         }
 
-        .term-row {
-            background-color: #fefcf5;
-        }
-
         .summary-box {
             background: var(--nolan-cream);
             padding: 16px 20px;
@@ -270,18 +278,6 @@
             margin-right: 12px;
             margin-bottom: 8px;
             color: var(--nolan-brown);
-        }
-
-        .classification-badge {
-            display: inline-block;
-            background: #d4e0d9;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-right: 12px;
-            margin-bottom: 8px;
-            color: var(--nolan-dark-green);
         }
 
         .distinction-cell {
@@ -335,11 +331,17 @@
             font-size: 14px;
             border-radius: 6px;
             cursor: pointer;
-            font-family: 'Arial', sans-serif;
             margin: 0 8px;
         }
         .print-button button:hover {
             background: var(--nolan-light-green);
+        }
+
+        .page-number {
+            text-align: center;
+            font-size: 10px;
+            color: #8b7355;
+            margin-top: 20px;
         }
 
         @media (max-width: 700px) {
@@ -352,16 +354,12 @@
             .seal {
                 width: 70px;
                 height: 70px;
-                font-size: 7px;
                 top: 20px;
                 right: 20px;
             }
             .classification-summary {
                 flex-direction: column;
                 gap: 15px;
-            }
-            .university-name {
-                font-size: 32px;
             }
         }
     </style>
@@ -376,13 +374,13 @@
 
 <!-- ==================== PAGE 1: UNDERGRADUATE ==================== -->
 <div id="undergraduate-page" class="page">
+    <div class="watermark">OFFICIAL TRANSCRIPT</div>
     <div class="seal">
         <span>NOLAN</span>
         <span>UNIVERSITY</span>
         <span>EST. 2020</span>
     </div>
     
-    <!-- Brand Header with Logo -->
     <div class="brand-header">
         <div class="brand-logo">
             <div class="university-name">NOLAN UNIVERSITY</div>
@@ -391,7 +389,6 @@
         <div class="accreditation">Accredited by EQUIS, AACSB, and the International Assembly for Collegiate Business Education (IACBE)</div>
     </div>
 
-    <!-- Student Information -->
     <div class="student-info">
         <div class="info-item"><span class="info-label">Name:</span> Mwaba Lewis</div>
         <div class="info-item"><span class="info-label">Student ID:</span> NU-2022-0842</div>
@@ -399,7 +396,6 @@
         <div class="info-item"><span class="info-label">Citizenship:</span> [Country]</div>
     </div>
 
-    <!-- CLASSIFICATION SUMMARY BOX -->
     <div class="classification-summary">
         <div class="summary-card">
             <div class="summary-label">CLASSIFICATION</div>
@@ -418,8 +414,8 @@
             <div class="summary-value-small">cum laude</div>
         </div>
         <div class="summary-card">
-            <div class="summary-label">MERIT AWARDS</div>
-            <div class="summary-value-small">Dean's Merit List<br>(3 Semesters)</div>
+            <div class="summary-label">ACADEMIC STANDING</div>
+            <div class="summary-value-small">Good Standing</div>
         </div>
     </div>
 
@@ -428,60 +424,60 @@
         <span>Bachelor of Science in Finance & Investment</span>
         <span>School: Graduate School of Banking & Finance</span>
     </div>
-    <div><strong>Enrollment:</strong> September 2022 &nbsp;|&nbsp; <strong>Conferral:</strong> 31 December 2024 &nbsp;|&nbsp; <strong>Cumulative GPA:</strong> 3.5</div>
-    <div style="margin: 10px 0;">
-        <span class="honors-badge">cum laude</span>
-        <span class="honors-badge">Upper Second Class Honors (2:1)</span>
-        <span class="honors-badge">Merit (Overall)</span>
-        <span class="classification-badge">Dean's Merit List — 3 Semesters</span>
-    </div>
+    <div><strong>Enrollment:</strong> September 2022 &nbsp;|&nbsp; <strong>Conferral:</strong> 31 December 2024 &nbsp;|&nbsp; <strong>Degree Status:</strong> Conferred</div>
 
-    <h3 style="margin: 20px 0 10px 0;">Term-by-Term GPA Breakdown</h3>
+    <h3 style="margin: 20px 0 10px 0;">Course Record</h3>
     <table>
         <thead>
-            <tr><th>Term</th><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Grade Points</th><th>Term GPA</th></tr>
+            <tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Grade Points</th></tr>
         </thead>
         <tbody>
-            <tr class="term-row"><td rowspan="4">Fall 2022</td><td>FIN 101</td><td>Principles of Finance</td><td>3</td><td>A</td><td>4.0</td><td rowspan="4" style="background:#f3efe4; text-align:center;">3.70</td></tr>
-            <tr class="term-row"><td>ACC 101</td><td>Financial Accounting</td><td>3</td><td>B+</td><td>3.3</td></tr>
-            <tr class="term-row"><td>ECO 101</td><td>Principles of Microeconomics</td><td>3</td><td>A</td><td>4.0</td></tr>
-            <tr class="term-row"><td>MTH 101</td><td>Calculus for Business</td><td>3</td><td>A</td><td>4.0</td></tr>
-            <tr class="term-row"><td rowspan="4">Spring 2023</td><td>FIN 102</td><td>Investment Analysis</td><td>3</td><td>A-</td><td>3.7</td><td rowspan="4" style="background:#f3efe4; text-align:center;">3.55</td></tr>
-            <tr class="term-row"><td>ACC 201</td><td>Managerial Accounting</td><td>3</td><td>A-</td><td>3.7</td></tr>
-            <tr class="term-row"><td>ECO 102</td><td>Principles of Macroeconomics</td><td>3</td><td>B+</td><td>3.3</td></tr>
-            <tr class="term-row"><td>STAT 101</td><td>Business Statistics</td><td>3</td><td>A-</td><td>3.7</td></tr>
-            <tr class="term-row"><td rowspan="3">Fall 2023</td><td>FIN 201</td><td>Corporate Finance</td><td>3</td><td>B+</td><td>3.3</td><td rowspan="3" style="background:#f3efe4; text-align:center;">3.43</td></tr>
-            <tr class="term-row"><td>FIN 202</td><td>Portfolio Management</td><td>3</td><td>A-</td><td>3.7</td></tr>
-            <tr class="term-row"><td>BUS 201</td><td>Business Law & Ethics</td><td>3</td><td>B+</td><td>3.3</td></tr>
-            <tr class="term-row"><td rowspan="3">Spring 2024</td><td>FIN 301</td><td>Financial Markets & Institutions</td><td>3</td><td>B+</td><td>3.3</td><td rowspan="3" style="background:#f3efe4; text-align:center;">3.60</td></tr>
-            <tr class="term-row"><td>FIN 302</td><td>Derivatives & Risk Management</td><td>3</td><td>A</td><td>4.0</td></tr>
-            <tr class="term-row"><td>BUS 301</td><td>Strategic Management</td><td>3</td><td>A-</td><td>3.7</td></tr>
-            <tr class="term-row"><td rowspan="2">Fall 2024</td><td>FIN 401</td><td>Advanced Investment Strategies</td><td>3</td><td>A-</td><td>3.7</td><td rowspan="2" style="background:#f3efe4; text-align:center;">3.50</td></tr>
-            <tr class="term-row"><td>FIN 402</td><td>Capstone: Finance & Investment</td><td>3</td><td>B+</td><td>3.3</td></tr>
+            <tr><td>FIN 101</td><td>Principles of Finance</td><td>3</td><td>A</td><td>4.0</td></tr>
+            <tr><td>FIN 102</td><td>Investment Analysis</td><td>3</td><td>A-</td><td>3.7</td></tr>
+            <tr><td>FIN 201</td><td>Corporate Finance</td><td>3</td><td>B+</td><td>3.3</td></tr>
+            <tr><td>FIN 202</td><td>Portfolio Management</td><td>3</td><td>A-</td><td>3.7</td></tr>
+            <tr><td>FIN 301</td><td>Financial Markets & Institutions</td><td>3</td><td>B+</td><td>3.3</td></tr>
+            <tr><td>FIN 302</td><td>Derivatives & Risk Management</td><td>3</td><td>A</td><td>4.0</td></tr>
+            <tr><td>FIN 401</td><td>Advanced Investment Strategies</td><td>3</td><td>A-</td><td>3.7</td></tr>
+            <tr><td>FIN 402</td><td>Capstone: Finance & Investment</td><td>3</td><td>B+</td><td>3.3</td></tr>
+            <tr><td>ACC 101</td><td>Financial Accounting</td><td>3</td><td>B+</td><td>3.3</td></tr>
+            <tr><td>ACC 201</td><td>Managerial Accounting</td><td>3</td><td>A-</td><td>3.7</td></tr>
+            <tr><td>ECO 101</td><td>Principles of Microeconomics</td><td>3</td><td>A</td><td>4.0</td></tr>
+            <tr><td>ECO 102</td><td>Principles of Macroeconomics</td><td>3</td><td>B+</td><td>3.3</td></tr>
+            <tr><td>MTH 101</td><td>Calculus for Business</td><td>3</td><td>A</td><td>4.0</td></tr>
+            <tr><td>STAT 101</td><td>Business Statistics</td><td>3</td><td>A-</td><td>3.7</td></tr>
+            <tr><td>BUS 201</td><td>Business Law & Ethics</td><td>3</td><td>B+</td><td>3.3</td></tr>
+            <tr><td>BUS 301</td><td>Strategic Management</td><td>3</td><td>A-</td><td>3.7</td></tr>
         </tbody>
     </table>
 
     <div class="summary-box">
-        <strong>Undergraduate Term GPA Summary</strong><br>
-        Fall 2022: 3.70 | Spring 2023: 3.55 | Fall 2023: 3.43 | Spring 2024: 3.60 | Fall 2024: 3.50<br>
-        <strong>Cumulative GPA (final):</strong> 3.57 → 3.5 (official)
+        <strong>Credit Summary:</strong><br>
+        Total Credits Attempted: 48 | Total Credits Earned: 48 | Total Grade Points: 171.6<br>
+        <strong>Cumulative GPA:</strong> 3.57 → 3.5 (official)<br>
+        <strong>Academic Standing:</strong> Good Standing (All Terms)<br>
+        <strong>Degree Status:</strong> Conferred on 31 December 2024
+    </div>
+
+    <div class="summary-box">
+        <strong>Grading Scale:</strong><br>
+        A = 4.0 (Distinction) | A- = 3.7 (Distinction) | B+ = 3.3 (Merit) | B = 3.0 (Merit) | B- = 2.7 (Credit) | C+ = 2.3 (Credit) | C = 2.0 (Pass) | D = 1.0 (Conditional) | F = 0.0 (Fail)
     </div>
 
     <div class="footer">
-        <div><strong>Transcript ID:</strong> NU-TR-2026-0843 (Undergraduate)</div>
+        <div><strong>Transcript ID:</strong> NU-TR-2026-0843-UG</div>
         <div><strong>Issue Date:</strong> 27 March 2026</div>
     </div>
     <div class="verification">
-        🔗 Verification: https://nolan.edu/verify/NU-TR-2026-0843-UG
+        🔗 Verify at: https://nolan.edu/verify/NU-TR-2026-0843-UG
     </div>
-    <div style="margin-top: 35px;">
-        <div class="signature">_________________________<br>Michael T. Harrison<br>Registrar</div>
-        <div style="font-size: 10px; text-align: center; margin-top: 20px;">University Seal | Nolan University — Official Academic Record</div>
-    </div>
+    <div class="signature">_________________________<br>Michael T. Harrison<br>Registrar</div>
+    <div class="page-number">Page 1 of 2</div>
 </div>
 
 <!-- ==================== PAGE 2: GRADUATE ==================== -->
 <div id="graduate-page" class="page">
+    <div class="watermark">OFFICIAL TRANSCRIPT</div>
     <div class="seal">
         <span>NOLAN</span>
         <span>UNIVERSITY</span>
@@ -517,12 +513,8 @@
             <div class="summary-value-small">magna cum laude</div>
         </div>
         <div class="summary-card">
-            <div class="summary-label">COURSE PERFORMANCE</div>
-            <div class="summary-value-small">15 Credits Distinction<br>6 Credits Merit</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-label">MERIT AWARDS</div>
-            <div class="summary-value-small">Dean's Merit List<br>(Full Program)</div>
+            <div class="summary-label">ACADEMIC STANDING</div>
+            <div class="summary-value-small">Good Standing</div>
         </div>
     </div>
 
@@ -531,153 +523,62 @@
         <span>MBA in Entrepreneurship & Finance (Joint Degree)</span>
         <span>Schools: Entrepreneurship & Venture Creation + Banking & Finance</span>
     </div>
-    <div><strong>Enrollment:</strong> March 2025 &nbsp;|&nbsp; <strong>Conferral:</strong> 26 March 2026 &nbsp;|&nbsp; <strong>Cumulative GPA:</strong> 3.7</div>
-    <div style="margin: 10px 0;">
-        <span class="honors-badge">magna cum laude</span>
-        <span class="honors-badge">Distinction (Degree Classification)</span>
-        <span class="honors-badge">Dean's Merit List — Full Program</span>
-        <span class="classification-badge">Overall: DISTINCTION</span>
-    </div>
+    <div><strong>Enrollment:</strong> March 2025 &nbsp;|&nbsp; <strong>Conferral:</strong> 26 March 2026 &nbsp;|&nbsp; <strong>Degree Status:</strong> Conferred</div>
 
-    <div style="margin: 15px 0; padding: 10px; background: #f9f6ef; border: 1px solid #ddd0b6; font-size: 12px;">
-        <strong>📊 Classification Key:</strong>
-        <span style="background:#e0f0e8; padding:2px 8px; margin:0 5px;">Distinction (A, A-)</span>
-        <span style="background:#fff0d0; padding:2px 8px; margin:0 5px;">Merit (B+, B)</span>
-        <span style="background:#e8e0f0; padding:2px 8px; margin:0 5px;">Credit (B-, C+)</span>
-        <span style="background:#f0f0e0; padding:2px 8px; margin:0 5px;">Pass (C)</span>
-    </div>
-
-    <h3 style="margin: 20px 0 10px 0;">Term-by-Term GPA with Classification</h3>
+    <h3 style="margin: 20px 0 10px 0;">Course Record</h3>
     <table>
         <thead>
-            <tr><th>Term</th><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Points</th><th>Classification</th><th>Term GPA</th></tr>
+            <tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Points</th><th>Classification</th></tr>
         </thead>
         <tbody>
-            <tr class="term-row"><td rowspan="3">Spring 2025</td><td>ENT 501</td><td>Venture Creation & Entrepreneurial Mindset</td><td>3</td><td>A-</td><td>3.7</td><td class="distinction-cell">DISTINCTION</td><td rowspan="3" style="background:#f3efe4; text-align:center;">3.63</td></tr>
-            <tr class="term-row"><td>FIN 505</td><td>Advanced Corporate Finance</td><td>3</td><td>A-</td><td>3.7</td><td class="distinction-cell">DISTINCTION</td></tr>
-            <tr class="term-row"><td>MGT 501</td><td>Leadership & Organizational Behavior</td><td>3</td><td>A-</td><td>3.7</td><td class="distinction-cell">DISTINCTION</td></tr>
-            <tr class="term-row"><td rowspan="3">Summer 2025</td><td>ENT 502</td><td>New Venture Financing</td><td>3</td><td>A</td><td>4.0</td><td class="distinction-cell">DISTINCTION</td><td rowspan="3" style="background:#f3efe4; text-align:center;">3.70</td></tr>
-            <tr class="term-row"><td>FIN 506</td><td>Private Equity & Venture Capital</td><td>3</td><td>A</td><td>4.0</td><td class="distinction-cell">DISTINCTION</td></tr>
-            <tr class="term-row"><td>MKT 501</td><td>Strategic Marketing for Entrepreneurs</td><td>3</td><td>B+</td><td>3.3</td><td class="merit-cell">MERIT</td></tr>
-            <tr class="term-row"><td rowspan="2">Fall 2025</td><td>FIN 507</td><td>Entrepreneurial Finance</td><td>3</td><td>B+</td><td>3.3</td><td class="merit-cell">MERIT</td><td rowspan="2" style="background:#f3efe4; text-align:center;">3.85</td></tr>
-            <tr class="term-row"><td>BUS 601</td><td>Capstone: Entrepreneurship & Finance Integration</td><td>3</td><td>A</td><td>4.0</td><td class="distinction-cell">DISTINCTION</td></tr>
+            <tr><td>ENT 501</td><td>Venture Creation & Entrepreneurial Mindset</td><td>3</td><td>A-</td><td>3.7</td><td class="distinction-cell">Distinction</td></tr>
+            <tr><td>ENT 502</td><td>New Venture Financing</td><td>3</td><td>A</td><td>4.0</td><td class="distinction-cell">Distinction</td></tr>
+            <tr><td>FIN 505</td><td>Advanced Corporate Finance</td><td>3</td><td>A-</td><td>3.7</td><td class="distinction-cell">Distinction</td></tr>
+            <tr><td>FIN 506</td><td>Private Equity & Venture Capital</td><td>3</td><td>A</td><td>4.0</td><td class="distinction-cell">Distinction</td></tr>
+            <tr><td>FIN 507</td><td>Entrepreneurial Finance</td><td>3</td><td>B+</td><td>3.3</td><td class="merit-cell">Merit</td></tr>
+            <tr><td>MGT 501</td><td>Leadership & Organizational Behavior</td><td>3</td><td>A-</td><td>3.7</td><td class="distinction-cell">Distinction</td></tr>
+            <tr><td>MKT 501</td><td>Strategic Marketing for Entrepreneurs</td><td>3</td><td>B+</td><td>3.3</td><td class="merit-cell">Merit</td></tr>
+            <tr><td>BUS 601</td><td>Capstone: Entrepreneurship & Finance Integration</td><td>3</td><td>A</td><td>4.0</td><td class="distinction-cell">Distinction</td></tr>
         </tbody>
     </table>
 
     <div class="summary-box">
-        <strong>Graduate Term GPA Summary</strong><br>
-        Spring 2025: 3.63 | Summer 2025: 3.70 | Fall 2025: 3.85<br>
-        <strong>Cumulative GPA:</strong> 3.72 → 3.7 (official)
+        <strong>Credit Summary:</strong><br>
+        Total Credits Attempted: 24 | Total Credits Earned: 24 | Total Grade Points: 89.4<br>
+        <strong>Cumulative GPA:</strong> 3.72 → 3.7 (official)<br>
+        <strong>Academic Standing:</strong> Good Standing (All Terms)<br>
+        <strong>Degree Status:</strong> Conferred on 26 March 2026<br>
+        <strong>Classification Breakdown:</strong> 15 Credits at Distinction | 6 Credits at Merit | 0 Credits at Credit/Pass
     </div>
 
-    <h3 style="margin: 20px 0 10px 0;">Classification Summary</h3>
-    <table style="width: 70%; min-width: 300px;">
-        <thead><tr><th>Classification</th><th>Grade Range</th><th>Courses</th><th>Credits</th><th>Percentage</th></tr></thead>
-        <tbody>
-            <tr style="background:#e0f0e8;"><td><strong>🏆 DISTINCTION</strong></td><td>A, A-</td><td>5 courses</td><td>15 credits</td><td>62.5%</td></tr>
-            <tr style="background:#fff0d0;"><td><strong>⭐ MERIT</strong></td><td>B+, B</td><td>2 courses</td><td>6 credits</td><td>25%</td></tr>
-            <tr style="background:#e8e0f0;"><td><strong>📘 CREDIT</strong></td><td>B-, C+</td><td>0 courses</td><td>0 credits</td><td>0%</td></tr>
-            <tr style="background:#f0f0e0;"><td><strong>✅ PASS</strong></td><td>C</td><td>0 courses</td><td>0 credits</td><td>0%</td></tr>
-            <tr style="background:#f3efe4; font-weight:bold;"><td><strong>TOTAL</strong></td><td>—</td><td>7 courses</td><td>24 credits</td><td>100%</td></tr>
-        </tbody>
-    </table>
-
-    <div class="summary-box" style="margin-top: 20px;">
-        <strong>🎓 Graduate Academic Honors & Classifications:</strong><br><br>
-        📌 <strong>Overall Degree Classification:</strong> <span style="background:#e0f0e8; padding:2px 10px; font-weight:bold;">DISTINCTION</span><br>
-        📌 <strong>Latin Honors:</strong> magna cum laude (GPA 3.70–3.89)<br>
-        📌 <strong>Course-Level Breakdown:</strong><br>
-        &nbsp;&nbsp;&nbsp;• 15 credits at <strong>Distinction</strong> level (A, A-)<br>
-        &nbsp;&nbsp;&nbsp;• 6 credits at <strong>Merit</strong> level (B+, B)<br>
-        &nbsp;&nbsp;&nbsp;• 0 credits at Credit or Pass level<br>
-        📌 <strong>Merit Award:</strong> Graduate Dean's Merit List — Full Program<br>
-        📌 <strong>Final GPA:</strong> 3.7 / 4.0
+    <div class="summary-box">
+        <strong>Grading Scale:</strong><br>
+        A = 4.0 (Distinction) | A- = 3.7 (Distinction) | B+ = 3.3 (Merit) | B = 3.0 (Merit) | B- = 2.7 (Credit) | C+ = 2.3 (Credit) | C = 2.0 (Pass)
     </div>
 
     <div class="footer">
-        <div><strong>Transcript ID:</strong> NU-TR-2026-0843 (Graduate)</div>
+        <div><strong>Transcript ID:</strong> NU-TR-2026-0843-GR</div>
         <div><strong>Issue Date:</strong> 27 March 2026</div>
     </div>
     <div class="verification">
-        🔗 Verification: https://nolan.edu/verify/NU-TR-2026-0843-GR
+        🔗 Verify at: https://nolan.edu/verify/NU-TR-2026-0843-GR
     </div>
-    <div style="margin-top: 35px;">
-        <div class="signature">_________________________<br>Michael T. Harrison<br>Registrar</div>
-        <div style="font-size: 10px; text-align: center; margin-top: 20px;">University Seal | Nolan University — Official Academic Record</div>
-    </div>
+    <div class="signature">_________________________<br>Michael T. Harrison<br>Registrar</div>
+    <div class="page-number">Page 2 of 2</div>
 </div>
 
 <script>
     function printUndergraduate() {
         const printContent = document.getElementById('undergraduate-page').innerHTML;
         const printWindow = window.open('', '_blank');
-        printWindow.document.write(`
-            <html>
-                <head><title>Nolan University - Undergraduate Transcript</title>
-                <style>
-                    * { margin: 0; padding: 0; box-sizing: border-box; }
-                    body { font-family: 'Georgia', 'Times New Roman', Times, serif; padding: 20px; }
-                    .page { max-width: 1100px; margin: 0 auto; background: white; padding: 40px; position: relative; }
-                    .seal { position: absolute; top: 40px; right: 45px; width: 90px; height: 90px; border: 2px solid #c5a028; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #faf7f0; font-size: 9px; text-align: center; }
-                    .brand-header { text-align: center; margin-bottom: 25px; border-bottom: 2px solid #c5a028; padding-bottom: 20px; }
-                    .university-name { font-size: 42px; font-weight: bold; color: #1a4d3e; }
-                    .tagline { font-size: 14px; color: #c5a028; font-style: italic; }
-                    .student-info { background: #faf7f0; padding: 16px; margin: 20px 0; display: flex; flex-wrap: wrap; }
-                    .classification-summary { background: #faf7f0; border: 2px solid #c5a028; border-radius: 12px; padding: 20px; margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: space-around; }
-                    .summary-card { text-align: center; padding: 8px; }
-                    .summary-label { font-size: 12px; text-transform: uppercase; font-weight: bold; color: #8b7355; }
-                    .summary-value { font-size: 24px; font-weight: bold; color: #1a4d3e; }
-                    .merit-badge-large, .classification-badge-large { padding: 6px 16px; border-radius: 40px; font-size: 18px; display: inline-block; color: white; }
-                    .merit-badge-large { background: #b45f1b; }
-                    .classification-badge-large { background: #1a4d3e; }
-                    table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-                    th, td { border: 1px solid #d4cfc1; padding: 8px; }
-                    th { background: #faf7f0; }
-                    .footer { margin-top: 40px; border-top: 1px solid #d4cfc1; padding-top: 25px; display: flex; justify-content: space-between; }
-                    .signature { margin-top: 25px; border-top: 1px solid #1a4d3e; width: 250px; text-align: center; }
-                    .verification { background: #faf7f0; padding: 12px; margin-top: 20px; }
-                </style>
-                </head>
-                <body><div class="page">${printContent}</div></body>
-            </html>
-        `);
+        printWindow.document.write(`<html><head><title>Nolan University - Undergraduate Transcript</title><style>body{font-family:Georgia;padding:20px;} .page{max-width:1100px;margin:0 auto;}</style></head><body><div class="page">${printContent}</div></body></html>`);
         printWindow.document.close();
         printWindow.print();
     }
-
     function printGraduate() {
         const printContent = document.getElementById('graduate-page').innerHTML;
         const printWindow = window.open('', '_blank');
-        printWindow.document.write(`
-            <html>
-                <head><title>Nolan University - Graduate Transcript</title>
-                <style>
-                    * { margin: 0; padding: 0; box-sizing: border-box; }
-                    body { font-family: 'Georgia', 'Times New Roman', Times, serif; padding: 20px; }
-                    .page { max-width: 1100px; margin: 0 auto; background: white; padding: 40px; position: relative; }
-                    .seal { position: absolute; top: 40px; right: 45px; width: 90px; height: 90px; border: 2px solid #c5a028; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #faf7f0; font-size: 9px; text-align: center; }
-                    .brand-header { text-align: center; margin-bottom: 25px; border-bottom: 2px solid #c5a028; padding-bottom: 20px; }
-                    .university-name { font-size: 42px; font-weight: bold; color: #1a4d3e; }
-                    .tagline { font-size: 14px; color: #c5a028; font-style: italic; }
-                    .student-info { background: #faf7f0; padding: 16px; margin: 20px 0; display: flex; flex-wrap: wrap; }
-                    .classification-summary { background: #faf7f0; border: 2px solid #c5a028; border-radius: 12px; padding: 20px; margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: space-around; }
-                    .summary-card { text-align: center; padding: 8px; }
-                    .summary-label { font-size: 12px; text-transform: uppercase; font-weight: bold; color: #8b7355; }
-                    .summary-value { font-size: 24px; font-weight: bold; color: #1a4d3e; }
-                    .classification-badge-large { background: #1a4d3e; color: white; padding: 6px 16px; border-radius: 40px; font-size: 18px; display: inline-block; }
-                    .distinction-cell { background: #e0f0e8; font-weight: bold; }
-                    .merit-cell { background: #fff0d0; font-weight: bold; }
-                    table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-                    th, td { border: 1px solid #d4cfc1; padding: 8px; }
-                    th { background: #faf7f0; }
-                    .footer { margin-top: 40px; border-top: 1px solid #d4cfc1; padding-top: 25px; display: flex; justify-content: space-between; }
-                    .signature { margin-top: 25px; border-top: 1px solid #1a4d3e; width: 250px; text-align: center; }
-                    .verification { background: #faf7f0; padding: 12px; margin-top: 20px; }
-                </style>
-                </head>
-                <body><div class="page">${printContent}</div></body>
-            </html>
-        `);
+        printWindow.document.write(`<html><head><title>Nolan University - Graduate Transcript</title><style>body{font-family:Georgia;padding:20px;} .page{max-width:1100px;margin:0 auto;}</style></head><body><div class="page">${printContent}</div></body></html>`);
         printWindow.document.close();
         printWindow.print();
     }
