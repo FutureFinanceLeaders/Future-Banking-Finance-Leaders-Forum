@@ -5,39 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nolan University | Official Transcript - MBA Entrepreneurship & Finance</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: #e9e5dd;
-            font-family: 'Georgia', 'Times New Roman', 'Segoe UI', serif;
+            font-family: 'Georgia', 'Times New Roman', serif;
             padding: 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
-
         .transcript {
-            max-width: 1100px;
+            max-width: 1200px;
             width: 100%;
             background: #ffffff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border: 1px solid #d4cbb6;
         }
-
         .header {
             background: #0a2f44;
             color: #e8b42c;
             text-align: center;
-            padding: 2rem 2rem 1.5rem;
+            padding: 2rem;
             position: relative;
             border-bottom: 3px solid #e8b42c;
         }
-
         .seal {
             position: absolute;
             right: 2rem;
@@ -52,51 +44,13 @@
             font-size: 0.6rem;
             text-align: center;
             color: #e8b42c;
-            font-weight: bold;
-            background: rgba(232, 180, 44, 0.1);
+            background: rgba(232,180,44,0.1);
         }
-
-        .university-name {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        .transcript-title {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #f0e6d0;
-            margin-top: 0.3rem;
-        }
-
-        .degree-name {
-            background: #e8b42c;
-            color: #0a2f44;
-            display: inline-block;
-            padding: 0.3rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            margin-top: 0.8rem;
-        }
-
-        .joint-badge {
-            background: rgba(232, 180, 44, 0.2);
-            color: #e8b42c;
-            display: inline-block;
-            padding: 0.2rem 1rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            margin-top: 0.5rem;
-        }
-
-        .accreditation {
-            font-size: 0.7rem;
-            margin-top: 0.5rem;
-            color: #cfdde6;
-        }
-
+        .university-name { font-size: 2rem; font-weight: 700; letter-spacing: 2px; }
+        .transcript-title { font-size: 1rem; text-transform: uppercase; letter-spacing: 3px; color: #f0e6d0; margin-top: 0.3rem; }
+        .degree-name { background: #e8b42c; color: #0a2f44; display: inline-block; padding: 0.3rem 1.5rem; border-radius: 25px; font-weight: 700; font-size: 0.85rem; margin-top: 0.8rem; }
+        .joint-badge { background: rgba(232,180,44,0.2); color: #e8b42c; display: inline-block; padding: 0.2rem 1rem; border-radius: 20px; font-size: 0.7rem; margin-top: 0.5rem; }
+        .accreditation { font-size: 0.7rem; margin-top: 0.5rem; color: #cfdde6; }
         .student-info {
             padding: 1.2rem 2rem;
             background: #fefaf0;
@@ -104,28 +58,10 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 0.5rem;
         }
-
-        .info-item {
-            flex: 1;
-            min-width: 150px;
-        }
-
-        .info-label {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            color: #8b7a62;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .info-value {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #1e3a4d;
-        }
-
+        .info-item { flex: 1; min-width: 150px; }
+        .info-label { font-size: 0.65rem; text-transform: uppercase; color: #8b7a62; font-weight: 600; }
+        .info-value { font-size: 0.95rem; font-weight: 600; color: #1e3a4d; }
         .degree-summary {
             padding: 1rem 2rem;
             background: #ffffff;
@@ -133,253 +69,122 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 1rem;
         }
-
-        .summary-block {
-            text-align: center;
-            flex: 1;
-        }
-
-        .summary-label {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            color: #8b7a62;
-        }
-
-        .summary-value {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #0a2f44;
-        }
-
-        .course-section {
-            padding: 1.5rem 2rem;
-        }
-
-        .term-title {
-            background: #f0eadf;
-            padding: 0.5rem 1rem;
-            margin: 1rem 0 0.5rem 0;
-            font-weight: 700;
-            color: #0a2f44;
-            border-left: 4px solid #e8b42c;
-        }
-
-        .course-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85rem;
-        }
-
-        .course-table th {
-            background: #f9f5ec;
-            padding: 0.6rem 0.5rem;
-            text-align: left;
-            border-bottom: 2px solid #e8b42c;
-            font-weight: 700;
-            color: #1e3a4d;
-        }
-
-        .course-table td {
-            padding: 0.5rem 0.5rem;
-            border-bottom: 1px solid #e2d9cc;
-            color: #2c3e4e;
-        }
-
-        .term-gpa {
-            text-align: right;
-            font-weight: 700;
-            padding: 0.5rem;
-            background: #fefaf2;
-            margin-top: 0.25rem;
-            border-bottom: 1px solid #e8b42c;
-        }
-
-        .gpa-summary {
-            background: #fefaf2;
-            padding: 1rem 1.5rem;
-            margin-top: 1.5rem;
-            border-left: 4px solid #e8b42c;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-
-        .gpa-item {
-            text-align: center;
-            flex: 1;
-        }
-
-        .gpa-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            color: #8b7a62;
-        }
-
-        .gpa-value {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #0a2f44;
-        }
-
-        .honors {
-            background: #e8b42c20;
-            color: #9b7b2c;
-            padding: 0.2rem 0.7rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .footer {
-            background: #f9f5ec;
-            padding: 1.2rem 2rem;
-            border-top: 1px solid #e2d9cc;
-            font-size: 0.7rem;
-            color: #7c6e56;
-            text-align: center;
-        }
-
-        .signatures {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #e2d9cc;
-        }
-
-        .signature {
-            text-align: center;
-            flex: 1;
-        }
-
-        .signature-line {
-            width: 160px;
-            border-bottom: 1px solid #8b7a62;
-            margin: 0 auto 0.3rem;
-        }
-
-        .print-btn {
-            background: #0a2f44;
-            color: white;
-            border: none;
-            padding: 0.5rem 1.2rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-family: inherit;
-            margin-top: 1rem;
-        }
-
-        .print-btn:hover {
-            background: #e8b42c;
-            color: #0a2f44;
-        }
-
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            .print-btn {
-                display: none;
-            }
-            .transcript {
-                box-shadow: none;
-                border: 1px solid #ccc;
-            }
-            .seal {
-                border-color: #0a2f44;
-                color: #0a2f44;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-            .course-table th, .course-table td {
-                font-size: 0.7rem;
-                padding: 0.3rem;
-            }
-            .student-info, .course-section {
-                padding: 1rem;
-            }
-        }
+        .summary-block { text-align: center; flex: 1; }
+        .summary-label { font-size: 0.65rem; text-transform: uppercase; color: #8b7a62; }
+        .summary-value { font-size: 1rem; font-weight: 700; color: #0a2f44; }
+        .course-section { padding: 1.5rem 2rem; }
+        .term-title { background: #f0eadf; padding: 0.5rem 1rem; margin: 1rem 0 0.5rem 0; font-weight: 700; color: #0a2f44; border-left: 4px solid #e8b42c; }
+        .course-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .course-table th { background: #f9f5ec; padding: 0.6rem 0.5rem; text-align: left; border-bottom: 2px solid #e8b42c; font-weight: 700; color: #1e3a4d; }
+        .course-table td { padding: 0.5rem 0.5rem; border-bottom: 1px solid #e2d9cc; color: #2c3e4e; }
+        .term-gpa { text-align: right; font-weight: 700; padding: 0.5rem; background: #fefaf2; border-bottom: 1px solid #e8b42c; }
+        .gpa-summary { background: #fefaf2; padding: 1rem 1.5rem; margin-top: 1.5rem; border-left: 4px solid #e8b42c; display: flex; flex-wrap: wrap; justify-content: space-between; }
+        .gpa-item { text-align: center; flex: 1; }
+        .gpa-label { font-size: 0.7rem; text-transform: uppercase; color: #8b7a62; }
+        .gpa-value { font-size: 1.2rem; font-weight: 700; color: #0a2f44; }
+        .honors { background: #e8b42c20; color: #9b7b2c; padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+        .footer { background: #f9f5ec; padding: 1.2rem 2rem; border-top: 1px solid #e2d9cc; font-size: 0.7rem; color: #7c6e56; text-align: center; }
+        .signatures { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e2d9cc; }
+        .signature { text-align: center; flex: 1; }
+        .signature-line { width: 160px; border-bottom: 1px solid #8b7a62; margin: 0 auto 0.3rem; }
+        .print-btn { background: #0a2f44; color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 25px; cursor: pointer; margin-top: 1rem; }
+        @media print { body { background: white; padding: 0; } .print-btn { display: none; } .seal { border-color: #0a2f44; color: #0a2f44; } }
+        @media (max-width: 768px) { body { padding: 1rem; } .course-table th, .course-table td { font-size: 0.7rem; padding: 0.3rem; } }
     </style>
 </head>
 <body>
-    <div class="transcript">
-        <div class="header">
-            <div class="seal">OFFICIAL<br>SEAL<br>NOLAN</div>
-            <div class="university-name">NOLAN UNIVERSITY</div>
-            <div class="transcript-title">Official Academic Transcript</div>
-            <div class="degree-name">Master of Business Administration · Entrepreneurship & Finance</div>
-            <div class="joint-badge">Joint Degree: School of Entrepreneurship & Venture Creation + Graduate School of Banking & Finance</div>
-            <div class="accreditation">Accredited by EQUIS · AACSB · IACBE</div>
-        </div>
-
-        <div class="student-info">
-            <div class="info-item"><div class="info-label">Student ID</div><div class="info-value">202200845</div></div>
-            <div class="info-item"><div class="info-label">Name</div><div class="info-value">Mwaba Lewis</div></div>
-            <div class="info-item"><div class="info-label">Date of Birth</div><div class="info-value">08 May 1992</div></div>
-            <div class="info-item"><div class="info-label">Citizenship</div><div class="info-value">Zambia</div></div>
-        </div>
-
-        <div class="degree-summary">
-            <div class="summary-block"><div class="summary-label">Enrollment</div><div class="summary-value">February 2025</div></div>
-            <div class="summary-block"><div class="summary-label">Conferral</div><div class="summary-value">26 March 2026</div></div>
-            <div class="summary-block"><div class="summary-label">Duration</div><div class="summary-value">1 Year (Full-time)</div></div>
-            <div class="summary-block"><div class="summary-label">Certificate ID</div><div class="summary-value">NU-MBA-2026-0842</div></div>
-        </div>
-
-        <div class="course-section">
-            <div class="term-title">Spring 2025 Term</div>
-            <table class="course-table">
-                <thead><tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th></tr></thead>
-                <tbody>
-                    <tr><td>MBA 501</td><td>Strategic Leadership & Ethics</td><td>3</td><td>A</td><td>12.0</td></tr>
-                    <tr><td>MBA 502</td><td>Advanced Corporate Finance</td><td>3</td><td>A</td><td>12.0</td></tr>
-                    <tr><td>MBA 503</td><td>Entrepreneurial Mindset & Innovation</td><td>3</td><td>A-</td><td>11.1</td></tr>
-                    <tr><td>MBA 504</td><td>Financial Markets & Global Economics</td><td>3</td><td>A</td><td>12.0</td></tr>
-                </tbody>
-            </table>
-            <div class="term-gpa">Term GPA: 3.92 | Credits: 12 | Quality Points: 47.1</div>
-
-            <div class="term-title">Summer 2025 Term</div>
-            <table class="course-table">
-                <thead><tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th></tr></thead>
-                <tbody>
-                    <tr><td>MBA 505</td><td>Venture Capital & Private Equity</td><td>3</td><td>A</td><td>12.0</td></tr>
-                    <tr><td>MBA 506</td><td>Mergers & Acquisitions</td><td>3</td><td>A</td><td>12.0</td></tr>
-                    <tr><td>MBA 507</td><td>Data Analytics for Business</td><td>3</td><td>A-</td><td>11.1</td></tr>
-                    <tr><td>MBA 508</td><td>Negotiation & Deal Structuring</td><td>3</td><td>A</td><td>12.0</td></tr>
-                </tbody>
-            </table>
-            <div class="term-gpa">Term GPA: 3.95 | Credits: 12 | Quality Points: 47.1</div>
-
-            <div class="term-title">Fall 2025 Term</div>
-            <table class="course-table">
-                <thead><tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th></tr></thead>
-                <tbody>
-                    <tr><td>MBA 601</td><td>Entrepreneurial Finance</td><td>3</td><td>A</td><td>12.0</td></tr>
-                    <tr><td>MBA 602</td><td>Business Model Innovation</td><td>3</td><td>A</td><td>12.0</td></tr>
-                    <tr><td>MBA 603</td><td>Global Strategy & Competitiveness</td><td>3</td><td>A</td><td>12.0</td></tr>
-                    <tr><td>MBA 604</td><td>Leadership in Complex Organizations</td><td>3</td><td>A-</td><td>11.1</td></tr>
-                </tbody>
-            </table>
-            <div class="term-gpa">Term GPA: 3.96 | Credits: 12 | Quality Points: 47.1</div>
-
-            <div class="term-title">Spring 2026 Term</div>
-            <table class="course-table">
-                <thead><tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th> </thead>
-                <tbody>
-                    <tr>
-        
-78.5,-58.9,92.8,86.6,94.2,92.1,96.8,86.3,81.2,88.9,89.4,77.2,79.6,88.5,84.1,75.6,79.3,90.7,86.3,83.1,88.4,91.1,86.0,85.4,92.3,89.6,86.2,92.4,91.7,86.0,88.6,91.7,87.2,92.0,95.6,85.3,90.0,95.1,82.8,85.9,92.0,88.4,86.8,88.6,91.5,87.6,92.8,85.8,86.3,95.9,93.4,83.6,88.0,91.9,84.8,86.8,86.9,86.5,86.7,86.3,86.6,92.3,86.7,92.5,90.3,88.4,86.3,86.5,86.3,86.5,86.7,86.8,86.9,86.0,87.0,86.1,86.2,86.3,86.4,86.5,86.6,86.7,86.8,86.9,87.0,87.1,87.2,87.3,87.4,87.5,87.6,87.7,87.8,87.9,88.0,88.1,88.2,88.3,88.4,88.5,88.6,88.7,88.8,88.9,89.0,89.1,89.2,89.3,89.4,89.5,89.6,89.7,89.8,89.9,90.0,90.1,90.2,90.3,90.4,90.5,90.6,90.7,90.8,90.9,91.0,91.1,91.2,91.3,91.4,91.5,91.6,91.7,91.8,91.9,92.0,92.1,92.2,92.3,92.4,92.5,92.6,92.7,92.8,92.9,93.0,93.1,93.2,93.3,93.4,93.5,93.6,93.7,93.8,93.9,94.0,94.1,94.2,94.3,94.4,94.5,94.6,94.7,94.8,94.9,95.0,95.1,95.2,95.3,95.4,95.5,95.6,95.7,95.8,95.9,96.0,96.1,96.2,96.3,96.4,96.5,96.6,96.7,96.8,96.9,97.0,97.1,97.2,97.3,97.4,97.5,97.6,97.7,97.8,97.9,98.0,98.1,98.2,98.3,98.4,98.5,98.6,98.7,98.8,98.9,99.0,99.1,99.2,99.3,99.4,99.5,99.6,99.7,99.8,99.9,100.0</p>
+<div class="transcript">
+    <div class="header">
+        <div class="seal">OFFICIAL<br>SEAL<br>NOLAN</div>
+        <div class="university-name">NOLAN UNIVERSITY</div>
+        <div class="transcript-title">Official Academic Transcript</div>
+        <div class="degree-name">Master of Business Administration · Entrepreneurship & Finance</div>
+        <div class="joint-badge">Joint Degree: School of Entrepreneurship & Venture Creation + Graduate School of Banking & Finance</div>
+        <div class="accreditation">Accredited by EQUIS · AACSB · IACBE</div>
     </div>
+
+    <div class="student-info">
+        <div class="info-item"><div class="info-label">Student ID</div><div class="info-value">202200845</div></div>
+        <div class="info-item"><div class="info-label">Name</div><div class="info-value">Mwaba Lewis</div></div>
+        <div class="info-item"><div class="info-label">Date of Birth</div><div class="info-value">08 May 1992</div></div>
+        <div class="info-item"><div class="info-label">Citizenship</div><div class="info-value">Zambia</div></div>
+    </div>
+
+    <div class="degree-summary">
+        <div class="summary-block"><div class="summary-label">Enrollment</div><div class="summary-value">February 2025</div></div>
+        <div class="summary-block"><div class="summary-label">Conferral</div><div class="summary-value">26 March 2026</div></div>
+        <div class="summary-block"><div class="summary-label">Duration</div><div class="summary-value">1 Year (Full-time)</div></div>
+        <div class="summary-block"><div class="summary-label">Certificate ID</div><div class="summary-value">NU-MBA-2026-0842</div></div>
+    </div>
+
+    <div class="course-section">
+        <div class="term-title">Spring 2025 Term</div>
+        <table class="course-table">
+            <thead> <th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th> </thead>
+            <tbody>
+                <tr><td>MBA 501</td><td>Strategic Leadership & Ethics</td><td>10</td><td>A</td><td>40.0</td></tr>
+                <tr><td>MBA 502</td><td>Advanced Corporate Finance</td><td>10</td><td>A</td><td>40.0</td></tr>
+                <tr><td>MBA 503</td><td>Entrepreneurial Mindset & Innovation</td><td>10</td><td>A-</td><td>37.0</td></tr>
+                <tr><td>MBA 504</td><td>Financial Markets & Global Economics</td><td>10</td><td>A</td><td>40.0</td></tr>
+            </tbody>
+        </table>
+        <div class="term-gpa">Term GPA: 3.92 | Credits: 40 | Quality Points: 157.0</div>
+
+        <div class="term-title">Summer 2025 Term</div>
+        <table class="course-table">
+            <thead> <th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th> </thead>
+            <tbody>
+                <tr><td>MBA 505</td><td>Venture Capital & Private Equity</td><td>10</td><td>A</td><td>40.0</td></tr>
+                <tr><td>MBA 506</td><td>Mergers & Acquisitions</td><td>10</td><td>A</td><td>40.0</td></tr>
+                <tr><td>MBA 507</td><td>Data Analytics for Business</td><td>10</td><td>A-</td><td>37.0</td></tr>
+                <tr><td>MBA 508</td><td>Negotiation & Deal Structuring</td><td>10</td><td>A</td><td>40.0</td></tr>
+            </tbody>
+        </table>
+        <div class="term-gpa">Term GPA: 3.95 | Credits: 40 | Quality Points: 157.0</div>
+
+        <div class="term-title">Fall 2025 Term</div>
+        <table class="course-table">
+            <thead> <th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th> </thead>
+            <tbody>
+                <tr><td>MBA 601</td><td>Entrepreneurial Finance</td><td>10</td><td>A</td><td>40.0</td></tr>
+                <tr><td>MBA 602</td><td>Business Model Innovation</td><td>10</td><td>A</td><td>40.0</td></tr>
+                <tr><td>MBA 603</td><td>Global Strategy & Competitiveness</td><td>10</td><td>A</td><td>40.0</td></tr>
+                <tr><td>MBA 604</td><td>Leadership in Complex Organizations</td><td>10</td><td>A-</td><td>37.0</td></tr>
+            </tbody>
+        </table>
+        <div class="term-gpa">Term GPA: 3.96 | Credits: 40 | Quality Points: 157.0</div>
+
+        <div class="term-title">Spring 2026 Term</div>
+        <table class="course-table">
+            <thead> <th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th> </thead>
+            <tbody>
+                <tr><td>MBA 605</td><td>Capstone: Entrepreneurship & Venture Creation</td><td>10</td><td>A</td><td>40.0</td></tr>
+                <tr><td>MBA 606</td><td>Investment Strategy & Portfolio Management</td><td>10</td><td>A</td><td>40.0</td></tr>
+            </tbody>
+        </table>
+        <div class="term-gpa">Term GPA: 4.00 | Credits: 20 | Quality Points: 80.0</div>
+
+        <div class="gpa-summary">
+            <div class="gpa-item"><div class="gpa-label">Total Credits</div><div class="gpa-value">140</div></div>
+            <div class="gpa-item"><div class="gpa-label">Total Quality Points</div><div class="gpa-value">551.0</div></div>
+            <div class="gpa-item"><div class="gpa-label">Cumulative GPA</div><div class="gpa-value">3.94</div></div>
+            <div class="gpa-item"><div class="gpa-label">Honors</div><div class="gpa-value"><span class="honors">Distinction</span></div></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>This transcript is official and reflects the complete academic record at Nolan University.</div>
+        <div style="margin-top: 0.5rem;">Verify: https://verify.nolan.edu | Certificate ID: NU-MBA-2026-0842 | Student ID: 202200845</div>
+        <div class="signatures">
+            <div class="signature"><div class="signature-line"></div><div>James R. Callwell</div><div style="font-size:0.65rem;">President</div></div>
+            <div class="signature"><div class="signature-line"></div><div>Dr. Sarah M. Bennett</div><div style="font-size:0.65rem;">Dean, GSBF</div></div>
+            <div class="signature"><div class="signature-line"></div><div>Dr. Angela K. Foster</div><div style="font-size:0.65rem;">Dean, SEVC</div></div>
+            <div class="signature"><div class="signature-line"></div><div>Michael T. Harrison</div><div style="font-size:0.65rem;">Registrar</div></div>
+        </div>
+        <div style="margin-top: 0.5rem;">Issued: 27 March 2026 · Electronically Verifiable</div>
+        <button class="print-btn" onclick="window.print();">Print / Save as PDF</button>
+    </div>
+</div>
 </body>
 </html>
