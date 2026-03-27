@@ -19,14 +19,44 @@
             color: #1e2a2f;
         }
 
-        .transcript {
+        /* Page container for printing separation */
+        .page {
             max-width: 1100px;
-            margin: 0 auto;
+            margin: 0 auto 40px auto;
             background-color: #fffef7;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
             border: 1px solid #cfcbbd;
             padding: 40px 45px 50px 45px;
             position: relative;
+            page-break-after: always;
+            break-inside: avoid;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+            margin-bottom: 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+            }
+            .page {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                margin: 0;
+                page-break-after: always;
+                break-inside: avoid;
+            }
+            .page:last-child {
+                page-break-after: auto;
+            }
+            .no-print {
+                display: none;
+            }
         }
 
         /* Seal styling */
@@ -158,7 +188,7 @@
         }
 
         .term-total {
-            background-color: #f3efE4;
+            background-color: #f3efe4;
             font-weight: bold;
         }
 
@@ -169,12 +199,6 @@
             border: 1px solid #ddd0b6;
         }
 
-        .gpa-table {
-            width: 60%;
-            min-width: 280px;
-            margin: 12px 0;
-        }
-
         .honors-badge {
             display: inline-block;
             background: #e9ddb0;
@@ -183,6 +207,19 @@
             font-size: 12px;
             font-weight: bold;
             margin-right: 12px;
+            margin-bottom: 8px;
+        }
+
+        .classification-badge {
+            display: inline-block;
+            background: #d4e0d9;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 12px;
+            margin-bottom: 8px;
+            color: #2c4b3e;
         }
 
         .footer {
@@ -211,8 +248,27 @@
             margin-top: 20px;
         }
 
+        .print-button {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .print-button button {
+            background: #2c4b3e;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Arial', sans-serif;
+            margin: 0 8px;
+        }
+        .print-button button:hover {
+            background: #1e3a2f;
+        }
+
         @media (max-width: 700px) {
-            .transcript {
+            .page {
                 padding: 20px;
             }
             .info-item {
@@ -229,7 +285,15 @@
     </style>
 </head>
 <body>
-<div class="transcript">
+
+<div class="print-button no-print">
+    <button onclick="window.print();">Print All Pages</button>
+    <button onclick="printUndergraduate();">Print Undergraduate Only</button>
+    <button onclick="printGraduate();">Print Graduate Only</button>
+</div>
+
+<!-- ==================== PAGE 1: UNDERGRADUATE ==================== -->
+<div id="undergraduate-page" class="page">
     <div class="seal">
         <span>NOLAN</span>
         <span>UNIVERSITY</span>
@@ -255,7 +319,12 @@
         <span>School: Graduate School of Banking & Finance</span>
     </div>
     <div><strong>Enrollment:</strong> September 2022 &nbsp;|&nbsp; <strong>Conferral:</strong> 31 December 2024 &nbsp;|&nbsp; <strong>Cumulative GPA:</strong> 3.5</div>
-    <div style="margin: 10px 0;"><span class="honors-badge">cum laude</span> <span class="honors-badge">Upper Second Class Honors (2:1)</span> <span class="honors-badge">Distinction (Overall)</span></div>
+    <div style="margin: 10px 0;">
+        <span class="honors-badge">cum laude</span>
+        <span class="honors-badge">Upper Second Class Honors (2:1)</span>
+        <span class="honors-badge">Distinction (Overall)</span>
+        <span class="classification-badge">Dean's Merit List — 3 Semesters</span>
+    </div>
 
     <!-- Term-by-term Undergraduate -->
     <h3 style="margin: 20px 0 10px 0;">Term-by-Term GPA Breakdown</h3>
@@ -289,28 +358,38 @@
         <strong>Cumulative GPA (final):</strong> 3.57 → 3.5 (official)
     </div>
 
-    <h3 style="margin: 20px 0 10px 0;">Course Descriptions (Undergraduate)</h3>
-    <table>
-        <thead><tr><th>Code</th><th>Title</th><th>Credits</th><th>Description</th></tr></thead>
-        <tbody>
-            <tr><td>FIN 101</td><td>Principles of Finance</td><td>3</td><td>Introduction to financial management, time value of money, risk and return, valuation of securities, capital budgeting, and working capital management.</td></tr>
-            <tr><td>FIN 102</td><td>Investment Analysis</td><td>3</td><td>Fundamental and technical analysis of securities, equity valuation, bond pricing, asset allocation, and portfolio construction principles.</td></tr>
-            <tr><td>FIN 201</td><td>Corporate Finance</td><td>3</td><td>Capital structure, dividend policy, cost of capital, mergers and acquisitions, and advanced corporate financial decision-making.</td></tr>
-            <tr><td>FIN 202</td><td>Portfolio Management</td><td>3</td><td>Modern portfolio theory, asset allocation strategies, performance measurement, and management of institutional and individual investment portfolios.</td></tr>
-            <tr><td>FIN 301</td><td>Financial Markets & Institutions</td><td>3</td><td>Structure and function of financial markets, central banking, commercial banking, investment banking, and regulatory frameworks.</td></tr>
-            <tr><td>FIN 302</td><td>Derivatives & Risk Management</td><td>3</td><td>Options, futures, swaps, and other derivative instruments. Hedging strategies, pricing models, and enterprise risk management.</td></tr>
-            <tr><td>FIN 401</td><td>Advanced Investment Strategies</td><td>3</td><td>Quantitative investment strategies, algorithmic trading, behavioral finance, alternative investments, and hedge fund strategies.</td></tr>
-            <tr><td>FIN 402</td><td>Capstone: Finance & Investment</td><td>3</td><td>Integrative capstone project applying finance and investment principles to real-world case studies.</td></tr>
-            <tr><td>ACC 101</td><td>Financial Accounting</td><td>3</td><td>Preparation and interpretation of financial statements, accounting principles, and financial reporting standards.</td></tr>
-            <tr><td>ACC 201</td><td>Managerial Accounting</td><td>3</td><td>Cost accounting, budgeting, variance analysis, and managerial decision-making tools.</td></tr>
-            <tr><td>ECO 101</td><td>Principles of Microeconomics</td><td>3</td><td>Consumer behavior, market structures, supply and demand, pricing strategies.</td></tr>
-            <tr><td>ECO 102</td><td>Principles of Macroeconomics</td><td>3</td><td>National income, inflation, unemployment, monetary and fiscal policy, economic growth.</td></tr>
-            <tr><td>MTH 101</td><td>Calculus for Business</td><td>3</td><td>Differential and integral calculus with applications to business optimization.</td></tr>
-            <tr><td>STAT 101</td><td>Business Statistics</td><td>3</td><td>Descriptive statistics, probability, hypothesis testing, regression analysis.</td></tr>
-            <tr><td>BUS 201</td><td>Business Law & Ethics</td><td>3</td><td>Legal environment of business, contracts, corporate governance, ethical frameworks.</td></tr>
-            <tr><td>BUS 301</td><td>Strategic Management</td><td>3</td><td>Strategic analysis, competitive advantage, corporate strategy, implementation.</td></tr>
-        </tbody>
-    </table>
+    <div class="footer">
+        <div><strong>Transcript ID:</strong> NU-TR-2026-0843 (Undergraduate)</div>
+        <div><strong>Issue Date:</strong> 27 March 2026</div>
+    </div>
+    <div class="verification">
+        🔗 Verification: https://nolan.edu/verify/NU-TR-2026-0843-UG
+    </div>
+    <div style="margin-top: 35px;">
+        <div class="signature">_________________________<br>Michael T. Harrison<br>Registrar</div>
+        <div style="font-size: 10px; text-align: center; margin-top: 20px;">University Seal | Nolan University — Official Academic Record</div>
+    </div>
+</div>
+
+<!-- ==================== PAGE 2: GRADUATE ==================== -->
+<div id="graduate-page" class="page">
+    <div class="seal">
+        <span>NOLAN</span>
+        <span>UNIVERSITY</span>
+        <span>SEAL</span>
+    </div>
+    <div class="uni-header">
+        <div class="uni-name">NOLAN UNIVERSITY</div>
+        <div class="accreditation">Accredited by EQUIS, AACSB, and the International Assembly for Collegiate Business Education (IACBE)</div>
+    </div>
+
+    <!-- Student Info -->
+    <div class="student-info">
+        <div class="info-item"><span class="info-label">Name:</span> Mwaba Lewis</div>
+        <div class="info-item"><span class="info-label">Student ID:</span> NU-2022-0842</div>
+        <div class="info-item"><span class="info-label">Date of Birth:</span> [DOB]</div>
+        <div class="info-item"><span class="info-label">Citizenship:</span> [Country]</div>
+    </div>
 
     <!-- GRADUATE SECTION -->
     <div class="section-title">GRADUATE RECORD</div>
@@ -319,20 +398,28 @@
         <span>Schools: Entrepreneurship & Venture Creation + Banking & Finance</span>
     </div>
     <div><strong>Enrollment:</strong> March 2025 &nbsp;|&nbsp; <strong>Conferral:</strong> 26 March 2026 &nbsp;|&nbsp; <strong>Cumulative GPA:</strong> 3.7</div>
-    <div style="margin: 10px 0;"><span class="honors-badge">magna cum laude</span> <span class="honors-badge">Distinction (Degree Classification)</span> <span class="honors-badge">Dean’s Merit List (Full Program)</span></div>
+    <div style="margin: 10px 0;">
+        <span class="honors-badge">magna cum laude</span>
+        <span class="honors-badge">Distinction (Degree Classification)</span>
+        <span class="honors-badge">Dean's Merit List — Full Program</span>
+        <span class="classification-badge">Overall: DISTINCTION</span>
+    </div>
 
-    <h3 style="margin: 20px 0 10px 0;">Graduate Term-by-Term GPA</h3>
+    <!-- Graduate Term-by-Term with Classification Column -->
+    <h3 style="margin: 20px 0 10px 0;">Term-by-Term GPA Breakdown with Classification</h3>
     <table>
-        <thead><tr><th>Term</th><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Points</th><th>Term GPA</th></tr></thead>
+        <thead>
+            <tr><th>Term</th><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Points</th><th>Classification</th><th>Term GPA</th></tr>
+        </thead>
         <tbody>
-            <tr class="term-row"><td rowspan="3">Spring 2025</td><td>ENT 501</td><td>Venture Creation & Entrepreneurial Mindset</td><td>3</td><td>A-</td><td>3.7</td><td rowspan="3" style="background:#f3efe4;">3.63</td></tr>
-            <tr class="term-row"><td>FIN 505</td><td>Advanced Corporate Finance</td><td>3</td><td>A-</td><td>3.7</td></tr>
-            <tr class="term-row"><td>MGT 501</td><td>Leadership & Organizational Behavior</td><td>3</td><td>A-</td><td>3.7</td></tr>
-            <tr class="term-row"><td rowspan="3">Summer 2025</td><td>ENT 502</td><td>New Venture Financing</td><td>3</td><td>A</td><td>4.0</td><td rowspan="3" style="background:#f3efe4;">3.70</td></tr>
-            <tr class="term-row"><td>FIN 506</td><td>Private Equity & Venture Capital</td><td>3</td><td>A</td><td>4.0</td></tr>
-            <tr class="term-row"><td>MKT 501</td><td>Strategic Marketing for Entrepreneurs</td><td>3</td><td>B+</td><td>3.3</td></tr>
-            <tr class="term-row"><td rowspan="2">Fall 2025</td><td>FIN 507</td><td>Entrepreneurial Finance</td><td>3</td><td>B+</td><td>3.3</td><td rowspan="2" style="background:#f3efe4;">3.85</td></tr>
-            <tr class="term-row"><td>BUS 601</td><td>Capstone: Entrepreneurship & Finance Integration</td><td>3</td><td>A</td><td>4.0</td></tr>
+            <tr class="term-row"><td rowspan="3">Spring 2025</td><td>ENT 501</td><td>Venture Creation & Entrepreneurial Mindset</td><td>3</td><td>A-</td><td>3.7</td><td style="background:#e0f0e8;">Distinction</td><td rowspan="3" style="background:#f3efe4; text-align:center;">3.63</td></tr>
+            <tr class="term-row"><td>FIN 505</td><td>Advanced Corporate Finance</td><td>3</td><td>A-</td><td>3.7</td><td style="background:#e0f0e8;">Distinction</td></tr>
+            <tr class="term-row"><td>MGT 501</td><td>Leadership & Organizational Behavior</td><td>3</td><td>A-</td><td>3.7</td><td style="background:#e0f0e8;">Distinction</td></tr>
+            <tr class="term-row"><td rowspan="3">Summer 2025</td><td>ENT 502</td><td>New Venture Financing</td><td>3</td><td>A</td><td>4.0</td><td style="background:#e0f0e8;">Distinction</td><td rowspan="3" style="background:#f3efe4; text-align:center;">3.70</td></tr>
+            <tr class="term-row"><td>FIN 506</td><td>Private Equity & Venture Capital</td><td>3</td><td>A</td><td>4.0</td><td style="background:#e0f0e8;">Distinction</td></tr>
+            <tr class="term-row"><td>MKT 501</td><td>Strategic Marketing for Entrepreneurs</td><td>3</td><td>B+</td><td>3.3</td><td style="background:#fff0d0;">Merit</td></tr>
+            <tr class="term-row"><td rowspan="2">Fall 2025</td><td>FIN 507</td><td>Entrepreneurial Finance</td><td>3</td><td>B+</td><td>3.3</td><td style="background:#fff0d0;">Merit</td><td rowspan="2" style="background:#f3efe4; text-align:center;">3.85</td></tr>
+            <tr class="term-row"><td>BUS 601</td><td>Capstone: Entrepreneurship & Finance Integration</td><td>3</td><td>A</td><td>4.0</td><td style="background:#e0f0e8;">Distinction</td></tr>
         </tbody>
     </table>
 
@@ -342,39 +429,114 @@
         <strong>Cumulative GPA:</strong> 3.72 → 3.7 (official)
     </div>
 
-    <h3 style="margin: 20px 0 10px 0;">Graduate Course Descriptions</h3>
-    <table>
-        <thead><tr><th>Code</th><th>Title</th><th>Credits</th><th>Description</th></tr></thead>
+    <!-- Classification Summary Table -->
+    <h3 style="margin: 20px 0 10px 0;">Graduate Classification Summary</h3>
+    <table style="width: 70%; min-width: 280px;">
+        <thead>
+            <tr><th>Classification</th><th>Courses</th><th>Credits Earned</th></tr>
+        </thead>
         <tbody>
-            <tr><td>ENT 501</td><td>Venture Creation & Entrepreneurial Mindset</td><td>3</td><td>Entrepreneurial thinking, opportunity recognition, business model development, and startup journey from ideation to launch.</td></tr>
-            <tr><td>ENT 502</td><td>New Venture Financing</td><td>3</td><td>Sources of capital for startups, bootstrapping, angel investors, venture capital, crowdfunding, and structuring financing rounds.</td></tr>
-            <tr><td>FIN 505</td><td>Advanced Corporate Finance</td><td>3</td><td>Capital structure, valuation techniques, dividend policy, mergers and acquisitions, and advanced financial modeling.</td></tr>
-            <tr><td>FIN 506</td><td>Private Equity & Venture Capital</td><td>3</td><td>Structure and operations of private equity and venture capital funds, deal sourcing, due diligence, valuation, exit strategies.</td></tr>
-            <tr><td>FIN 507</td><td>Entrepreneurial Finance</td><td>3</td><td>Financial management for high-growth ventures, cash flow management, valuation for startups, term sheets, investor negotiations.</td></tr>
-            <tr><td>MGT 501</td><td>Leadership & Organizational Behavior</td><td>3</td><td>Leadership theories, team dynamics, organizational culture, change management, and developing high-performance entrepreneurial teams.</td></tr>
-            <tr><td>MKT 501</td><td>Strategic Marketing for Entrepreneurs</td><td>3</td><td>Marketing strategies for new ventures, customer acquisition, branding, digital marketing, growth hacking, and go-to-market strategies.</td></tr>
-            <tr><td>BUS 601</td><td>Capstone: Entrepreneurship & Finance Integration</td><td>3</td><td>Integrative capstone requiring development of a comprehensive business plan and financial model for a new venture. Presentation to faculty panel.</td></tr>
+            <tr style="background:#e0f0e8;"><td><strong>Distinction</strong> (A, A-)</td><td>5 courses</td><td>15 credits</td></tr>
+            <tr style="background:#fff0d0;"><td><strong>Merit</strong> (B+, B)</td><td>2 courses</td><td>6 credits</td></tr>
+            <tr><td><strong>Credit</strong> (B-, C+)</td><td>0 courses</td><td>0 credits</td></tr>
+            <tr><td><strong>Pass</strong> (C)</td><td>0 courses</td><td>0 credits</td></tr>
+            <tr style="background:#f3efe4; font-weight:bold;"><td>TOTAL</td><td>7 courses</td><td>24 credits</td></tr>
         </tbody>
     </table>
 
-    <!-- Final Summary & Verification -->
-    <div class="summary-box" style="background:#eae5d6;">
-        <strong>Academic Summary</strong><br>
-        BSc Finance & Investment: GPA 3.5 | cum laude | Upper Second Class Honors (2:1) | Distinction<br>
-        MBA Entrepreneurship & Finance: GPA 3.7 | magna cum laude | Distinction (Degree Classification) | Distinction (Overall)
+    <div class="summary-box" style="margin-top: 20px;">
+        <strong>Graduate Academic Honors & Classifications:</strong><br>
+        🏅 <strong>Overall Degree Classification:</strong> DISTINCTION<br>
+        🎓 <strong>Latin Honors:</strong> magna cum laude (GPA 3.70–3.89)<br>
+        📜 <strong>Course-Level Breakdown:</strong> 15 credits at Distinction | 6 credits at Merit | 0 credits at Credit/Pass<br>
+        ⭐ <strong>Merit Award:</strong> Graduate Dean's Merit List — Full Program
     </div>
 
     <div class="footer">
-        <div><strong>Transcript ID:</strong> NU-TR-2026-0843</div>
+        <div><strong>Transcript ID:</strong> NU-TR-2026-0843 (Graduate)</div>
         <div><strong>Issue Date:</strong> 27 March 2026</div>
     </div>
     <div class="verification">
-        🔗 Verification: https://nolan.edu/verify/NU-TR-2026-0843
+        🔗 Verification: https://nolan.edu/verify/NU-TR-2026-0843-GR
     </div>
     <div style="margin-top: 35px;">
         <div class="signature">_________________________<br>Michael T. Harrison<br>Registrar</div>
         <div style="font-size: 10px; text-align: center; margin-top: 20px;">University Seal | Nolan University — Official Academic Record</div>
     </div>
 </div>
+
+<script>
+    function printUndergraduate() {
+        const originalTitle = document.title;
+        document.title = "Nolan University - Undergraduate Transcript - Mwaba Lewis";
+        const printContent = document.getElementById('undergraduate-page').innerHTML;
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(`
+            <html>
+                <head><title>Nolan University - Undergraduate Transcript</title>
+                <style>
+                    * { margin: 0; padding: 0; box-sizing: border-box; }
+                    body { font-family: 'Georgia', 'Times New Roman', Times, serif; padding: 20px; }
+                    .page { max-width: 1100px; margin: 0 auto; background: white; padding: 40px; position: relative; }
+                    .seal { position: absolute; top: 40px; right: 45px; width: 100px; height: 100px; border: 2px solid #8b7a5c; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fef7e0; font-size: 10px; text-align: center; }
+                    .uni-header { text-align: center; margin-bottom: 30px; }
+                    .uni-name { font-size: 36px; font-weight: bold; color: #2c4b3e; }
+                    .student-info { background: #faf8f0; padding: 16px 20px; margin: 25px 0; display: flex; flex-wrap: wrap; }
+                    .info-item { width: 48%; margin: 6px 0; }
+                    .section-title { font-size: 22px; font-weight: bold; background: #eae5d6; padding: 8px 12px; margin: 30px 0 15px 0; border-left: 6px solid #2c4b3e; }
+                    table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 13px; }
+                    th, td { border: 1px solid #cfcbbd; padding: 8px 6px; }
+                    th { background: #eae5d6; }
+                    .honors-badge { display: inline-block; background: #e9ddb0; padding: 4px 12px; border-radius: 20px; font-size: 12px; margin-right: 12px; }
+                    .footer { margin-top: 40px; border-top: 1px solid #cfcbbd; padding-top: 25px; display: flex; justify-content: space-between; }
+                    .signature { margin-top: 25px; border-top: 1px solid #2c4b3e; width: 250px; text-align: center; }
+                    .verification { background: #f0ede4; padding: 12px; font-family: monospace; margin-top: 20px; }
+                </style>
+                </head>
+                <body><div class="page">${printContent}</div></body>
+            </html>
+        `);
+        printWindow.document.close();
+        printWindow.print();
+        document.title = originalTitle;
+    }
+
+    function printGraduate() {
+        const originalTitle = document.title;
+        document.title = "Nolan University - Graduate Transcript - Mwaba Lewis";
+        const printContent = document.getElementById('graduate-page').innerHTML;
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(`
+            <html>
+                <head><title>Nolan University - Graduate Transcript</title>
+                <style>
+                    * { margin: 0; padding: 0; box-sizing: border-box; }
+                    body { font-family: 'Georgia', 'Times New Roman', Times, serif; padding: 20px; }
+                    .page { max-width: 1100px; margin: 0 auto; background: white; padding: 40px; position: relative; }
+                    .seal { position: absolute; top: 40px; right: 45px; width: 100px; height: 100px; border: 2px solid #8b7a5c; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fef7e0; font-size: 10px; text-align: center; }
+                    .uni-header { text-align: center; margin-bottom: 30px; }
+                    .uni-name { font-size: 36px; font-weight: bold; color: #2c4b3e; }
+                    .student-info { background: #faf8f0; padding: 16px 20px; margin: 25px 0; display: flex; flex-wrap: wrap; }
+                    .info-item { width: 48%; margin: 6px 0; }
+                    .section-title { font-size: 22px; font-weight: bold; background: #eae5d6; padding: 8px 12px; margin: 30px 0 15px 0; border-left: 6px solid #2c4b3e; }
+                    table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 13px; }
+                    th, td { border: 1px solid #cfcbbd; padding: 8px 6px; }
+                    th { background: #eae5d6; }
+                    .honors-badge, .classification-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; margin-right: 12px; }
+                    .honors-badge { background: #e9ddb0; }
+                    .classification-badge { background: #d4e0d9; }
+                    .footer { margin-top: 40px; border-top: 1px solid #cfcbbd; padding-top: 25px; display: flex; justify-content: space-between; }
+                    .signature { margin-top: 25px; border-top: 1px solid #2c4b3e; width: 250px; text-align: center; }
+                    .verification { background: #f0ede4; padding: 12px; font-family: monospace; margin-top: 20px; }
+                </style>
+                </head>
+                <body><div class="page">${printContent}</div></body>
+            </html>
+        `);
+        printWindow.document.close();
+        printWindow.print();
+        document.title = originalTitle;
+    }
+</script>
 </body>
 </html>
