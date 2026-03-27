@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan University | BSc Transcript - Mwaba Lewis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e9e5dd;
+            font-family: 'Georgia', 'Times New Roman', 'Segoe UI', serif;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .transcript {
+            max-width: 1100px;
+            width: 100%;
+            background: #fffef7;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #d4cbb6;
+        }
+
+        .transcript-header {
+            background: #0a2f44;
+            color: #e8b42c;
+            text-align: center;
+            padding: 2rem 1.5rem 1.5rem;
+            border-bottom: 4px solid #e8b42c;
+            position: relative;
+        }
+
+        .seal-container {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            width: 80px;
+            height: 80px;
+        }
+
+        .seal {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #e8b42c15;
+            border: 2px solid #e8b42c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            text-align: center;
+            color: #e8b42c;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .university-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 0.25rem;
+        }
+
+        .transcript-title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #f0e6d0;
+            margin-top: 0.5rem;
+        }
+
+        .degree-badge {
+            display: inline-block;
+            background: #e8b42c;
+            color: #0a2f44;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-top: 0.8rem;
+        }
+
+        .accreditation-line {
+            font-size: 0.75rem;
+            margin-top: 0.6rem;
+            color: #cfdde6;
+        }
+
+        .student-info {
+            padding: 1.5rem 2rem;
+            background: #fefaf0;
+            border-bottom: 1px solid #e2d9cc;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .info-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8b7a62;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e3a4d;
+        }
+
+        .degree-summary-card {
+            background: linear-gradient(135deg, #fefaf0 0%, #fffef7 100%);
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid #e2d9cc;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .summary-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .summary-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #8b7a62;
+            font-weight: 600;
+        }
+
+        .summary-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0a2f44;
+        }
+
+        .course-section {
+            padding: 1.5rem 2rem;
+        }
+
+        .term-header {
+            background: #f0eadf;
+            padding: 0.6rem 1rem;
+            margin: 1rem 0 0.5rem 0;
+            border-left: 4px solid #e8b42c;
+            font-weight: 700;
+            color: #0a2f44;
+        }
+
+        .course-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-table th {
+            background: #f9f5ec;
+            padding: 0.6rem 0.5rem;
+            text-align: left;
+            font-weight: 700;
+            color: #1e3a4d;
+            border-bottom: 2px solid #e8b42c;
+        }
+
+        .course-table td {
+            padding: 0.5rem 0.5rem;
+            border-bottom: 1px solid #e2d9cc;
+            color: #2c3e4e;
+            vertical-align: top;
+        }
+
+        .term-gpa {
+            text-align: right;
+            font-weight: 700;
+            padding: 0.5rem;
+            background: #fefaf2;
+            margin-top: 0.25rem;
+            border-bottom: 1px solid #e8b42c;
+        }
+
+        .gpa-footer {
+            background: #fefaf2;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border-left: 4px solid #e8b42c;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .honors-badge {
+            display: inline-block;
+            background: #e8b42c20;
+            color: #9b7b2c;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .transcript-footer {
+            background: #f9f5ec;
+            padding: 1.2rem 2rem;
+            border-top: 1px solid #e2d9cc;
+            font-size: 0.7rem;
+            color: #7c6e56;
+            text-align: center;
+        }
+
+        .signature-line {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2d9cc;
+        }
+
+        .signature {
+            text-align: center;
+            flex: 1;
+        }
+
+        .signature-line-dash {
+            width: 180px;
+            border-bottom: 1px solid #8b7a62;
+            margin: 0 auto 0.5rem;
+        }
+
+        .print-btn {
+            display: inline-block;
+            background: #0a2f44;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            margin: 1rem 0.5rem 0;
+            text-decoration: none;
+        }
+
+        .print-btn:hover {
+            background: #e8b42c;
+            color: #0a2f44;
+        }
+
+        .button-group {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .print-btn, .button-group {
+                display: none;
+            }
+            .transcript {
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+            .seal {
+                border: 2px solid #0a2f44;
+                color: #0a2f44;
+                background: white;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .student-info, .course-section {
+                padding: 1rem;
+            }
+            .course-table th, .course-table td {
+                font-size: 0.7rem;
+                padding: 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="transcript">
+        <div class="transcript-header">
+            <div class="seal-container">
+                <div class="seal">OFFICIAL<br>SEAL<br>NOLAN UNIV</div>
+            </div>
+            <div class="university-name">NOLAN UNIVERSITY</div>
+            <div class="transcript-title">Official Academic Transcript</div>
+            <div class="degree-badge">Bachelor of Science · Finance & Investment</div>
+            <div class="accreditation-line">Accredited by EQUIS, AACSB, IACBE</div>
+        </div>
+
+        <!-- Student Information -->
+        <div class="student-info">
+            <div class="info-group"><div class="info-label">Student ID</div><div class="info-value">202200845</div></div>
+            <div class="info-group"><div class="info-label">Full Name</div><div class="info-value">Mwaba Lewis</div></div>
+            <div class="info-group"><div class="info-label">Date of Birth</div><div class="info-value">08 May 1992</div></div>
+            <div class="info-group"><div class="info-label">Citizenship</div><div class="info-value">Zambia 🇿🇲</div></div>
+            <div class="info-group"><div class="info-label">Program Type</div><div class="info-value">Full-time</div></div>
+        </div>
+
+        <!-- Degree Summary -->
+        <div class="degree-summary-card">
+            <div class="summary-item"><div class="summary-label">Enrollment</div><div class="summary-value">June 2021</div></div>
+            <div class="summary-item"><div class="summary-label">Conferral</div><div class="summary-value">18 September 2024</div></div>
+            <div class="summary-item"><div class="summary-label">Duration</div><div class="summary-value">3 Years</div></div>
+            <div class="summary-item"><div class="summary-label">Certificate ID</div><div class="summary-value">NU-GSBF-BSC-2024-001</div></div>
+        </div>
+
+        <!-- Course Listings -->
+        <div class="course-section">
+            <div class="term-header">📚 Fall 2021 Term</div>
+            <table class="course-table">
+                <thead><tr><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th></tr></thead>
+                <tbody>
+                    <tr><td>FIN 101</td><td>Principles of Finance</td><td>3</td><td>A</td></tr>
+                    <tr><td>ACC 101</td><td>Financial Accounting I</td><td>3</td><td>A-</td></tr>
+                    <tr><td>ECO 101</td><td>Microeconomics</td><td>3</td><td>B+</td></tr>
+                    <tr><td>MTH 101</td><td>Calculus for Business</td><td>3</td><td>A</td></tr>
+                    <tr><td>BUS 101</td><td>Introduction to Business</td><td>3</td><td>A</td></tr>
+                </tbody>
+            </table>
+            <div class="term-gpa">Term GPA: 3.78</div>
+
+            <div class="term-header">📚 Spring 2022 Term</div>
+            <table class="course-table">
+                <thead><tr><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th></tr></thead>
+                <tbody>
+                    <tr><td>FIN 102</td><td>Corporate Finance</td><td>3</td><td>A</td></tr>
+                    <tr><td>ACC 102</td><td>Financial Accounting II</td><td>3</td><td>B+</td></tr>
+                    <tr><td>ECO 102</td><td>Macroeconomics</td><td>3</td><td>A-</td></tr>
+                    <tr><td>STA 201</td><td>Business Statistics</td><td>3</td><td>A</td></tr>
+                    <tr><td>MKT 201</td><td>Principles of Marketing</td><td>3</td><td>A-</td></tr>
+                </tbody>
+            </table>
+            <div class="term-gpa">Term GPA: 3.82</div>
+
+            <div class="term-header">📚 Fall 2022 Term</div>
+            <table class="course-table">
+                <thead><tr><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th></tr></thead>
+                <tbody>
+                    <tr><td>FIN 201</td><td>Investment Analysis</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 202</td><td>Financial Markets & Institutions</td><td>3</td><td>A</td></tr>
+                    <tr><td>ACC 201</td><td>Managerial Accounting</td><td>3</td><td>A-</td></tr>
+                    <tr><td>LAW 301</td><td>Business Law</td><td>3</td><td>B+</td></tr>
+                    <tr><td>MGT 201</td><td>Organizational Behavior</td><td>3</td><td>A</td></tr>
+                </tbody>
+            </table>
+            <div class="term-gpa">Term GPA: 3.85</div>
+
+            <div class="term-header">📚 Spring 2023 Term</div>
+            <table class="course-table">
+                <thead><tr><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th></tr></thead>
+                <tbody>
+                    <tr><td>FIN 301</td><td>Portfolio Management</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 302</td><td>Risk Management</td><td>3</td><td>A-</td></tr>
+                    <tr><td>ECO 301</td><td>International Economics</td><td>3</td><td>B+</td></tr>
+                    <tr><td>MGT 301</td><td>Strategic Management</td><td>3</td><td>A</td></tr>
+                    <tr><td>COM 201</td><td>Business Communication</td><td>3</td><td>A</td></tr>
+                </tbody>
+            </table>
+            <div class="term-gpa">Term GPA: 3.88</div>
+
+            <div class="term-header">📚 Fall 2023 Term</div>
+            <table class="course-table">
+                <thead><tr><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th></tr></thead>
+                <tbody>
+                    <tr><td>FIN 401</td><td>Advanced Corporate Finance</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 402</td><td>Derivatives & Securities</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 403</td><td>Financial Modeling</td><td>3</td><td>A-</td></tr>
+                    <tr><td>ENT 301</td><td>Entrepreneurial Finance</td><td>3</td><td>A</td></tr>
+                    <tr><td>ETH 401</td><td>Business Ethics</td><td>3</td><td>A</td></tr>
+                </tbody>
+            </table>
+            <div class="term-gpa">Term GPA: 3.94</div>
+
+            <div class="term-header">📚 Spring 2024 Term</div>
+            <table class="course-table">
+                <thead><tr><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th></tr></thead>
+                <tbody>
+                    <tr><td>FIN 404</td><td>International Finance</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 405</td><td>Valuation & Mergers</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 406</td><td>Capstone in Finance</td><td>3</td><td>A</td></tr>
+                    <tr><td>MGT 401</td><td>Leadership & Ethics</td><td>3</td><td>A-</td></tr>
+                </tbody>
+            </table>
+            <div class="term-gpa">Term GPA: 3.96</div>
+
+            <!-- GPA Summary -->
+            <div class="gpa-footer">
+                <div><strong>Total Credits:</strong> 120</div>
+                <div><strong>Cumulative GPA:</strong> 3.89</div>
+                <div><strong>Honors:</strong> Magna Cum Laude <span class="honors-badge">With High Honors</span></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="transcript-footer">
+            <div>This transcript is official and reflects the complete academic record at Nolan University.</div>
+            <div style="margin-top: 0.5rem;">🔗 Verify: https://verify.nolan.edu | Certificate ID: NU-GSBF-BSC-2024-001 | Student ID: 202200845</div>
+            <div class="signature-line">
+                <div class="signature"><div class="signature-line-dash"></div><div class="signature-name">James R. Callwell</div><div class="signature-title">President</div></div>
+                <div class="signature"><div class="signature-line-dash"></div><div class="signature-name">Dr. Sarah M. Bennett</div><div class="signature-title">Dean, GSBF</div></div>
+                <div class="signature"><div class="signature-line-dash"></div><div class="signature-name">Michael T. Harrison</div><div class="signature-title">Registrar</div></div>
+            </div>
+            <div style="margin-top: 0.5rem;">Issued: 27 March 2026 · This document is electronically verifiable.</div>
+            <div class="button-group">
+                <button class="print-btn" onclick="window.print();">🖨️ Print / Save as PDF</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
