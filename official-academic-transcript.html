@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nolan University - Official Academic Transcript</title>
+    <title>Nolan University | Official Academic Transcript</title>
     <style>
         * {
             margin: 0;
@@ -12,576 +12,353 @@
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', Times, serif;
-            background-color: #f5f3ef;
-            padding: 40px 20px;
-            line-height: 1.4;
-            color: #1e2a2f;
+            background: #e9e5dd;
+            font-family: 'Georgia', 'Times New Roman', 'Segoe UI', serif;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        .page {
-            max-width: 1100px;
-            margin: 0 auto 40px auto;
-            background-color: #ffffff;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            border: 1px solid #d4cfc1;
-            padding: 40px 45px 50px 45px;
+        .transcript {
+            max-width: 1000px;
+            width: 100%;
+            background: #fffef7;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #d4cbb6;
+        }
+
+        .transcript-header {
+            background: #0a2f44;
+            color: #e8b42c;
+            text-align: center;
+            padding: 2rem 1.5rem 1.5rem;
             position: relative;
-            page-break-after: always;
-            break-inside: avoid;
+            border-bottom: 4px solid #e8b42c;
         }
 
-        .page:last-child {
-            page-break-after: auto;
-            margin-bottom: 0;
-        }
-
-        /* Watermark for security */
-        .watermark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.08;
-            font-size: 80px;
-            font-weight: bold;
-            color: var(--nolan-dark-green);
-            pointer-events: none;
-            z-index: 0;
-            white-space: nowrap;
-            font-family: 'Arial', sans-serif;
-        }
-
-        @media print {
-            body {
-                background-color: white;
-                padding: 0;
-                margin: 0;
-            }
-            .page {
-                box-shadow: none;
-                border: 1px solid #ccc;
-                margin: 0;
-                page-break-after: always;
-                break-inside: avoid;
-                position: relative;
-            }
-            .page:last-child {
-                page-break-after: auto;
-            }
-            .no-print {
-                display: none;
-            }
-            .watermark {
-                opacity: 0.1;
-            }
-        }
-
-        /* Nolan University Brand Colors */
-        :root {
-            --nolan-gold: #c5a028;
-            --nolan-dark-green: #1a4d3e;
-            --nolan-light-green: #2c6e5a;
-            --nolan-cream: #faf7f0;
-            --nolan-brown: #8b7355;
-        }
-
-        .brand-header {
-            text-align: center;
-            margin-bottom: 25px;
-            border-bottom: 2px solid var(--nolan-gold);
-            padding-bottom: 20px;
-        }
-        .brand-logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
         .university-name {
-            font-size: 48px;
-            font-weight: bold;
-            letter-spacing: 4px;
-            color: var(--nolan-dark-green);
-            font-family: 'Times New Roman', serif;
-            line-height: 1.2;
-        }
-        .tagline {
-            font-size: 14px;
+            font-size: 2.2rem;
+            font-weight: 700;
             letter-spacing: 2px;
-            color: var(--nolan-gold);
-            font-family: 'Arial', sans-serif;
-            margin-top: 5px;
-            font-style: italic;
-        }
-        .accreditation {
-            font-size: 10px;
-            font-family: 'Arial', sans-serif;
-            color: #6b6b6b;
-            margin-top: 12px;
+            margin-bottom: 0.25rem;
         }
 
-        .seal {
+        .transcript-title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #f0e6d0;
+            margin-top: 0.5rem;
+        }
+
+        .seal-placeholder {
             position: absolute;
-            top: 40px;
-            right: 45px;
-            width: 90px;
-            height: 90px;
-            border: 2px solid var(--nolan-gold);
+            right: 2rem;
+            top: 1.5rem;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
+            background: #e8b42c20;
+            border: 2px solid #e8b42c;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: var(--nolan-cream);
-            font-size: 9px;
+            font-size: 0.7rem;
             text-align: center;
-            color: var(--nolan-dark-green);
+            color: #e8b42c;
             font-weight: bold;
-            font-family: 'Arial', sans-serif;
-            z-index: 1;
         }
 
         .student-info {
-            background: var(--nolan-cream);
-            padding: 16px 20px;
-            border-left: 5px solid var(--nolan-gold);
-            margin: 20px 0;
+            padding: 1.8rem 2rem;
+            background: #fefaf0;
+            border-bottom: 1px solid #e2d9cc;
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
-            font-family: 'Arial', sans-serif;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
-        .info-item {
-            width: 48%;
-            margin: 6px 0;
-            font-size: 14px;
+
+        .info-group {
+            flex: 1;
+            min-width: 180px;
         }
+
         .info-label {
-            font-weight: bold;
-            color: var(--nolan-dark-green);
-        }
-
-        .classification-summary {
-            background: linear-gradient(135deg, var(--nolan-cream) 0%, #f0ebe0 100%);
-            border: 2px solid var(--nolan-gold);
-            border-radius: 12px;
-            padding: 20px 25px;
-            margin: 20px 0 25px 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .summary-card {
-            text-align: center;
-            padding: 8px 16px;
-            min-width: 120px;
-        }
-        .summary-label {
-            font-size: 12px;
-            font-family: 'Arial', sans-serif;
-            letter-spacing: 1px;
-            color: var(--nolan-brown);
+            font-size: 0.7rem;
             text-transform: uppercase;
-            font-weight: bold;
-        }
-        .summary-value {
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--nolan-dark-green);
-            margin-top: 5px;
-        }
-        .summary-value-small {
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--nolan-dark-green);
-        }
-        .classification-badge-large {
-            display: inline-block;
-            background: var(--nolan-dark-green);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .merit-badge-large {
-            display: inline-block;
-            background: #b45f1b;
-            color: white;
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-size: 20px;
-            font-weight: bold;
+            letter-spacing: 1px;
+            color: #8b7a62;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
         }
 
-        .section-title {
-            font-size: 22px;
-            font-weight: bold;
-            background-color: var(--nolan-cream);
-            padding: 8px 12px;
-            margin: 25px 0 15px 0;
-            border-left: 6px solid var(--nolan-gold);
-            color: var(--nolan-dark-green);
+        .info-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e3a4d;
+            border-bottom: 1px dotted #d4cbb6;
+            display: inline-block;
+            padding-bottom: 0.2rem;
         }
 
-        .degree-header {
-            background: #f4f0e6;
-            padding: 12px 16px;
-            margin: 20px 0 15px;
+        .degree-section {
+            padding: 1.5rem 2rem;
+        }
+
+        .degree-card {
+            background: #fefcf7;
+            border-left: 5px solid #e8b42c;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+            border-radius: 0 12px 12px 0;
+        }
+
+        .degree-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0a2f44;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e8b42c;
+            display: inline-block;
+            padding-bottom: 0.2rem;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 0.75rem;
+        }
+
+        .detail-row {
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
-            font-weight: bold;
-            border-bottom: 1px solid #ddd0b6;
+            align-items: baseline;
+            border-bottom: 1px solid #f0eadf;
+            padding: 0.5rem 0;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 13px;
-            font-family: 'Arial', sans-serif;
+        .detail-label {
+            width: 140px;
+            font-weight: 700;
+            color: #6b5a42;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        th {
-            background-color: var(--nolan-cream);
-            padding: 10px 6px;
-            border: 1px solid #d4cfc1;
-            text-align: center;
-            font-weight: bold;
-            color: var(--nolan-dark-green);
-        }
-
-        td {
-            border: 1px solid #d4cfc1;
-            padding: 8px 6px;
-            vertical-align: top;
-        }
-
-        .summary-box {
-            background: var(--nolan-cream);
-            padding: 16px 20px;
-            margin: 20px 0;
-            border: 1px solid #ddd0b6;
+        .detail-value {
+            flex: 1;
+            font-weight: 500;
+            color: #1e2a3a;
         }
 
         .honors-badge {
             display: inline-block;
-            background: #e9ddb0;
-            padding: 4px 12px;
+            background: #e8b42c20;
+            color: #9b7b2c;
+            padding: 0.2rem 0.7rem;
             border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-right: 12px;
-            margin-bottom: 8px;
-            color: var(--nolan-brown);
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
         }
 
-        .distinction-cell {
-            background-color: #e0f0e8;
-            font-weight: bold;
-            color: #1e5a4a;
-        }
-
-        .merit-cell {
-            background-color: #fff0d0;
-            font-weight: bold;
-            color: #b45f1b;
-        }
-
-        .footer {
-            margin-top: 40px;
-            border-top: 1px solid #d4cfc1;
-            padding-top: 25px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .signature {
-            margin-top: 25px;
-            border-top: 1px solid var(--nolan-dark-green);
-            width: 250px;
+        .transcript-footer {
+            background: #f9f5ec;
+            padding: 1.2rem 2rem;
+            border-top: 1px solid #e2d9cc;
+            font-size: 0.7rem;
+            color: #7c6e56;
             text-align: center;
-            font-size: 12px;
+            letter-spacing: 0.3px;
         }
 
-        .verification {
-            background: var(--nolan-cream);
-            padding: 12px 16px;
+        .verification-note {
+            margin-top: 0.8rem;
+            font-size: 0.7rem;
             font-family: monospace;
-            font-size: 12px;
-            margin-top: 20px;
-            border: 1px solid #ddd0b6;
+            color: #4d6a7e;
         }
 
-        .print-button {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .print-button button {
-            background: var(--nolan-dark-green);
+        .print-btn {
+            display: block;
+            width: fit-content;
+            margin: 1rem auto 0;
+            background: #0a2f44;
             color: white;
             border: none;
-            padding: 10px 24px;
-            font-size: 14px;
-            border-radius: 6px;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
             cursor: pointer;
-            margin: 0 8px;
-        }
-        .print-button button:hover {
-            background: var(--nolan-light-green);
-        }
-
-        .page-number {
-            text-align: center;
-            font-size: 10px;
-            color: #8b7355;
-            margin-top: 20px;
+            font-family: inherit;
+            font-weight: 600;
+            transition: 0.2s;
         }
 
-        @media (max-width: 700px) {
-            .page {
-                padding: 20px;
+        .print-btn:hover {
+            background: #e8b42c;
+            color: #0a2f44;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
             }
-            .info-item {
-                width: 100%;
+            .print-btn {
+                display: none;
             }
-            .seal {
-                width: 70px;
-                height: 70px;
-                top: 20px;
-                right: 20px;
+            .transcript {
+                box-shadow: none;
+                border: 1px solid #ccc;
             }
-            .classification-summary {
-                flex-direction: column;
-                gap: 15px;
+            .seal-placeholder {
+                border: 2px solid #0a2f44;
+                color: #0a2f44;
+                background: white;
             }
         }
     </style>
 </head>
 <body>
-
-<div class="print-button no-print">
-    <button onclick="window.print();">Print All Pages</button>
-    <button onclick="printUndergraduate();">Print Undergraduate Only</button>
-    <button onclick="printGraduate();">Print Graduate Only</button>
-</div>
-
-<!-- ==================== PAGE 1: UNDERGRADUATE ==================== -->
-<div id="undergraduate-page" class="page">
-    <div class="watermark">OFFICIAL TRANSCRIPT</div>
-    <div class="seal">
-        <span>NOLAN</span>
-        <span>UNIVERSITY</span>
-        <span>EST. 2020</span>
-    </div>
-    
-    <div class="brand-header">
-        <div class="brand-logo">
+    <div class="transcript">
+        <div class="transcript-header">
+            <div class="seal-placeholder">
+                <span>OFFICIAL SEAL<br>NOLAN UNIV</span>
+            </div>
             <div class="university-name">NOLAN UNIVERSITY</div>
-            <div class="tagline">Learn to Lead. Lead to Excel</div>
+            <div class="transcript-title">Official Academic Transcript</div>
+            <div style="font-size: 0.75rem; margin-top: 0.6rem; color: #cfdde6;">Est. 1985 · Accredited by EQUIS, AACSB, IACBE</div>
         </div>
-        <div class="accreditation">Accredited by EQUIS, AACSB, and the International Assembly for Collegiate Business Education (IACBE)</div>
-    </div>
 
-    <div class="student-info">
-        <div class="info-item"><span class="info-label">Name:</span> Mwaba Lewis</div>
-        <div class="info-item"><span class="info-label">Student ID:</span> NU-2022-0842</div>
-        <div class="info-item"><span class="info-label">Date of Birth:</span> [DOB]</div>
-        <div class="info-item"><span class="info-label">Citizenship:</span> [Country]</div>
-    </div>
-
-    <div class="classification-summary">
-        <div class="summary-card">
-            <div class="summary-label">CLASSIFICATION</div>
-            <div class="summary-value">Upper Second Class<br>Honors (2:1)</div>
+        <!-- Student Information -->
+        <div class="student-info">
+            <div class="info-group">
+                <div class="info-label">Student ID</div>
+                <div class="info-value">202200845</div>
+            </div>
+            <div class="info-group">
+                <div class="info-label">Full Name</div>
+                <div class="info-value">Mwaba Lewis</div>
+            </div>
+            <div class="info-group">
+                <div class="info-label">Date of Birth</div>
+                <div class="info-value">08 May 1992</div>
+            </div>
+            <div class="info-group">
+                <div class="info-label">Citizenship</div>
+                <div class="info-value">Zambia 🇿🇲</div>
+            </div>
+            <div class="info-group">
+                <div class="info-label">Program Type</div>
+                <div class="info-value">Full-time</div>
+            </div>
         </div>
-        <div class="summary-card">
-            <div class="summary-label">OVERALL PERFORMANCE</div>
-            <div class="merit-badge-large">MERIT</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-label">GPA</div>
-            <div class="summary-value">3.5 / 4.0</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-label">LATIN HONORS</div>
-            <div class="summary-value-small">cum laude</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-label">ACADEMIC STANDING</div>
-            <div class="summary-value-small">Good Standing</div>
-        </div>
-    </div>
 
-    <div class="section-title">UNDERGRADUATE RECORD</div>
-    <div class="degree-header">
-        <span>Bachelor of Science in Finance & Investment</span>
-        <span>School: Graduate School of Banking & Finance</span>
-    </div>
-    <div><strong>Enrollment:</strong> September 2022 &nbsp;|&nbsp; <strong>Conferral:</strong> 31 December 2024 &nbsp;|&nbsp; <strong>Degree Status:</strong> Conferred</div>
+        <!-- Degree 1: Bachelor of Science -->
+        <div class="degree-section">
+            <div class="degree-card">
+                <div class="degree-title">Bachelor of Science — Finance & Investment</div>
+                <div class="detail-grid">
+                    <div class="detail-row">
+                        <span class="detail-label">Degree Conferred</span>
+                        <span class="detail-value">Bachelor of Science</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Program of Study</span>
+                        <span class="detail-value">Finance & Investment</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">School</span>
+                        <span class="detail-value">Graduate School of Banking & Finance</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Enrollment Date</span>
+                        <span class="detail-value">June 2021</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Conferral Date</span>
+                        <span class="detail-value">18 September 2024</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Certificate ID</span>
+                        <span class="detail-value">NU-GSBF-BSC-2024-001</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Duration</span>
+                        <span class="detail-value">3 years (Full-time)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Honors</span>
+                        <span class="detail-value">Magna Cum Laude <span class="honors-badge">With High Honors</span></span>
+                    </div>
+                </div>
+            </div>
 
-    <h3 style="margin: 20px 0 10px 0;">Course Record</h3>
-    <table>
-        <thead>
-            <tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Grade Points</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>FIN 101</td><td>Principles of Finance</td><td>3</td><td>A</td><td>4.0</td></tr>
-            <tr><td>FIN 102</td><td>Investment Analysis</td><td>3</td><td>A-</td><td>3.7</td></tr>
-            <tr><td>FIN 201</td><td>Corporate Finance</td><td>3</td><td>B+</td><td>3.3</td></tr>
-            <tr><td>FIN 202</td><td>Portfolio Management</td><td>3</td><td>A-</td><td>3.7</td></tr>
-            <tr><td>FIN 301</td><td>Financial Markets & Institutions</td><td>3</td><td>B+</td><td>3.3</td></tr>
-            <tr><td>FIN 302</td><td>Derivatives & Risk Management</td><td>3</td><td>A</td><td>4.0</td></tr>
-            <tr><td>FIN 401</td><td>Advanced Investment Strategies</td><td>3</td><td>A-</td><td>3.7</td></tr>
-            <tr><td>FIN 402</td><td>Capstone: Finance & Investment</td><td>3</td><td>B+</td><td>3.3</td></tr>
-            <tr><td>ACC 101</td><td>Financial Accounting</td><td>3</td><td>B+</td><td>3.3</td></tr>
-            <tr><td>ACC 201</td><td>Managerial Accounting</td><td>3</td><td>A-</td><td>3.7</td></tr>
-            <tr><td>ECO 101</td><td>Principles of Microeconomics</td><td>3</td><td>A</td><td>4.0</td></tr>
-            <tr><td>ECO 102</td><td>Principles of Macroeconomics</td><td>3</td><td>B+</td><td>3.3</td></tr>
-            <tr><td>MTH 101</td><td>Calculus for Business</td><td>3</td><td>A</td><td>4.0</td></tr>
-            <tr><td>STAT 101</td><td>Business Statistics</td><td>3</td><td>A-</td><td>3.7</td></tr>
-            <tr><td>BUS 201</td><td>Business Law & Ethics</td><td>3</td><td>B+</td><td>3.3</td></tr>
-            <tr><td>BUS 301</td><td>Strategic Management</td><td>3</td><td>A-</td><td>3.7</td></tr>
-        </tbody>
-    </table>
+            <!-- Degree 2: Master of Business Administration -->
+            <div class="degree-card">
+                <div class="degree-title">Master of Business Administration — Entrepreneurship & Finance</div>
+                <div class="detail-grid">
+                    <div class="detail-row">
+                        <span class="detail-label">Degree Conferred</span>
+                        <span class="detail-value">Master of Business Administration</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Program of Study</span>
+                        <span class="detail-value">Entrepreneurship & Finance</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">School</span>
+                        <span class="detail-value">Joint: School of Entrepreneurship & Venture Creation and Graduate School of Banking & Finance</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Enrollment Date</span>
+                        <span class="detail-value">February 2025</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Conferral Date</span>
+                        <span class="detail-value">26 March 2026</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Certificate ID</span>
+                        <span class="detail-value">NU-MBA-2026-0842</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Duration</span>
+                        <span class="detail-value">1 year (Full-time)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Honors</span>
+                        <span class="detail-value">With Distinction <span class="honors-badge">Academic Excellence</span></span>
+                    </div>
+                </div>
+            </div>
 
-    <div class="summary-box">
-        <strong>Credit Summary:</strong><br>
-        Total Credits Attempted: 48 | Total Credits Earned: 48 | Total Grade Points: 171.6<br>
-        <strong>Cumulative GPA:</strong> 3.57 → 3.5 (official)<br>
-        <strong>Academic Standing:</strong> Good Standing (All Terms)<br>
-        <strong>Degree Status:</strong> Conferred on 31 December 2024
-    </div>
-
-    <div class="summary-box">
-        <strong>Grading Scale:</strong><br>
-        A = 4.0 (Distinction) | A- = 3.7 (Distinction) | B+ = 3.3 (Merit) | B = 3.0 (Merit) | B- = 2.7 (Credit) | C+ = 2.3 (Credit) | C = 2.0 (Pass) | D = 1.0 (Conditional) | F = 0.0 (Fail)
-    </div>
-
-    <div class="footer">
-        <div><strong>Transcript ID:</strong> NU-TR-2026-0843-UG</div>
-        <div><strong>Issue Date:</strong> 27 March 2026</div>
-    </div>
-    <div class="verification">
-        🔗 Verify at: https://nolan.edu/verify/NU-TR-2026-0843-UG
-    </div>
-    <div class="signature">_________________________<br>Michael T. Harrison<br>Registrar</div>
-    <div class="page-number">Page 1 of 2</div>
-</div>
-
-<!-- ==================== PAGE 2: GRADUATE ==================== -->
-<div id="graduate-page" class="page">
-    <div class="watermark">OFFICIAL TRANSCRIPT</div>
-    <div class="seal">
-        <span>NOLAN</span>
-        <span>UNIVERSITY</span>
-        <span>EST. 2020</span>
-    </div>
-    
-    <div class="brand-header">
-        <div class="brand-logo">
-            <div class="university-name">NOLAN UNIVERSITY</div>
-            <div class="tagline">Learn to Lead. Lead to Excel</div>
+            <!-- Academic Standing -->
+            <div style="margin-top: 1rem; padding: 0.5rem 1rem; background: #fefaf2; border-radius: 8px; font-size: 0.8rem; border-left: 3px solid #e8b42c;">
+                <strong>Academic Standing:</strong> Graduated in Good Standing · GPA: 3.89/4.00 (BSc) · 3.94/4.00 (MBA)
+            </div>
         </div>
-        <div class="accreditation">Accredited by EQUIS, AACSB, and the International Assembly for Collegiate Business Education (IACBE)</div>
-    </div>
 
-    <div class="student-info">
-        <div class="info-item"><span class="info-label">Name:</span> Mwaba Lewis</div>
-        <div class="info-item"><span class="info-label">Student ID:</span> NU-2022-0842</div>
-        <div class="info-item"><span class="info-label">Date of Birth:</span> [DOB]</div>
-        <div class="info-item"><span class="info-label">Citizenship:</span> [Country]</div>
-    </div>
-
-    <div class="classification-summary">
-        <div class="summary-card">
-            <div class="summary-label">CLASSIFICATION</div>
-            <div class="classification-badge-large">DISTINCTION</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-label">GPA</div>
-            <div class="summary-value">3.7 / 4.0</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-label">LATIN HONORS</div>
-            <div class="summary-value-small">magna cum laude</div>
-        </div>
-        <div class="summary-card">
-            <div class="summary-label">ACADEMIC STANDING</div>
-            <div class="summary-value-small">Good Standing</div>
+        <!-- Footer / Verification -->
+        <div class="transcript-footer">
+            <div>This transcript is official and reflects the complete academic record at Nolan University.</div>
+            <div class="verification-note">
+                🔗 Verify credentials: <strong>https://verify.nolan.edu</strong> | Certificate IDs: NU-GSBF-BSC-2024-001, NU-MBA-2026-0842 | Student ID: 202200845
+            </div>
+            <div style="margin-top: 0.5rem;">
+                Issued: 27 March 2026 | Registrar's Office · Nolan University
+            </div>
+            <button class="print-btn" onclick="window.print();">🖨️ Print / Save as PDF</button>
         </div>
     </div>
-
-    <div class="section-title">GRADUATE RECORD</div>
-    <div class="degree-header">
-        <span>MBA in Entrepreneurship & Finance (Joint Degree)</span>
-        <span>Schools: Entrepreneurship & Venture Creation + Banking & Finance</span>
-    </div>
-    <div><strong>Enrollment:</strong> March 2025 &nbsp;|&nbsp; <strong>Conferral:</strong> 26 March 2026 &nbsp;|&nbsp; <strong>Degree Status:</strong> Conferred</div>
-
-    <h3 style="margin: 20px 0 10px 0;">Course Record</h3>
-    <table>
-        <thead>
-            <tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Points</th><th>Classification</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>ENT 501</td><td>Venture Creation & Entrepreneurial Mindset</td><td>3</td><td>A-</td><td>3.7</td><td class="distinction-cell">Distinction</td></tr>
-            <tr><td>ENT 502</td><td>New Venture Financing</td><td>3</td><td>A</td><td>4.0</td><td class="distinction-cell">Distinction</td></tr>
-            <tr><td>FIN 505</td><td>Advanced Corporate Finance</td><td>3</td><td>A-</td><td>3.7</td><td class="distinction-cell">Distinction</td></tr>
-            <tr><td>FIN 506</td><td>Private Equity & Venture Capital</td><td>3</td><td>A</td><td>4.0</td><td class="distinction-cell">Distinction</td></tr>
-            <tr><td>FIN 507</td><td>Entrepreneurial Finance</td><td>3</td><td>B+</td><td>3.3</td><td class="merit-cell">Merit</td></tr>
-            <tr><td>MGT 501</td><td>Leadership & Organizational Behavior</td><td>3</td><td>A-</td><td>3.7</td><td class="distinction-cell">Distinction</td></tr>
-            <tr><td>MKT 501</td><td>Strategic Marketing for Entrepreneurs</td><td>3</td><td>B+</td><td>3.3</td><td class="merit-cell">Merit</td></tr>
-            <tr><td>BUS 601</td><td>Capstone: Entrepreneurship & Finance Integration</td><td>3</td><td>A</td><td>4.0</td><td class="distinction-cell">Distinction</td></tr>
-        </tbody>
-    </table>
-
-    <div class="summary-box">
-        <strong>Credit Summary:</strong><br>
-        Total Credits Attempted: 24 | Total Credits Earned: 24 | Total Grade Points: 89.4<br>
-        <strong>Cumulative GPA:</strong> 3.72 → 3.7 (official)<br>
-        <strong>Academic Standing:</strong> Good Standing (All Terms)<br>
-        <strong>Degree Status:</strong> Conferred on 26 March 2026<br>
-        <strong>Classification Breakdown:</strong> 15 Credits at Distinction | 6 Credits at Merit | 0 Credits at Credit/Pass
-    </div>
-
-    <div class="summary-box">
-        <strong>Grading Scale:</strong><br>
-        A = 4.0 (Distinction) | A- = 3.7 (Distinction) | B+ = 3.3 (Merit) | B = 3.0 (Merit) | B- = 2.7 (Credit) | C+ = 2.3 (Credit) | C = 2.0 (Pass)
-    </div>
-
-    <div class="footer">
-        <div><strong>Transcript ID:</strong> NU-TR-2026-0843-GR</div>
-        <div><strong>Issue Date:</strong> 27 March 2026</div>
-    </div>
-    <div class="verification">
-        🔗 Verify at: https://nolan.edu/verify/NU-TR-2026-0843-GR
-    </div>
-    <div class="signature">_________________________<br>Michael T. Harrison<br>Registrar</div>
-    <div class="page-number">Page 2 of 2</div>
-</div>
-
-<script>
-    function printUndergraduate() {
-        const printContent = document.getElementById('undergraduate-page').innerHTML;
-        const printWindow = window.open('', '_blank');
-        printWindow.document.write(`<html><head><title>Nolan University - Undergraduate Transcript</title><style>body{font-family:Georgia;padding:20px;} .page{max-width:1100px;margin:0 auto;}</style></head><body><div class="page">${printContent}</div></body></html>`);
-        printWindow.document.close();
-        printWindow.print();
-    }
-    function printGraduate() {
-        const printContent = document.getElementById('graduate-page').innerHTML;
-        const printWindow = window.open('', '_blank');
-        printWindow.document.write(`<html><head><title>Nolan University - Graduate Transcript</title><style>body{font-family:Georgia;padding:20px;} .page{max-width:1100px;margin:0 auto;}</style></head><body><div class="page">${printContent}</div></body></html>`);
-        printWindow.document.close();
-        printWindow.print();
-    }
-</script>
 </body>
 </html>
