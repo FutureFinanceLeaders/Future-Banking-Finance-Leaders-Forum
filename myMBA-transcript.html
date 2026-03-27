@@ -1,190 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nolan University | Official Transcript - MBA Entrepreneurship & Finance</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: #e9e5dd;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .transcript {
-            max-width: 1200px;
-            width: 100%;
-            background: #ffffff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 1px solid #d4cbb6;
-        }
-        .header {
-            background: #0a2f44;
-            color: #e8b42c;
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-            border-bottom: 3px solid #e8b42c;
-        }
-        .seal {
-            position: absolute;
-            right: 2rem;
-            top: 1.5rem;
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            border: 2px solid #e8b42c;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.6rem;
-            text-align: center;
-            color: #e8b42c;
-            background: rgba(232,180,44,0.1);
-        }
-        .university-name { font-size: 2rem; font-weight: 700; letter-spacing: 2px; }
-        .transcript-title { font-size: 1rem; text-transform: uppercase; letter-spacing: 3px; color: #f0e6d0; margin-top: 0.3rem; }
-        .degree-name { background: #e8b42c; color: #0a2f44; display: inline-block; padding: 0.3rem 1.5rem; border-radius: 25px; font-weight: 700; font-size: 0.85rem; margin-top: 0.8rem; }
-        .joint-badge { background: rgba(232,180,44,0.2); color: #e8b42c; display: inline-block; padding: 0.2rem 1rem; border-radius: 20px; font-size: 0.7rem; margin-top: 0.5rem; }
-        .accreditation { font-size: 0.7rem; margin-top: 0.5rem; color: #cfdde6; }
-        .student-info {
-            padding: 1.2rem 2rem;
-            background: #fefaf0;
-            border-bottom: 1px solid #e2d9cc;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .info-item { flex: 1; min-width: 150px; }
-        .info-label { font-size: 0.65rem; text-transform: uppercase; color: #8b7a62; font-weight: 600; }
-        .info-value { font-size: 0.95rem; font-weight: 600; color: #1e3a4d; }
-        .degree-summary {
-            padding: 1rem 2rem;
-            background: #ffffff;
-            border-bottom: 1px solid #e2d9cc;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .summary-block { text-align: center; flex: 1; }
-        .summary-label { font-size: 0.65rem; text-transform: uppercase; color: #8b7a62; }
-        .summary-value { font-size: 1rem; font-weight: 700; color: #0a2f44; }
-        .course-section { padding: 1.5rem 2rem; }
-        .term-title { background: #f0eadf; padding: 0.5rem 1rem; margin: 1rem 0 0.5rem 0; font-weight: 700; color: #0a2f44; border-left: 4px solid #e8b42c; }
-        .course-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-        .course-table th { background: #f9f5ec; padding: 0.6rem 0.5rem; text-align: left; border-bottom: 2px solid #e8b42c; font-weight: 700; color: #1e3a4d; }
-        .course-table td { padding: 0.5rem 0.5rem; border-bottom: 1px solid #e2d9cc; color: #2c3e4e; }
-        .term-gpa { text-align: right; font-weight: 700; padding: 0.5rem; background: #fefaf2; border-bottom: 1px solid #e8b42c; }
-        .gpa-summary { background: #fefaf2; padding: 1rem 1.5rem; margin-top: 1.5rem; border-left: 4px solid #e8b42c; display: flex; flex-wrap: wrap; justify-content: space-between; }
-        .gpa-item { text-align: center; flex: 1; }
-        .gpa-label { font-size: 0.7rem; text-transform: uppercase; color: #8b7a62; }
-        .gpa-value { font-size: 1.2rem; font-weight: 700; color: #0a2f44; }
-        .honors { background: #e8b42c20; color: #9b7b2c; padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
-        .footer { background: #f9f5ec; padding: 1.2rem 2rem; border-top: 1px solid #e2d9cc; font-size: 0.7rem; color: #7c6e56; text-align: center; }
-        .signatures { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e2d9cc; }
-        .signature { text-align: center; flex: 1; }
-        .signature-line { width: 160px; border-bottom: 1px solid #8b7a62; margin: 0 auto 0.3rem; }
-        .print-btn { background: #0a2f44; color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 25px; cursor: pointer; margin-top: 1rem; }
-        @media print { body { background: white; padding: 0; } .print-btn { display: none; } .seal { border-color: #0a2f44; color: #0a2f44; } }
-        @media (max-width: 768px) { body { padding: 1rem; } .course-table th, .course-table td { font-size: 0.7rem; padding: 0.3rem; } }
-    </style>
+<meta charset="UTF-8">
+<title>Nolan University | Official Transcript - MBA</title>
+<style>
+body { font-family: Georgia, serif; background:#f5f5f5; padding:20px; }
+.transcript { max-width:1000px; margin:auto; background:#fff; padding:25px; border:1px solid #ccc; }
+.header { text-align:center; border-bottom:2px solid #000; padding-bottom:15px; }
+h1, h2, h3 { margin:0; }
+h3 { margin-top:15px; font-size:1rem; color:#0a2f44; }
+.section { margin-top:20px; }
+table { width:100%; border-collapse:collapse; margin-top:5px; }
+th, td { border-bottom:1px solid #ccc; padding:8px; text-align:left; vertical-align:top; }
+th { background:#eee; font-weight:bold; }
+.summary { margin-top:20px; font-weight:bold; }
+.module-desc { font-size:0.85rem; color:#333; margin-bottom:10px; }
+.accreditation { font-size:0.8rem; margin-top:10px; color:#555; }
+</style>
 </head>
+
 <body>
 <div class="transcript">
-    <div class="header">
-        <div class="seal">OFFICIAL<br>SEAL<br>NOLAN</div>
-        <div class="university-name">NOLAN UNIVERSITY</div>
-        <div class="transcript-title">Official Academic Transcript</div>
-        <div class="degree-name">Master of Business Administration · Entrepreneurship & Finance</div>
-        <div class="joint-badge">Joint Degree: School of Entrepreneurship & Venture Creation + Graduate School of Banking & Finance</div>
-        <div class="accreditation">Accredited by EQUIS · AACSB · IACBE</div>
-    </div>
 
-    <div class="student-info">
-        <div class="info-item"><div class="info-label">Student ID</div><div class="info-value">202200845</div></div>
-        <div class="info-item"><div class="info-label">Name</div><div class="info-value">Mwaba Lewis</div></div>
-        <div class="info-item"><div class="info-label">Date of Birth</div><div class="info-value">08 May 1992</div></div>
-        <div class="info-item"><div class="info-label">Citizenship</div><div class="info-value">Zambia</div></div>
-    </div>
+<div class="header">
+<h1>NOLAN UNIVERSITY</h1>
+<p><strong>Official Academic Transcript</strong></p>
+<p>MBA – Entrepreneurship & Finance</p>
+<p><em>UK Credit Framework (CATS) | ECTS Equivalence Shown</em></p>
+</div>
 
-    <div class="degree-summary">
-        <div class="summary-block"><div class="summary-label">Enrollment</div><div class="summary-value">February 2025</div></div>
-        <div class="summary-block"><div class="summary-label">Conferral</div><div class="summary-value">26 March 2026</div></div>
-        <div class="summary-block"><div class="summary-label">Duration</div><div class="summary-value">1 Year (Full-time)</div></div>
-        <div class="summary-block"><div class="summary-label">Certificate ID</div><div class="summary-value">NU-MBA-2026-0842</div></div>
-    </div>
+<div class="section">
+<p><strong>Name:</strong> Mwaba Lewis</p>
+<p><strong>Student ID:</strong> 202200845</p>
+<p><strong>Duration:</strong> 1 Year Full-Time</p>
+<p><strong>Award Date:</strong> 26 March 2026</p>
+</div>
 
-    <div class="course-section">
-        <div class="term-title">Spring 2025 Term</div>
-        <table class="course-table">
-            <thead> <th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th> </thead>
-            <tbody>
-                <tr><td>MBA 501</td><td>Strategic Leadership & Ethics</td><td>10</td><td>A</td><td>40.0</td></tr>
-                <tr><td>MBA 502</td><td>Advanced Corporate Finance</td><td>10</td><td>A</td><td>40.0</td></tr>
-                <tr><td>MBA 503</td><td>Entrepreneurial Mindset & Innovation</td><td>10</td><td>A-</td><td>37.0</td></tr>
-                <tr><td>MBA 504</td><td>Financial Markets & Global Economics</td><td>10</td><td>A</td><td>40.0</td></tr>
-            </tbody>
-        </table>
-        <div class="term-gpa">Term GPA: 3.92 | Credits: 40 | Quality Points: 157.0</div>
+<div class="section accreditation">
+<p><strong>Accreditation:</strong> Nolan University is accredited by the <strong>Quality Assurance Agency for Higher Education (QAA, UK)</strong> and holds recognition from the <strong>European Quality Improvement System (EQUIS)</strong>. Courses conform to the UK Credit Accumulation and Transfer Scheme (CATS) and are fully compliant with the Bologna Process (ECTS equivalence shown).</p>
+</div>
 
-        <div class="term-title">Summer 2025 Term</div>
-        <table class="course-table">
-            <thead> <th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th> </thead>
-            <tbody>
-                <tr><td>MBA 505</td><td>Venture Capital & Private Equity</td><td>10</td><td>A</td><td>40.0</td></tr>
-                <tr><td>MBA 506</td><td>Mergers & Acquisitions</td><td>10</td><td>A</td><td>40.0</td></tr>
-                <tr><td>MBA 507</td><td>Data Analytics for Business</td><td>10</td><td>A-</td><td>37.0</td></tr>
-                <tr><td>MBA 508</td><td>Negotiation & Deal Structuring</td><td>10</td><td>A</td><td>40.0</td></tr>
-            </tbody>
-        </table>
-        <div class="term-gpa">Term GPA: 3.95 | Credits: 40 | Quality Points: 157.0</div>
+<div class="section">
+<h2>Module Records</h2>
 
-        <div class="term-title">Fall 2025 Term</div>
-        <table class="course-table">
-            <thead> <th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th> </thead>
-            <tbody>
-                <tr><td>MBA 601</td><td>Entrepreneurial Finance</td><td>10</td><td>A</td><td>40.0</td></tr>
-                <tr><td>MBA 602</td><td>Business Model Innovation</td><td>10</td><td>A</td><td>40.0</td></tr>
-                <tr><td>MBA 603</td><td>Global Strategy & Competitiveness</td><td>10</td><td>A</td><td>40.0</td></tr>
-                <tr><td>MBA 604</td><td>Leadership in Complex Organizations</td><td>10</td><td>A-</td><td>37.0</td></tr>
-            </tbody>
-        </table>
-        <div class="term-gpa">Term GPA: 3.96 | Credits: 40 | Quality Points: 157.0</div>
+<h3>Spring Term 2025</h3>
+<table>
+<tr><th>Course</th><th>CATS Credits</th><th>ECTS</th><th>Grade</th></tr>
+<tr>
+<td>
+<strong>Strategic Leadership & Ethics</strong>
+<div class="module-desc">Develops leadership frameworks and ethical decision-making skills applicable to complex business environments.</div>
+</td>
+<td>10</td><td>5</td><td>Distinction</td>
+</tr>
+<tr>
+<td>
+<strong>Advanced Corporate Finance</strong>
+<div class="module-desc">Covers valuation, capital structure, risk management, and corporate investment decisions in global markets.</div>
+</td>
+<td>10</td><td>5</td><td>Distinction</td>
+</tr>
+<tr>
+<td>
+<strong>Entrepreneurial Mindset & Innovation</strong>
+<div class="module-desc">Focuses on developing entrepreneurial thinking and applying creative approaches to generate business solutions.</div>
+</td>
+<td>10</td><td>5</td><td>Merit</td>
+</tr>
+</table>
 
-        <div class="term-title">Spring 2026 Term</div>
-        <table class="course-table">
-            <thead> <th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th> </thead>
-            <tbody>
-                <tr><td>MBA 605</td><td>Capstone: Entrepreneurship & Venture Creation</td><td>10</td><td>A</td><td>40.0</td></tr>
-                <tr><td>MBA 606</td><td>Investment Strategy & Portfolio Management</td><td>10</td><td>A</td><td>40.0</td></tr>
-            </tbody>
-        </table>
-        <div class="term-gpa">Term GPA: 4.00 | Credits: 20 | Quality Points: 80.0</div>
+<h3>Summer Term 2025</h3>
+<table>
+<tr><th>Course</th><th>CATS Credits</th><th>ECTS</th><th>Grade</th></tr>
+<tr>
+<td>
+<strong>Financial Markets & Global Economics</strong>
+<div class="module-desc">Analyses financial markets, macroeconomic principles, and international economic trends impacting business strategy.</div>
+</td>
+<td>10</td><td>5</td><td>Distinction</td>
+</tr>
+<tr>
+<td>
+<strong>Venture Capital & Private Equity</strong>
+<div class="module-desc">Examines investment strategies, venture funding, and private equity structures in high-growth enterprises.</div>
+</td>
+<td>10</td><td>5</td><td>Distinction</td>
+</tr>
+<tr>
+<td>
+<strong>Mergers & Acquisitions</strong>
+<div class="module-desc">Covers valuation, negotiation, and integration challenges in corporate mergers and acquisitions.</div>
+</td>
+<td>10</td><td>5</td><td>Distinction</td>
+</tr>
+</table>
 
-        <div class="gpa-summary">
-            <div class="gpa-item"><div class="gpa-label">Total Credits</div><div class="gpa-value">140</div></div>
-            <div class="gpa-item"><div class="gpa-label">Total Quality Points</div><div class="gpa-value">551.0</div></div>
-            <div class="gpa-item"><div class="gpa-label">Cumulative GPA</div><div class="gpa-value">3.94</div></div>
-            <div class="gpa-item"><div class="gpa-label">Honors</div><div class="gpa-value"><span class="honors">Distinction</span></div></div>
-        </div>
-    </div>
+<h3>Autumn Term 2025</h3>
+<table>
+<tr><th>Course</th><th>CATS Credits</th><th>ECTS</th><th>Grade</th></tr>
+<tr>
+<td>
+<strong>Data Analytics for Business</strong>
+<div class="module-desc">Applies quantitative techniques and data-driven decision-making in management contexts.</div>
+</td>
+<td>10</td><td>5</td><td>Merit</td>
+</tr>
+<tr>
+<td>
+<strong>Negotiation & Deal Structuring</strong>
+<div class="module-desc">Develops strategic negotiation skills and financial structuring for business deals and partnerships.</div>
+</td>
+<td>10</td><td>5</td><td>Distinction</td>
+</tr>
+<tr>
+<td>
+<strong>Entrepreneurial Finance</strong>
+<div class="module-desc">Focuses on financing entrepreneurial ventures, valuation, and funding strategy for startups and SMEs.</div>
+</td>
+<td>10</td><td>5</td><td>Distinction</td>
+</tr>
+</table>
 
-    <div class="footer">
-        <div>This transcript is official and reflects the complete academic record at Nolan University.</div>
-        <div style="margin-top: 0.5rem;">Verify: https://verify.nolan.edu | Certificate ID: NU-MBA-2026-0842 | Student ID: 202200845</div>
-        <div class="signatures">
-            <div class="signature"><div class="signature-line"></div><div>James R. Callwell</div><div style="font-size:0.65rem;">President</div></div>
-            <div class="signature"><div class="signature-line"></div><div>Dr. Sarah M. Bennett</div><div style="font-size:0.65rem;">Dean, GSBF</div></div>
-            <div class="signature"><div class="signature-line"></div><div>Dr. Angela K. Foster</div><div style="font-size:0.65rem;">Dean, SEVC</div></div>
-            <div class="signature"><div class="signature-line"></div><div>Michael T. Harrison</div><div style="font-size:0.65rem;">Registrar</div></div>
-        </div>
-        <div style="margin-top: 0.5rem;">Issued: 27 March 2026 · Electronically Verifiable</div>
-        <button class="print-btn" onclick="window.print();">Print / Save as PDF</button>
-    </div>
+<h3>Winter Term 2026</h3>
+<table>
+<tr><th>Course</th><th>CATS Credits</th><th>ECTS</th><th>Grade</th></tr>
+<tr>
+<td>
+<strong>Business Model Innovation</strong>
+<div class="module-desc">Examines innovative business models and their strategic implementation in competitive markets.</div>
+</td>
+<td>10</td><td>5</td><td>Distinction</td>
+</tr>
+<tr>
+<td>
+<strong>Global Strategy & Competitiveness</strong>
+<div class="module-desc">Explores strategies for achieving sustainable competitive advantage in global industries.</div>
+</td>
+<td>10</td><td>5</td><td>Distinction</td>
+</tr>
+<tr>
+<td>
+<strong>Leadership in Complex Organizations</strong>
+<div class="module-desc">Develops advanced leadership capabilities for managing large-scale, complex organizational structures.</div>
+</td>
+<td>10</td><td>5</td><td>Merit</td>
+</tr>
+</table>
+
+<h3>Dissertation / Capstone Project</h3>
+<table>
+<tr><th>Course</th><th>CATS Credits</th><th>ECTS</th><th>Grade</th></tr>
+<tr>
+<td>
+<strong>MBA Dissertation: Entrepreneurship & Venture Strategy</strong>
+<div class="module-desc">Independent research project addressing strategic challenges in entrepreneurship and venture creation, integrating theory and practice.</div>
+</td>
+<td>60</td><td>30</td><td>Distinction</td>
+</tr>
+</table>
+
+</div>
+
+<div class="summary">
+<p><strong>Total Credits:</strong> 180 CATS (90 ECTS)</p>
+<p><strong>Final Award Classification:</strong> Distinction</p>
+</div>
+
 </div>
 </body>
 </html>
