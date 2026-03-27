@@ -40,7 +40,6 @@
             position: relative;
         }
 
-        /* Seal positioned to avoid overlapping text */
         .seal-container {
             position: absolute;
             right: 1.5rem;
@@ -116,16 +115,43 @@
             color: #1e3a4d;
         }
 
+        /* Degree Section Styles with Separation */
         .degree-section {
-            padding: 1.5rem 2rem;
+            padding: 2rem 2rem 1.5rem 2rem;
+        }
+
+        .degree-divider {
+            text-align: center;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .degree-divider:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #e8b42c, #e8b42c, transparent);
+        }
+
+        .degree-divider span {
+            background: #fffef7;
+            padding: 0 1.5rem;
+            position: relative;
+            color: #8b7a62;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            font-weight: 600;
         }
 
         .degree-header {
             background: #0a2f44;
             color: white;
-            padding: 0.8rem 1.2rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
@@ -133,7 +159,7 @@
         }
 
         .degree-name {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
         }
 
@@ -142,7 +168,7 @@
             opacity: 0.9;
         }
 
-        /* Course Table - Improved for better display */
+        /* Course Table Styles */
         .course-table {
             width: 100%;
             border-collapse: collapse;
@@ -167,7 +193,7 @@
 
         .term-row td {
             background: #f9f5ec;
-            padding-top: 1rem;
+            padding: 0.8rem 0.5rem;
             border-top: 2px solid #d4cbb6;
             font-weight: 700;
             color: #0a2f44;
@@ -178,12 +204,20 @@
             text-align: right;
             font-weight: 700;
             border-bottom: 1px solid #e8b42c;
+            padding: 0.5rem;
+        }
+
+        .module-description {
+            font-size: 0.75rem;
+            color: #6b5e4a;
+            margin-top: 0.2rem;
+            line-height: 1.3;
         }
 
         .gpa-summary {
             background: #fefaf2;
-            padding: 1rem;
-            border-radius: 8px;
+            padding: 1.2rem;
+            border-radius: 12px;
             margin-top: 1rem;
             border-left: 4px solid #e8b42c;
             display: flex;
@@ -220,6 +254,13 @@
             font-size: 0.75rem;
             font-weight: 600;
             margin-left: 0.5rem;
+        }
+
+        /* MBA Section Special Styling */
+        .mba-section {
+            background: linear-gradient(to bottom, #fffef7, #fefbf5);
+            border-top: 3px solid #e8b42c;
+            margin-top: 1rem;
         }
 
         .transcript-footer {
@@ -291,7 +332,6 @@
             color: #0a2f44;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             body {
                 padding: 1rem;
@@ -302,11 +342,14 @@
                 padding: 1rem;
             }
             .degree-section {
-                padding: 1rem;
+                padding: 1.5rem 1rem;
             }
             .course-table th, .course-table td {
                 padding: 0.4rem 0.3rem;
-                font-size: 0.75rem;
+                font-size: 0.7rem;
+            }
+            .module-description {
+                display: none;
             }
             .gpa-summary {
                 flex-direction: column;
@@ -343,6 +386,9 @@
                 border: 2px solid #0a2f44;
                 color: #0a2f44;
                 background: white;
+            }
+            .module-description {
+                display: table-cell;
             }
         }
     </style>
@@ -388,75 +434,76 @@
             </div>
         </div>
 
-        <!-- DEGREE 1: Bachelor of Science -->
+        <!-- BACHELOR OF SCIENCE SECTION -->
         <div class="degree-section">
             <div class="degree-header">
-                <div class="degree-name">Bachelor of Science — Finance & Investment</div>
+                <div class="degree-name">🎓 Bachelor of Science — Finance & Investment</div>
                 <div class="degree-meta">Enrolled: June 2021 · Conferred: 18 September 2024</div>
             </div>
             
             <table class="course-table">
                 <thead>
                     <tr>
-                        <th style="width: 35%">Course Code</th>
-                        <th style="width: 45%">Course Title</th>
-                        <th style="width: 10%">Credits</th>
-                        <th style="width: 10%">Grade</th>
+                        <th style="width: 20%">Course Code</th>
+                        <th style="width: 35%">Course Title</th>
+                        <th style="width: 35%">Module Description</th>
+                        <th style="width: 5%">Credits</th>
+                        <th style="width: 5%">Grade</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Year 1 - Fall 2021 -->
-                    <tr class="term-row"><td colspan="4"><strong>Fall 2021 Term</strong></td></tr>
-                    <tr><td>FIN 101</td><td>Principles of Finance</td><td>3</td><td>A</td></tr>
-                    <tr><td>ACC 101</td><td>Financial Accounting I</td><td>3</td><td>A-</td></tr>
-                    <tr><td>ECO 101</td><td>Microeconomics</td><td>3</td><td>B+</td></tr>
-                    <tr><td>MTH 101</td><td>Calculus for Business</td><td>3</td><td>A</td></tr>
-                    <tr><td>BUS 101</td><td>Introduction to Business</td><td>3</td><td>A</td></tr>
-                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.78</td></tr>
+                    <tr class="term-row"><td colspan="5"><strong>📚 Fall 2021 Term</strong></td></tr>
+                    <tr><td>FIN 101</td><td>Principles of Finance</td><td class="module-description">Introduction to financial concepts, time value of money, risk and return, valuation fundamentals</td><td>3</td><td>A</td></tr>
+                    <tr><td>ACC 101</td><td>Financial Accounting I</td><td class="module-description">Accounting principles, financial statements preparation, double-entry bookkeeping</td><td>3</td><td>A-</td></tr>
+                    <tr><td>ECO 101</td><td>Microeconomics</td><td class="module-description">Supply and demand, market structures, consumer behavior, production theory</td><td>3</td><td>B+</td></tr>
+                    <tr><td>MTH 101</td><td>Calculus for Business</td><td class="module-description">Differentiation, integration, optimization techniques for business applications</td><td>3</td><td>A</td></tr>
+                    <tr><td>BUS 101</td><td>Introduction to Business</td><td class="module-description">Overview of business functions, organizational structures, business environment</td><td>3</td><td>A</td></tr>
+                    <tr class="gpa-row"><td colspan="4" style="text-align: right;">Term GPA:</td><td>3.78</td></tr>
                     
                     <!-- Year 1 - Spring 2022 -->
-                    <tr class="term-row"><td colspan="4"><strong>Spring 2022 Term</strong></td></tr>
-                    <tr><td>FIN 102</td><td>Corporate Finance</td><td>3</td><td>A</td></tr>
-                    <tr><td>ACC 102</td><td>Financial Accounting II</td><td>3</td><td>B+</td></tr>
-                    <tr><td>ECO 102</td><td>Macroeconomics</td><td>3</td><td>A-</td></tr>
-                    <tr><td>STA 201</td><td>Business Statistics</td><td>3</td><td>A</td></tr>
-                    <tr><td>MKT 201</td><td>Principles of Marketing</td><td>3</td><td>A-</td></tr>
-                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.82</td></tr>
+                    <tr class="term-row"><td colspan="5"><strong>📚 Spring 2022 Term</strong></td></tr>
+                    <tr><td>FIN 102</td><td>Corporate Finance</td><td class="module-description">Capital budgeting, cost of capital, capital structure, dividend policy, financial planning</td><td>3</td><td>A</td></tr>
+                    <tr><td>ACC 102</td><td>Financial Accounting II</td><td class="module-description">Advanced accounting topics, cash flow statements, ratio analysis, financial reporting</td><td>3</td><td>B+</td></tr>
+                    <tr><td>ECO 102</td><td>Macroeconomics</td><td class="module-description">GDP, inflation, unemployment, monetary and fiscal policy, economic growth</td><td>3</td><td>A-</td></tr>
+                    <tr><td>STA 201</td><td>Business Statistics</td><td class="module-description">Descriptive statistics, probability distributions, hypothesis testing, regression analysis</td><td>3</td><td>A</td></tr>
+                    <tr><td>MKT 201</td><td>Principles of Marketing</td><td class="module-description">Marketing mix, consumer behavior, market research, branding, digital marketing</td><td>3</td><td>A-</td></tr>
+                    <tr class="gpa-row"><td colspan="4" style="text-align: right;">Term GPA:</td><td>3.82</td></tr>
                     
                     <!-- Year 2 - Fall 2022 -->
-                    <tr class="term-row"><td colspan="4"><strong>Fall 2022 Term</strong></td></tr>
-                    <tr><td>FIN 201</td><td>Investment Analysis</td><td>3</td><td>A</td></tr>
-                    <tr><td>FIN 202</td><td>Financial Markets & Institutions</td><td>3</td><td>A</td></tr>
-                    <tr><td>ACC 201</td><td>Managerial Accounting</td><td>3</td><td>A-</td></tr>
-                    <tr><td>LAW 301</td><td>Business Law</td><td>3</td><td>B+</td></tr>
-                    <tr><td>MGT 201</td><td>Organizational Behavior</td><td>3</td><td>A</td></tr>
-                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.85</td></tr>
+                    <tr class="term-row"><td colspan="5"><strong>📚 Fall 2022 Term</strong></td></tr>
+                    <tr><td>FIN 201</td><td>Investment Analysis</td><td class="module-description">Securities valuation, portfolio theory, asset allocation, equity and fixed income analysis</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 202</td><td>Financial Markets & Institutions</td><td class="module-description">Structure of financial systems, central banking, money markets, capital markets</td><td>3</td><td>A</td></tr>
+                    <tr><td>ACC 201</td><td>Managerial Accounting</td><td class="module-description">Cost accounting, budgeting, variance analysis, decision-making, performance measurement</td><td>3</td><td>A-</td></tr>
+                    <tr><td>LAW 301</td><td>Business Law</td><td class="module-description">Contracts, corporate governance, regulatory compliance, legal frameworks for business</td><td>3</td><td>B+</td></tr>
+                    <tr><td>MGT 201</td><td>Organizational Behavior</td><td class="module-description">Leadership, motivation, team dynamics, organizational culture, change management</td><td>3</td><td>A</td></tr>
+                    <tr class="gpa-row"><td colspan="4" style="text-align: right;">Term GPA:</td><td>3.85</td></tr>
                     
                     <!-- Year 2 - Spring 2023 -->
-                    <tr class="term-row"><td colspan="4"><strong>Spring 2023 Term</strong></td></tr>
-                    <tr><td>FIN 301</td><td>Portfolio Management</td><td>3</td><td>A</td></tr>
-                    <tr><td>FIN 302</td><td>Risk Management</td><td>3</td><td>A-</td></tr>
-                    <tr><td>ECO 301</td><td>International Economics</td><td>3</td><td>B+</td></tr>
-                    <tr><td>MGT 301</td><td>Strategic Management</td><td>3</td><td>A</td></tr>
-                    <tr><td>COM 201</td><td>Business Communication</td><td>3</td><td>A</td></tr>
-                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.88</td></tr>
+                    <tr class="term-row"><td colspan="5"><strong>📚 Spring 2023 Term</strong></td></tr>
+                    <tr><td>FIN 301</td><td>Portfolio Management</td><td class="module-description">Modern portfolio theory, asset allocation strategies, performance evaluation, risk management</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 302</td><td>Risk Management</td><td class="module-description">Financial risk identification, hedging strategies, derivatives, enterprise risk management</td><td>3</td><td>A-</td></tr>
+                    <tr><td>ECO 301</td><td>International Economics</td><td class="module-description">Exchange rates, balance of payments, trade theories, global economic policies</td><td>3</td><td>B+</td></tr>
+                    <tr><td>MGT 301</td><td>Strategic Management</td><td class="module-description">Competitive strategy, business models, industry analysis, strategic planning</td><td>3</td><td>A</td></tr>
+                    <tr><td>COM 201</td><td>Business Communication</td><td class="module-description">Professional writing, presentations, negotiation skills, cross-cultural communication</td><td>3</td><td>A</td></tr>
+                    <tr class="gpa-row"><td colspan="4" style="text-align: right;">Term GPA:</td><td>3.88</td></tr>
                     
                     <!-- Year 3 - Fall 2023 -->
-                    <tr class="term-row"><td colspan="4"><strong>Fall 2023 Term</strong></td></tr>
-                    <tr><td>FIN 401</td><td>Advanced Corporate Finance</td><td>3</td><td>A</td></tr>
-                    <tr><td>FIN 402</td><td>Derivatives & Securities</td><td>3</td><td>A</td></tr>
-                    <tr><td>FIN 403</td><td>Financial Modeling</td><td>3</td><td>A-</td></tr>
-                    <tr><td>ENT 301</td><td>Entrepreneurial Finance</td><td>3</td><td>A</td></tr>
-                    <tr><td>ETH 401</td><td>Business Ethics</td><td>3</td><td>A</td></tr>
-                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.94</td></tr>
+                    <tr class="term-row"><td colspan="5"><strong>📚 Fall 2023 Term</strong></td></tr>
+                    <tr><td>FIN 401</td><td>Advanced Corporate Finance</td><td class="module-description">Mergers and acquisitions, leveraged buyouts, restructuring, advanced valuation techniques</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 402</td><td>Derivatives & Securities</td><td class="module-description">Options, futures, swaps, pricing models, hedging applications, structured products</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 403</td><td>Financial Modeling</td><td class="module-description">Excel modeling, DCF analysis, scenario analysis, Monte Carlo simulation, model validation</td><td>3</td><td>A-</td></tr>
+                    <tr><td>ENT 301</td><td>Entrepreneurial Finance</td><td class="module-description">Venture capital, angel investing, startup valuation, funding rounds, exit strategies</td><td>3</td><td>A</td></tr>
+                    <tr><td>ETH 401</td><td>Business Ethics</td><td class="module-description">Ethical decision-making, corporate social responsibility, stakeholder management, compliance</td><td>3</td><td>A</td></tr>
+                    <tr class="gpa-row"><td colspan="4" style="text-align: right;">Term GPA:</td><td>3.94</td></tr>
                     
                     <!-- Year 3 - Spring 2024 -->
-                    <tr class="term-row"><td colspan="4"><strong>Spring 2024 Term</strong></td></tr>
-                    <tr><td>FIN 404</td><td>International Finance</td><td>3</td><td>A</td></tr>
-                    <tr><td>FIN 405</td><td>Valuation & Mergers</td><td>3</td><td>A</td></tr>
-                    <tr><td>FIN 406</td><td>Capstone in Finance</td><td>3</td><td>A</td></tr>
-                    <tr><td>MGT 401</td><td>Leadership & Ethics</td><td>3</td><td>A-</td></tr>
-                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.96</td></tr>
+                    <tr class="term-row"><td colspan="5"><strong>📚 Spring 2024 Term</strong></td></tr>
+                    <tr><td>FIN 404</td><td>International Finance</td><td class="module-description">Foreign exchange markets, cross-border investments, currency risk management, global capital structure</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 405</td><td>Valuation & Mergers</td><td class="module-description">DCF, comparable company analysis, precedent transactions, LBO models, synergy valuation</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 406</td><td>Capstone in Finance</td><td class="module-description">Integrated financial analysis, real-world case studies, investment committee simulation</td><td>3</td><td>A</td></tr>
+                    <tr><td>MGT 401</td><td>Leadership & Ethics</td><td class="module-description">Transformational leadership, ethical frameworks, corporate governance, board dynamics</td><td>3</td><td>A-</td></tr>
+                    <tr class="gpa-row"><td colspan="4" style="text-align: right;">Term GPA:</td><td>3.96</td></tr>
                 </tbody>
             </table>
             
@@ -468,52 +515,56 @@
             </div>
         </div>
 
-        <!-- DEGREE 2: Master of Business Administration -->
-        <div class="degree-section">
+        <!-- VISUAL SEPARATOR BETWEEN DEGREES -->
+        <div class="degree-divider"><span>✦ ✦ ✦   MASTER'S DEGREE   ✦ ✦ ✦</span></div>
+
+        <!-- MASTER OF BUSINESS ADMINISTRATION SECTION -->
+        <div class="degree-section mba-section">
             <div class="degree-header">
-                <div class="degree-name">Master of Business Administration — Entrepreneurship & Finance</div>
+                <div class="degree-name">🎓 Master of Business Administration — Entrepreneurship & Finance</div>
                 <div class="degree-meta">Enrolled: February 2025 · Conferred: 26 March 2026</div>
             </div>
             
             <table class="course-table">
                 <thead>
                     <tr>
-                        <th style="width: 35%">Course Code</th>
-                        <th style="width: 45%">Course Title</th>
-                        <th style="width: 10%">Credits</th>
-                        <th style="width: 10%">Grade</th>
+                        <th style="width: 20%">Course Code</th>
+                        <th style="width: 35%">Course Title</th>
+                        <th style="width: 35%">Module Description</th>
+                        <th style="width: 5%">Credits</th>
+                        <th style="width: 5%">Grade</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Spring 2025 -->
-                    <tr class="term-row"><td colspan="4"><strong>Spring 2025 Term</strong></td></tr>
-                    <tr><td>MBA 501</td><td>Strategic Leadership & Ethics</td><td>3</td><td>A</td></tr>
-                    <tr><td>MBA 502</td><td>Advanced Corporate Finance</td><td>3</td><td>A</td></tr>
-                    <tr><td>MBA 503</td><td>Entrepreneurial Mindset & Innovation</td><td>3</td><td>A-</td></tr>
-                    <tr><td>MBA 504</td><td>Financial Markets & Global Economics</td><td>3</td><td>A</td></tr>
-                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.92</td></tr>
+                    <tr class="term-row"><td colspan="5"><strong>📘 Spring 2025 Term</strong></td></tr>
+                    <tr><td>MBA 501</td><td>Strategic Leadership & Ethics</td><td class="module-description">Leadership theories, ethical frameworks, corporate governance, stakeholder management, decision-making under uncertainty</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 502</td><td>Advanced Corporate Finance</td><td class="module-description">Capital structure optimization, dividend policy, corporate restructuring, advanced valuation, real options</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 503</td><td>Entrepreneurial Mindset & Innovation</td><td class="module-description">Design thinking, opportunity recognition, innovation management, business model generation, lean startup methodology</td><td>3</td><td>A-</td></tr>
+                    <tr><td>MBA 504</td><td>Financial Markets & Global Economics</td><td class="module-description">Global financial systems, monetary policy, international capital flows, economic forecasting, geopolitical risk</td><td>3</td><td>A</td></tr>
+                    <tr class="gpa-row"><td colspan="4" style="text-align: right;">Term GPA:</td><td>3.92</td></tr>
                     
                     <!-- Summer 2025 -->
-                    <tr class="term-row"><td colspan="4"><strong>Summer 2025 Term</strong></td></tr>
-                    <tr><td>MBA 505</td><td>Venture Capital & Private Equity</td><td>3</td><td>A</td></tr>
-                    <tr><td>MBA 506</td><td>Mergers & Acquisitions</td><td>3</td><td>A</td></tr>
-                    <tr><td>MBA 507</td><td>Data Analytics for Business</td><td>3</td><td>A-</td></tr>
-                    <tr><td>MBA 508</td><td>Negotiation & Deal Structuring</td><td>3</td><td>A</td></tr>
-                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.95</td></tr>
+                    <tr class="term-row"><td colspan="5"><strong>📘 Summer 2025 Term</strong></td></tr>
+                    <tr><td>MBA 505</td><td>Venture Capital & Private Equity</td><td class="module-description">Fund structures, deal sourcing, due diligence, term sheets, value creation, exit strategies, LP-GP relationships</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 506</td><td>Mergers & Acquisitions</td><td class="module-description">M&A lifecycle, valuation methodologies, deal structuring, integration planning, regulatory considerations</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 507</td><td>Data Analytics for Business</td><td class="module-description">Predictive analytics, machine learning applications, data visualization, business intelligence tools, AI in finance</td><td>3</td><td>A-</td></tr>
+                    <tr><td>MBA 508</td><td>Negotiation & Deal Structuring</td><td class="module-description">Advanced negotiation strategies, term sheet structuring, valuation disputes, conflict resolution, cross-cultural negotiation</td><td>3</td><td>A</td></tr>
+                    <tr class="gpa-row"><td colspan="4" style="text-align: right;">Term GPA:</td><td>3.95</td></tr>
                     
                     <!-- Fall 2025 -->
-                    <tr class="term-row"><td colspan="4"><strong>Fall 2025 Term</strong></td></tr>
-                    <tr><td>MBA 601</td><td>Entrepreneurial Finance</td><td>3</td><td>A</td></tr>
-                    <tr><td>MBA 602</td><td>Business Model Innovation</td><td>3</td><td>A</td></tr>
-                    <tr><td>MBA 603</td><td>Global Strategy & Competitiveness</td><td>3</td><td>A</td></tr>
-                    <tr><td>MBA 604</td><td>Leadership in Complex Organizations</td><td>3</td><td>A-</td></tr>
-                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.96</td></tr>
+                    <tr class="term-row"><td colspan="5"><strong>📘 Fall 2025 Term</strong></td></tr>
+                    <tr><td>MBA 601</td><td>Entrepreneurial Finance</td><td class="module-description">Startup valuation, fundraising strategies, convertible notes, SAFE agreements, financial modeling for ventures, crowdfunding</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 602</td><td>Business Model Innovation</td><td class="module-description">Disruptive innovation, platform business models, revenue model design, scaling strategies, digital transformation</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 603</td><td>Global Strategy & Competitiveness</td><td class="module-description">International expansion strategies, market entry modes, competitive positioning, cross-border management</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 604</td><td>Leadership in Complex Organizations</td><td class="module-description">Organizational dynamics, change management, culture transformation, crisis leadership, team effectiveness</td><td>3</td><td>A-</td></tr>
+                    <tr class="gpa-row"><td colspan="4" style="text-align: right;">Term GPA:</td><td>3.96</td></tr>
                     
                     <!-- Spring 2026 -->
-                    <tr class="term-row"><td colspan="4"><strong>Spring 2026 Term</strong></td></tr>
-                    <tr><td>MBA 605</td><td>Capstone: Entrepreneurship & Venture Creation</td><td>3</td><td>A</td></tr>
-                    <tr><td>MBA 606</td><td>Investment Strategy & Portfolio Management</td><td>3</td><td>A</td></tr>
-                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>4.00</td></tr>
+                    <tr class="term-row"><td colspan="5"><strong>📘 Spring 2026 Term</strong></td></tr>
+                    <tr><td>MBA 605</td><td>Capstone: Entrepreneurship & Venture Creation</td><td class="module-description">Integrated venture creation project, business plan development, investor pitch, real-world venture launch simulation</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 606</td><td>Investment Strategy & Portfolio Management</td><td class="module-description">Asset allocation, risk-adjusted returns, alternative investments, impact investing, wealth management strategies</td><td>3</td><td>A</td></tr>
+                    <tr class="gpa-row"><td colspan="4" style="text-align: right;">Term GPA:</td><td>4.00</td></tr>
                 </tbody>
             </table>
             
@@ -528,7 +579,7 @@
         <!-- Academic Summary -->
         <div style="padding: 0 2rem 1rem 2rem;">
             <div style="background: #f0eadf; padding: 1rem; border-radius: 8px;">
-                <strong>Academic Summary</strong><br>
+                <strong>📊 Academic Summary</strong><br>
                 <table style="width: 100%; margin-top: 0.5rem; border-collapse: collapse;">
                     <tr><td style="padding: 0.25rem 0;"><strong>Overall Cumulative GPA (Both Degrees):</strong></td><td>3.91/4.00</td></tr>
                     <tr><td style="padding: 0.25rem 0;"><strong>Total Credits Earned:</strong></td><td>156 Credits</td></tr>
