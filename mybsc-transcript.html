@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nolan University | Official Transcript - BSc Finance & Investment</title>
     <style>
-        /* Same styles as MBA transcript above */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: #e9e5dd;
@@ -17,6 +16,7 @@
             min-height: 100vh;
             position: relative;
         }
+        
         .watermark {
             position: fixed;
             top: 0;
@@ -40,6 +40,7 @@
             font-family: 'Arial', sans-serif;
             white-space: nowrap;
         }
+        
         .transcript {
             max-width: 1300px;
             width: 100%;
@@ -49,6 +50,7 @@
             position: relative;
             z-index: 1;
         }
+        
         .hologram {
             position: absolute;
             top: 0;
@@ -60,6 +62,7 @@
             background: linear-gradient(135deg, rgba(232,180,44,0.03) 0%, rgba(10,47,68,0.02) 25%, rgba(232,180,44,0.04) 50%, rgba(10,47,68,0.02) 75%, rgba(232,180,44,0.03) 100%);
             border-radius: 4px;
         }
+        
         .hologram::before {
             content: "";
             position: absolute;
@@ -72,10 +75,12 @@
             animation: hologramShine 8s linear infinite;
             pointer-events: none;
         }
+        
         @keyframes hologramShine {
             0% { transform: rotate(45deg) translateX(-100%) translateY(-100%); }
             100% { transform: rotate(45deg) translateX(100%) translateY(100%); }
         }
+        
         .header {
             background: #0a2f44;
             color: #e8b42c;
@@ -84,6 +89,20 @@
             position: relative;
             border-bottom: 3px solid #e8b42c;
         }
+        
+        .logo {
+            position: absolute;
+            left: 2rem;
+            top: 1.5rem;
+            z-index: 5;
+        }
+        .logo img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+        
         .seal {
             position: absolute;
             right: 2rem;
@@ -106,6 +125,7 @@
         .transcript-title { font-size: 1rem; text-transform: uppercase; letter-spacing: 3px; color: #f0e6d0; margin-top: 0.3rem; }
         .degree-name { background: #e8b42c; color: #0a2f44; display: inline-block; padding: 0.3rem 1.5rem; border-radius: 25px; font-weight: 700; font-size: 0.85rem; margin-top: 0.8rem; }
         .accreditation { font-size: 0.7rem; margin-top: 0.5rem; color: #cfdde6; }
+        
         .student-info {
             padding: 1.2rem 2rem;
             background: #fefaf0;
@@ -117,6 +137,7 @@
         .info-item { flex: 1; min-width: 150px; }
         .info-label { font-size: 0.65rem; text-transform: uppercase; color: #8b7a62; font-weight: 600; }
         .info-value { font-size: 0.95rem; font-weight: 600; color: #1e3a4d; }
+        
         .degree-summary {
             padding: 1rem 2rem;
             background: #ffffff;
@@ -128,12 +149,31 @@
         .summary-block { text-align: center; flex: 1; }
         .summary-label { font-size: 0.65rem; text-transform: uppercase; color: #8b7a62; }
         .summary-value { font-size: 1rem; font-weight: 700; color: #0a2f44; }
+        
         .course-section { padding: 1.5rem 2rem; }
         .section-header { background: #0a2f44; color: white; padding: 0.6rem 1rem; margin: 1rem 0 0.8rem 0; font-weight: 700; border-radius: 4px; }
         .term-title { background: #f0eadf; padding: 0.5rem 1rem; margin: 1rem 0 0.5rem 0; font-weight: 700; color: #0a2f44; border-left: 4px solid #e8b42c; }
-        .course-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin-bottom: 0.5rem; }
-        .course-table th { background: #f9f5ec; padding: 0.8rem 0.6rem; text-align: left; border-bottom: 2px solid #e8b42c; font-weight: 700; color: #1e3a4d; }
-        .course-table td { padding: 0.7rem 0.6rem; border-bottom: 1px solid #e2d9cc; color: #2c3e4e; vertical-align: top; }
+        
+        .course-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .course-table th {
+            background: #f9f5ec;
+            padding: 0.8rem 0.6rem;
+            text-align: left;
+            border-bottom: 2px solid #e8b42c;
+            font-weight: 700;
+            color: #1e3a4d;
+        }
+        .course-table td {
+            padding: 0.7rem 0.6rem;
+            border-bottom: 1px solid #e2d9cc;
+            color: #2c3e4e;
+            vertical-align: top;
+        }
         .course-table th:first-child, .course-table td:first-child { width: 12%; }
         .course-table th:nth-child(2), .course-table td:nth-child(2) { width: 22%; }
         .course-table th:nth-child(3), .course-table td:nth-child(3) { width: 38%; }
@@ -141,6 +181,7 @@
         .course-table th:nth-child(5), .course-table td:nth-child(5) { width: 10%; text-align: center; }
         .course-table th:nth-child(6), .course-table td:nth-child(6) { width: 10%; text-align: center; }
         .course-table td:nth-child(4), .course-table td:nth-child(5), .course-table td:nth-child(6) { text-align: center; }
+        
         .module-desc { font-size: 0.7rem; color: #6b5e4a; line-height: 1.4; }
         .term-gpa { text-align: right; font-weight: 700; padding: 0.5rem; background: #fefaf2; border-bottom: 1px solid #e8b42c; margin-bottom: 1rem; }
         .gpa-summary { background: #fefaf2; padding: 1rem 1.5rem; margin-top: 1.5rem; border-left: 4px solid #e8b42c; display: flex; flex-wrap: wrap; justify-content: space-between; }
@@ -148,6 +189,7 @@
         .gpa-label { font-size: 0.7rem; text-transform: uppercase; color: #8b7a62; }
         .gpa-value { font-size: 1.2rem; font-weight: 700; color: #0a2f44; }
         .classification-badge { background: #e8b42c20; color: #9b7b2c; padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; display: inline-block; }
+        
         .signatures-section {
             background: #fefaf0;
             padding: 1.5rem 2rem;
@@ -178,6 +220,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+        
         .footer {
             background: #f9f5ec;
             padding: 1.2rem 2rem;
@@ -190,40 +233,39 @@
         .print-btn { background: #0a2f44; color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 25px; cursor: pointer; margin-top: 1rem; }
         .stamp { text-align: center; margin-top: 1rem; padding-top: 0.5rem; border-top: 1px dashed #e8b42c; font-size: 0.65rem; color: #8b7a62; font-family: monospace; }
         .microprint { font-size: 0.5rem; letter-spacing: 0.5px; color: #d4cbb6; text-align: center; margin-top: 0.25rem; }
+        
         @media print {
             body { background: white; padding: 0; }
             .print-btn { display: none; }
             .watermark { opacity: 0.05; }
             .seal { border-color: #0a2f44; color: #0a2f44; }
+            .logo img { filter: none; }
             .hologram { display: none; }
         }
         @media (max-width: 768px) {
             body { padding: 1rem; }
             .course-table th, .course-table td { font-size: 0.65rem; padding: 0.4rem; }
             .module-desc { font-size: 0.6rem; }
+            .logo img { height: 40px; }
+            .seal { width: 50px; height: 50px; font-size: 0.45rem; }
         }
     </style>
 </head>
 <body>
-    <div class="watermark"><div class="watermark-text">NOLAN UNIVERSITY • OFFICIAL TRANSCRIPT • NOLAN UNIVERSITY • OFFICIAL TRANSCRIPT</div></div>
+    <div class="watermark">
+        <div class="watermark-text">NOLAN UNIVERSITY • OFFICIAL TRANSCRIPT • NOLAN UNIVERSITY • OFFICIAL TRANSCRIPT</div>
+    </div>
+
     <div class="transcript">
         <div class="hologram"></div>
+        
         <div class="header">
-    <!-- Logo - Top Left -->
-    <div class="logo" style="position: absolute; left: 2rem; top: 1.5rem; z-index: 5;">
-        <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" 
-             alt="Nolan University Logo" 
-             style="height: 70px; width: auto; object-fit: contain;">
-    </div>
-    
-    <!-- Seal - Top Right -->
-    <div class="seal" style="position: absolute; right: 2rem; top: 1.5rem; width: 80px; height: 80px; border-radius: 50%; border: 2px solid #e8b42c; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; text-align: center; color: #e8b42c; background: rgba(232,180,44,0.1); font-weight: bold; z-index: 5;">
-        OFFICIAL<br>SEAL<br>NOLAN
-    </div>
-    
-    <!-- University Name and Title -->
-    <div class="university-name">NOLAN UNIVERSITY</div>
-    <div class="transcript-title">Official Academic Transcript</div>
+            <div class="logo">
+                <img src="ChatGPT Image Mar 11, 2026, 07_22_41 PM.png" alt="Nolan University Logo">
+            </div>
+            <div class="seal">OFFICIAL<br>SEAL<br>NOLAN</div>
+            <div class="university-name">NOLAN UNIVERSITY</div>
+            <div class="transcript-title">Official Academic Transcript</div>
             <div class="degree-name">Bachelor of Science (Honours) · Finance & Investment</div>
             <div class="accreditation">Accredited by EQUIS · AACSB · IACBE</div>
         </div>
@@ -244,76 +286,132 @@
         </div>
 
         <div class="course-section">
-            <div class="section-header"> YEAR 1 · FOUNDATION MODULES · 120 CREDITS</div>
+            <!-- YEAR 1 -->
+            <div class="section-header">📚 YEAR 1 · FOUNDATION MODULES · 120 CREDITS</div>
+            
             <div class="term-title">Fall 2021 Term</div>
-            <table class="course-table"><thead><tr><th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th></tr></thead>
-            <tbody><tr><td>FIN 101</td><td>Principles of Finance</td><td class="module-desc">Introduction to financial concepts including time value of money, risk and return, valuation fundamentals, and financial decision-making principles.</td><td>20</td><td>First Class</td><td>78%</td></tr>
-            <tr><td>ACC 101</td><td>Financial Accounting I</td><td class="module-desc">Accounting principles, preparation of financial statements, double-entry bookkeeping, and interpretation of basic financial reports.</td><td>20</td><td>Upper Second</td><td>68%</td></tr>
-            <tr><td>ECO 101</td><td>Microeconomics</td><td class="module-desc">Supply and demand analysis, market structures, consumer behaviour, production theory, and welfare economics.</td><td>20</td><td>Lower Second</td><td>58%</td></tr>
-            <tr><td>MTH 101</td><td>Calculus for Business</td><td class="module-desc">Differentiation, integration, optimisation techniques, and mathematical applications for business and finance.</td><td>20</td><td>First Class</td><td>82%</td></tr>
-            <tr><td>BUS 101</td><td>Introduction to Business</td><td class="module-desc">Overview of business functions, organisational structures, corporate governance, and the contemporary business environment.</td><td>20</td><td>First Class</td><td>80%</td></tr></tbody></table>
+            <table class="course-table">
+                <thead> <th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
+                <tbody>
+                     oxe<th>FIN 101</th><td class="module-desc">Principles of Finance<td class="module-desc">Introduction to the fundamental concepts of finance including the time value of money, risk and return, valuation of financial assets, and the role of financial markets. Students learn to calculate present and future values, understand bond and stock valuation, and apply basic financial decision-making principles to real-world scenarios. This module establishes the foundation for all subsequent finance modules.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">78%</td></tr>
+                     oxe<th>ACC 101</th><td class="module-desc">Financial Accounting I<td class="module-desc">Comprehensive introduction to accounting principles and practices. Students learn the double-entry bookkeeping system, preparation of financial statements including the balance sheet, income statement, and cash flow statement. The module covers accounting concepts and conventions, the regulatory framework, and interpretation of financial reports for stakeholders.<td style="text-align:center">20<td style="text-align:center">Upper Second<td style="text-align:center">68%</td></tr>
+                     oxe<th>ECO 101</th><td class="module-desc">Microeconomics<td class="module-desc">Examination of how individuals, households, and firms make decisions regarding the allocation of scarce resources. Topics include supply and demand analysis, elasticity, consumer behaviour, production theory, market structures (perfect competition, monopoly, oligopoly), and welfare economics. Students develop analytical skills to understand market dynamics and policy implications.<td style="text-align:center">20<td style="text-align:center">Lower Second<td style="text-align:center">58%</td></tr>
+                     oxe<th>MTH 101</th><td class="module-desc">Calculus for Business<td class="module-desc">Mathematical techniques essential for business and finance applications. Covers differentiation, integration, optimisation techniques, and mathematical modelling. Students apply these concepts to marginal analysis, profit maximisation, cost minimisation, and elasticity calculations. The module develops quantitative skills required for advanced finance studies.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">82%</td></tr>
+                     oxe<th>BUS 101</th><td class="module-desc">Introduction to Business<td class="module-desc">Comprehensive overview of business functions and organisational structures. Topics include management principles, marketing fundamentals, operations management, human resources, and corporate governance. Students explore the contemporary business environment, ethical considerations, and the impact of globalisation on business operations.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">80%</td></tr>
+                </tbody>
+              </table>
             <div class="term-gpa">Term Average: 73.2% | Credits: 100 | Classification: Upper Second</div>
 
             <div class="term-title">Spring 2022 Term</div>
-            <table class="course-table"><thead><tr><th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th></tr></thead>
-            <tbody><tr><td>FIN 102</td><td>Corporate Finance</td><td class="module-desc">Capital budgeting, cost of capital, capital structure theory, dividend policy, and financial planning for corporations.</td><td>20</td><td>First Class</td><td>81%</td></tr>
-            <tr><td>ACC 102</td><td>Financial Accounting II</td><td class="module-desc">Advanced accounting topics, cash flow statements, ratio analysis, and comprehensive financial reporting standards.</td><td>20</td><td>Lower Second</td><td>58%</td></tr>
-            <tr><td>ECO 102</td><td>Macroeconomics</td><td class="module-desc">GDP, inflation, unemployment, monetary and fiscal policy, economic growth theories, and international trade.</td><td>20</td><td>Upper Second</td><td>65%</td></tr>
-            <tr><td>STA 201</td><td>Business Statistics</td><td class="module-desc">Descriptive statistics, probability distributions, hypothesis testing, regression analysis, and data visualisation.</td><td>20</td><td>First Class</td><td>79%</td></tr>
-            <tr><td>MKT 201</td><td>Principles of Marketing</td><td class="module-desc">Marketing mix, consumer behaviour, market research, branding strategies, and digital marketing fundamentals.</td><td>20</td><td>Upper Second</td><td>66%</td></tr></tbody></table>
+            <table class="course-table">
+                <thead> <th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
+                <tbody>
+                     oxe<th>FIN 102</th><td class="module-desc">Corporate Finance<td class="module-desc">Advanced exploration of corporate financial management. Topics include capital budgeting techniques (NPV, IRR, payback period), cost of capital calculation, capital structure theory, dividend policy, and working capital management. Students evaluate investment opportunities, assess financing options, and understand the impact of financial decisions on firm value.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">81%</td></tr>
+                     oxe<th>ACC 102</th><td class="module-desc">Financial Accounting II<td class="module-desc">Advanced financial accounting covering complex topics including group accounts, consolidation, interpretation of financial statements, and ratio analysis. Students learn to analyse corporate financial performance, understand accounting standards (IFRS), and evaluate the quality of financial reporting. Emphasis on practical application through case studies of real companies.<td style="text-align:center">20<td style="text-align:center">Lower Second<td style="text-align:center">58%</td></tr>
+                     oxe<th>ECO 102</th><td class="module-desc">Macroeconomics<td class="module-desc">Study of economic aggregates and the functioning of national economies. Topics include GDP measurement, inflation, unemployment, monetary and fiscal policy, economic growth theories, and international trade. Students analyse the impact of policy decisions on economic performance and develop understanding of the global economic environment affecting business.<td style="text-align:center">20<td style="text-align:center">Upper Second<td style="text-align:center">65%</td></tr>
+                     oxe<th>STA 201</th><td class="module-desc">Business Statistics<td class="module-desc">Statistical methods for business decision-making. Covers descriptive statistics, probability distributions, hypothesis testing, confidence intervals, correlation, and regression analysis. Students learn to collect, analyse, and interpret data, using statistical software to support business decisions and financial forecasting.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">79%</td></tr>
+                     oxe<th>MKT 201</th><td class="module-desc">Principles of Marketing<td class="module-desc">Introduction to marketing concepts and strategies. Topics include the marketing mix (product, price, place, promotion), consumer behaviour, market research, branding, and digital marketing. Students develop marketing plans and understand how marketing creates value for customers and organisations in competitive environments.<td style="text-align:center">20<td style="text-align:center">Upper Second<td style="text-align:center">66%</td></tr>
+                </tbody>
+              </table>
             <div class="term-gpa">Term Average: 69.8% | Credits: 100 | Classification: Upper Second</div>
 
-            <div class="section-header"> YEAR 2 · CORE MODULES · 120 CREDITS</div>
+            <!-- YEAR 2 -->
+            <div class="section-header">📚 YEAR 2 · CORE MODULES · 120 CREDITS</div>
+
             <div class="term-title">Fall 2022 Term</div>
-            <table class="course-table"><thead><tr><th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th></tr></thead>
-            <tbody><tr><td>FIN 201</td><td>Investment Analysis</td><td class="module-desc">Securities valuation, portfolio theory, asset allocation strategies, equity and fixed income analysis, and investment vehicles.</td><td>20</td><td>First Class</td><td>84%</td></tr>
-            <tr><td>FIN 202</td><td>Financial Markets & Institutions</td><td class="module-desc">Structure of financial systems, central banking, money markets, capital markets, and regulatory frameworks.</td><td>20</td><td>First Class</td><td>80%</td></tr>
-            <tr><td>ACC 201</td><td>Managerial Accounting</td><td class="module-desc">Cost accounting, budgeting, variance analysis, decision-making frameworks, and performance measurement systems.</td><td>20</td><td>Upper Second</td><td>68%</td></tr>
-            <tr><td>LAW 301</td><td>Business Law</td><td class="module-desc">Contract law, corporate governance, regulatory compliance, legal frameworks for business operations, and dispute resolution.</td><td>20</td><td>Lower Second</td><td>58%</td></tr>
-            <tr><td>MGT 201</td><td>Organizational Behaviour</td><td class="module-desc">Leadership theories, motivation, team dynamics, organisational culture, and change management strategies.</td><td>20</td><td>First Class</td><td>77%</td></tr></tbody></table>
+            <table class="course-table">
+                <thead> <th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
+                <tbody>
+                     oxe<th>FIN 201</th><td class="module-desc">Investment Analysis<td class="module-desc">Comprehensive study of investment principles and portfolio management. Covers securities valuation (equities, bonds, derivatives), fundamental and technical analysis, modern portfolio theory, asset allocation strategies, and performance evaluation. Students learn to analyse investment opportunities and construct optimal portfolios.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">84%</td></tr>
+                     oxe<th>FIN 202</th><td class="module-desc">Financial Markets & Institutions<td class="module-desc">Examination of the structure and function of financial systems. Topics include central banking, money markets, capital markets, investment banks, commercial banks, insurance companies, and regulatory frameworks. Students understand how financial intermediaries operate and their role in the economy.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">80%</td></tr>
+                     oxe<th>ACC 201</th><td class="module-desc">Managerial Accounting<td class="module-desc">Accounting information for internal decision-making. Covers cost behaviour, cost-volume-profit analysis, budgeting, variance analysis, activity-based costing, and performance measurement. Students learn to use accounting information to support planning, control, and strategic decisions within organisations.<td style="text-align:center">20<td style="text-align:center">Upper Second<td style="text-align:center">68%</td></tr>
+                     oxe<th>LAW 301</th><td class="module-desc">Business Law<td class="module-desc">Legal framework governing business operations. Topics include contract law, company law, corporate governance, employment law, intellectual property, and dispute resolution. Students understand legal obligations, regulatory compliance, and the implications of legal decisions for business.<td style="text-align:center">20<td style="text-align:center">Lower Second<td style="text-align:center">58%</td></tr>
+                     oxe<th>MGT 201</th><td class="module-desc">Organizational Behaviour<td class="module-desc">Study of individual and group behaviour in organisations. Topics include leadership theories, motivation, team dynamics, organisational culture, power and politics, and change management. Students develop understanding of how to manage people effectively in diverse organisational contexts.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">77%</td></tr>
+                </tbody>
+              </table>
             <div class="term-gpa">Term Average: 73.4% | Credits: 100 | Classification: Upper Second</div>
 
+            <div class="term-title">Spring 2023 Term</div>
+            <table class="course-table">
+                <thead> <th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
+                <tbody>
+                     oxe<th>FIN 301</th><td class="module-desc">Portfolio Management<td class="module-desc">Advanced portfolio theory and asset allocation strategies. Covers the Capital Asset Pricing Model (CAPM), arbitrage pricing theory, factor models, performance evaluation metrics (Sharpe ratio, Treynor ratio, Jensen's alpha), and behavioural finance. Students construct and manage investment portfolios using real market data.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">83%</td></tr>
+                     oxe<th>FIN 302</th><td class="module-desc">Risk Management<td class="module-desc">Identification, measurement, and management of financial risks. Topics include market risk, credit risk, operational risk, Value at Risk (VaR), derivatives for hedging, enterprise risk management frameworks, and regulatory requirements (Basel III). Students develop strategies to mitigate financial risk exposure.<td style="text-align:center">20<td style="text-align:center">Upper Second<td style="text-align:center">69%</td></tr>
+                     oxe<th>ECO 301</th><td class="module-desc">International Economics<td class="module-desc">Study of global trade and international financial systems. Topics include exchange rate determination, balance of payments, trade theories (comparative advantage, Heckscher-Ohlin), international monetary systems, and global economic policies. Students analyse the impact of globalisation on national economies and business.<td style="text-align:center">20<td style="text-align:center">Lower Second<td style="text-align:center">58%</td></tr>
+                     oxe<th>MGT 301</th><td class="module-desc">Strategic Management<td class="module-desc">Formulation and implementation of business strategy. Covers strategic analysis (SWOT, PESTLE, Porter's Five Forces), competitive strategy, business models, corporate strategy, and strategic implementation. Students develop strategic plans for organisations facing complex competitive environments.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">76%</td></tr>
+                     oxe<th>COM 201</th><td class="module-desc">Business Communication<td class="module-desc">Development of professional communication competencies. Topics include business writing, report preparation, presentation skills, negotiation techniques, cross-cultural communication, and stakeholder engagement. Students develop effective communication strategies for diverse business contexts.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">78%</td></tr>
+                </tbody>
+              </table>
+            <div class="term-gpa">Term Average: 72.8% | Credits: 100 | Classification: Upper Second</div>
+
+            <!-- YEAR 3 - COMPLETE WITH FULL DESCRIPTIONS -->
+            <div class="section-header">📚 YEAR 3 · ADVANCED MODULES · 120 CREDITS</div>
+
+            <div class="term-title">Fall 2023 Term</div>
+            <table class="course-table">
+                <thead> <th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
+                <tbody>
+                     oxe<th>FIN 401</th><td class="module-desc">Advanced Corporate Finance<td class="module-desc">Advanced study of corporate financial decisions. Topics include mergers and acquisitions, leveraged buyouts, corporate restructuring, advanced valuation techniques (real options, adjusted present value), and corporate governance. Students evaluate complex financing decisions and deal structuring through real-world case studies of major transactions.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">85%</td></tr>
+                     oxe<th>FIN 402</th><td class="module-desc">Derivatives & Securities<td class="module-desc">Comprehensive study of derivative instruments and their applications. Covers options, futures, forwards, swaps, pricing models (Black-Scholes, binomial), hedging strategies, and structured financial products. Students develop understanding of derivative markets and their role in risk management and speculation.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">82%</td></tr>
+                     oxe<th>FIN 403</th><td class="module-desc">Financial Modeling<td class="module-desc">Advanced Excel-based financial modelling skills. Topics include discounted cash flow analysis, scenario and sensitivity analysis, Monte Carlo simulation, model validation, and best practices. Students build robust financial models used in investment banking, private equity, and corporate finance.<td style="text-align:center">20<td style="text-align:center">Upper Second<td style="text-align:center">68%</td></tr>
+                     oxe<th>ENT 301</th><td class="module-desc">Entrepreneurial Finance<td class="module-desc">Financing of entrepreneurial ventures. Topics include venture capital and private equity structures, angel investing, startup valuation, fundraising rounds (seed, Series A, B, C), term sheets, and exit strategies. Students understand the unique financing challenges facing startups and emerging companies.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">79%</td></tr>
+                     oxe<th>ETH 401</th><td class="module-desc">Business Ethics<td class="module-desc">Ethical frameworks for business decision-making. Topics include corporate social responsibility, stakeholder management, ethical dilemmas in finance, compliance frameworks, and governance failures. Students analyse real-world ethical cases and develop frameworks for responsible leadership.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">81%</td></tr>
+                </tbody>
+              </table>
+            <div class="term-gpa">Term Average: 79.0% | Credits: 100 | Classification: First Class</div>
+
+            <div class="term-title">Spring 2024 Term · Capstone</div>
+            <table class="course-table">
+                <thead> <th>Code</th><th>Module Title</th><th>Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
+                <tbody>
+                     oxe<th>FIN 404</th><td class="module-desc">International Finance<td class="module-desc">Financial management in a global context. Topics include foreign exchange markets, currency risk management, international capital budgeting, cross-border investment decisions, and global capital structure. Students understand the complexities of multinational corporate finance.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">83%</td></tr>
+                     oxe<th>FIN 405</th><td class="module-desc">Valuation & Mergers<td class="module-desc">Advanced valuation methodologies used in M&A. Topics include discounted cash flow (DCF), comparable company analysis, precedent transactions, leveraged buyout (LBO) models, and synergy valuation. Students apply valuation techniques to real M&A transactions.<td style="text-align:center">20<td style="text-align:center">First Class<td style="text-align:center">84%</td></tr>
+                     oxe<th>FIN 406</th><td class="module-desc">Capstone in Finance<td class="module-desc">Culminating integrated project synthesising all finance disciplines. Students undertake comprehensive financial analysis of a real company or investment scenario, including valuation, risk assessment, and strategic recommendations. The project includes an investment committee simulation and presentation of findings.<td style="text-align:center">40<td style="text-align:center">First Class<td style="text-align:center">86%</td></tr>
+                     oxe<th>MGT 401</th><td class="module-desc">Leadership & Ethics<td class="module-desc">Development of leadership capabilities with ethical decision-making focus. Topics include transformational leadership, ethical frameworks, corporate governance, board dynamics, crisis leadership, and responsible leadership in complex organisational contexts.<td style="text-align:center">20<td style="text-align:center">Upper Second<td style="text-align:center">69%</td></tr>
+                </tbody>
+              </table>
+            <div class="term-gpa">Term Average: 80.5% | Credits: 100 | Classification: First Class</div>
+
+            <!-- GPA Summary -->
             <div class="gpa-summary">
                 <div class="gpa-item"><div class="gpa-label">Total Credits</div><div class="gpa-value">360</div></div>
                 <div class="gpa-item"><div class="gpa-label">Weighted Average</div><div class="gpa-value">74.6%</div></div>
                 <div class="gpa-item"><div class="gpa-label">Classification</div><div class="gpa-value"><span class="classification-badge">First Class Honours</span></div></div>
                 <div class="gpa-item"><div class="gpa-label">Certificate ID</div><div class="gpa-value">NU-GSBF-BSC-2024-001</div></div>
             </div>
+            
+            <div style="background: #f0eadf; padding: 1rem; margin-top: 1rem; border-radius: 8px;">
+                <strong>🎓 UK Undergraduate Degree Classification (RQF Level 6)</strong><br><br>
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem;">
+                    <tr style="border-bottom: 1px solid #d4cbb6;"><td style="padding: 0.3rem 0;"><strong>First Class Honours</strong><td style="padding: 0.3rem 0;">70% and above<td style="text-align: right;"><span style="color:#0a2f44; font-weight:700;">✓ ACHIEVED (74.6%)</span></td></tr>
+                    <tr style="border-bottom: 1px solid #d4cbb6;"><td style="padding: 0.3rem 0;"><strong>Upper Second Class Honours (2:1)</strong><td style="padding: 0.3rem 0;">60% – 69%<td style="text-align: right;">Achieved in 8 modules</td></tr>
+                    <tr style="border-bottom: 1px solid #d4cbb6;"><td style="padding: 0.3rem 0;"><strong>Lower Second Class Honours (2:2)</strong><td style="padding: 0.3rem 0;">50% – 59%<td style="text-align: right;">Achieved in 4 modules</td></tr>
+                </table>
+                <div style="margin-top: 0.8rem; font-size: 0.75rem; background: #fffef7; padding: 0.5rem; border-radius: 4px;">
+                    <strong>Notes:</strong> The Capstone project (FIN 406) carries double weighting at 40 credits. This module represents the culmination of the degree programme, integrating all prior learning into a comprehensive financial analysis project.
+                </div>
+            </div>
         </div>
 
-        <!-- SIGNATURES SECTION WITH ACTUAL HANDWRITTEN SIGNATURES (as on Diploma) -->
+        <!-- Signatures Section -->
         <div class="signatures-section">
             <div class="signature-block">
                 <div class="signature-line">
-                    <svg width="180" height="50" viewBox="0 0 180 50" style="display:block; margin:0 auto;">
-                        <path d="M20,30 C40,25 50,35 70,28 C90,21 100,32 120,28 C140,24 150,32 165,30" stroke="#2c3e4d" fill="none" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M25,38 L45,38 L55,38 L75,38 L95,38 L115,38 L135,38 L155,38" stroke="#2c3e4d" fill="none" stroke-width="1" stroke-linecap="round"/>
-                        <path d="M130,20 L140,25 L148,32 L155,40" stroke="#2c3e4d" fill="none" stroke-width="1.2" stroke-linecap="round"/>
-                        <path d="M10,42 L20,42 L30,42 L40,42 L50,42" stroke="#2c3e4d" fill="none" stroke-width="0.8"/>
-                    </svg>
+                    <svg width="180" height="50" viewBox="0 0 180 50"><path d="M20,30 C40,25 50,35 70,28 C90,21 100,32 120,28 C140,24 150,32 165,30" stroke="#2c3e4d" fill="none" stroke-width="1.5"/><path d="M25,38 L45,38 L55,38 L75,38 L95,38 L115,38 L135,38 L155,38" stroke="#2c3e4d" fill="none" stroke-width="1"/><path d="M130,20 L140,25 L148,32 L155,40" stroke="#2c3e4d" fill="none" stroke-width="1.2"/></svg>
                 </div>
                 <div class="signature-name">James R. Callwell</div>
                 <div class="signature-title">PRESIDENT & VICE CHANCELLOR</div>
             </div>
             <div class="signature-block">
                 <div class="signature-line">
-                    <svg width="180" height="50" viewBox="0 0 180 50" style="display:block; margin:0 auto;">
-                        <path d="M15,28 C30,22 45,30 60,26 C75,22 85,32 100,28 C115,24 125,34 140,30 C155,26 165,32 175,28" stroke="#2c3e4d" fill="none" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M20,38 L40,38 L60,38 L80,38 L100,38 L120,38 L140,38 L160,38" stroke="#2c3e4d" fill="none" stroke-width="1" stroke-linecap="round"/>
-                        <path d="M135,18 L145,24 L152,31 L158,38" stroke="#2c3e4d" fill="none" stroke-width="1.2" stroke-linecap="round"/>
-                    </svg>
+                    <svg width="180" height="50" viewBox="0 0 180 50"><path d="M15,28 C30,22 45,30 60,26 C75,22 85,32 100,28 C115,24 125,34 140,30 C155,26 165,32 175,28" stroke="#2c3e4d" fill="none" stroke-width="1.5"/><path d="M20,38 L40,38 L60,38 L80,38 L100,38 L120,38 L140,38 L160,38" stroke="#2c3e4d" fill="none" stroke-width="1"/><path d="M135,18 L145,24 L152,31 L158,38" stroke="#2c3e4d" fill="none" stroke-width="1.2"/></svg>
                 </div>
                 <div class="signature-name">John L. Hollaway</div>
                 <div class="signature-title">DEAN, GRADUATE SCHOOL OF BANKING & FINANCE</div>
             </div>
             <div class="signature-block">
                 <div class="signature-line">
-                    <svg width="180" height="50" viewBox="0 0 180 50" style="display:block; margin:0 auto;">
-                        <path d="M18,30 C32,26 48,34 65,29 C82,24 98,32 115,27 C132,22 148,30 165,26" stroke="#2c3e4d" fill="none" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M22,38 L42,38 L62,38 L82,38 L102,38 L122,38 L142,38 L162,38" stroke="#2c3e4d" fill="none" stroke-width="1" stroke-linecap="round"/>
-                        <path d="M150,18 L158,24 L165,31 L171,38" stroke="#2c3e4d" fill="none" stroke-width="1.2" stroke-linecap="round"/>
-                        <path d="M95,12 L102,19 L108,26" stroke="#2c3e4d" fill="none" stroke-width="1"/>
-                    </svg>
+                    <svg width="180" height="50" viewBox="0 0 180 50"><path d="M18,30 C32,26 48,34 65,29 C82,24 98,32 115,27 C132,22 148,30 165,26" stroke="#2c3e4d" fill="none" stroke-width="1.5"/><path d="M22,38 L42,38 L62,38 L82,38 L102,38 L122,38 L142,38 L162,38" stroke="#2c3e4d" fill="none" stroke-width="1"/><path d="M150,18 L158,24 L165,31 L171,38" stroke="#2c3e4d" fill="none" stroke-width="1.2"/></svg>
                 </div>
                 <div class="signature-name">Renee R. Sharma</div>
                 <div class="signature-title">UNIVERSITY REGISTRAR</div>
