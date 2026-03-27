@@ -75,10 +75,42 @@
         .course-section { padding: 1.5rem 2rem; }
         .section-header { background: #0a2f44; color: white; padding: 0.6rem 1rem; margin: 1rem 0 0.8rem 0; font-weight: 700; border-radius: 4px; }
         .term-title { background: #f0eadf; padding: 0.5rem 1rem; margin: 1rem 0 0.5rem 0; font-weight: 700; color: #0a2f44; border-left: 4px solid #e8b42c; }
-        .course-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin-bottom: 0.5rem; }
-        .course-table th { background: #f9f5ec; padding: 0.6rem 0.5rem; text-align: left; border-bottom: 2px solid #e8b42c; font-weight: 700; color: #1e3a4d; }
-        .course-table td { padding: 0.5rem 0.5rem; border-bottom: 1px solid #e2d9cc; color: #2c3e4e; vertical-align: top; }
-        .module-desc { font-size: 0.7rem; color: #6b5e4a; line-height: 1.3; margin-top: 0.2rem; }
+        
+        /* Fixed Table Styles - Proper Alignment */
+        .course-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .course-table th {
+            background: #f9f5ec;
+            padding: 0.8rem 0.6rem;
+            text-align: left;
+            border-bottom: 2px solid #e8b42c;
+            font-weight: 700;
+            color: #1e3a4d;
+        }
+        .course-table td {
+            padding: 0.7rem 0.6rem;
+            border-bottom: 1px solid #e2d9cc;
+            color: #2c3e4e;
+            vertical-align: top;
+        }
+        
+        /* Fixed Column Widths */
+        .course-table th:first-child, .course-table td:first-child { width: 12%; }
+        .course-table th:nth-child(2), .course-table td:nth-child(2) { width: 22%; }
+        .course-table th:nth-child(3), .course-table td:nth-child(3) { width: 38%; }
+        .course-table th:nth-child(4), .course-table td:nth-child(4) { width: 8%; text-align: center; }
+        .course-table th:nth-child(5), .course-table td:nth-child(5) { width: 10%; text-align: center; }
+        .course-table th:nth-child(6), .course-table td:nth-child(6) { width: 10%; text-align: center; }
+        
+        .course-table td:nth-child(4),
+        .course-table td:nth-child(5),
+        .course-table td:nth-child(6) { text-align: center; }
+        
+        .module-desc { font-size: 0.7rem; color: #6b5e4a; line-height: 1.4; }
         .term-gpa { text-align: right; font-weight: 700; padding: 0.5rem; background: #fefaf2; border-bottom: 1px solid #e8b42c; margin-bottom: 1rem; }
         .gpa-summary { background: #fefaf2; padding: 1rem 1.5rem; margin-top: 1.5rem; border-left: 4px solid #e8b42c; display: flex; flex-wrap: wrap; justify-content: space-between; }
         .gpa-item { text-align: center; flex: 1; }
@@ -91,8 +123,17 @@
         .signature-line { width: 160px; border-bottom: 1px solid #8b7a62; margin: 0 auto 0.3rem; }
         .print-btn { background: #0a2f44; color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 25px; cursor: pointer; margin-top: 1rem; }
         .framework-note { font-style: italic; margin-top: 0.5rem; color: #5a6e7c; background: #fefaf0; padding: 0.5rem; border-radius: 4px; }
-        @media print { body { background: white; padding: 0; } .print-btn { display: none; } .seal { border-color: #0a2f44; color: #0a2f44; } }
-        @media (max-width: 768px) { body { padding: 1rem; } .course-table th, .course-table td { font-size: 0.65rem; padding: 0.3rem; } .module-desc { display: none; } }
+        
+        @media print {
+            body { background: white; padding: 0; }
+            .print-btn { display: none; }
+            .seal { border-color: #0a2f44; color: #0a2f44; }
+        }
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+            .course-table th, .course-table td { font-size: 0.65rem; padding: 0.4rem; }
+            .module-desc { font-size: 0.6rem; }
+        }
     </style>
 </head>
 <body>
@@ -123,87 +164,351 @@
     <div class="course-section">
         <div class="section-header">📚 YEAR 1 · FOUNDATION MODULES · 120 CREDITS</div>
         
+        <!-- Fall 2021 Term -->
         <div class="term-title">Fall 2021 Term</div>
         <table class="course-table">
-            <thead> <th>Code</th><th style="width: 25%">Module Title</th><th style="width: 40%">Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
+            <thead>
+                32r
+                    <th>Code</th>
+                    <th>Module Title</th>
+                    <th>Module Description</th>
+                    <th>Credits</th>
+                    <th>Grade (UK)</th>
+                    <th>Mark %</th>
+                </tr>
+            </thead>
             <tbody>
-                <tr><td>FIN 101</td><td>Principles of Finance</td><td class="module-desc">Introduction to financial concepts including time value of money, risk and return, valuation fundamentals, and financial decision-making principles.</td><td>20</td><td>First Class</td><td>78%</td></tr>
-                <tr><td>ACC 101</td><td>Financial Accounting I</td><td class="module-desc">Accounting principles, preparation of financial statements, double-entry bookkeeping, and interpretation of basic financial reports.</td><td>20</td><td>Upper Second</td><td>68%</td></tr>
-                <tr><td>ECO 101</td><td>Microeconomics</td><td class="module-desc">Supply and demand analysis, market structures, consumer behaviour, production theory, and welfare economics.</td><td>20</td><td>Lower Second</td><td>58%</td></tr>
-                <tr><td>MTH 101</td><td>Calculus for Business</td><td class="module-desc">Differentiation, integration, optimisation techniques, and mathematical applications for business and finance.</td><td>20</td><td>First Class</td><td>82%</td></tr>
-                <tr><td>BUS 101</td><td>Introduction to Business</td><td class="module-desc">Overview of business functions, organisational structures, corporate governance, and the contemporary business environment.</td><td>20</td><td>First Class</td><td>80%</td></tr>
+                <tr>
+                    <td>FIN 101</td>
+                    <td>Principles of Finance</td>
+                    <td class="module-desc">Introduction to financial concepts including time value of money, risk and return, valuation fundamentals, and financial decision-making principles.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>78%</td>
+                </tr>
+                <tr>
+                    <td>ACC 101</td>
+                    <td>Financial Accounting I</td>
+                    <td class="module-desc">Accounting principles, preparation of financial statements, double-entry bookkeeping, and interpretation of basic financial reports.</td>
+                    <td>20</td>
+                    <td>Upper Second</td>
+                    <td>68%</td>
+                </tr>
+                <tr>
+                    <td>ECO 101</td>
+                    <td>Microeconomics</td>
+                    <td class="module-desc">Supply and demand analysis, market structures, consumer behaviour, production theory, and welfare economics.</td>
+                    <td>20</td>
+                    <td>Lower Second</td>
+                    <td>58%</td>
+                </tr>
+                <tr>
+                    <td>MTH 101</td>
+                    <td>Calculus for Business</td>
+                    <td class="module-desc">Differentiation, integration, optimisation techniques, and mathematical applications for business and finance.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>82%</td>
+                </tr>
+                <tr>
+                    <td>BUS 101</td>
+                    <td>Introduction to Business</td>
+                    <td class="module-desc">Overview of business functions, organisational structures, corporate governance, and the contemporary business environment.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>80%</td>
+                </tr>
             </tbody>
-         </table>
+        </table>
         <div class="term-gpa">Term Average: 73.2% | Credits: 100 | Classification: Upper Second</div>
 
+        <!-- Spring 2022 Term -->
         <div class="term-title">Spring 2022 Term</div>
         <table class="course-table">
-            <thead> <th>Code</th><th style="width: 25%">Module Title</th><th style="width: 40%">Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Module Title</th>
+                    <th>Module Description</th>
+                    <th>Credits</th>
+                    <th>Grade (UK)</th>
+                    <th>Mark %</th>
+                </tr>
+            </thead>
             <tbody>
-                <tr><td>FIN 102</td><td>Corporate Finance</td><td class="module-desc">Capital budgeting, cost of capital, capital structure theory, dividend policy, and financial planning for corporations.</td><td>20</td><td>First Class</td><td>81%</td></tr>
-                <tr><td>ACC 102</td><td>Financial Accounting II</td><td class="module-desc">Advanced accounting topics, cash flow statements, ratio analysis, and comprehensive financial reporting standards.</td><td>20</td><td>Lower Second</td><td>58%</td></tr>
-                <tr><td>ECO 102</td><td>Macroeconomics</td><td class="module-desc">GDP, inflation, unemployment, monetary and fiscal policy, economic growth theories, and international trade.</td><td>20</td><td>Upper Second</td><td>65%</td></tr>
-                <tr><td>STA 201</td><td>Business Statistics</td><td class="module-desc">Descriptive statistics, probability distributions, hypothesis testing, regression analysis, and data visualisation.</td><td>20</td><td>First Class</td><td>79%</td></tr>
-                <tr><td>MKT 201</td><td>Principles of Marketing</td><td class="module-desc">Marketing mix, consumer behaviour, market research, branding strategies, and digital marketing fundamentals.</td><td>20</td><td>Upper Second</td><td>66%</td></tr>
+                <tr>
+                    <td>FIN 102</td>
+                    <td>Corporate Finance</td>
+                    <td class="module-desc">Capital budgeting, cost of capital, capital structure theory, dividend policy, and financial planning for corporations.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>81%</td>
+                </tr>
+                <tr>
+                    <td>ACC 102</td>
+                    <td>Financial Accounting II</td>
+                    <td class="module-desc">Advanced accounting topics, cash flow statements, ratio analysis, and comprehensive financial reporting standards.</td>
+                    <td>20</td>
+                    <td>Lower Second</td>
+                    <td>58%</td>
+                </tr>
+                <tr>
+                    <td>ECO 102</td>
+                    <td>Macroeconomics</td>
+                    <td class="module-desc">GDP, inflation, unemployment, monetary and fiscal policy, economic growth theories, and international trade.</td>
+                    <td>20</td>
+                    <td>Upper Second</td>
+                    <td>65%</td>
+                </tr>
+                <tr>
+                    <td>STA 201</td>
+                    <td>Business Statistics</td>
+                    <td class="module-desc">Descriptive statistics, probability distributions, hypothesis testing, regression analysis, and data visualisation.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>79%</td>
+                </tr>
+                <tr>
+                    <td>MKT 201</td>
+                    <td>Principles of Marketing</td>
+                    <td class="module-desc">Marketing mix, consumer behaviour, market research, branding strategies, and digital marketing fundamentals.</td>
+                    <td>20</td>
+                    <td>Upper Second</td>
+                    <td>66%</td>
+                </tr>
             </tbody>
-         </table>
+        </table>
         <div class="term-gpa">Term Average: 69.8% | Credits: 100 | Classification: Upper Second</div>
 
         <div class="section-header">📚 YEAR 2 · CORE MODULES · 120 CREDITS</div>
 
+        <!-- Fall 2022 Term -->
         <div class="term-title">Fall 2022 Term</div>
         <table class="course-table">
-            <thead> <th>Code</th><th style="width: 25%">Module Title</th><th style="width: 40%">Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Module Title</th>
+                    <th>Module Description</th>
+                    <th>Credits</th>
+                    <th>Grade (UK)</th>
+                    <th>Mark %</th>
+                </tr>
+            </thead>
             <tbody>
-                <tr><td>FIN 201</td><td>Investment Analysis</td><td class="module-desc">Securities valuation, portfolio theory, asset allocation strategies, equity and fixed income analysis, and investment vehicles.</td><td>20</td><td>First Class</td><td>84%</td></tr>
-                <tr><td>FIN 202</td><td>Financial Markets & Institutions</td><td class="module-desc">Structure of financial systems, central banking, money markets, capital markets, and regulatory frameworks.</td><td>20</td><td>First Class</td><td>80%</td></tr>
-                <tr><td>ACC 201</td><td>Managerial Accounting</td><td class="module-desc">Cost accounting, budgeting, variance analysis, decision-making frameworks, and performance measurement systems.</td><td>20</td><td>Upper Second</td><td>68%</td></tr>
-                <tr><td>LAW 301</td><td>Business Law</td><td class="module-desc">Contract law, corporate governance, regulatory compliance, legal frameworks for business operations, and dispute resolution.</td><td>20</td><td>Lower Second</td><td>58%</td></tr>
-                <tr><td>MGT 201</td><td>Organizational Behaviour</td><td class="module-desc">Leadership theories, motivation, team dynamics, organisational culture, and change management strategies.</td><td>20</td><td>First Class</td><td>77%</td></tr>
+                <tr>
+                    <td>FIN 201</td>
+                    <td>Investment Analysis</td>
+                    <td class="module-desc">Securities valuation, portfolio theory, asset allocation strategies, equity and fixed income analysis, and investment vehicles.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>84%</td>
+                </tr>
+                <tr>
+                    <td>FIN 202</td>
+                    <td>Financial Markets & Institutions</td>
+                    <td class="module-desc">Structure of financial systems, central banking, money markets, capital markets, and regulatory frameworks.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>ACC 201</td>
+                    <td>Managerial Accounting</td>
+                    <td class="module-desc">Cost accounting, budgeting, variance analysis, decision-making frameworks, and performance measurement systems.</td>
+                    <td>20</td>
+                    <td>Upper Second</td>
+                    <td>68%</td>
+                </tr>
+                <tr>
+                    <td>LAW 301</td>
+                    <td>Business Law</td>
+                    <td class="module-desc">Contract law, corporate governance, regulatory compliance, legal frameworks for business operations, and dispute resolution.</td>
+                    <td>20</td>
+                    <td>Lower Second</td>
+                    <td>58%</td>
+                </tr>
+                <tr>
+                    <td>MGT 201</td>
+                    <td>Organizational Behaviour</td>
+                    <td class="module-desc">Leadership theories, motivation, team dynamics, organisational culture, and change management strategies.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>77%</td>
+                </tr>
             </tbody>
-         </table>
+        </table>
         <div class="term-gpa">Term Average: 73.4% | Credits: 100 | Classification: Upper Second</div>
 
+        <!-- Spring 2023 Term -->
         <div class="term-title">Spring 2023 Term</div>
         <table class="course-table">
-            <thead> <th>Code</th><th style="width: 25%">Module Title</th><th style="width: 40%">Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Module Title</th>
+                    <th>Module Description</th>
+                    <th>Credits</th>
+                    <th>Grade (UK)</th>
+                    <th>Mark %</th>
+                </tr>
+            </thead>
             <tbody>
-                <tr><td>FIN 301</td><td>Portfolio Management</td><td class="module-desc">Modern portfolio theory, asset allocation strategies, performance evaluation metrics, and risk-adjusted returns.</td><td>20</td><td>First Class</td><td>83%</td></tr>
-                <tr><td>FIN 302</td><td>Risk Management</td><td class="module-desc">Financial risk identification, hedging strategies, derivatives, enterprise risk management, and regulatory compliance.</td><td>20</td><td>Upper Second</td><td>69%</td></tr>
-                <tr><td>ECO 301</td><td>International Economics</td><td class="module-desc">Exchange rates, balance of payments, trade theories, global economic policies, and international financial systems.</td><td>20</td><td>Lower Second</td><td>58%</td></tr>
-                <tr><td>MGT 301</td><td>Strategic Management</td><td class="module-desc">Competitive strategy, business models, industry analysis, strategic planning, and corporate strategy formulation.</td><td>20</td><td>First Class</td><td>76%</td></tr>
-                <tr><td>COM 201</td><td>Business Communication</td><td class="module-desc">Professional writing, presentations, negotiation skills, cross-cultural communication, and stakeholder engagement.</td><td>20</td><td>First Class</td><td>78%</td></tr>
+                <tr>
+                    <td>FIN 301</td>
+                    <td>Portfolio Management</td>
+                    <td class="module-desc">Modern portfolio theory, asset allocation strategies, performance evaluation metrics, and risk-adjusted returns.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>83%</td>
+                </tr>
+                <tr>
+                    <td>FIN 302</td>
+                    <td>Risk Management</td>
+                    <td class="module-desc">Financial risk identification, hedging strategies, derivatives, enterprise risk management, and regulatory compliance.</td>
+                    <td>20</td>
+                    <td>Upper Second</td>
+                    <td>69%</td>
+                </tr>
+                <tr>
+                    <td>ECO 301</td>
+                    <td>International Economics</td>
+                    <td class="module-desc">Exchange rates, balance of payments, trade theories, global economic policies, and international financial systems.</td>
+                    <td>20</td>
+                    <td>Lower Second</td>
+                    <td>58%</td>
+                </tr>
+                <tr>
+                    <td>MGT 301</td>
+                    <td>Strategic Management</td>
+                    <td class="module-desc">Competitive strategy, business models, industry analysis, strategic planning, and corporate strategy formulation.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>76%</td>
+                </tr>
+                <tr>
+                    <td>COM 201</td>
+                    <td>Business Communication</td>
+                    <td class="module-desc">Professional writing, presentations, negotiation skills, cross-cultural communication, and stakeholder engagement.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>78%</td>
+                </tr>
             </tbody>
-         </table>
+        </table>
         <div class="term-gpa">Term Average: 72.8% | Credits: 100 | Classification: Upper Second</div>
 
         <div class="section-header">📚 YEAR 3 · ADVANCED MODULES · 120 CREDITS</div>
 
+        <!-- Fall 2023 Term -->
         <div class="term-title">Fall 2023 Term</div>
         <table class="course-table">
-            <thead> <th>Code</th><th style="width: 25%">Module Title</th><th style="width: 40%">Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Module Title</th>
+                    <th>Module Description</th>
+                    <th>Credits</th>
+                    <th>Grade (UK)</th>
+                    <th>Mark %</th>
+                </tr>
+            </thead>
             <tbody>
-                <tr><td>FIN 401</td><td>Advanced Corporate Finance</td><td class="module-desc">Mergers and acquisitions, leveraged buyouts, restructuring, advanced valuation techniques, and corporate governance.</td><td>20</td><td>First Class</td><td>85%</td></tr>
-                <tr><td>FIN 402</td><td>Derivatives & Securities</td><td class="module-desc">Options, futures, swaps, pricing models, hedging applications, and structured financial products.</td><td>20</td><td>First Class</td><td>82%</td></tr>
-                <tr><td>FIN 403</td><td>Financial Modeling</td><td class="module-desc">Excel modeling, DCF analysis, scenario analysis, Monte Carlo simulation, and model validation techniques.</td><td>20</td><td>Upper Second</td><td>68%</td></tr>
-                <tr><td>ENT 301</td><td>Entrepreneurial Finance</td><td class="module-desc">Venture capital, angel investing, startup valuation, funding rounds, exit strategies, and entrepreneurial ecosystems.</td><td>20</td><td>First Class</td><td>79%</td></tr>
-                <tr><td>ETH 401</td><td>Business Ethics</td><td class="module-desc">Ethical decision-making, corporate social responsibility, stakeholder management, and compliance frameworks.</td><td>20</td><td>First Class</td><td>81%</td></tr>
+                <tr>
+                    <td>FIN 401</td>
+                    <td>Advanced Corporate Finance</td>
+                    <td class="module-desc">Mergers and acquisitions, leveraged buyouts, restructuring, advanced valuation techniques, and corporate governance.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>85%</td>
+                </tr>
+                <tr>
+                    <td>FIN 402</td>
+                    <td>Derivatives & Securities</td>
+                    <td class="module-desc">Options, futures, swaps, pricing models, hedging applications, and structured financial products.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>82%</td>
+                </tr>
+                <tr>
+                    <td>FIN 403</td>
+                    <td>Financial Modeling</td>
+                    <td class="module-desc">Excel modeling, DCF analysis, scenario analysis, Monte Carlo simulation, and model validation techniques.</td>
+                    <td>20</td>
+                    <td>Upper Second</td>
+                    <td>68%</td>
+                </tr>
+                <tr>
+                    <td>ENT 301</td>
+                    <td>Entrepreneurial Finance</td>
+                    <td class="module-desc">Venture capital, angel investing, startup valuation, funding rounds, exit strategies, and entrepreneurial ecosystems.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>79%</td>
+                </tr>
+                <tr>
+                    <td>ETH 401</td>
+                    <td>Business Ethics</td>
+                    <td class="module-desc">Ethical decision-making, corporate social responsibility, stakeholder management, and compliance frameworks.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>81%</td>
+                </tr>
             </tbody>
-         </table>
+        </table>
         <div class="term-gpa">Term Average: 79.0% | Credits: 100 | Classification: First Class</div>
 
+        <!-- Spring 2024 Term - Capstone -->
         <div class="term-title">Spring 2024 Term · Capstone</div>
         <table class="course-table">
-            <thead> <th>Code</th><th style="width: 25%">Module Title</th><th style="width: 40%">Module Description</th><th>Credits</th><th>Grade (UK)</th><th>Mark %</th> </thead>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Module Title</th>
+                    <th>Module Description</th>
+                    <th>Credits</th>
+                    <th>Grade (UK)</th>
+                    <th>Mark %</th>
+                </tr>
+            </thead>
             <tbody>
-                <tr><td>FIN 404</td><td>International Finance</td><td class="module-desc">Foreign exchange markets, cross-border investments, currency risk management, and global capital structure decisions.</td><td>20</td><td>First Class</td><td>83%</td></tr>
-                <tr><td>FIN 405</td><td>Valuation & Mergers</td><td class="module-desc">DCF, comparable company analysis, precedent transactions, LBO models, and synergy valuation in M&A.</td><td>20</td><td>First Class</td><td>84%</td></tr>
-                <tr><td>FIN 406</td><td>Capstone in Finance</td><td class="module-desc">Integrated financial analysis, real-world case studies, investment committee simulation, and strategic financial decision-making.</td><td>40</td><td>First Class</td><td>86%</td></tr>
-                <tr><td>MGT 401</td><td>Leadership & Ethics</td><td class="module-desc">Transformational leadership, ethical frameworks, corporate governance, board dynamics, and responsible leadership.</td><td>20</td><td>Upper Second</td><td>69%</td></tr>
+                <tr>
+                    <td>FIN 404</td>
+                    <td>International Finance</td>
+                    <td class="module-desc">Foreign exchange markets, cross-border investments, currency risk management, and global capital structure decisions.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>83%</td>
+                </tr>
+                <tr>
+                    <td>FIN 405</td>
+                    <td>Valuation & Mergers</td>
+                    <td class="module-desc">DCF, comparable company analysis, precedent transactions, LBO models, and synergy valuation in M&A.</td>
+                    <td>20</td>
+                    <td>First Class</td>
+                    <td>84%</td>
+                </tr>
+                <tr>
+                    <td>FIN 406</td>
+                    <td>Capstone in Finance</td>
+                    <td class="module-desc">Integrated financial analysis, real-world case studies, investment committee simulation, and strategic financial decision-making.</td>
+                    <td>40</td>
+                    <td>First Class</td>
+                    <td>86%</td>
+                </tr>
+                <tr>
+                    <td>MGT 401</td>
+                    <td>Leadership & Ethics</td>
+                    <td class="module-desc">Transformational leadership, ethical frameworks, corporate governance, board dynamics, and responsible leadership.</td>
+                    <td>20</td>
+                    <td>Upper Second</td>
+                    <td>69%</td>
+                </tr>
             </tbody>
-         </table>
+        </table>
         <div class="term-gpa">Term Average: 80.5% | Credits: 100 | Classification: First Class</div>
 
+        <!-- GPA Summary -->
         <div class="gpa-summary">
             <div class="gpa-item"><div class="gpa-label">Total Credits</div><div class="gpa-value">360</div></div>
             <div class="gpa-item"><div class="gpa-label">Weighted Average</div><div class="gpa-value">74.6%</div></div>
@@ -211,13 +516,31 @@
             <div class="gpa-item"><div class="gpa-label">Certificate ID</div><div class="gpa-value">NU-GSBF-BSC-2024-001</div></div>
         </div>
         
+        <!-- Classification Explanation -->
         <div style="background: #f0eadf; padding: 1rem; margin-top: 1rem; border-radius: 8px;">
-            <strong>🎓 UK Undergraduate Degree Classification</strong><br><br>
+            <strong>🎓 UK Undergraduate Degree Classification (RQF Level 6)</strong><br><br>
             <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem;">
-                <tr style="border-bottom: 1px solid #d4cbb6;"><td style="padding: 0.3rem 0;"><strong>First Class Honours</strong>   <td style="padding: 0.3rem 0;">70% and above<td style="padding: 0.3rem 0; text-align: right;"><span style="color:#0a2f44; font-weight:700;">✓ ACHIEVED (74.6%)</span></tr>
-                <tr style="border-bottom: 1px solid #d4cbb6;"><td style="padding: 0.3rem 0;"><strong>Upper Second Class Honours (2:1)</strong><td style="padding: 0.3rem 0;">60% – 69%<td style="padding: 0.3rem 0; text-align: right;">Achieved in 8 modules</tr>
-                <tr style="border-bottom: 1px solid #d4cbb6;"><td style="padding: 0.3rem 0;"><strong>Lower Second Class Honours (2:2)</strong><td style="padding: 0.3rem 0;">50% – 59%<td style="padding: 0.3rem 0; text-align: right;">Achieved in 4 modules</tr>
-             </table>
+                <tr style="border-bottom: 1px solid #d4cbb6;">
+                    <td style="padding: 0.3rem 0;"><strong>First Class Honours</strong></td>
+                    <td style="padding: 0.3rem 0;">70% and above</td>
+                    <td style="padding: 0.3rem 0; text-align: right;"><span style="color:#0a2f44; font-weight:700;">✓ ACHIEVED (74.6%)</span></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #d4cbb6;">
+                    <td style="padding: 0.3rem 0;"><strong>Upper Second Class Honours (2:1)</strong></td>
+                    <td style="padding: 0.3rem 0;">60% – 69%</td>
+                    <td style="padding: 0.3rem 0; text-align: right;">Achieved in 8 modules</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #d4cbb6;">
+                    <td style="padding: 0.3rem 0;"><strong>Lower Second Class Honours (2:2)</strong></td>
+                    <td style="padding: 0.3rem 0;">50% – 59%</td>
+                    <td style="padding: 0.3rem 0; text-align: right;">Achieved in 4 modules</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.3rem 0;"><strong>Third Class Honours</strong></td>
+                    <td style="padding: 0.3rem 0;">40% – 49%</td>
+                    <td style="padding: 0.3rem 0; text-align: right;">—</td>
+                </tr>
+            </table>
             <div style="margin-top: 0.8rem; font-size: 0.75rem; background: #fffef7; padding: 0.5rem; border-radius: 4px;">
                 <strong>Notes:</strong> The Capstone project (FIN 406) carries double weighting at 40 credits.
             </div>
