@@ -173,15 +173,6 @@
             font-weight: bold;
             letter-spacing: 1px;
         }
-        .honors-badge-large {
-            display: inline-block;
-            background: #e9ddb0;
-            color: #5e4b2e;
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: bold;
-        }
 
         .section-title {
             font-size: 22px;
@@ -248,6 +239,18 @@
             margin-bottom: 8px;
         }
 
+        .classification-badge {
+            display: inline-block;
+            background: #d4e0d9;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 12px;
+            margin-bottom: 8px;
+            color: #2c4b3e;
+        }
+
         .distinction-cell {
             background-color: #e0f0e8;
             font-weight: bold;
@@ -258,6 +261,12 @@
             background-color: #fff0d0;
             font-weight: bold;
             color: #b45f1b;
+        }
+
+        .credit-cell {
+            background-color: #e8e0f0;
+            font-weight: bold;
+            color: #5a3e7c;
         }
 
         .footer {
@@ -354,7 +363,7 @@
         <div class="info-item"><span class="info-label">Citizenship:</span> [Country]</div>
     </div>
 
-    <!-- CLASSIFICATION SUMMARY BOX - PROMINENT & EASY TO READ -->
+    <!-- CLASSIFICATION SUMMARY BOX - ADDED - PROMINENT & EASY TO READ -->
     <div class="classification-summary">
         <div class="summary-card">
             <div class="summary-label">CLASSIFICATION</div>
@@ -383,7 +392,13 @@
         <span>Bachelor of Science in Finance & Investment</span>
         <span>School: Graduate School of Banking & Finance</span>
     </div>
-    <div><strong>Enrollment:</strong> September 2022 &nbsp;|&nbsp; <strong>Conferral:</strong> 31 December 2024</div>
+    <div><strong>Enrollment:</strong> September 2022 &nbsp;|&nbsp; <strong>Conferral:</strong> 31 December 2024 &nbsp;|&nbsp; <strong>Cumulative GPA:</strong> 3.5</div>
+    <div style="margin: 10px 0;">
+        <span class="honors-badge">cum laude</span>
+        <span class="honors-badge">Upper Second Class Honors (2:1)</span>
+        <span class="honors-badge">Distinction (Overall)</span>
+        <span class="classification-badge">Dean's Merit List — 3 Semesters</span>
+    </div>
 
     <h3 style="margin: 20px 0 10px 0;">Term-by-Term GPA Breakdown</h3>
     <table>
@@ -407,6 +422,35 @@
             <tr class="term-row"><td>BUS 301</td><td>Strategic Management</td><td>3</td><td>A-</td><td>3.7</td></tr>
             <tr class="term-row"><td rowspan="2">Fall 2024</td><td>FIN 401</td><td>Advanced Investment Strategies</td><td>3</td><td>A-</td><td>3.7</td><td rowspan="2" style="background:#f3efe4; text-align:center;">3.50</td></tr>
             <tr class="term-row"><td>FIN 402</td><td>Capstone: Finance & Investment</td><td>3</td><td>B+</td><td>3.3</td></tr>
+        </tbody>
+    </table>
+
+    <div class="summary-box">
+        <strong>Undergraduate Term GPA Summary</strong><br>
+        Fall 2022: 3.70 | Spring 2023: 3.55 | Fall 2023: 3.43 | Spring 2024: 3.60 | Fall 2024: 3.50<br>
+        <strong>Cumulative GPA (final):</strong> 3.57 → 3.5 (official)
+    </div>
+
+    <h3 style="margin: 20px 0 10px 0;">Course Descriptions (Undergraduate)</h3>
+    <table>
+        <thead><tr><th>Code</th><th>Title</th><th>Credits</th><th>Description</th></tr></thead>
+        <tbody>
+            <tr><td>FIN 101</td><td>Principles of Finance</td><td>3</td><td>Introduction to financial management, time value of money, risk and return, valuation of securities, capital budgeting, and working capital management.</td></tr>
+            <tr><td>FIN 102</td><td>Investment Analysis</td><td>3</td><td>Fundamental and technical analysis of securities, equity valuation, bond pricing, asset allocation, and portfolio construction principles.</td></tr>
+            <tr><td>FIN 201</td><td>Corporate Finance</td><td>3</td><td>Capital structure, dividend policy, cost of capital, mergers and acquisitions, and advanced corporate financial decision-making.</td></tr>
+            <tr><td>FIN 202</td><td>Portfolio Management</td><td>3</td><td>Modern portfolio theory, asset allocation strategies, performance measurement, and management of institutional and individual investment portfolios.</td></tr>
+            <tr><td>FIN 301</td><td>Financial Markets & Institutions</td><td>3</td><td>Structure and function of financial markets, central banking, commercial banking, investment banking, and regulatory frameworks.</td></tr>
+            <tr><td>FIN 302</td><td>Derivatives & Risk Management</td><td>3</td><td>Options, futures, swaps, and other derivative instruments. Hedging strategies, pricing models, and enterprise risk management.</td></tr>
+            <tr><td>FIN 401</td><td>Advanced Investment Strategies</td><td>3</td><td>Quantitative investment strategies, algorithmic trading, behavioral finance, alternative investments, and hedge fund strategies.</td></tr>
+            <tr><td>FIN 402</td><td>Capstone: Finance & Investment</td><td>3</td><td>Integrative capstone project applying finance and investment principles to real-world case studies. Requires comprehensive analysis and presentation.</td></tr>
+            <tr><td>ACC 101</td><td>Financial Accounting</td><td>3</td><td>Preparation and interpretation of financial statements. Accounting principles, transaction analysis, and financial reporting standards.</td></tr>
+            <tr><td>ACC 201</td><td>Managerial Accounting</td><td>3</td><td>Cost accounting, budgeting, variance analysis, and managerial decision-making tools for internal reporting and strategic planning.</td></tr>
+            <tr><td>ECO 101</td><td>Principles of Microeconomics</td><td>3</td><td>Consumer behavior, market structures, supply and demand, pricing strategies, and resource allocation at the individual and firm level.</td></tr>
+            <tr><td>ECO 102</td><td>Principles of Macroeconomics</td><td>3</td><td>National income, inflation, unemployment, monetary and fiscal policy, economic growth, and international trade.</td></tr>
+            <tr><td>MTH 101</td><td>Calculus for Business</td><td>3</td><td>Differential and integral calculus with applications to business optimization, marginal analysis, and economic modeling.</td></tr>
+            <tr><td>STAT 101</td><td>Business Statistics</td><td>3</td><td>Descriptive statistics, probability theory, hypothesis testing, regression analysis, and statistical applications in business decision-making.</td></tr>
+            <tr><td>BUS 201</td><td>Business Law & Ethics</td><td>3</td><td>Legal environment of business, contracts, torts, corporate governance, ethical frameworks, and professional responsibility.</td></tr>
+            <tr><td>BUS 301</td><td>Strategic Management</td><td>3</td><td>Strategic analysis, competitive advantage, corporate strategy, implementation, and performance measurement across organizations.</td></tr>
         </tbody>
     </table>
 
@@ -442,7 +486,7 @@
         <div class="info-item"><span class="info-label">Citizenship:</span> [Country]</div>
     </div>
 
-    <!-- CLASSIFICATION SUMMARY BOX - GRADUATE - PROMINENT & EASY TO READ -->
+    <!-- CLASSIFICATION SUMMARY BOX - GRADUATE - ADDED - PROMINENT & EASY TO READ -->
     <div class="classification-summary">
         <div class="summary-card">
             <div class="summary-label">CLASSIFICATION</div>
@@ -471,12 +515,21 @@
         <span>MBA in Entrepreneurship & Finance (Joint Degree)</span>
         <span>Schools: Entrepreneurship & Venture Creation + Banking & Finance</span>
     </div>
-    <div><strong>Enrollment:</strong> March 2025 &nbsp;|&nbsp; <strong>Conferral:</strong> 26 March 2026</div>
+    <div><strong>Enrollment:</strong> March 2025 &nbsp;|&nbsp; <strong>Conferral:</strong> 26 March 2026 &nbsp;|&nbsp; <strong>Cumulative GPA:</strong> 3.7</div>
+    <div style="margin: 10px 0;">
+        <span class="honors-badge">magna cum laude</span>
+        <span class="honors-badge">Distinction (Degree Classification)</span>
+        <span class="honors-badge">Dean's Merit List — Full Program</span>
+        <span class="classification-badge">Overall: DISTINCTION</span>
+    </div>
 
-    <div style="margin: 15px 0; padding: 8px 12px; background: #f9f6ef; border: 1px solid #ddd0b6; font-size: 12px; display: inline-block;">
-        <strong>Classification Key:</strong> 
-        <span style="background:#e0f0e8; padding:2px 8px;">Distinction (A, A-)</span> 
-        <span style="background:#fff0d0; padding:2px 8px;">Merit (B+, B)</span>
+    <!-- Classification Key -->
+    <div style="margin: 15px 0; padding: 10px; background: #f9f6ef; border: 1px solid #ddd0b6; font-size: 12px;">
+        <strong>📊 Classification Key:</strong>
+        <span style="background:#e0f0e8; padding:2px 8px; margin:0 5px;">Distinction (A, A-)</span>
+        <span style="background:#fff0d0; padding:2px 8px; margin:0 5px;">Merit (B+, B)</span>
+        <span style="background:#e8e0f0; padding:2px 8px; margin:0 5px;">Credit (B-, C+)</span>
+        <span style="background:#f0f0e0; padding:2px 8px; margin:0 5px;">Pass (C)</span>
     </div>
 
     <h3 style="margin: 20px 0 10px 0;">Term-by-Term GPA with Classification</h3>
@@ -495,6 +548,54 @@
             <tr class="term-row"><td>BUS 601</td><td>Capstone: Entrepreneurship & Finance Integration</td><td>3</td><td>A</td><td>4.0</td><td class="distinction-cell">DISTINCTION</td></tr>
         </tbody>
     </table>
+
+    <div class="summary-box">
+        <strong>Graduate Term GPA Summary</strong><br>
+        Spring 2025: 3.63 | Summer 2025: 3.70 | Fall 2025: 3.85<br>
+        <strong>Cumulative GPA:</strong> 3.72 → 3.7 (official)
+    </div>
+
+    <!-- Classification Summary Table -->
+    <h3 style="margin: 20px 0 10px 0;">Classification Summary</h3>
+    <table style="width: 70%; min-width: 300px;">
+        <thead>
+            <tr><th>Classification</th><th>Grade Range</th><th>Courses</th><th>Credits</th><th>Percentage</th></tr>
+        </thead>
+        <tbody>
+            <tr style="background:#e0f0e8;"><td><strong>🏆 DISTINCTION</strong></td><td>A, A-</td><td>5 courses</td><td>15 credits</td><td>62.5%</td></tr>
+            <tr style="background:#fff0d0;"><td><strong>⭐ MERIT</strong></td><td>B+, B</td><td>2 courses</td><td>6 credits</td><td>25%</td></tr>
+            <tr style="background:#e8e0f0;"><td><strong>📘 CREDIT</strong></td><td>B-, C+</td><td>0 courses</td><td>0 credits</td><td>0%</td></tr>
+            <tr style="background:#f0f0e0;"><td><strong>✅ PASS</strong></td><td>C</td><td>0 courses</td><td>0 credits</td><td>0%</td></tr>
+            <tr style="background:#f3efe4; font-weight:bold;"><td><strong>TOTAL</strong></td><td>—</td><td>7 courses</td><td>24 credits</td><td>100%</td></tr>
+        </tbody>
+    </table>
+
+    <h3 style="margin: 20px 0 10px 0;">Graduate Course Descriptions</h3>
+    <table>
+        <thead><tr><th>Code</th><th>Title</th><th>Credits</th><th>Description</th></tr></thead>
+        <tbody>
+            <tr><td>ENT 501</td><td>Venture Creation & Entrepreneurial Mindset</td><td>3</td><td>Exploration of entrepreneurial thinking, opportunity recognition, business model development, and the startup journey from ideation to launch.</td></tr>
+            <tr><td>ENT 502</td><td>New Venture Financing</td><td>3</td><td>Sources of capital for startups, bootstrapping, angel investors, venture capital, crowdfunding, and structuring financing rounds.</td></tr>
+            <tr><td>FIN 505</td><td>Advanced Corporate Finance</td><td>3</td><td>In-depth study of capital structure, valuation techniques, dividend policy, mergers and acquisitions, and advanced financial modeling.</td></tr>
+            <tr><td>FIN 506</td><td>Private Equity & Venture Capital</td><td>3</td><td>Structure and operations of private equity and venture capital funds. Deal sourcing, due diligence, valuation, exit strategies, and fund management.</td></tr>
+            <tr><td>FIN 507</td><td>Entrepreneurial Finance</td><td>3</td><td>Financial management for high-growth ventures. Cash flow management, valuation for startups, term sheets, investor negotiations, and exit planning.</td></tr>
+            <tr><td>MGT 501</td><td>Leadership & Organizational Behavior</td><td>3</td><td>Leadership theories, team dynamics, organizational culture, change management, and developing high-performance entrepreneurial teams.</td></tr>
+            <tr><td>MKT 501</td><td>Strategic Marketing for Entrepreneurs</td><td>3</td><td>Marketing strategies for new ventures, customer acquisition, branding, digital marketing, growth hacking, and go-to-market strategies.</td></tr>
+            <tr><td>BUS 601</td><td>Capstone: Entrepreneurship & Finance Integration</td><td>3</td><td>Integrative capstone requiring development of a comprehensive business plan and financial model for a new venture. Presentation to faculty and industry panel.</td></tr>
+        </tbody>
+    </table>
+
+    <div class="summary-box" style="margin-top: 20px;">
+        <strong>🎓 Graduate Academic Honors & Classifications:</strong><br><br>
+        📌 <strong>Overall Degree Classification:</strong> <span style="background:#e0f0e8; padding:2px 10px; font-weight:bold;">DISTINCTION</span><br>
+        📌 <strong>Latin Honors:</strong> magna cum laude (GPA 3.70–3.89)<br>
+        📌 <strong>Course-Level Breakdown:</strong><br>
+        &nbsp;&nbsp;&nbsp;• 15 credits at <strong>Distinction</strong> level (A, A-)<br>
+        &nbsp;&nbsp;&nbsp;• 6 credits at <strong>Merit</strong> level (B+, B)<br>
+        &nbsp;&nbsp;&nbsp;• 0 credits at Credit or Pass level<br>
+        📌 <strong>Merit Award:</strong> Graduate Dean's Merit List — Full Program<br>
+        📌 <strong>Final GPA:</strong> 3.7 / 4.0
+    </div>
 
     <div class="footer">
         <div><strong>Transcript ID:</strong> NU-TR-2026-0843 (Graduate)</div>
