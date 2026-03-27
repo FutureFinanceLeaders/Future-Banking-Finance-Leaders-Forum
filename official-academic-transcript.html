@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Georgia', 'Times New Roman', Times, serif;
-            background-color: #e8e6e1;
+            background-color: #f5f3ef;
             padding: 40px 20px;
             line-height: 1.4;
             color: #1e2a2f;
@@ -22,9 +22,9 @@
         .page {
             max-width: 1100px;
             margin: 0 auto 40px auto;
-            background-color: #fffef7;
+            background-color: #ffffff;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            border: 1px solid #cfcbbd;
+            border: 1px solid #d4cfc1;
             padding: 40px 45px 50px 45px;
             position: relative;
             page-break-after: always;
@@ -57,59 +57,80 @@
             }
         }
 
+        /* Nolan University Brand Colors */
+        :root {
+            --nolan-gold: #c5a028;
+            --nolan-dark-green: #1a4d3e;
+            --nolan-light-green: #2c6e5a;
+            --nolan-cream: #faf7f0;
+            --nolan-brown: #8b7355;
+        }
+
+        /* Brand Header with Logo */
+        .brand-header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--nolan-gold);
+            padding-bottom: 20px;
+        }
+        .brand-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .university-name {
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: var(--nolan-dark-green);
+            font-family: 'Times New Roman', serif;
+            line-height: 1.2;
+        }
+        .tagline {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: var(--nolan-gold);
+            font-family: 'Arial', sans-serif;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        .accreditation {
+            font-size: 10px;
+            font-family: 'Arial', sans-serif;
+            color: #6b6b6b;
+            margin-top: 12px;
+        }
+
         .seal {
             position: absolute;
             top: 40px;
             right: 45px;
-            width: 100px;
-            height: 100px;
-            border: 2px solid #8b7a5c;
+            width: 90px;
+            height: 90px;
+            border: 2px solid var(--nolan-gold);
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: #fef7e0;
-            font-size: 10px;
+            background: var(--nolan-cream);
+            font-size: 9px;
             text-align: center;
-            color: #5e4b2e;
+            color: var(--nolan-dark-green);
             font-weight: bold;
             font-family: 'Arial', sans-serif;
         }
         .seal span:first-child {
-            font-size: 14px;
+            font-size: 12px;
             letter-spacing: 2px;
-        }
-        .seal span:nth-child(2) {
-            font-size: 11px;
-            margin-top: 5px;
-        }
-
-        .uni-header {
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #ddd6c8;
-            padding-bottom: 15px;
-        }
-        .uni-name {
-            font-size: 36px;
             font-weight: bold;
-            letter-spacing: 3px;
-            color: #2c4b3e;
-            margin-bottom: 6px;
-        }
-        .accreditation {
-            font-size: 11px;
-            font-family: 'Arial', sans-serif;
-            letter-spacing: 0.5px;
-            color: #5f5a4c;
-            margin-top: 6px;
         }
 
         .student-info {
-            background: #faf8f0;
+            background: var(--nolan-cream);
             padding: 16px 20px;
-            border-left: 5px solid #b59d6e;
+            border-left: 5px solid var(--nolan-gold);
             margin: 20px 0;
             display: flex;
             flex-wrap: wrap;
@@ -123,13 +144,13 @@
         }
         .info-label {
             font-weight: bold;
-            color: #4a5b52;
+            color: var(--nolan-dark-green);
         }
 
-        /* NEW: Classification Summary Box - Prominent and Easy to Read */
+        /* Classification Summary Box */
         .classification-summary {
-            background: linear-gradient(135deg, #f4f0e6 0%, #e8e2d4 100%);
-            border: 2px solid #b59d6e;
+            background: linear-gradient(135deg, var(--nolan-cream) 0%, #f0ebe0 100%);
+            border: 2px solid var(--nolan-gold);
             border-radius: 12px;
             padding: 20px 25px;
             margin: 20px 0 25px 0;
@@ -148,24 +169,34 @@
             font-size: 12px;
             font-family: 'Arial', sans-serif;
             letter-spacing: 1px;
-            color: #5e4b2e;
+            color: var(--nolan-brown);
             text-transform: uppercase;
             font-weight: bold;
         }
         .summary-value {
             font-size: 28px;
             font-weight: bold;
-            color: #2c4b3e;
+            color: var(--nolan-dark-green);
             margin-top: 5px;
         }
         .summary-value-small {
             font-size: 18px;
             font-weight: bold;
-            color: #2c4b3e;
+            color: var(--nolan-dark-green);
         }
         .classification-badge-large {
             display: inline-block;
-            background: #2c4b3e;
+            background: var(--nolan-dark-green);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .merit-badge-large {
+            display: inline-block;
+            background: #b45f1b;
             color: white;
             padding: 8px 20px;
             border-radius: 40px;
@@ -177,11 +208,11 @@
         .section-title {
             font-size: 22px;
             font-weight: bold;
-            background-color: #eae5d6;
+            background-color: var(--nolan-cream);
             padding: 8px 12px;
             margin: 25px 0 15px 0;
-            border-left: 6px solid #2c4b3e;
-            color: #2c4b3e;
+            border-left: 6px solid var(--nolan-gold);
+            color: var(--nolan-dark-green);
         }
 
         .degree-header {
@@ -192,7 +223,7 @@
             justify-content: space-between;
             flex-wrap: wrap;
             font-weight: bold;
-            border-bottom: 1px solid #cfcbbd;
+            border-bottom: 1px solid #ddd0b6;
         }
 
         table {
@@ -204,15 +235,16 @@
         }
 
         th {
-            background-color: #eae5d6;
+            background-color: var(--nolan-cream);
             padding: 10px 6px;
-            border: 1px solid #cfcbbd;
+            border: 1px solid #d4cfc1;
             text-align: center;
             font-weight: bold;
+            color: var(--nolan-dark-green);
         }
 
         td {
-            border: 1px solid #cfcbbd;
+            border: 1px solid #d4cfc1;
             padding: 8px 6px;
             vertical-align: top;
         }
@@ -222,7 +254,7 @@
         }
 
         .summary-box {
-            background: #faf8f0;
+            background: var(--nolan-cream);
             padding: 16px 20px;
             margin: 20px 0;
             border: 1px solid #ddd0b6;
@@ -237,6 +269,7 @@
             font-weight: bold;
             margin-right: 12px;
             margin-bottom: 8px;
+            color: var(--nolan-brown);
         }
 
         .classification-badge {
@@ -248,7 +281,7 @@
             font-weight: bold;
             margin-right: 12px;
             margin-bottom: 8px;
-            color: #2c4b3e;
+            color: var(--nolan-dark-green);
         }
 
         .distinction-cell {
@@ -263,15 +296,9 @@
             color: #b45f1b;
         }
 
-        .credit-cell {
-            background-color: #e8e0f0;
-            font-weight: bold;
-            color: #5a3e7c;
-        }
-
         .footer {
             margin-top: 40px;
-            border-top: 1px solid #cfcbbd;
+            border-top: 1px solid #d4cfc1;
             padding-top: 25px;
             display: flex;
             justify-content: space-between;
@@ -281,18 +308,19 @@
 
         .signature {
             margin-top: 25px;
-            border-top: 1px solid #2c4b3e;
+            border-top: 1px solid var(--nolan-dark-green);
             width: 250px;
             text-align: center;
             font-size: 12px;
         }
 
         .verification {
-            background: #f0ede4;
+            background: var(--nolan-cream);
             padding: 12px 16px;
             font-family: monospace;
             font-size: 12px;
             margin-top: 20px;
+            border: 1px solid #ddd0b6;
         }
 
         .print-button {
@@ -300,7 +328,7 @@
             margin-bottom: 20px;
         }
         .print-button button {
-            background: #2c4b3e;
+            background: var(--nolan-dark-green);
             color: white;
             border: none;
             padding: 10px 24px;
@@ -311,7 +339,7 @@
             margin: 0 8px;
         }
         .print-button button:hover {
-            background: #1e3a2f;
+            background: var(--nolan-light-green);
         }
 
         @media (max-width: 700px) {
@@ -332,6 +360,9 @@
                 flex-direction: column;
                 gap: 15px;
             }
+            .university-name {
+                font-size: 32px;
+            }
         }
     </style>
 </head>
@@ -348,10 +379,15 @@
     <div class="seal">
         <span>NOLAN</span>
         <span>UNIVERSITY</span>
-        <span>SEAL</span>
+        <span>EST. 2020</span>
     </div>
-    <div class="uni-header">
-        <div class="uni-name">NOLAN UNIVERSITY</div>
+    
+    <!-- Brand Header with Logo -->
+    <div class="brand-header">
+        <div class="brand-logo">
+            <div class="university-name">NOLAN UNIVERSITY</div>
+            <div class="tagline">Learn to Lead. Lead to Excel</div>
+        </div>
         <div class="accreditation">Accredited by EQUIS, AACSB, and the International Assembly for Collegiate Business Education (IACBE)</div>
     </div>
 
@@ -363,7 +399,7 @@
         <div class="info-item"><span class="info-label">Citizenship:</span> [Country]</div>
     </div>
 
-    <!-- CLASSIFICATION SUMMARY BOX - ADDED - PROMINENT & EASY TO READ -->
+    <!-- CLASSIFICATION SUMMARY BOX -->
     <div class="classification-summary">
         <div class="summary-card">
             <div class="summary-label">CLASSIFICATION</div>
@@ -371,7 +407,7 @@
         </div>
         <div class="summary-card">
             <div class="summary-label">OVERALL PERFORMANCE</div>
-            <div class="classification-badge-large">DISTINCTION</div>
+            <div class="merit-badge-large">MERIT</div>
         </div>
         <div class="summary-card">
             <div class="summary-label">GPA</div>
@@ -396,7 +432,7 @@
     <div style="margin: 10px 0;">
         <span class="honors-badge">cum laude</span>
         <span class="honors-badge">Upper Second Class Honors (2:1)</span>
-        <span class="honors-badge">Distinction (Overall)</span>
+        <span class="honors-badge">Merit (Overall)</span>
         <span class="classification-badge">Dean's Merit List — 3 Semesters</span>
     </div>
 
@@ -431,29 +467,6 @@
         <strong>Cumulative GPA (final):</strong> 3.57 → 3.5 (official)
     </div>
 
-    <h3 style="margin: 20px 0 10px 0;">Course Descriptions (Undergraduate)</h3>
-    <table>
-        <thead><tr><th>Code</th><th>Title</th><th>Credits</th><th>Description</th></tr></thead>
-        <tbody>
-            <tr><td>FIN 101</td><td>Principles of Finance</td><td>3</td><td>Introduction to financial management, time value of money, risk and return, valuation of securities, capital budgeting, and working capital management.</td></tr>
-            <tr><td>FIN 102</td><td>Investment Analysis</td><td>3</td><td>Fundamental and technical analysis of securities, equity valuation, bond pricing, asset allocation, and portfolio construction principles.</td></tr>
-            <tr><td>FIN 201</td><td>Corporate Finance</td><td>3</td><td>Capital structure, dividend policy, cost of capital, mergers and acquisitions, and advanced corporate financial decision-making.</td></tr>
-            <tr><td>FIN 202</td><td>Portfolio Management</td><td>3</td><td>Modern portfolio theory, asset allocation strategies, performance measurement, and management of institutional and individual investment portfolios.</td></tr>
-            <tr><td>FIN 301</td><td>Financial Markets & Institutions</td><td>3</td><td>Structure and function of financial markets, central banking, commercial banking, investment banking, and regulatory frameworks.</td></tr>
-            <tr><td>FIN 302</td><td>Derivatives & Risk Management</td><td>3</td><td>Options, futures, swaps, and other derivative instruments. Hedging strategies, pricing models, and enterprise risk management.</td></tr>
-            <tr><td>FIN 401</td><td>Advanced Investment Strategies</td><td>3</td><td>Quantitative investment strategies, algorithmic trading, behavioral finance, alternative investments, and hedge fund strategies.</td></tr>
-            <tr><td>FIN 402</td><td>Capstone: Finance & Investment</td><td>3</td><td>Integrative capstone project applying finance and investment principles to real-world case studies. Requires comprehensive analysis and presentation.</td></tr>
-            <tr><td>ACC 101</td><td>Financial Accounting</td><td>3</td><td>Preparation and interpretation of financial statements. Accounting principles, transaction analysis, and financial reporting standards.</td></tr>
-            <tr><td>ACC 201</td><td>Managerial Accounting</td><td>3</td><td>Cost accounting, budgeting, variance analysis, and managerial decision-making tools for internal reporting and strategic planning.</td></tr>
-            <tr><td>ECO 101</td><td>Principles of Microeconomics</td><td>3</td><td>Consumer behavior, market structures, supply and demand, pricing strategies, and resource allocation at the individual and firm level.</td></tr>
-            <tr><td>ECO 102</td><td>Principles of Macroeconomics</td><td>3</td><td>National income, inflation, unemployment, monetary and fiscal policy, economic growth, and international trade.</td></tr>
-            <tr><td>MTH 101</td><td>Calculus for Business</td><td>3</td><td>Differential and integral calculus with applications to business optimization, marginal analysis, and economic modeling.</td></tr>
-            <tr><td>STAT 101</td><td>Business Statistics</td><td>3</td><td>Descriptive statistics, probability theory, hypothesis testing, regression analysis, and statistical applications in business decision-making.</td></tr>
-            <tr><td>BUS 201</td><td>Business Law & Ethics</td><td>3</td><td>Legal environment of business, contracts, torts, corporate governance, ethical frameworks, and professional responsibility.</td></tr>
-            <tr><td>BUS 301</td><td>Strategic Management</td><td>3</td><td>Strategic analysis, competitive advantage, corporate strategy, implementation, and performance measurement across organizations.</td></tr>
-        </tbody>
-    </table>
-
     <div class="footer">
         <div><strong>Transcript ID:</strong> NU-TR-2026-0843 (Undergraduate)</div>
         <div><strong>Issue Date:</strong> 27 March 2026</div>
@@ -467,15 +480,19 @@
     </div>
 </div>
 
-<!-- ==================== PAGE 2: GRADUATE with CLASSIFICATION SUMMARY ==================== -->
+<!-- ==================== PAGE 2: GRADUATE ==================== -->
 <div id="graduate-page" class="page">
     <div class="seal">
         <span>NOLAN</span>
         <span>UNIVERSITY</span>
-        <span>SEAL</span>
+        <span>EST. 2020</span>
     </div>
-    <div class="uni-header">
-        <div class="uni-name">NOLAN UNIVERSITY</div>
+    
+    <div class="brand-header">
+        <div class="brand-logo">
+            <div class="university-name">NOLAN UNIVERSITY</div>
+            <div class="tagline">Learn to Lead. Lead to Excel</div>
+        </div>
         <div class="accreditation">Accredited by EQUIS, AACSB, and the International Assembly for Collegiate Business Education (IACBE)</div>
     </div>
 
@@ -486,7 +503,6 @@
         <div class="info-item"><span class="info-label">Citizenship:</span> [Country]</div>
     </div>
 
-    <!-- CLASSIFICATION SUMMARY BOX - GRADUATE - ADDED - PROMINENT & EASY TO READ -->
     <div class="classification-summary">
         <div class="summary-card">
             <div class="summary-label">CLASSIFICATION</div>
@@ -523,7 +539,6 @@
         <span class="classification-badge">Overall: DISTINCTION</span>
     </div>
 
-    <!-- Classification Key -->
     <div style="margin: 15px 0; padding: 10px; background: #f9f6ef; border: 1px solid #ddd0b6; font-size: 12px;">
         <strong>📊 Classification Key:</strong>
         <span style="background:#e0f0e8; padding:2px 8px; margin:0 5px;">Distinction (A, A-)</span>
@@ -555,33 +570,15 @@
         <strong>Cumulative GPA:</strong> 3.72 → 3.7 (official)
     </div>
 
-    <!-- Classification Summary Table -->
     <h3 style="margin: 20px 0 10px 0;">Classification Summary</h3>
     <table style="width: 70%; min-width: 300px;">
-        <thead>
-            <tr><th>Classification</th><th>Grade Range</th><th>Courses</th><th>Credits</th><th>Percentage</th></tr>
-        </thead>
+        <thead><tr><th>Classification</th><th>Grade Range</th><th>Courses</th><th>Credits</th><th>Percentage</th></tr></thead>
         <tbody>
             <tr style="background:#e0f0e8;"><td><strong>🏆 DISTINCTION</strong></td><td>A, A-</td><td>5 courses</td><td>15 credits</td><td>62.5%</td></tr>
             <tr style="background:#fff0d0;"><td><strong>⭐ MERIT</strong></td><td>B+, B</td><td>2 courses</td><td>6 credits</td><td>25%</td></tr>
             <tr style="background:#e8e0f0;"><td><strong>📘 CREDIT</strong></td><td>B-, C+</td><td>0 courses</td><td>0 credits</td><td>0%</td></tr>
             <tr style="background:#f0f0e0;"><td><strong>✅ PASS</strong></td><td>C</td><td>0 courses</td><td>0 credits</td><td>0%</td></tr>
             <tr style="background:#f3efe4; font-weight:bold;"><td><strong>TOTAL</strong></td><td>—</td><td>7 courses</td><td>24 credits</td><td>100%</td></tr>
-        </tbody>
-    </table>
-
-    <h3 style="margin: 20px 0 10px 0;">Graduate Course Descriptions</h3>
-    <table>
-        <thead><tr><th>Code</th><th>Title</th><th>Credits</th><th>Description</th></tr></thead>
-        <tbody>
-            <tr><td>ENT 501</td><td>Venture Creation & Entrepreneurial Mindset</td><td>3</td><td>Exploration of entrepreneurial thinking, opportunity recognition, business model development, and the startup journey from ideation to launch.</td></tr>
-            <tr><td>ENT 502</td><td>New Venture Financing</td><td>3</td><td>Sources of capital for startups, bootstrapping, angel investors, venture capital, crowdfunding, and structuring financing rounds.</td></tr>
-            <tr><td>FIN 505</td><td>Advanced Corporate Finance</td><td>3</td><td>In-depth study of capital structure, valuation techniques, dividend policy, mergers and acquisitions, and advanced financial modeling.</td></tr>
-            <tr><td>FIN 506</td><td>Private Equity & Venture Capital</td><td>3</td><td>Structure and operations of private equity and venture capital funds. Deal sourcing, due diligence, valuation, exit strategies, and fund management.</td></tr>
-            <tr><td>FIN 507</td><td>Entrepreneurial Finance</td><td>3</td><td>Financial management for high-growth ventures. Cash flow management, valuation for startups, term sheets, investor negotiations, and exit planning.</td></tr>
-            <tr><td>MGT 501</td><td>Leadership & Organizational Behavior</td><td>3</td><td>Leadership theories, team dynamics, organizational culture, change management, and developing high-performance entrepreneurial teams.</td></tr>
-            <tr><td>MKT 501</td><td>Strategic Marketing for Entrepreneurs</td><td>3</td><td>Marketing strategies for new ventures, customer acquisition, branding, digital marketing, growth hacking, and go-to-market strategies.</td></tr>
-            <tr><td>BUS 601</td><td>Capstone: Entrepreneurship & Finance Integration</td><td>3</td><td>Integrative capstone requiring development of a comprehensive business plan and financial model for a new venture. Presentation to faculty and industry panel.</td></tr>
         </tbody>
     </table>
 
@@ -621,21 +618,24 @@
                     * { margin: 0; padding: 0; box-sizing: border-box; }
                     body { font-family: 'Georgia', 'Times New Roman', Times, serif; padding: 20px; }
                     .page { max-width: 1100px; margin: 0 auto; background: white; padding: 40px; position: relative; }
-                    .seal { position: absolute; top: 40px; right: 45px; width: 100px; height: 100px; border: 2px solid #8b7a5c; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fef7e0; font-size: 10px; text-align: center; }
-                    .uni-header { text-align: center; margin-bottom: 30px; }
-                    .uni-name { font-size: 36px; font-weight: bold; color: #2c4b3e; }
-                    .student-info { background: #faf8f0; padding: 16px; margin: 20px 0; display: flex; flex-wrap: wrap; }
-                    .classification-summary { background: #f4f0e6; border: 2px solid #b59d6e; border-radius: 12px; padding: 20px; margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: space-around; }
+                    .seal { position: absolute; top: 40px; right: 45px; width: 90px; height: 90px; border: 2px solid #c5a028; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #faf7f0; font-size: 9px; text-align: center; }
+                    .brand-header { text-align: center; margin-bottom: 25px; border-bottom: 2px solid #c5a028; padding-bottom: 20px; }
+                    .university-name { font-size: 42px; font-weight: bold; color: #1a4d3e; }
+                    .tagline { font-size: 14px; color: #c5a028; font-style: italic; }
+                    .student-info { background: #faf7f0; padding: 16px; margin: 20px 0; display: flex; flex-wrap: wrap; }
+                    .classification-summary { background: #faf7f0; border: 2px solid #c5a028; border-radius: 12px; padding: 20px; margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: space-around; }
                     .summary-card { text-align: center; padding: 8px; }
-                    .summary-label { font-size: 12px; text-transform: uppercase; font-weight: bold; }
-                    .summary-value { font-size: 24px; font-weight: bold; color: #2c4b3e; }
-                    .classification-badge-large { background: #2c4b3e; color: white; padding: 6px 16px; border-radius: 40px; font-size: 18px; display: inline-block; }
+                    .summary-label { font-size: 12px; text-transform: uppercase; font-weight: bold; color: #8b7355; }
+                    .summary-value { font-size: 24px; font-weight: bold; color: #1a4d3e; }
+                    .merit-badge-large, .classification-badge-large { padding: 6px 16px; border-radius: 40px; font-size: 18px; display: inline-block; color: white; }
+                    .merit-badge-large { background: #b45f1b; }
+                    .classification-badge-large { background: #1a4d3e; }
                     table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-                    th, td { border: 1px solid #cfcbbd; padding: 8px; }
-                    th { background: #eae5d6; }
-                    .footer { margin-top: 40px; border-top: 1px solid #cfcbbd; padding-top: 25px; display: flex; justify-content: space-between; }
-                    .signature { margin-top: 25px; border-top: 1px solid #2c4b3e; width: 250px; text-align: center; }
-                    .verification { background: #f0ede4; padding: 12px; margin-top: 20px; }
+                    th, td { border: 1px solid #d4cfc1; padding: 8px; }
+                    th { background: #faf7f0; }
+                    .footer { margin-top: 40px; border-top: 1px solid #d4cfc1; padding-top: 25px; display: flex; justify-content: space-between; }
+                    .signature { margin-top: 25px; border-top: 1px solid #1a4d3e; width: 250px; text-align: center; }
+                    .verification { background: #faf7f0; padding: 12px; margin-top: 20px; }
                 </style>
                 </head>
                 <body><div class="page">${printContent}</div></body>
@@ -655,23 +655,24 @@
                     * { margin: 0; padding: 0; box-sizing: border-box; }
                     body { font-family: 'Georgia', 'Times New Roman', Times, serif; padding: 20px; }
                     .page { max-width: 1100px; margin: 0 auto; background: white; padding: 40px; position: relative; }
-                    .seal { position: absolute; top: 40px; right: 45px; width: 100px; height: 100px; border: 2px solid #8b7a5c; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fef7e0; font-size: 10px; text-align: center; }
-                    .uni-header { text-align: center; margin-bottom: 30px; }
-                    .uni-name { font-size: 36px; font-weight: bold; color: #2c4b3e; }
-                    .student-info { background: #faf8f0; padding: 16px; margin: 20px 0; display: flex; flex-wrap: wrap; }
-                    .classification-summary { background: #f4f0e6; border: 2px solid #b59d6e; border-radius: 12px; padding: 20px; margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: space-around; }
+                    .seal { position: absolute; top: 40px; right: 45px; width: 90px; height: 90px; border: 2px solid #c5a028; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #faf7f0; font-size: 9px; text-align: center; }
+                    .brand-header { text-align: center; margin-bottom: 25px; border-bottom: 2px solid #c5a028; padding-bottom: 20px; }
+                    .university-name { font-size: 42px; font-weight: bold; color: #1a4d3e; }
+                    .tagline { font-size: 14px; color: #c5a028; font-style: italic; }
+                    .student-info { background: #faf7f0; padding: 16px; margin: 20px 0; display: flex; flex-wrap: wrap; }
+                    .classification-summary { background: #faf7f0; border: 2px solid #c5a028; border-radius: 12px; padding: 20px; margin: 20px 0; display: flex; flex-wrap: wrap; justify-content: space-around; }
                     .summary-card { text-align: center; padding: 8px; }
-                    .summary-label { font-size: 12px; text-transform: uppercase; font-weight: bold; }
-                    .summary-value { font-size: 24px; font-weight: bold; color: #2c4b3e; }
-                    .classification-badge-large { background: #2c4b3e; color: white; padding: 6px 16px; border-radius: 40px; font-size: 18px; display: inline-block; }
+                    .summary-label { font-size: 12px; text-transform: uppercase; font-weight: bold; color: #8b7355; }
+                    .summary-value { font-size: 24px; font-weight: bold; color: #1a4d3e; }
+                    .classification-badge-large { background: #1a4d3e; color: white; padding: 6px 16px; border-radius: 40px; font-size: 18px; display: inline-block; }
                     .distinction-cell { background: #e0f0e8; font-weight: bold; }
                     .merit-cell { background: #fff0d0; font-weight: bold; }
                     table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-                    th, td { border: 1px solid #cfcbbd; padding: 8px; }
-                    th { background: #eae5d6; }
-                    .footer { margin-top: 40px; border-top: 1px solid #cfcbbd; padding-top: 25px; display: flex; justify-content: space-between; }
-                    .signature { margin-top: 25px; border-top: 1px solid #2c4b3e; width: 250px; text-align: center; }
-                    .verification { background: #f0ede4; padding: 12px; margin-top: 20px; }
+                    th, td { border: 1px solid #d4cfc1; padding: 8px; }
+                    th { background: #faf7f0; }
+                    .footer { margin-top: 40px; border-top: 1px solid #d4cfc1; padding-top: 25px; display: flex; justify-content: space-between; }
+                    .signature { margin-top: 25px; border-top: 1px solid #1a4d3e; width: 250px; text-align: center; }
+                    .verification { background: #faf7f0; padding: 12px; margin-top: 20px; }
                 </style>
                 </head>
                 <body><div class="page">${printContent}</div></body>
