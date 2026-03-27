@@ -36,8 +36,33 @@
             color: #e8b42c;
             text-align: center;
             padding: 2rem 1.5rem 1.5rem;
-            position: relative;
             border-bottom: 4px solid #e8b42c;
+            position: relative;
+        }
+
+        /* Seal positioned to avoid overlapping text */
+        .seal-container {
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            width: 80px;
+            height: 80px;
+        }
+
+        .seal {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #e8b42c15;
+            border: 2px solid #e8b42c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            text-align: center;
+            color: #e8b42c;
+            font-weight: bold;
+            line-height: 1.2;
         }
 
         .university-name {
@@ -56,22 +81,10 @@
             margin-top: 0.5rem;
         }
 
-        .seal-placeholder {
-            position: absolute;
-            right: 2rem;
-            top: 1.5rem;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: #e8b42c20;
-            border: 2px solid #e8b42c;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            text-align: center;
-            color: #e8b42c;
-            font-weight: bold;
+        .accreditation-line {
+            font-size: 0.75rem;
+            margin-top: 0.6rem;
+            color: #cfdde6;
         }
 
         .student-info {
@@ -116,7 +129,7 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.5rem;
         }
 
         .degree-name {
@@ -129,6 +142,7 @@
             opacity: 0.9;
         }
 
+        /* Course Table - Improved for better display */
         .course-table {
             width: 100%;
             border-collapse: collapse;
@@ -151,19 +165,19 @@
             color: #2c3e4e;
         }
 
-        .course-table tr:hover {
-            background: #fefaf2;
-        }
-
-        .term-row {
-            background: #f9f5ec;
-            font-weight: 700;
-        }
-
         .term-row td {
             background: #f9f5ec;
             padding-top: 1rem;
             border-top: 2px solid #d4cbb6;
+            font-weight: 700;
+            color: #0a2f44;
+        }
+
+        .gpa-row td {
+            background: #fefaf2;
+            text-align: right;
+            font-weight: 700;
+            border-bottom: 1px solid #e8b42c;
         }
 
         .gpa-summary {
@@ -180,6 +194,8 @@
 
         .gpa-item {
             text-align: center;
+            flex: 1;
+            min-width: 120px;
         }
 
         .gpa-label {
@@ -220,11 +236,14 @@
             font-size: 0.7rem;
             font-family: monospace;
             color: #4d6a7e;
+            word-break: break-all;
         }
 
         .signature-line {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
             margin-top: 1.5rem;
             padding-top: 1rem;
             border-top: 1px solid #e2d9cc;
@@ -232,11 +251,19 @@
 
         .signature {
             text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .signature-line-dash {
+            width: 180px;
+            border-bottom: 1px solid #8b7a62;
+            margin: 0 auto 0.5rem;
         }
 
         .signature-name {
             font-weight: 700;
-            margin-top: 0.5rem;
+            font-size: 0.85rem;
         }
 
         .signature-title {
@@ -264,6 +291,42 @@
             color: #0a2f44;
         }
 
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .student-info {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 0.75rem;
+                padding: 1rem;
+            }
+            .degree-section {
+                padding: 1rem;
+            }
+            .course-table th, .course-table td {
+                padding: 0.4rem 0.3rem;
+                font-size: 0.75rem;
+            }
+            .gpa-summary {
+                flex-direction: column;
+                align-items: center;
+            }
+            .signature-line {
+                flex-direction: column;
+                align-items: center;
+            }
+            .seal-container {
+                position: static;
+                margin: 0 auto 1rem;
+            }
+            .transcript-header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
         @media print {
             body {
                 background: white;
@@ -276,7 +339,7 @@
                 box-shadow: none;
                 border: 1px solid #ccc;
             }
-            .seal-placeholder {
+            .seal {
                 border: 2px solid #0a2f44;
                 color: #0a2f44;
                 background: white;
@@ -287,12 +350,14 @@
 <body>
     <div class="transcript">
         <div class="transcript-header">
-            <div class="seal-placeholder">
-                <span>OFFICIAL SEAL<br>NOLAN UNIV</span>
+            <div class="seal-container">
+                <div class="seal">
+                    OFFICIAL<br>SEAL<br>NOLAN UNIV
+                </div>
             </div>
             <div class="university-name">NOLAN UNIVERSITY</div>
             <div class="transcript-title">Official Academic Transcript</div>
-            <div style="font-size: 0.75rem; margin-top: 0.6rem; color: #cfdde6;">Est. 1985 · Accredited by EQUIS, AACSB, IACBE</div>
+            <div class="accreditation-line">Est. 1985 · Accredited by EQUIS, AACSB, IACBE</div>
         </div>
 
         <!-- Student Information -->
@@ -347,7 +412,7 @@
                     <tr><td>ECO 101</td><td>Microeconomics</td><td>3</td><td>B+</td></tr>
                     <tr><td>MTH 101</td><td>Calculus for Business</td><td>3</td><td>A</td></tr>
                     <tr><td>BUS 101</td><td>Introduction to Business</td><td>3</td><td>A</td></tr>
-                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.78</td><td></td></tr>
+                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.78</td></tr>
                     
                     <!-- Year 1 - Spring 2022 -->
                     <tr class="term-row"><td colspan="4"><strong>Spring 2022 Term</strong></td></tr>
@@ -356,7 +421,7 @@
                     <tr><td>ECO 102</td><td>Macroeconomics</td><td>3</td><td>A-</td></tr>
                     <tr><td>STA 201</td><td>Business Statistics</td><td>3</td><td>A</td></tr>
                     <tr><td>MKT 201</td><td>Principles of Marketing</td><td>3</td><td>A-</td></tr>
-                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.82</td><td></td></tr>
+                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.82</td></tr>
                     
                     <!-- Year 2 - Fall 2022 -->
                     <tr class="term-row"><td colspan="4"><strong>Fall 2022 Term</strong></td></tr>
@@ -365,7 +430,7 @@
                     <tr><td>ACC 201</td><td>Managerial Accounting</td><td>3</td><td>A-</td></tr>
                     <tr><td>LAW 301</td><td>Business Law</td><td>3</td><td>B+</td></tr>
                     <tr><td>MGT 201</td><td>Organizational Behavior</td><td>3</td><td>A</td></tr>
-                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.85</td><td></td></tr>
+                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.85</td></tr>
                     
                     <!-- Year 2 - Spring 2023 -->
                     <tr class="term-row"><td colspan="4"><strong>Spring 2023 Term</strong></td></tr>
@@ -374,7 +439,7 @@
                     <tr><td>ECO 301</td><td>International Economics</td><td>3</td><td>B+</td></tr>
                     <tr><td>MGT 301</td><td>Strategic Management</td><td>3</td><td>A</td></tr>
                     <tr><td>COM 201</td><td>Business Communication</td><td>3</td><td>A</td></tr>
-                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.88</td><td></td></tr>
+                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.88</td></tr>
                     
                     <!-- Year 3 - Fall 2023 -->
                     <tr class="term-row"><td colspan="4"><strong>Fall 2023 Term</strong></td></tr>
@@ -383,7 +448,7 @@
                     <tr><td>FIN 403</td><td>Financial Modeling</td><td>3</td><td>A-</td></tr>
                     <tr><td>ENT 301</td><td>Entrepreneurial Finance</td><td>3</td><td>A</td></tr>
                     <tr><td>ETH 401</td><td>Business Ethics</td><td>3</td><td>A</td></tr>
-                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.94</td><td></td></tr>
+                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.94</td></tr>
                     
                     <!-- Year 3 - Spring 2024 -->
                     <tr class="term-row"><td colspan="4"><strong>Spring 2024 Term</strong></td></tr>
@@ -391,7 +456,7 @@
                     <tr><td>FIN 405</td><td>Valuation & Mergers</td><td>3</td><td>A</td></tr>
                     <tr><td>FIN 406</td><td>Capstone in Finance</td><td>3</td><td>A</td></tr>
                     <tr><td>MGT 401</td><td>Leadership & Ethics</td><td>3</td><td>A-</td></tr>
-                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.96</td><td></td></tr>
+                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.96</td></tr>
                 </tbody>
             </table>
             
@@ -426,7 +491,7 @@
                     <tr><td>MBA 502</td><td>Advanced Corporate Finance</td><td>3</td><td>A</td></tr>
                     <tr><td>MBA 503</td><td>Entrepreneurial Mindset & Innovation</td><td>3</td><td>A-</td></tr>
                     <tr><td>MBA 504</td><td>Financial Markets & Global Economics</td><td>3</td><td>A</td></tr>
-                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.92</td><td></td></tr>
+                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.92</td></tr>
                     
                     <!-- Summer 2025 -->
                     <tr class="term-row"><td colspan="4"><strong>Summer 2025 Term</strong></td></tr>
@@ -434,7 +499,7 @@
                     <tr><td>MBA 506</td><td>Mergers & Acquisitions</td><td>3</td><td>A</td></tr>
                     <tr><td>MBA 507</td><td>Data Analytics for Business</td><td>3</td><td>A-</td></tr>
                     <tr><td>MBA 508</td><td>Negotiation & Deal Structuring</td><td>3</td><td>A</td></tr>
-                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.95</td><td></td></tr>
+                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.95</td></tr>
                     
                     <!-- Fall 2025 -->
                     <tr class="term-row"><td colspan="4"><strong>Fall 2025 Term</strong></td></tr>
@@ -442,13 +507,13 @@
                     <tr><td>MBA 602</td><td>Business Model Innovation</td><td>3</td><td>A</td></tr>
                     <tr><td>MBA 603</td><td>Global Strategy & Competitiveness</td><td>3</td><td>A</td></tr>
                     <tr><td>MBA 604</td><td>Leadership in Complex Organizations</td><td>3</td><td>A-</td></tr>
-                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.96</td><td></td></tr>
+                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>3.96</td></tr>
                     
                     <!-- Spring 2026 -->
                     <tr class="term-row"><td colspan="4"><strong>Spring 2026 Term</strong></td></tr>
                     <tr><td>MBA 605</td><td>Capstone: Entrepreneurship & Venture Creation</td><td>3</td><td>A</td></tr>
                     <tr><td>MBA 606</td><td>Investment Strategy & Portfolio Management</td><td>3</td><td>A</td></tr>
-                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 4.00</td><td></td></tr>
+                    <tr class="gpa-row"><td colspan="3" style="text-align: right;">Term GPA:</td><td>4.00</td></tr>
                 </tbody>
             </table>
             
@@ -481,17 +546,17 @@
             
             <div class="signature-line">
                 <div class="signature">
-                    <div>_________________________</div>
+                    <div class="signature-line-dash"></div>
                     <div class="signature-name">James R. Callwell</div>
                     <div class="signature-title">President, Nolan University</div>
                 </div>
                 <div class="signature">
-                    <div>_________________________</div>
+                    <div class="signature-line-dash"></div>
                     <div class="signature-name">Dr. Sarah M. Bennett</div>
                     <div class="signature-title">Dean, Graduate School of Banking & Finance</div>
                 </div>
                 <div class="signature">
-                    <div>_________________________</div>
+                    <div class="signature-line-dash"></div>
                     <div class="signature-name">Michael T. Harrison</div>
                     <div class="signature-title">Registrar</div>
                 </div>
