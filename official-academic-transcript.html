@@ -22,7 +22,7 @@
         }
 
         .transcript {
-            max-width: 1000px;
+            max-width: 1200px;
             width: 100%;
             background: #fffef7;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -60,8 +60,8 @@
             position: absolute;
             right: 2rem;
             top: 1.5rem;
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background: #e8b42c20;
             border: 2px solid #e8b42c;
@@ -75,18 +75,17 @@
         }
 
         .student-info {
-            padding: 1.8rem 2rem;
+            padding: 1.5rem 2rem;
             background: #fefaf0;
             border-bottom: 1px solid #e2d9cc;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
         }
 
         .info-group {
-            flex: 1;
-            min-width: 180px;
+            display: flex;
+            flex-direction: column;
         }
 
         .info-label {
@@ -102,62 +101,98 @@
             font-size: 1rem;
             font-weight: 600;
             color: #1e3a4d;
-            border-bottom: 1px dotted #d4cbb6;
-            display: inline-block;
-            padding-bottom: 0.2rem;
         }
 
         .degree-section {
             padding: 1.5rem 2rem;
         }
 
-        .degree-card {
-            background: #fefcf7;
-            border-left: 5px solid #e8b42c;
-            padding: 1.2rem 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-            border-radius: 0 12px 12px 0;
+        .degree-header {
+            background: #0a2f44;
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .degree-title {
+        .degree-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .degree-meta {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .course-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .course-table th {
+            background: #f0eadf;
+            padding: 0.8rem 0.5rem;
+            text-align: left;
+            font-weight: 700;
+            color: #1e3a4d;
+            border-bottom: 2px solid #e8b42c;
+        }
+
+        .course-table td {
+            padding: 0.6rem 0.5rem;
+            border-bottom: 1px solid #e2d9cc;
+            color: #2c3e4e;
+        }
+
+        .course-table tr:hover {
+            background: #fefaf2;
+        }
+
+        .term-row {
+            background: #f9f5ec;
+            font-weight: 700;
+        }
+
+        .term-row td {
+            background: #f9f5ec;
+            padding-top: 1rem;
+            border-top: 2px solid #d4cbb6;
+        }
+
+        .gpa-summary {
+            background: #fefaf2;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 4px solid #e8b42c;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .gpa-item {
+            text-align: center;
+        }
+
+        .gpa-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #8b7a62;
+            font-weight: 600;
+        }
+
+        .gpa-value {
             font-size: 1.3rem;
             font-weight: 700;
             color: #0a2f44;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid #e8b42c;
-            display: inline-block;
-            padding-bottom: 0.2rem;
-        }
-
-        .detail-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-            margin-top: 0.75rem;
-        }
-
-        .detail-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            border-bottom: 1px solid #f0eadf;
-            padding: 0.5rem 0;
-        }
-
-        .detail-label {
-            width: 140px;
-            font-weight: 700;
-            color: #6b5a42;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .detail-value {
-            flex: 1;
-            font-weight: 500;
-            color: #1e2a3a;
         }
 
         .honors-badge {
@@ -178,7 +213,6 @@
             font-size: 0.7rem;
             color: #7c6e56;
             text-align: center;
-            letter-spacing: 0.3px;
         }
 
         .verification-note {
@@ -186,6 +220,28 @@
             font-size: 0.7rem;
             font-family: monospace;
             color: #4d6a7e;
+        }
+
+        .signature-line {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2d9cc;
+        }
+
+        .signature {
+            text-align: center;
+        }
+
+        .signature-name {
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        .signature-title {
+            font-size: 0.7rem;
+            color: #8b7a62;
         }
 
         .print-btn {
@@ -261,102 +317,190 @@
                 <div class="info-label">Program Type</div>
                 <div class="info-value">Full-time</div>
             </div>
+            <div class="info-group">
+                <div class="info-label">Transcript ID</div>
+                <div class="info-value">TRN-20260327-0842</div>
+            </div>
         </div>
 
-        <!-- Degree 1: Bachelor of Science -->
+        <!-- DEGREE 1: Bachelor of Science -->
         <div class="degree-section">
-            <div class="degree-card">
-                <div class="degree-title">Bachelor of Science — Finance & Investment</div>
-                <div class="detail-grid">
-                    <div class="detail-row">
-                        <span class="detail-label">Degree Conferred</span>
-                        <span class="detail-value">Bachelor of Science</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Program of Study</span>
-                        <span class="detail-value">Finance & Investment</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">School</span>
-                        <span class="detail-value">Graduate School of Banking & Finance</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Enrollment Date</span>
-                        <span class="detail-value">June 2021</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Conferral Date</span>
-                        <span class="detail-value">18 September 2024</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Certificate ID</span>
-                        <span class="detail-value">NU-GSBF-BSC-2024-001</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Duration</span>
-                        <span class="detail-value">3 years (Full-time)</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Honors</span>
-                        <span class="detail-value">Magna Cum Laude <span class="honors-badge">With High Honors</span></span>
-                    </div>
-                </div>
+            <div class="degree-header">
+                <div class="degree-name">Bachelor of Science — Finance & Investment</div>
+                <div class="degree-meta">Enrolled: June 2021 · Conferred: 18 September 2024</div>
             </div>
-
-            <!-- Degree 2: Master of Business Administration -->
-            <div class="degree-card">
-                <div class="degree-title">Master of Business Administration — Entrepreneurship & Finance</div>
-                <div class="detail-grid">
-                    <div class="detail-row">
-                        <span class="detail-label">Degree Conferred</span>
-                        <span class="detail-value">Master of Business Administration</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Program of Study</span>
-                        <span class="detail-value">Entrepreneurship & Finance</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">School</span>
-                        <span class="detail-value">Joint: School of Entrepreneurship & Venture Creation and Graduate School of Banking & Finance</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Enrollment Date</span>
-                        <span class="detail-value">February 2025</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Conferral Date</span>
-                        <span class="detail-value">26 March 2026</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Certificate ID</span>
-                        <span class="detail-value">NU-MBA-2026-0842</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Duration</span>
-                        <span class="detail-value">1 year (Full-time)</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Honors</span>
-                        <span class="detail-value">With Distinction <span class="honors-badge">Academic Excellence</span></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Academic Standing -->
-            <div style="margin-top: 1rem; padding: 0.5rem 1rem; background: #fefaf2; border-radius: 8px; font-size: 0.8rem; border-left: 3px solid #e8b42c;">
-                <strong>Academic Standing:</strong> Graduated in Good Standing · GPA: 3.89/4.00 (BSc) · 3.94/4.00 (MBA)
+            
+            <table class="course-table">
+                <thead>
+                    <tr>
+                        <th style="width: 35%">Course Code</th>
+                        <th style="width: 45%">Course Title</th>
+                        <th style="width: 10%">Credits</th>
+                        <th style="width: 10%">Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Year 1 - Fall 2021 -->
+                    <tr class="term-row"><td colspan="4"><strong>Fall 2021 Term</strong></td></tr>
+                    <tr><td>FIN 101</td><td>Principles of Finance</td><td>3</td><td>A</td></tr>
+                    <tr><td>ACC 101</td><td>Financial Accounting I</td><td>3</td><td>A-</td></tr>
+                    <tr><td>ECO 101</td><td>Microeconomics</td><td>3</td><td>B+</td></tr>
+                    <tr><td>MTH 101</td><td>Calculus for Business</td><td>3</td><td>A</td></tr>
+                    <tr><td>BUS 101</td><td>Introduction to Business</td><td>3</td><td>A</td></tr>
+                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.78</td><td></td></tr>
+                    
+                    <!-- Year 1 - Spring 2022 -->
+                    <tr class="term-row"><td colspan="4"><strong>Spring 2022 Term</strong></td></tr>
+                    <tr><td>FIN 102</td><td>Corporate Finance</td><td>3</td><td>A</td></tr>
+                    <tr><td>ACC 102</td><td>Financial Accounting II</td><td>3</td><td>B+</td></tr>
+                    <tr><td>ECO 102</td><td>Macroeconomics</td><td>3</td><td>A-</td></tr>
+                    <tr><td>STA 201</td><td>Business Statistics</td><td>3</td><td>A</td></tr>
+                    <tr><td>MKT 201</td><td>Principles of Marketing</td><td>3</td><td>A-</td></tr>
+                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.82</td><td></td></tr>
+                    
+                    <!-- Year 2 - Fall 2022 -->
+                    <tr class="term-row"><td colspan="4"><strong>Fall 2022 Term</strong></td></tr>
+                    <tr><td>FIN 201</td><td>Investment Analysis</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 202</td><td>Financial Markets & Institutions</td><td>3</td><td>A</td></tr>
+                    <tr><td>ACC 201</td><td>Managerial Accounting</td><td>3</td><td>A-</td></tr>
+                    <tr><td>LAW 301</td><td>Business Law</td><td>3</td><td>B+</td></tr>
+                    <tr><td>MGT 201</td><td>Organizational Behavior</td><td>3</td><td>A</td></tr>
+                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.85</td><td></td></tr>
+                    
+                    <!-- Year 2 - Spring 2023 -->
+                    <tr class="term-row"><td colspan="4"><strong>Spring 2023 Term</strong></td></tr>
+                    <tr><td>FIN 301</td><td>Portfolio Management</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 302</td><td>Risk Management</td><td>3</td><td>A-</td></tr>
+                    <tr><td>ECO 301</td><td>International Economics</td><td>3</td><td>B+</td></tr>
+                    <tr><td>MGT 301</td><td>Strategic Management</td><td>3</td><td>A</td></tr>
+                    <tr><td>COM 201</td><td>Business Communication</td><td>3</td><td>A</td></tr>
+                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.88</td><td></td></tr>
+                    
+                    <!-- Year 3 - Fall 2023 -->
+                    <tr class="term-row"><td colspan="4"><strong>Fall 2023 Term</strong></td></tr>
+                    <tr><td>FIN 401</td><td>Advanced Corporate Finance</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 402</td><td>Derivatives & Securities</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 403</td><td>Financial Modeling</td><td>3</td><td>A-</td></tr>
+                    <tr><td>ENT 301</td><td>Entrepreneurial Finance</td><td>3</td><td>A</td></tr>
+                    <tr><td>ETH 401</td><td>Business Ethics</td><td>3</td><td>A</td></tr>
+                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.94</td><td></td></tr>
+                    
+                    <!-- Year 3 - Spring 2024 -->
+                    <tr class="term-row"><td colspan="4"><strong>Spring 2024 Term</strong></td></tr>
+                    <tr><td>FIN 404</td><td>International Finance</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 405</td><td>Valuation & Mergers</td><td>3</td><td>A</td></tr>
+                    <tr><td>FIN 406</td><td>Capstone in Finance</td><td>3</td><td>A</td></tr>
+                    <tr><td>MGT 401</td><td>Leadership & Ethics</td><td>3</td><td>A-</td></tr>
+                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.96</td><td></td></tr>
+                </tbody>
+            </table>
+            
+            <div class="gpa-summary">
+                <div class="gpa-item"><div class="gpa-label">Total Credits</div><div class="gpa-value">120</div></div>
+                <div class="gpa-item"><div class="gpa-label">Cumulative GPA</div><div class="gpa-value">3.89</div></div>
+                <div class="gpa-item"><div class="gpa-label">Honors</div><div class="gpa-value">Magna Cum Laude <span class="honors-badge">With High Honors</span></div></div>
+                <div class="gpa-item"><div class="gpa-label">Certificate ID</div><div class="gpa-value" style="font-size: 0.9rem;">NU-GSBF-BSC-2024-001</div></div>
             </div>
         </div>
 
-        <!-- Footer / Verification -->
+        <!-- DEGREE 2: Master of Business Administration -->
+        <div class="degree-section">
+            <div class="degree-header">
+                <div class="degree-name">Master of Business Administration — Entrepreneurship & Finance</div>
+                <div class="degree-meta">Enrolled: February 2025 · Conferred: 26 March 2026</div>
+            </div>
+            
+            <table class="course-table">
+                <thead>
+                    <tr>
+                        <th style="width: 35%">Course Code</th>
+                        <th style="width: 45%">Course Title</th>
+                        <th style="width: 10%">Credits</th>
+                        <th style="width: 10%">Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Spring 2025 -->
+                    <tr class="term-row"><td colspan="4"><strong>Spring 2025 Term</strong></td></tr>
+                    <tr><td>MBA 501</td><td>Strategic Leadership & Ethics</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 502</td><td>Advanced Corporate Finance</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 503</td><td>Entrepreneurial Mindset & Innovation</td><td>3</td><td>A-</td></tr>
+                    <tr><td>MBA 504</td><td>Financial Markets & Global Economics</td><td>3</td><td>A</td></tr>
+                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.92</td><td></td></tr>
+                    
+                    <!-- Summer 2025 -->
+                    <tr class="term-row"><td colspan="4"><strong>Summer 2025 Term</strong></td></tr>
+                    <tr><td>MBA 505</td><td>Venture Capital & Private Equity</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 506</td><td>Mergers & Acquisitions</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 507</td><td>Data Analytics for Business</td><td>3</td><td>A-</td></tr>
+                    <tr><td>MBA 508</td><td>Negotiation & Deal Structuring</td><td>3</td><td>A</td></tr>
+                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.95</td><td></td></tr>
+                    
+                    <!-- Fall 2025 -->
+                    <tr class="term-row"><td colspan="4"><strong>Fall 2025 Term</strong></td></tr>
+                    <tr><td>MBA 601</td><td>Entrepreneurial Finance</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 602</td><td>Business Model Innovation</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 603</td><td>Global Strategy & Competitiveness</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 604</td><td>Leadership in Complex Organizations</td><td>3</td><td>A-</td></tr>
+                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 3.96</td><td></td></tr>
+                    
+                    <!-- Spring 2026 -->
+                    <tr class="term-row"><td colspan="4"><strong>Spring 2026 Term</strong></td></tr>
+                    <tr><td>MBA 605</td><td>Capstone: Entrepreneurship & Venture Creation</td><td>3</td><td>A</td></tr>
+                    <tr><td>MBA 606</td><td>Investment Strategy & Portfolio Management</td><td>3</td><td>A</td></tr>
+                    <tr><td colspan="3" style="text-align: right; font-weight: 700;">Term GPA: 4.00</td><td></td></tr>
+                </tbody>
+            </table>
+            
+            <div class="gpa-summary">
+                <div class="gpa-item"><div class="gpa-label">Total Credits</div><div class="gpa-value">36</div></div>
+                <div class="gpa-item"><div class="gpa-label">Cumulative GPA</div><div class="gpa-value">3.94</div></div>
+                <div class="gpa-item"><div class="gpa-label">Honors</div><div class="gpa-value">With Distinction <span class="honors-badge">Academic Excellence</span></div></div>
+                <div class="gpa-item"><div class="gpa-label">Certificate ID</div><div class="gpa-value" style="font-size: 0.9rem;">NU-MBA-2026-0842</div></div>
+            </div>
+        </div>
+
+        <!-- Academic Summary -->
+        <div style="padding: 0 2rem 1rem 2rem;">
+            <div style="background: #f0eadf; padding: 1rem; border-radius: 8px;">
+                <strong>Academic Summary</strong><br>
+                <table style="width: 100%; margin-top: 0.5rem; border-collapse: collapse;">
+                    <tr><td style="padding: 0.25rem 0;"><strong>Overall Cumulative GPA (Both Degrees):</strong></td><td>3.91/4.00</td></tr>
+                    <tr><td style="padding: 0.25rem 0;"><strong>Total Credits Earned:</strong></td><td>156 Credits</td></tr>
+                    <tr><td style="padding: 0.25rem 0;"><strong>Academic Standing:</strong></td><td>Graduated with Distinction & Honors</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Footer with Signatures -->
         <div class="transcript-footer">
             <div>This transcript is official and reflects the complete academic record at Nolan University.</div>
             <div class="verification-note">
-                🔗 Verify credentials: <strong>https://verify.nolan.edu</strong> | Certificate IDs: NU-GSBF-BSC-2024-001, NU-MBA-2026-0842 | Student ID: 202200845
+                🔗 Verify credentials: <strong>https://verify.nolan.edu</strong> | Certificate IDs: NU-GSBF-BSC-2024-001, NU-MBA-2026-0842 | Student ID: 202200845 | Transcript ID: TRN-20260327-0842
             </div>
-            <div style="margin-top: 0.5rem;">
-                Issued: 27 March 2026 | Registrar's Office · Nolan University
+            
+            <div class="signature-line">
+                <div class="signature">
+                    <div>_________________________</div>
+                    <div class="signature-name">James R. Callwell</div>
+                    <div class="signature-title">President, Nolan University</div>
+                </div>
+                <div class="signature">
+                    <div>_________________________</div>
+                    <div class="signature-name">Dr. Sarah M. Bennett</div>
+                    <div class="signature-title">Dean, Graduate School of Banking & Finance</div>
+                </div>
+                <div class="signature">
+                    <div>_________________________</div>
+                    <div class="signature-name">Michael T. Harrison</div>
+                    <div class="signature-title">Registrar</div>
+                </div>
             </div>
+            
+            <div style="margin-top: 1rem; font-size: 0.65rem;">
+                Issued: 27 March 2026 · This document is electronically verifiable. Any alteration invalidates this transcript.
+            </div>
+            
             <button class="print-btn" onclick="window.print();">🖨️ Print / Save as PDF</button>
         </div>
     </div>
