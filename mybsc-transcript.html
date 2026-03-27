@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nolan University | BSc Transcript - Official Weighted GPA</title>
+    <title>Nolan University | Official Transcript - BSc Finance & Investment</title>
     <style>
         * {
             margin: 0;
@@ -22,172 +22,163 @@
         }
 
         .transcript {
-            max-width: 1300px;
+            max-width: 1100px;
             width: 100%;
-            background: #fffef7;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-            overflow: hidden;
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid #d4cbb6;
         }
 
-        .transcript-header {
+        /* Header */
+        .header {
             background: #0a2f44;
             color: #e8b42c;
             text-align: center;
-            padding: 2rem 1.5rem 1.5rem;
-            border-bottom: 4px solid #e8b42c;
+            padding: 2rem 2rem 1.5rem;
             position: relative;
-        }
-
-        .seal-container {
-            position: absolute;
-            right: 1.5rem;
-            top: 1.5rem;
-            width: 80px;
-            height: 80px;
+            border-bottom: 3px solid #e8b42c;
         }
 
         .seal {
-            width: 80px;
-            height: 80px;
+            position: absolute;
+            right: 2rem;
+            top: 1.5rem;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
-            background: #e8b42c15;
             border: 2px solid #e8b42c;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             text-align: center;
             color: #e8b42c;
             font-weight: bold;
-            line-height: 1.2;
+            background: rgba(232, 180, 44, 0.1);
         }
 
         .university-name {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
             letter-spacing: 2px;
-            margin-bottom: 0.25rem;
         }
 
         .transcript-title {
-            font-size: 1.2rem;
-            font-weight: 400;
+            font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             color: #f0e6d0;
-            margin-top: 0.5rem;
+            margin-top: 0.3rem;
         }
 
-        .degree-badge {
-            display: inline-block;
+        .degree-name {
             background: #e8b42c;
             color: #0a2f44;
-            padding: 0.3rem 1.2rem;
-            border-radius: 30px;
+            display: inline-block;
+            padding: 0.3rem 1.5rem;
+            border-radius: 25px;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             margin-top: 0.8rem;
         }
 
-        .accreditation-line {
-            font-size: 0.75rem;
-            margin-top: 0.6rem;
+        .accreditation {
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
             color: #cfdde6;
         }
 
+        /* Student Info */
         .student-info {
-            padding: 1.5rem 2rem;
+            padding: 1.2rem 2rem;
             background: #fefaf0;
             border-bottom: 1px solid #e2d9cc;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.5rem;
         }
 
-        .info-group {
-            display: flex;
-            flex-direction: column;
+        .info-item {
+            flex: 1;
+            min-width: 150px;
         }
 
         .info-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
             color: #8b7a62;
             font-weight: 600;
-            margin-bottom: 0.25rem;
+            letter-spacing: 0.5px;
         }
 
         .info-value {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: #1e3a4d;
         }
 
-        .degree-summary-card {
-            background: linear-gradient(135deg, #fefaf0 0%, #fffef7 100%);
-            padding: 1.2rem 2rem;
+        /* Degree Summary */
+        .degree-summary {
+            padding: 1rem 2rem;
+            background: #ffffff;
             border-bottom: 1px solid #e2d9cc;
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
+            justify-content: space-between;
             gap: 1rem;
         }
 
-        .summary-item {
+        .summary-block {
             text-align: center;
             flex: 1;
         }
 
         .summary-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             color: #8b7a62;
-            font-weight: 600;
         }
 
         .summary-value {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             color: #0a2f44;
         }
 
+        /* Course Section */
         .course-section {
             padding: 1.5rem 2rem;
         }
 
-        .term-header {
+        .term-title {
             background: #f0eadf;
-            padding: 0.6rem 1rem;
+            padding: 0.5rem 1rem;
             margin: 1rem 0 0.5rem 0;
-            border-left: 4px solid #e8b42c;
             font-weight: 700;
             color: #0a2f44;
+            border-left: 4px solid #e8b42c;
         }
 
         .course-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.85rem;
-            margin-bottom: 1rem;
         }
 
         .course-table th {
             background: #f9f5ec;
             padding: 0.6rem 0.5rem;
             text-align: left;
+            border-bottom: 2px solid #e8b42c;
             font-weight: 700;
             color: #1e3a4d;
-            border-bottom: 2px solid #e8b42c;
         }
 
         .course-table td {
             padding: 0.5rem 0.5rem;
             border-bottom: 1px solid #e2d9cc;
             color: #2c3e4e;
-            vertical-align: top;
         }
 
         .term-gpa {
@@ -199,20 +190,36 @@
             border-bottom: 1px solid #e8b42c;
         }
 
-        .gpa-footer {
+        /* GPA Summary */
+        .gpa-summary {
             background: #fefaf2;
-            padding: 1rem;
-            border-radius: 8px;
+            padding: 1rem 1.5rem;
             margin-top: 1.5rem;
             border-left: 4px solid #e8b42c;
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
+            justify-content: space-between;
             gap: 1rem;
         }
 
-        .honors-badge {
-            display: inline-block;
+        .gpa-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .gpa-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #8b7a62;
+        }
+
+        .gpa-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0a2f44;
+        }
+
+        .honors {
             background: #e8b42c20;
             color: #9b7b2c;
             padding: 0.2rem 0.7rem;
@@ -221,17 +228,8 @@
             font-weight: 600;
         }
 
-        .calculation-note {
-            background: #f0eadf;
-            padding: 0.8rem;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            color: #5a4a2e;
-            margin-top: 0.5rem;
-            text-align: left;
-        }
-
-        .transcript-footer {
+        /* Footer */
+        .footer {
             background: #f9f5ec;
             padding: 1.2rem 2rem;
             border-top: 1px solid #e2d9cc;
@@ -240,12 +238,12 @@
             text-align: center;
         }
 
-        .signature-line {
+        .signatures {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
             padding-top: 1rem;
             border-top: 1px solid #e2d9cc;
         }
@@ -255,24 +253,21 @@
             flex: 1;
         }
 
-        .signature-line-dash {
-            width: 180px;
+        .signature-line {
+            width: 160px;
             border-bottom: 1px solid #8b7a62;
-            margin: 0 auto 0.5rem;
+            margin: 0 auto 0.3rem;
         }
 
         .print-btn {
-            display: inline-block;
             background: #0a2f44;
             color: white;
             border: none;
-            padding: 0.6rem 1.5rem;
-            border-radius: 30px;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
             cursor: pointer;
             font-family: inherit;
-            font-weight: 600;
-            margin: 1rem 0.5rem 0;
-            text-decoration: none;
+            margin-top: 1rem;
         }
 
         .print-btn:hover {
@@ -280,22 +275,21 @@
             color: #0a2f44;
         }
 
-        .button-group {
-            text-align: center;
-            margin-top: 1rem;
-        }
-
         @media print {
             body {
                 background: white;
                 padding: 0;
             }
-            .print-btn, .button-group {
+            .print-btn {
                 display: none;
             }
             .transcript {
                 box-shadow: none;
                 border: 1px solid #ccc;
+            }
+            .seal {
+                border-color: #0a2f44;
+                color: #0a2f44;
             }
         }
 
@@ -303,152 +297,148 @@
             body {
                 padding: 1rem;
             }
-            .student-info, .course-section {
-                padding: 1rem;
-            }
             .course-table th, .course-table td {
                 font-size: 0.7rem;
                 padding: 0.3rem;
+            }
+            .student-info, .course-section {
+                padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="transcript">
-        <div class="transcript-header">
-            <div class="seal-container">
-                <div class="seal">OFFICIAL<br>SEAL<br>NOLAN UNIV</div>
-            </div>
+        <!-- Header -->
+        <div class="header">
+            <div class="seal">OFFICIAL<br>SEAL<br>NOLAN</div>
             <div class="university-name">NOLAN UNIVERSITY</div>
             <div class="transcript-title">Official Academic Transcript</div>
-            <div class="degree-badge">Bachelor of Science · Finance & Investment</div>
-            <div class="accreditation-line">Accredited by EQUIS, AACSB, IACBE</div>
+            <div class="degree-name">Bachelor of Science · Finance and Investment</div>
+            <div class="accreditation">Accredited by EQUIS · AACSB · IACBE</div>
         </div>
 
+        <!-- Student Information -->
         <div class="student-info">
-            <div class="info-group"><div class="info-label">Student ID</div><div class="info-value">202200845</div></div>
-            <div class="info-group"><div class="info-label">Full Name</div><div class="info-value">Mwaba Lewis</div></div>
-            <div class="info-group"><div class="info-label">Date of Birth</div><div class="info-value">08 May 1992</div></div>
-            <div class="info-group"><div class="info-label">Citizenship</div><div class="info-value">Zambia 🇿🇲</div></div>
-            <div class="info-group"><div class="info-label">Program Type</div><div class="info-value">Full-time</div></div>
+            <div class="info-item"><div class="info-label">Student ID</div><div class="info-value">202200845</div></div>
+            <div class="info-item"><div class="info-label">Name</div><div class="info-value">Mwaba Lewis</div></div>
+            <div class="info-item"><div class="info-label">Date of Birth</div><div class="info-value">08 May 1992</div></div>
+            <div class="info-item"><div class="info-label">Citizenship</div><div class="info-value">Zambia</div></div>
         </div>
 
-        <div class="degree-summary-card">
-            <div class="summary-item"><div class="summary-label">Enrollment</div><div class="summary-value">June 2021</div></div>
-            <div class="summary-item"><div class="summary-label">Conferral</div><div class="summary-value">18 September 2024</div></div>
-            <div class="summary-item"><div class="summary-label">Duration</div><div class="summary-value">3 Years</div></div>
-            <div class="summary-item"><div class="summary-label">Certificate ID</div><div class="summary-value">NU-GSBF-BSC-2024-001</div></div>
+        <!-- Degree Summary -->
+        <div class="degree-summary">
+            <div class="summary-block"><div class="summary-label">Enrollment</div><div class="summary-value">June 2021</div></div>
+            <div class="summary-block"><div class="summary-label">Conferral</div><div class="summary-value">18 September 2024</div></div>
+            <div class="summary-block"><div class="summary-label">Duration</div><div class="summary-value">3 Years (Full-time)</div></div>
+            <div class="summary-block"><div class="summary-label">Certificate ID</div><div class="summary-value">NU-GSBF-BSC-2024-001</div></div>
         </div>
 
+        <!-- Course Listings -->
         <div class="course-section">
             <!-- Fall 2021 -->
-            <div class="term-header">📚 Fall 2021 Term</div>
+            <div class="term-title">📚 Fall 2021 Term</div>
             <table class="course-table">
-                <thead><tr><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Grade Pts</th><th>Weighted Pts</th></tr></thead>
+                <thead><tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th></tr></thead>
                 <tbody>
-                    <tr><td>FIN 101</td><td>Principles of Finance</td><td>6</td><td>A</td><td>4.0</td><td>24.0</td></tr>
-                    <tr><td>ACC 101</td><td>Financial Accounting I</td><td>6</td><td>A-</td><td>3.7</td><td>22.2</td></tr>
-                    <tr><td>ECO 101</td><td>Microeconomics</td><td>5</td><td>B+</td><td>3.3</td><td>16.5</td></tr>
-                    <tr><td>MTH 101</td><td>Calculus for Business</td><td>5</td><td>A</td><td>4.0</td><td>20.0</td></tr>
-                    <tr><td>BUS 101</td><td>Introduction to Business</td><td>5</td><td>A</td><td>4.0</td><td>20.0</td></tr>
+                    <tr><td>FIN 101</td><td>Principles of Finance</td><td>3</td><td>A</td><td>12.0</td></tr>
+                    <tr><td>ACC 101</td><td>Financial Accounting I</td><td>3</td><td>A-</td><td>11.1</td></tr>
+                    <tr><td>ECO 101</td><td>Microeconomics</td><td>3</td><td>B+</td><td>9.9</td></tr>
+                    <tr><td>MTH 101</td><td>Calculus for Business</td><td>3</td><td>A</td><td>12.0</td></tr>
+                    <tr><td>BUS 101</td><td>Introduction to Business</td><td>3</td><td>A</td><td>12.0</td></tr>
                 </tbody>
             </table>
-            <div class="term-gpa">📊 Term GPA: 3.85 | Credits: 27 | Quality Points: 102.7</div>
+            <div class="term-gpa">Term GPA: 3.78 | Credits: 15 | Quality Points: 57.0</div>
 
             <!-- Spring 2022 -->
-            <div class="term-header">📚 Spring 2022 Term</div>
+            <div class="term-title">📚 Spring 2022 Term</div>
             <table class="course-table">
-                <thead><tr><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Grade Pts</th><th>Weighted Pts</th></tr></thead>
+                <thead><tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th></tr></thead>
                 <tbody>
-                    <tr><td>FIN 102</td><td>Corporate Finance</td><td>6</td><td>A</td><td>4.0</td><td>24.0</td></tr>
-                    <tr><td>ACC 102</td><td>Financial Accounting II</td><td>6</td><td>B+</td><td>3.3</td><td>19.8</td></tr>
-                    <tr><td>ECO 102</td><td>Macroeconomics</td><td>5</td><td>A-</td><td>3.7</td><td>18.5</td></tr>
-                    <tr><td>STA 201</td><td>Business Statistics</td><td>6</td><td>A</td><td>4.0</td><td>24.0</td></tr>
-                    <tr><td>MKT 201</td><td>Principles of Marketing</td><td>5</td><td>A-</td><td>3.7</td><td>18.5</td></tr>
+                    <tr><td>FIN 102</td><td>Corporate Finance</td><td>3</td><td>A</td><td>12.0</td></tr>
+                    <tr><td>ACC 102</td><td>Financial Accounting II</td><td>3</td><td>B+</td><td>9.9</td></tr>
+                    <tr><td>ECO 102</td><td>Macroeconomics</td><td>3</td><td>A-</td><td>11.1</td></tr>
+                    <tr><td>STA 201</td><td>Business Statistics</td><td>3</td><td>A</td><td>12.0</td></tr>
+                    <tr><td>MKT 201</td><td>Principles of Marketing</td><td>3</td><td>A-</td><td>11.1</td></tr>
                 </tbody>
             </table>
-            <div class="term-gpa">📊 Term GPA: 3.81 | Credits: 28 | Quality Points: 104.8</div>
+            <div class="term-gpa">Term GPA: 3.82 | Credits: 15 | Quality Points: 56.1</div>
 
             <!-- Fall 2022 -->
-            <div class="term-header">📚 Fall 2022 Term</div>
+            <div class="term-title">📚 Fall 2022 Term</div>
             <table class="course-table">
-                <thead><tr><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Grade Pts</th><th>Weighted Pts</th></tr></thead>
+                <thead><tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th></tr></thead>
                 <tbody>
-                    <tr><td>FIN 201</td><td>Investment Analysis</td><td>6</td><td>A</td><td>4.0</td><td>24.0</td></tr>
-                    <tr><td>FIN 202</td><td>Financial Markets & Institutions</td><td>6</td><td>A</td><td>4.0</td><td>24.0</td></tr>
-                    <tr><td>ACC 201</td><td>Managerial Accounting</td><td>6</td><td>A-</td><td>3.7</td><td>22.2</td></tr>
-                    <tr><td>LAW 301</td><td>Business Law</td><td>5</td><td>B+</td><td>3.3</td><td>16.5</td></tr>
-                    <tr><td>MGT 201</td><td>Organizational Behavior</td><td>5</td><td>A</td><td>4.0</td><td>20.0</td></tr>
+                    <tr><td>FIN 201</td><td>Investment Analysis</td><td>3</td><td>A</td><td>12.0</td></tr>
+                    <tr><td>FIN 202</td><td>Financial Markets & Institutions</td><td>3</td><td>A</td><td>12.0</td></tr>
+                    <tr><td>ACC 201</td><td>Managerial Accounting</td><td>3</td><td>A-</td><td>11.1</td></tr>
+                    <tr><td>LAW 301</td><td>Business Law</td><td>3</td><td>B+</td><td>9.9</td></tr>
+                    <tr><td>MGT 201</td><td>Organizational Behavior</td><td>3</td><td>A</td><td>12.0</td></tr>
                 </tbody>
             </table>
-            <div class="term-gpa">📊 Term GPA: 3.85 | Credits: 28 | Quality Points: 106.7</div>
+            <div class="term-gpa">Term GPA: 3.85 | Credits: 15 | Quality Points: 57.0</div>
 
             <!-- Spring 2023 -->
-            <div class="term-header">📚 Spring 2023 Term</div>
+            <div class="term-title">📚 Spring 2023 Term</div>
             <table class="course-table">
-                <thead><tr><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Grade Pts</th><th>Weighted Pts</th></tr></thead>
+                <thead><tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th></tr></thead>
                 <tbody>
-                    <tr><td>FIN 301</td><td>Portfolio Management</td><td>6</td><td>A</td><td>4.0</td><td>24.0</td></tr>
-                    <tr><td>FIN 302</td><td>Risk Management</td><td>6</td><td>A-</td><td>3.7</td><td>22.2</td></tr>
-                    <tr><td>ECO 301</td><td>International Economics</td><td>5</td><td>B+</td><td>3.3</td><td>16.5</td></tr>
-                    <tr><td>MGT 301</td><td>Strategic Management</td><td>6</td><td>A</td><td>4.0</td><td>24.0</td></tr>
-                    <tr><td>COM 201</td><td>Business Communication</td><td>5</td><td>A</td><td>4.0</td><td>20.0</td></tr>
+                    <tr><td>FIN 301</td><td>Portfolio Management</td><td>3</td><td>A</td><td>12.0</td></tr>
+                    <tr><td>FIN 302</td><td>Risk Management</td><td>3</td><td>A-</td><td>11.1</td></tr>
+                    <tr><td>ECO 301</td><td>International Economics</td><td>3</td><td>B+</td><td>9.9</td></tr>
+                    <tr><td>MGT 301</td><td>Strategic Management</td><td>3</td><td>A</td><td>12.0</td></tr>
+                    <tr><td>COM 201</td><td>Business Communication</td><td>3</td><td>A</td><td>12.0</td></tr>
                 </tbody>
             </table>
-            <div class="term-gpa">📊 Term GPA: 3.86 | Credits: 28 | Quality Points: 106.7</div>
+            <div class="term-gpa">Term GPA: 3.88 | Credits: 15 | Quality Points: 57.0</div>
 
             <!-- Fall 2023 -->
-            <div class="term-header">📚 Fall 2023 Term</div>
+            <div class="term-title">📚 Fall 2023 Term</div>
             <table class="course-table">
-                <thead><tr><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Grade Pts</th><th>Weighted Pts</th></tr></thead>
+                <thead><tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th></tr></thead>
                 <tbody>
-                    <tr><td>FIN 401</td><td>Advanced Corporate Finance</td><td>6</td><td>A</td><td>4.0</td><td>24.0</td></tr>
-                    <tr><td>FIN 402</td><td>Derivatives & Securities</td><td>6</td><td>A</td><td>4.0</td><td>24.0</td></tr>
-                    <tr><td>FIN 403</td><td>Financial Modeling</td><td>6</td><td>A-</td><td>3.7</td><td>22.2</td></tr>
-                    <tr><td>ENT 301</td><td>Entrepreneurial Finance</td><td>6</td><td>A</td><td>4.0</td><td>24.0</td></tr>
-                    <tr><td>ETH 401</td><td>Business Ethics</td><td>5</td><td>A</td><td>4.0</td><td>20.0</td></tr>
+                    <tr><td>FIN 401</td><td>Advanced Corporate Finance</td><td>3</td><td>A</td><td>12.0</td></tr>
+                    <tr><td>FIN 402</td><td>Derivatives & Securities</td><td>3</td><td>A</td><td>12.0</td></tr>
+                    <tr><td>FIN 403</td><td>Financial Modeling</td><td>3</td><td>A-</td><td>11.1</td></tr>
+                    <tr><td>ENT 301</td><td>Entrepreneurial Finance</td><td>3</td><td>A</td><td>12.0</td></tr>
+                    <tr><td>ETH 401</td><td>Business Ethics</td><td>3</td><td>A</td><td>12.0</td></tr>
                 </tbody>
             </table>
-            <div class="term-gpa">📊 Term GPA: 3.92 | Credits: 29 | Quality Points: 114.2</div>
+            <div class="term-gpa">Term GPA: 3.94 | Credits: 15 | Quality Points: 59.1</div>
 
             <!-- Spring 2024 -->
-            <div class="term-header">📚 Spring 2024 Term</div>
+            <div class="term-title">📚 Spring 2024 Term</div>
             <table class="course-table">
-                <thead><tr><th>Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Grade Pts</th><th>Weighted Pts</th></tr></thead>
+                <thead><tr><th>Course Code</th><th>Course Title</th><th>Credits</th><th>Grade</th><th>Quality Points</th></tr></thead>
                 <tbody>
-                    <tr><td>FIN 404</td><td>International Finance</td><td>6</td><td>A</td><td>4.0</td><td>24.0</td></tr>
-                    <tr><td>FIN 405</td><td>Valuation & Mergers</td><td>6</td><td>A</td><td>4.0</td><td>24.0</td></tr>
-                    <tr><td>FIN 406</td><td>Capstone in Finance</td><td>8</td><td>A</td><td>4.0</td><td>32.0</td></tr>
-                    <tr><td>MGT 401</td><td>Leadership & Ethics</td><td>5</td><td>A-</td><td>3.7</td><td>18.5</td></tr>
+                    <tr><td>FIN 404</td><td>International Finance</td><td>3</td><td>A</td><td>12.0</td></tr>
+                    <tr><td>FIN 405</td><td>Valuation & Mergers</td><td>3</td><td>A</td><td>12.0</td></tr>
+                    <tr><td>FIN 406</td><td>Capstone in Finance</td><td>3</td><td>A</td><td>12.0</td></tr>
+                    <tr><td>MGT 401</td><td>Leadership & Ethics</td><td>3</td><td>A-</td><td>11.1</td></tr>
                 </tbody>
             </table>
-            <div class="term-gpa">📊 Term GPA: 3.94 | Credits: 25 | Quality Points: 98.5</div>
+            <div class="term-gpa">Term GPA: 3.96 | Credits: 12 | Quality Points: 47.1</div>
 
-            <!-- Cumulative Calculation -->
-            <div class="calculation-note">
-                <strong>📐 Weighted GPA Calculation:</strong><br>
-                Total Credits: 165 | Total Quality Points: 633.6 | <strong>Cumulative GPA = 633.6 ÷ 165 = 3.84</strong>
-            </div>
-
-            <div class="gpa-footer">
-                <div><strong>Total Credits:</strong> 165</div>
-                <div><strong>Cumulative GPA:</strong> 3.84</div>
-                <div><strong>Honors:</strong> Magna Cum Laude <span class="honors-badge">With High Honors</span></div>
-                <div><strong>Certificate ID:</strong> NU-GSBF-BSC-2024-001</div>
+            <!-- GPA Summary -->
+            <div class="gpa-summary">
+                <div class="gpa-item"><div class="gpa-label">Total Credits</div><div class="gpa-value">120</div></div>
+                <div class="gpa-item"><div class="gpa-label">Total Quality Points</div><div class="gpa-value">466.2</div></div>
+                <div class="gpa-item"><div class="gpa-label">Cumulative GPA</div><div class="gpa-value">3.89</div></div>
+                <div class="gpa-item"><div class="gpa-label">Honors</div><div class="gpa-value"><span class="honors">Magna Cum Laude</span></div></div>
             </div>
         </div>
 
-        <div class="transcript-footer">
+        <!-- Footer -->
+        <div class="footer">
             <div>This transcript is official and reflects the complete academic record at Nolan University.</div>
             <div style="margin-top: 0.5rem;">🔗 Verify: https://verify.nolan.edu | Certificate ID: NU-GSBF-BSC-2024-001 | Student ID: 202200845</div>
-            <div class="signature-line">
-                <div class="signature"><div class="signature-line-dash"></div><div class="signature-name">James R. Callwell</div><div class="signature-title">President</div></div>
-                <div class="signature"><div class="signature-line-dash"></div><div class="signature-name">Dr. Sarah M. Bennett</div><div class="signature-title">Dean, GSBF</div></div>
-                <div class="signature"><div class="signature-line-dash"></div><div class="signature-name">Michael T. Harrison</div><div class="signature-title">Registrar</div></div>
+            <div class="signatures">
+                <div class="signature"><div class="signature-line"></div><div>James R. Callwell</div><div style="font-size:0.65rem;">President</div></div>
+                <div class="signature"><div class="signature-line"></div><div>Dr. Sarah M. Bennett</div><div style="font-size:0.65rem;">Dean, GSBF</div></div>
+                <div class="signature"><div class="signature-line"></div><div>Michael T. Harrison</div><div style="font-size:0.65rem;">Registrar</div></div>
             </div>
-            <div class="button-group">
-                <button class="print-btn" onclick="window.print();">🖨️ Print / Save as PDF</button>
-            </div>
+            <div style="margin-top: 0.5rem;">Issued: 27 March 2026 · Electronically Verifiable</div>
+            <button class="print-btn" onclick="window.print();">🖨️ Print / Save as PDF</button>
         </div>
     </div>
 </body>
