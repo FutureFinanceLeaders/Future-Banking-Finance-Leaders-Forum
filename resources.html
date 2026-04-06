@@ -196,52 +196,76 @@ background:#0F5E4E;
 
 <div class="video-grid">
 
-  <div class="video-card" onclick="loadVideo(this, 'Xh6l39k3ngE')">
+  <div class="video-card" data-video="Xh6l39k3ngE">
     <img src="https://img.youtube.com/vi/Xh6l39k3ngE/hqdefault.jpg">
     <div class="play-button">▶</div>
-    <a href="https://www.youtube.com/watch?v=Xh6l39k3ngE" target="_blank" class="fallback">Watch on YouTube</a>
+    <a href="https://www.youtube.com/embed/Xh6l39k3ngE"
+       target="_blank"
+       class="fallback"
+       onclick="event.stopPropagation()">Watch on YouTube</a>
   </div>
 
-  <div class="video-card" onclick="loadVideo(this, 'SSo_EIwHSd4')">
+  <div class="video-card" data-video="SSo_EIwHSd4">
     <img src="https://img.youtube.com/vi/SSo_EIwHSd4/hqdefault.jpg">
     <div class="play-button">▶</div>
-    <a href="https://www.youtube.com/watch?v=SSo_EIwHSd4" target="_blank" class="fallback">Watch on YouTube</a>
+    <a href="https://www.youtube.com/embed/SSo_EIwHSd4"
+       target="_blank"
+       class="fallback"
+       onclick="event.stopPropagation()">Watch on YouTube</a>
   </div>
 
-  <div class="video-card" onclick="loadVideo(this, 'on513ZiQA8M')">
+  <div class="video-card" data-video="on513ZiQA8M">
     <img src="https://img.youtube.com/vi/on513ZiQA8M/hqdefault.jpg">
     <div class="play-button">▶</div>
-    <a href="https://www.youtube.com/watch?v=on513ZiQA8M" target="_blank" class="fallback">Watch on YouTube</a>
+    <a href="https://www.youtube.com/embed/on513ZiQA8M"
+       target="_blank"
+       class="fallback"
+       onclick="event.stopPropagation()">Watch on YouTube</a>
   </div>
 
-  <div class="video-card" onclick="loadVideo(this, 'CMKld7N0aic')">
+  <div class="video-card" data-video="CMKld7N0aic">
     <img src="https://img.youtube.com/vi/CMKld7N0aic/hqdefault.jpg">
     <div class="play-button">▶</div>
-    <a href="https://www.youtube.com/watch?v=CMKld7N0aic" target="_blank" class="fallback">Watch on YouTube</a>
+    <a href="https://www.youtube.com/embed/CMKld7N0aic"
+       target="_blank"
+       class="fallback"
+       onclick="event.stopPropagation()">Watch on YouTube</a>
   </div>
 
-  <div class="video-card" onclick="loadVideo(this, 'nB6avolnVOE')">
+  <div class="video-card" data-video="nB6avolnVOE">
     <img src="https://img.youtube.com/vi/nB6avolnVOE/hqdefault.jpg">
     <div class="play-button">▶</div>
-    <a href="https://www.youtube.com/watch?v=nB6avolnVOE" target="_blank" class="fallback">Watch on YouTube</a>
+    <a href="https://www.youtube.com/embed/nB6avolnVOE"
+       target="_blank"
+       class="fallback"
+       onclick="event.stopPropagation()">Watch on YouTube</a>
   </div>
 
-  <div class="video-card" onclick="loadVideo(this, 'GWVl7kZKNgc')">
+  <div class="video-card" data-video="GWVl7kZKNgc">
     <img src="https://img.youtube.com/vi/GWVl7kZKNgc/hqdefault.jpg">
     <div class="play-button">▶</div>
-    <a href="https://www.youtube.com/watch?v=GWVl7kZKNgc" target="_blank" class="fallback">Watch on YouTube</a>
+    <a href="https://www.youtube.com/embed/GWVl7kZKNgc"
+       target="_blank"
+       class="fallback"
+       onclick="event.stopPropagation()">Watch on YouTube</a>
   </div>
 
-  <div class="video-card" onclick="loadVideo(this, 'JFfyC-rhO4M')">
+  <div class="video-card" data-video="JFfyC-rhO4M">
     <img src="https://img.youtube.com/vi/JFfyC-rhO4M/hqdefault.jpg">
     <div class="play-button">▶</div>
-    <a href="https://www.youtube.com/watch?v=JFfyC-rhO4M" target="_blank" class="fallback">Watch on YouTube</a>
+    <a href="https://www.youtube.com/embed/JFfyC-rhO4M"
+       target="_blank"
+       class="fallback"
+       onclick="event.stopPropagation()">Watch on YouTube</a>
   </div>
 
-  <div class="video-card" onclick="loadVideo(this, 'tYgY_QUJf5c')">
+  <div class="video-card" data-video="tYgY_QUJf5c">
     <img src="https://img.youtube.com/vi/tYgY_QUJf5c/hqdefault.jpg">
     <div class="play-button">▶</div>
-    <a href="https://www.youtube.com/watch?v=tYgY_QUJf5c" target="_blank" class="fallback">Watch on YouTube</a>
+    <a href="https://www.youtube.com/embed/tYgY_QUJf5c"
+       target="_blank"
+       class="fallback"
+       onclick="event.stopPropagation()">Watch on YouTube</a>
   </div>
 
 </div>
@@ -276,15 +300,22 @@ cards[i].style.display=text.includes(filter)?"block":"none";
 }
 }
 
-function loadVideo(element, videoId){
-  element.innerHTML = `
-    <iframe 
-      src="https://www.youtube.com/embed/${videoId}?autoplay=1"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  `;
-}
+document.querySelectorAll(".video-card").forEach(card => {
+  card.addEventListener("click", function(e){
+
+    if(e.target.classList.contains("fallback")) return;
+
+    let videoId = this.getAttribute("data-video");
+
+    this.innerHTML = `
+      <iframe 
+        src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    `;
+  });
+});
 </script>
 
 </body>
