@@ -112,41 +112,21 @@ text-align:center;
 padding:2rem;
 margin-top:3rem;
 }
-.video-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:2rem;
-}
-
-.video-card{
-position:relative;
-cursor:pointer;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
-
-.video-card img{
-width:100%;
-display:block;
-}
-
-.play-button{
+.fallback{
 position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-font-size:3rem;
+bottom:10px;
+left:10px;
 color:white;
-background:rgba(0,0,0,0.6);
-border-radius:50%;
-padding:15px 20px;
+background:rgba(0,0,0,0.7);
+padding:6px 10px;
+border-radius:6px;
+font-size:0.75rem;
+text-decoration:none;
+z-index:2;
 }
 
-.video-card iframe{
-width:100%;
-height:250px;
-border:none;
+.fallback:hover{
+background:#0F5E4E;
 }
 </style>
 </head>
@@ -219,41 +199,49 @@ border:none;
   <div class="video-card" onclick="loadVideo(this, 'Xh6l39k3ngE')">
     <img src="https://img.youtube.com/vi/Xh6l39k3ngE/hqdefault.jpg">
     <div class="play-button">▶</div>
+    <a href="https://www.youtube.com/watch?v=Xh6l39k3ngE" target="_blank" class="fallback">Watch on YouTube</a>
   </div>
 
   <div class="video-card" onclick="loadVideo(this, 'SSo_EIwHSd4')">
     <img src="https://img.youtube.com/vi/SSo_EIwHSd4/hqdefault.jpg">
     <div class="play-button">▶</div>
+    <a href="https://www.youtube.com/watch?v=SSo_EIwHSd4" target="_blank" class="fallback">Watch on YouTube</a>
   </div>
 
   <div class="video-card" onclick="loadVideo(this, 'on513ZiQA8M')">
     <img src="https://img.youtube.com/vi/on513ZiQA8M/hqdefault.jpg">
     <div class="play-button">▶</div>
+    <a href="https://www.youtube.com/watch?v=on513ZiQA8M" target="_blank" class="fallback">Watch on YouTube</a>
   </div>
 
   <div class="video-card" onclick="loadVideo(this, 'CMKld7N0aic')">
     <img src="https://img.youtube.com/vi/CMKld7N0aic/hqdefault.jpg">
     <div class="play-button">▶</div>
+    <a href="https://www.youtube.com/watch?v=CMKld7N0aic" target="_blank" class="fallback">Watch on YouTube</a>
   </div>
 
   <div class="video-card" onclick="loadVideo(this, 'nB6avolnVOE')">
     <img src="https://img.youtube.com/vi/nB6avolnVOE/hqdefault.jpg">
     <div class="play-button">▶</div>
+    <a href="https://www.youtube.com/watch?v=nB6avolnVOE" target="_blank" class="fallback">Watch on YouTube</a>
   </div>
 
   <div class="video-card" onclick="loadVideo(this, 'GWVl7kZKNgc')">
     <img src="https://img.youtube.com/vi/GWVl7kZKNgc/hqdefault.jpg">
     <div class="play-button">▶</div>
+    <a href="https://www.youtube.com/watch?v=GWVl7kZKNgc" target="_blank" class="fallback">Watch on YouTube</a>
   </div>
 
   <div class="video-card" onclick="loadVideo(this, 'JFfyC-rhO4M')">
     <img src="https://img.youtube.com/vi/JFfyC-rhO4M/hqdefault.jpg">
     <div class="play-button">▶</div>
+    <a href="https://www.youtube.com/watch?v=JFfyC-rhO4M" target="_blank" class="fallback">Watch on YouTube</a>
   </div>
 
   <div class="video-card" onclick="loadVideo(this, 'tYgY_QUJf5c')">
     <img src="https://img.youtube.com/vi/tYgY_QUJf5c/hqdefault.jpg">
     <div class="play-button">▶</div>
+    <a href="https://www.youtube.com/watch?v=tYgY_QUJf5c" target="_blank" class="fallback">Watch on YouTube</a>
   </div>
 
 </div>
@@ -297,7 +285,6 @@ function loadVideo(element, videoId){
     </iframe>
   `;
 }
-
 </script>
 
 </body>
